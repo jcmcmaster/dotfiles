@@ -68,6 +68,14 @@ coorbuild () {
 	"${msbuild_path}" "${projects}\coordinate_webservice\coordinate_webservice.sln"
 }
 
+cusbuild () {
+	"${msbuild_path}" "${projects}\customer_portal\customer-portals\customer-portals.sln"
+}
+
+build () {
+	"${msbuild_path}" ./*.sln
+}
+
 # deploy () {
 # 	git checkout master
 # 	git merge staging
