@@ -6,9 +6,6 @@
 projects="C:/Projects"
 msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 
-# appending exe folders to PATH
-export PATH=$PATH:"C:\Projects\jdb\jdb\bin\Release\netcoreapp2.1\win10-x64"
-
 #-------------------------------------------------------------
 # Functions
 #-------------------------------------------------------------
@@ -90,6 +87,7 @@ build () {
 	"${msbuild_path}" ./*.sln
 }
 
+# delete apex AppData folder
 apex () {
 	read -p "Are you sure you want to delete the Apex AppData folder and all of its contents? (y/n)" conf
 	
@@ -101,12 +99,6 @@ apex () {
 	
 	rm -rf /c/Users/Medisked/AppData/Local/ApexSQL/ApexSQL\ Source\ Control/
 }
-
-# deploy () {
-# 	git checkout master
-# 	git merge staging
-# 	git push
-# }
 
 #-------------------------------------------------------------
 # Aliases
