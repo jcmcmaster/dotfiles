@@ -2,35 +2,35 @@
 # Variables
 #-------------------------------------------------------------
 
-#my code projects folder
+# my code projects folder
 projects="C:/Projects"
 msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 
-#appending exe folders to PATH
+# appending exe folders to PATH
 export PATH=$PATH:"C:\Projects\jdb\jdb\bin\Release\netcoreapp2.1\win10-x64"
 
 #-------------------------------------------------------------
 # Functions
 #-------------------------------------------------------------
 
-#cd
+# cd
 cdp () {
 	cd ${projects}/$1
 }
 
-#dotnet
+# dotnet
 publish () {
 	 dotnet publish -c $1 -r win10-x64
 }
 
-#windows
+# windows
 serverReset () {
 	net stop MSSQLSERVER
 	iisreset
 	net start MSSQLSERVER
 }
 
-#git
+# git
 blame () {
 	git log --follow -- $1
 }
@@ -46,32 +46,37 @@ gacp () {
 	git push
 }
     
-rip () { #undo all changes at all costs (DANGER ZONE ;])
+# undo all changes at all costs (DANGER ZONE ;])
+rip () { 
 	curBranch=$(git symbolic-ref -q HEAD)
 	curBranch=${curBranch##refs/heads/}
 	curBranch=${curBranch:-HEAD}
 	git reset --hard
 	git clean -f
 	git checkout -- .
-    git checkout master
-    git branch -D $curBranch
-    git checkout $curBranch
+	git checkout master
+	git branch -D $curBranch
+	git checkout $curBranch
 	git status
 }
 
+# build connect_net.sln
 mcbuild () {
 	"${msbuild_path}" "${projects}\connect_net\Connect.sln"
 }
 
+# build coordinate_net.sln and coordinate_webservice.sln
 coorbuild () {
 	"${msbuild_path}" "${projects}\coordinate_net\LifePlanBuilder2.sln"
 	"${msbuild_path}" "${projects}\coordinate_webservice\coordinate_webservice.sln"
 }
 
+# build customer-portals.sln
 cusbuild () {
 	"${msbuild_path}" "${projects}\customer_portal\customer-portals\customer-portals.sln"
 }
 
+# build .sln files in the current directory
 build () {
 	"${msbuild_path}" ./*.sln
 }
@@ -97,7 +102,7 @@ __git_complete gp _git_pull
 __git_complete gs _git_status
 __git_complete update-index _git_update-index
 
-#bash
+# bash
 alias bashrc=". ~/.bashrc" 
 alias cl="clear && ls"
 alias coordb="cd ${projects}/coordinate_database"
@@ -111,7 +116,7 @@ alias mcdev="cd ${projects}/connectdev"
 alias mcnet="cd ${projects}/connect_net"
 alias ssrs="cd ${projects}/\"SSRS Reports\" && clear && git status"
 
-#git
+# git
 alias commit="git commit"
 alias ga="git add"
 alias gc="git checkout"
