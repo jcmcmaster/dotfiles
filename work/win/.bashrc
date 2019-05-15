@@ -90,6 +90,18 @@ build () {
 	"${msbuild_path}" ./*.sln
 }
 
+apex () {
+	read -p "Are you sure you want to delete the Apex AppData folder and all of its contents? (y/n)" conf
+	
+	if [ "$conf" != "y" ] 
+	then
+		echo "Close call..." 
+		return
+	fi
+	
+	rm -rf /c/Users/Medisked/AppData/Local/ApexSQL/ApexSQL\ Source\ Control/
+}
+
 # deploy () {
 # 	git checkout master
 # 	git merge staging
