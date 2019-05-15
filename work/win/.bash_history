@@ -1,14 +1,3 @@
-vi SurveyConfigurator.py 
-gs
-vi SurveyConfigurator.py 
-vi SurveyConfigurator.py 
-gs
-git add SurveyConfigurator.py 
-gs
-gacp "survey configurator, nav panels, maybe final"
-git revert HEAD~
-gs
-gir revert --abort
 git revert --abort 
 gs
 git log
@@ -497,4 +486,15 @@ exit
 mcnet
 mcdev
 gdt
+exit
+gs
+mcdev
+gs
+echo "Are you sure? (y\n)"
+read conf
+if [ $CONF != "y" ]; then; echo yay
+if [ $CONF != "y" ] then echo yay
+if [ $CONF != "y" ] then echo "yay"; fi
+if [ $CONF != "y" ] then\ echo "yay" fi; 
+grip
 exit

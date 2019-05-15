@@ -47,16 +47,25 @@ gacp () {
 }
     
 # undo all changes at all costs (DANGER ZONE ;])
-rip () { 
+grip () { 
+	read -p "Are you sure? (y/n)" conf
+	
+	if [ "$conf" != "y" ] 
+	then
+		echo "Close call..." 
+		return
+	fi
+	
 	curBranch=$(git symbolic-ref -q HEAD)
 	curBranch=${curBranch##refs/heads/}
 	curBranch=${curBranch:-HEAD}
 	git reset --hard
 	git clean -f
 	git checkout -- .
-	git checkout master
+	git checkout -B grip_false_branch
 	git branch -D $curBranch
 	git checkout $curBranch
+	git branch -D grip_false_branch
 	git status
 }
 
