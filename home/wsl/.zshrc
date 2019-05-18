@@ -117,6 +117,8 @@ bindkey "^p" ctrlp
 # code projects folder
 projects="/mnt/c/Projects"
 onedrive="/mnt/c/Users/Jim/OneDrive"
+msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+
 
 #-------------------------------------------------------------
 # Functions
@@ -155,17 +157,32 @@ gacp () {
 	git push
 }
     
-rip () { #undo all changes at all costs (DANGER ZONE ;])
+# undo all changes at all costs (DANGER ZONE ;])
+grip () { 
+	read -p "Are you sure? (y/n)" conf
+	
+	if [ "$conf" != "y" ] 
+	then
+		echo "Close call..." 
+		return
+	fi
+	
 	curBranch=$(git symbolic-ref -q HEAD)
 	curBranch=${curBranch##refs/heads/}
 	curBranch=${curBranch:-HEAD}
 	git reset --hard
 	git clean -f
 	git checkout -- .
-	git checkout master
+	git checkout -B grip_false_branch
 	git branch -D $curBranch
 	git checkout $curBranch
+	git branch -D grip_false_branch
 	git status
+}
+
+# build .sln files in the current directory
+build () {
+	"${msbuild_path}" ./*.sln
 }
 
 #-------------------------------------------------------------
