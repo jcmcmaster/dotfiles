@@ -10,19 +10,24 @@
 
 # hlsearch on (H) or off (h):
 ~h
+# Last Search Pattern:
+~MSle0~/mono
+
 # Command Line History (newest to oldest):
 :q
-|2,0,1558187967,,"q"
+|2,0,1558189274,,"q"
+:wq
+|2,0,1558189018,,"wq"
 :qa
 |2,0,1558187598,,"qa"
 :PlugInstall
 |2,0,1558187579,,"PlugInstall"
-:wq
-|2,0,1558187360,,"wq"
 :w
 |2,0,1558187354,,"w"
 
 # Search String History (newest to oldest):
+?/mono
+|2,1,1558189011,47,"mono"
 
 # Expression History (newest to oldest):
 
@@ -79,238 +84,236 @@
 |3,0,9,1,9,0,1558187174,"alias coordb=\"cd ${projects}/coordinate_database && clear && git status\"","alias coordev=\"cd ${projects}/coordinate && clear && git status\"","alias coornet=\"cd ${projects}/coordinate_net && clear && git status\"","alias coorws=\"cd ${projects}/coordinate_webservice && clear && git status\"","alias cus=\"cd ${projects}/customer_portal && clear && git status\"",>71
 |<"alias mcdb=\"cd ${projects}/connect_database && clear && git status\"","alias mcdev=\"cd ${projects}/connectdev && clear && git status\"","alias mcnet=\"cd ${projects}/connect_net && clear && git status\"","alias ssrs=\"cd ${projects}/\\\"SSRS Reports\\\" && clear && git status\""
 "-	CHAR	0
-	 
-|3,0,36,0,1,0,1558187288," "
+	monokai
+|3,0,36,0,1,0,1558189012,"monokai"
 
 # File marks:
-'0  99  0  ~/.zshrc
-|4,48,99,0,1558187967,"~/.zshrc"
-'1  5  0  ~/.zshrc
-|4,49,5,0,1558187918,"~/.zshrc"
-'2  5  0  ~/.zshrc
-|4,50,5,0,1558187918,"~/.zshrc"
-'3  196  0  ~/.zshrc
-|4,51,196,0,1558187872,"~/.zshrc"
-'4  196  0  ~/.zshrc
-|4,52,196,0,1558187872,"~/.zshrc"
-'5  196  0  ~/.zshrc
-|4,53,196,0,1558187872,"~/.zshrc"
-'6  196  0  ~/.zshrc
-|4,54,196,0,1558187872,"~/.zshrc"
-'7  1  0  ~/.vimrc
-|4,55,1,0,1558187863,"~/.vimrc"
-'8  1  0  ~/.vimrc
-|4,56,1,0,1558187650,"~/.vimrc"
-'9  1  0  ~/.virmc
-|4,57,1,0,1558187626,"~/.virmc"
+'0  196  0  ~/.zshrc
+|4,48,196,0,1558189233,"~/.zshrc"
+'1  1  0  ~/.zshrc
+|4,49,1,0,1558189027,"~/.zshrc"
+'2  1  0  ~/.zshrc
+|4,50,1,0,1558189027,"~/.zshrc"
+'3  7  0  ~/.vimrc
+|4,51,7,0,1558189018,"~/.vimrc"
+'4  25  0  ~/.vimrc
+|4,52,25,0,1558189002,"~/.vimrc"
+'5  25  0  ~/.vimrc
+|4,53,25,0,1558189002,"~/.vimrc"
+'6  8  0  ~/.vimrc
+|4,54,8,0,1558188991,"~/.vimrc"
+'7  8  0  ~/.vimrc
+|4,55,8,0,1558188991,"~/.vimrc"
+'8  8  0  ~/.vimrc
+|4,56,8,0,1558188991,"~/.vimrc"
+'9  8  0  ~/.vimrc
+|4,57,8,0,1558188991,"~/.vimrc"
 
 # Jumplist (newest first):
--'  99  0  ~/.zshrc
-|4,39,99,0,1558187967,"~/.zshrc"
--'  3  0  ~/.zshrc
-|4,39,3,0,1558187966,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558187964,"~/.zshrc"
--'  5  0  ~/.zshrc
-|4,39,5,0,1558187918,"~/.zshrc"
--'  5  0  ~/.zshrc
-|4,39,5,0,1558187918,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558187905,"~/.zshrc"
 -'  196  0  ~/.zshrc
-|4,39,196,0,1558187872,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558187872,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558187872,"~/.zshrc"
+|4,39,196,0,1558189233,"~/.zshrc"
 -'  1  0  ~/.zshrc
-|4,39,1,0,1558187869,"~/.zshrc"
+|4,39,1,0,1558189230,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558189027,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558189025,"~/.zshrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  6  0  ~/.vimrc
+|4,39,6,0,1558189011,"~/.vimrc"
+-'  6  0  ~/.vimrc
+|4,39,6,0,1558189011,"~/.vimrc"
+-'  6  0  ~/.vimrc
+|4,39,6,0,1558189011,"~/.vimrc"
+-'  6  0  ~/.vimrc
+|4,39,6,0,1558189011,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187863,"~/.vimrc"
+|4,39,1,0,1558189007,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187863,"~/.vimrc"
+|4,39,1,0,1558189007,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187863,"~/.vimrc"
+|4,39,1,0,1558189007,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187863,"~/.vimrc"
+|4,39,1,0,1558189007,"~/.vimrc"
+-'  25  0  ~/.vimrc
+|4,39,25,0,1558189002,"~/.vimrc"
+-'  25  0  ~/.vimrc
+|4,39,25,0,1558189002,"~/.vimrc"
+-'  25  0  ~/.vimrc
+|4,39,25,0,1558189002,"~/.vimrc"
+-'  25  0  ~/.vimrc
+|4,39,25,0,1558189002,"~/.vimrc"
+-'  25  0  ~/.vimrc
+|4,39,25,0,1558189002,"~/.vimrc"
+-'  25  0  ~/.vimrc
+|4,39,25,0,1558189002,"~/.vimrc"
+-'  25  0  ~/.vimrc
+|4,39,25,0,1558189002,"~/.vimrc"
+-'  25  0  ~/.vimrc
+|4,39,25,0,1558189002,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187863,"~/.vimrc"
+|4,39,1,0,1558188996,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187863,"~/.vimrc"
+|4,39,1,0,1558188996,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187863,"~/.vimrc"
+|4,39,1,0,1558188996,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187863,"~/.vimrc"
+|4,39,1,0,1558188996,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
+-'  8  0  ~/.vimrc
+|4,39,8,0,1558188991,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187650,"~/.vimrc"
+|4,39,1,0,1558188980,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187650,"~/.vimrc"
+|4,39,1,0,1558188980,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187650,"~/.vimrc"
+|4,39,1,0,1558188980,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187650,"~/.vimrc"
+|4,39,1,0,1558188980,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187650,"~/.vimrc"
+|4,39,1,0,1558188980,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187650,"~/.vimrc"
+|4,39,1,0,1558188980,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187650,"~/.vimrc"
+|4,39,1,0,1558188980,"~/.vimrc"
 -'  1  0  ~/.vimrc
-|4,39,1,0,1558187650,"~/.vimrc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.virmc
-|4,39,1,0,1558187626,"~/.virmc"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
--'  1  0  ~/.vim/autoload/[Plugins]
-|4,39,1,0,1558187598,"~/.vim/autoload/[Plugins]"
+|4,39,1,0,1558188980,"~/.vimrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558188852,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558188849,"~/.zshrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
+-'  43  0  ~/.vimrc
+|4,39,43,0,1558188846,"~/.vimrc"
 
 # History of marks within files (newest to oldest):
 
 > ~/.zshrc
-	*	1558187966	0
-	"	99	0
+	*	1558189232	0
+	"	196	0
 	^	119	26
 	.	197	0
 	+	197	0
@@ -326,8 +329,12 @@
 	+	197	0
 
 > ~/.vimrc
-	*	1558187862	0
-	"	1	0
+	*	1558189017	0
+	"	7	0
+	^	6	17
+	.	6	16
+	+	5	0
+	+	6	16
 
 > ~/NERD_tree_1
 	*	1558187634	0

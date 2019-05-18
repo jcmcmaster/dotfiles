@@ -3,6 +3,7 @@
 "----------"
 filetype indent plugin on
 syntax enable
+colorscheme Blaaark
 
 set nocompatible
 set hlsearch "highlight search
