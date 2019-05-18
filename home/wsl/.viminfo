@@ -11,21 +11,23 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/mono
+~MSle0~/tmux
 
 # Command Line History (newest to oldest):
 :q
-|2,0,1558189274,,"q"
+|2,0,1558191607,,"q"
+:w
+|2,0,1558190807,,"w"
 :wq
-|2,0,1558189018,,"wq"
+|2,0,1558190696,,"wq"
 :qa
 |2,0,1558187598,,"qa"
 :PlugInstall
 |2,0,1558187579,,"PlugInstall"
-:w
-|2,0,1558187354,,"w"
 
 # Search String History (newest to oldest):
+?/tmux
+|2,1,1558190798,47,"tmux"
 ?/mono
 |2,1,1558189011,47,"mono"
 
@@ -36,80 +38,132 @@
 # Debug Line History (newest to oldest):
 
 # Registers:
-""1	LINE	0
-	alias bump="echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status"
-|3,1,1,1,1,0,1558187353,"alias bump=\"echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status\""
+"0	LINE	0
+	#-------------------------------------------------------------
+	# Aliases
+	#-------------------------------------------------------------
+|3,0,0,1,3,0,1558190604,"#-------------------------------------------------------------","# Aliases","#-------------------------------------------------------------"
+"1	LINE	0
+	#
+|3,0,1,1,1,0,1558190619,"#"
 "2	LINE	0
-	alias qa="(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/null) && git pull" 
-|3,0,2,1,1,0,1558187348,"alias qa=\"(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/null) && git pull\" "
+	#
+|3,0,2,1,1,0,1558190618,"#"
 "3	LINE	0
-	ticketDir="$onedrive/Tickets"
-|3,0,3,1,1,0,1558187253,"ticketDir=\"$onedrive/Tickets\""
+	#
+|3,0,3,1,1,0,1558190608,"#"
 "4	LINE	0
+	alias bump="echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status"
+|3,0,4,1,1,0,1558187353,"alias bump=\"echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status\""
+"5	LINE	0
+	alias qa="(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/null) && git pull" 
+|3,0,5,1,1,0,1558187348,"alias qa=\"(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/null) && git pull\" "
+"6	LINE	0
+	ticketDir="$onedrive/Tickets"
+|3,0,6,1,1,0,1558187253,"ticketDir=\"$onedrive/Tickets\""
+"7	LINE	0
 	# appending exe folders to PATH
 	export PATH=$PATH:"mnt/c/users/medisked/onedrive - medisked/scripts/bash"
 	
-|3,0,4,1,3,0,1558187228,"# appending exe folders to PATH","export PATH=$PATH:\"mnt/c/users/medisked/onedrive - medisked/scripts/bash\"",""
-"5	LINE	0
+|3,0,7,1,3,0,1558187228,"# appending exe folders to PATH","export PATH=$PATH:\"mnt/c/users/medisked/onedrive - medisked/scripts/bash\"",""
+"8	LINE	0
 	
-|3,0,5,1,1,0,1558187221,""
-"6	LINE	0
+|3,0,8,1,1,0,1558187221,""
+"9	LINE	0
 	gdtfactory () { 
 		git difftool origin/master $( git diff --name-only origin/master | grep 'connect.Common/Entity/.*Factory' )
 	}
 	
-|3,0,6,1,4,0,1558187220,"gdtfactory () { ","	git difftool origin/master $( git diff --name-only origin/master | grep 'connect.Common/Entity/.*Factory' )","}",""
-"7	LINE	0
-	# deploy () {
-	#   git fetch
-	# 	git checkout master
-	# 	git merge origin/staging
-	# 	git push
-	# }
-	
-|3,0,7,1,7,0,1558187213,"# deploy () {","#   git fetch","# 	git checkout master","# 	git merge origin/staging","# 	git push","# }",""
-"8	LINE	0
-	alias tickets="cd \"${ticketDir}\""
-|3,0,8,1,1,0,1558187176,"alias tickets=\"cd \\\"${ticketDir}\\\"\""
-"9	LINE	0
-	alias coordb="cd ${projects}/coordinate_database && clear && git status"
-	alias coordev="cd ${projects}/coordinate && clear && git status"
-	alias coornet="cd ${projects}/coordinate_net && clear && git status"
-	alias coorws="cd ${projects}/coordinate_webservice && clear && git status"
-	alias cus="cd ${projects}/customer_portal && clear && git status"
-	alias mcdb="cd ${projects}/connect_database && clear && git status"
-	alias mcdev="cd ${projects}/connectdev && clear && git status"
-	alias mcnet="cd ${projects}/connect_net && clear && git status"
-	alias ssrs="cd ${projects}/\"SSRS Reports\" && clear && git status"
-|3,0,9,1,9,0,1558187174,"alias coordb=\"cd ${projects}/coordinate_database && clear && git status\"","alias coordev=\"cd ${projects}/coordinate && clear && git status\"","alias coornet=\"cd ${projects}/coordinate_net && clear && git status\"","alias coorws=\"cd ${projects}/coordinate_webservice && clear && git status\"","alias cus=\"cd ${projects}/customer_portal && clear && git status\"",>71
-|<"alias mcdb=\"cd ${projects}/connect_database && clear && git status\"","alias mcdev=\"cd ${projects}/connectdev && clear && git status\"","alias mcnet=\"cd ${projects}/connect_net && clear && git status\"","alias ssrs=\"cd ${projects}/\\\"SSRS Reports\\\" && clear && git status\""
-"-	CHAR	0
-	monokai
-|3,0,36,0,1,0,1558189012,"monokai"
+|3,0,9,1,4,0,1558187220,"gdtfactory () { ","	git difftool origin/master $( git diff --name-only origin/master | grep 'connect.Common/Entity/.*Factory' )","}",""
+""-	CHAR	0
+	#
+|3,1,36,0,1,0,1558190621,"#"
 
 # File marks:
-'0  196  0  ~/.zshrc
-|4,48,196,0,1558189233,"~/.zshrc"
-'1  1  0  ~/.zshrc
-|4,49,1,0,1558189027,"~/.zshrc"
-'2  1  0  ~/.zshrc
-|4,50,1,0,1558189027,"~/.zshrc"
-'3  7  0  ~/.vimrc
-|4,51,7,0,1558189018,"~/.vimrc"
-'4  25  0  ~/.vimrc
-|4,52,25,0,1558189002,"~/.vimrc"
-'5  25  0  ~/.vimrc
-|4,53,25,0,1558189002,"~/.vimrc"
-'6  8  0  ~/.vimrc
-|4,54,8,0,1558188991,"~/.vimrc"
-'7  8  0  ~/.vimrc
-|4,55,8,0,1558188991,"~/.vimrc"
-'8  8  0  ~/.vimrc
-|4,56,8,0,1558188991,"~/.vimrc"
-'9  8  0  ~/.vimrc
-|4,57,8,0,1558188991,"~/.vimrc"
+'0  196  0  ~/projects/dotfiles/home/wsl/.zshrc
+|4,48,196,0,1558191607,"~/projects/dotfiles/home/wsl/.zshrc"
+'1  182  17  ~/.zshrc
+|4,49,182,17,1558190808,"~/.zshrc"
+'2  182  17  ~/.zshrc
+|4,50,182,17,1558190808,"~/.zshrc"
+'3  1  0  ~/.zshrc
+|4,51,1,0,1558190702,"~/.zshrc"
+'4  1  0  ~/.zshrc
+|4,52,1,0,1558190702,"~/.zshrc"
+'5  1  0  ~/.zshrc
+|4,53,1,0,1558190702,"~/.zshrc"
+'6  1  0  ~/.zshrc
+|4,54,1,0,1558190702,"~/.zshrc"
+'7  182  18  ~/.zshrc
+|4,55,182,18,1558190696,"~/.zshrc"
+'8  182  18  ~/.zshrc
+|4,56,182,18,1558190696,"~/.zshrc"
+'9  182  18  ~/.zshrc
+|4,57,182,18,1558190696,"~/.zshrc"
 
 # Jumplist (newest first):
+-'  196  0  ~/projects/dotfiles/home/wsl/.zshrc
+|4,39,196,0,1558191607,"~/projects/dotfiles/home/wsl/.zshrc"
+-'  182  17  ~/.zshrc
+|4,39,182,17,1558190808,"~/.zshrc"
+-'  182  17  ~/.zshrc
+|4,39,182,17,1558190808,"~/.zshrc"
+-'  203  0  ~/.zshrc
+|4,39,203,0,1558190798,"~/.zshrc"
+-'  203  0  ~/.zshrc
+|4,39,203,0,1558190798,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558190796,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558190796,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558190702,"~/.zshrc"
+-'  182  18  ~/.zshrc
+|4,39,182,18,1558190696,"~/.zshrc"
+-'  182  18  ~/.zshrc
+|4,39,182,18,1558190696,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558190683,"~/.zshrc"
+-'  202  15  ~/.zshrc
+|4,39,202,15,1558190632,"~/.zshrc"
+-'  202  15  ~/.zshrc
+|4,39,202,15,1558190632,"~/.zshrc"
+-'  203  15  ~/.zshrc
+|4,39,203,15,1558190632,"~/.zshrc"
+-'  202  15  ~/.zshrc
+|4,39,202,15,1558190632,"~/.zshrc"
+-'  203  15  ~/.zshrc
+|4,39,203,15,1558190632,"~/.zshrc"
+-'  202  15  ~/.zshrc
+|4,39,202,15,1558190632,"~/.zshrc"
+-'  43  0  ~/.zshrc
+|4,39,43,0,1558190595,"~/.zshrc"
+-'  43  0  ~/.zshrc
+|4,39,43,0,1558190595,"~/.zshrc"
+-'  43  0  ~/.zshrc
+|4,39,43,0,1558190595,"~/.zshrc"
+-'  43  0  ~/.zshrc
+|4,39,43,0,1558190595,"~/.zshrc"
+-'  43  0  ~/.zshrc
+|4,39,43,0,1558190595,"~/.zshrc"
+-'  1  0  ~/.zshrc
+|4,39,1,0,1558190589,"~/.zshrc"
+-'  197  0  ~/.zshrc
+|4,39,197,0,1558189233,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558189233,"~/.zshrc"
+-'  197  0  ~/.zshrc
+|4,39,197,0,1558189233,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558189233,"~/.zshrc"
+-'  197  0  ~/.zshrc
+|4,39,197,0,1558189233,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558189233,"~/.zshrc"
+-'  197  0  ~/.zshrc
+|4,39,197,0,1558189233,"~/.zshrc"
+-'  196  0  ~/.zshrc
+|4,39,196,0,1558189233,"~/.zshrc"
 -'  196  0  ~/.zshrc
 |4,39,196,0,1558189233,"~/.zshrc"
 -'  1  0  ~/.zshrc
@@ -126,197 +180,141 @@
 |4,39,7,0,1558189018,"~/.vimrc"
 -'  7  0  ~/.vimrc
 |4,39,7,0,1558189018,"~/.vimrc"
--'  6  0  ~/.vimrc
-|4,39,6,0,1558189011,"~/.vimrc"
--'  6  0  ~/.vimrc
-|4,39,6,0,1558189011,"~/.vimrc"
--'  6  0  ~/.vimrc
-|4,39,6,0,1558189011,"~/.vimrc"
--'  6  0  ~/.vimrc
-|4,39,6,0,1558189011,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558189007,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558189007,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558189007,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558189007,"~/.vimrc"
--'  25  0  ~/.vimrc
-|4,39,25,0,1558189002,"~/.vimrc"
--'  25  0  ~/.vimrc
-|4,39,25,0,1558189002,"~/.vimrc"
--'  25  0  ~/.vimrc
-|4,39,25,0,1558189002,"~/.vimrc"
--'  25  0  ~/.vimrc
-|4,39,25,0,1558189002,"~/.vimrc"
--'  25  0  ~/.vimrc
-|4,39,25,0,1558189002,"~/.vimrc"
--'  25  0  ~/.vimrc
-|4,39,25,0,1558189002,"~/.vimrc"
--'  25  0  ~/.vimrc
-|4,39,25,0,1558189002,"~/.vimrc"
--'  25  0  ~/.vimrc
-|4,39,25,0,1558189002,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188996,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188996,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188996,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188996,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  8  0  ~/.vimrc
-|4,39,8,0,1558188991,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188980,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188980,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188980,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188980,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188980,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188980,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188980,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1558188980,"~/.vimrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  196  0  ~/.zshrc
-|4,39,196,0,1558188852,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1558188849,"~/.zshrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
--'  43  0  ~/.vimrc
-|4,39,43,0,1558188846,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
+-'  7  0  ~/.vimrc
+|4,39,7,0,1558189018,"~/.vimrc"
 
 # History of marks within files (newest to oldest):
 
-> ~/.zshrc
-	*	1558189232	0
+> ~/projects/dotfiles/home/wsl/.zshrc
+	*	1558191605	0
 	"	196	0
-	^	119	26
-	.	197	0
-	+	197	0
+
+> ~/.zshrc
+	*	1558191604	0
+	"	203	0
+	^	182	18
+	.	182	17
+	+	198	0
 	+	179	0
 	+	180	30
 	+	171	0
@@ -325,8 +323,13 @@
 	+	119	35
 	+	120	0
 	+	27	0
-	+	196	0
 	+	197	0
+	+	198	0
+	+	199	0
+	+	200	8
+	+	202	0
+	+	203	15
+	+	182	17
 
 > ~/.vimrc
 	*	1558189017	0

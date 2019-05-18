@@ -179,6 +179,7 @@ alias cs="clear && git status"
 alias onedrive="cd \"${onedrive}\""
 alias home="cd /mnt/c/users/Jim"
 alias py="python3.7"
+alias tmux="tmux -2"
 
 #git
 alias commit="git commit"
@@ -194,3 +195,9 @@ alias gcdd="git checkout -- ."
 alias gp="git pull"
 alias gtree="git log --graph --oneline --decorate"
 alias master="git checkout master && git pull"
+
+#-------------------------------------------------------------
+# Startup
+#-------------------------------------------------------------
+
+fortune | cowsay
