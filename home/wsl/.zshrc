@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k"
 
 # DEFAULT_USER=$USER
 # prompt_context() {}
@@ -65,7 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -218,3 +218,5 @@ alias master="git checkout master && git pull"
 #-------------------------------------------------------------
 
 fortune | cowsay
+source ~/.purepower
+source ~/powerlevel10k/powerlevel10k.zsh-theme
