@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # DEFAULT_USER=$USER
 # prompt_context() {}
@@ -95,26 +95,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-bindkey -v # vim editing mode in zsh
-
-# fzf + ripgrep
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-ctrlp() {
-	</dev/tty vim $(fzf)
-}
-zle -N ctrlp
-bindkey "^p" ctrlp
-
-# MY STUFF
-
 #-------------------------------------------------------------
 # Variables
 #-------------------------------------------------------------
 
-# code projects folder
 projects="/mnt/c/Projects"
 onedrive="/mnt/c/Users/Jim/OneDrive"
 msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
@@ -185,6 +169,13 @@ build () {
 	"${msbuild_path}" ./*.sln
 }
 
+ctrlp() {
+	fzf_output=$(fzf)
+	if [[ $fzf_output != "" ]] ; then
+		</dev/tty vim $fzf_output
+	fi
+}
+
 #-------------------------------------------------------------
 # Aliases
 #-------------------------------------------------------------
@@ -213,10 +204,28 @@ alias gp="git pull"
 alias gtree="git log --graph --oneline --decorate"
 alias master="git checkout master && git pull"
 
+
 #-------------------------------------------------------------
 # Startup
 #-------------------------------------------------------------
 
 fortune | cowsay
+
 source ~/.purepower
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# fzf + ripgrep
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+#-------------------------------------------------------------
+# Keybindings
+#-------------------------------------------------------------
+
+bindkey -v # vim editing mode in zsh
+
+zle -N ctrlp
+bindkey "^p" ctrlp
+
