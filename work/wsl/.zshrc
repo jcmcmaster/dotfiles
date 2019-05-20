@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME=""
 
 # DEFAULT_USER=$USER
 # prompt_context() {}
@@ -24,7 +24,7 @@ ZSH_THEME="agnoster"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -65,7 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,21 +94,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-bindkey -v # vim editing mode in zsh
-
-# fzf + ripgrep
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-ctrlp() {
-	</dev/tty vim $(fzf)
-}
-zle -N ctrlp
-bindkey "^p" ctrlp
-
-# MY STUFF
 
 #-------------------------------------------------------------
 # Variables
@@ -164,17 +149,39 @@ gacp () {
 	git push
 }
     
-rip () { #undo all changes at all costs (DANGER ZONE ;])
+# undo all changes at all costs (DANGER ZONE ;])
+grip () { 
+	read -p "Are you sure? (y/n)" conf
+	
+	if [ "$conf" != "y" ] 
+	then
+		echo "Close call..." 
+		return
+	fi
+	
 	curBranch=$(git symbolic-ref -q HEAD)
 	curBranch=${curBranch##refs/heads/}
 	curBranch=${curBranch:-HEAD}
 	git reset --hard
 	git clean -f
 	git checkout -- .
-	git checkout master
+	git checkout -B grip_false_branch
 	git branch -D $curBranch
 	git checkout $curBranch
+	git branch -D grip_false_branch
 	git status
+}
+
+# build .sln files in the current directory
+build () {
+	"${msbuild_path}" ./*.sln
+}
+
+ctrlp() {
+	fzf_output=$(fzf)
+	if [[ $fzf_output != "" ]] ; then
+		</dev/tty vim $fzf_output
+	fi
 }
 
 # deploy () {
@@ -224,3 +231,29 @@ alias master="git checkout master && git pull"
 
 . "/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_utilities" # source in araxis wsl utilities
 alias git="env TMPDIR='/mnt/c/users/medisked/appdata/' git" # alias git to have a particular TMPDIR
+
+
+#-------------------------------------------------------------
+# Startup
+#-------------------------------------------------------------
+
+fortune | cowsay
+
+source ~/.purepower
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# fzf + ripgrep
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+#-------------------------------------------------------------
+# Keybindings
+#-------------------------------------------------------------
+
+bindkey -v # vim editing mode in zsh
+
+zle -N ctrlp
+bindkey "^p" ctrlp
+
