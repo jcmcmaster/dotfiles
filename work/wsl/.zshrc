@@ -212,7 +212,7 @@ alias ga="git add"
 alias gc="git checkout"
 alias gcm="git commit -m"
 alias gd="git diff"
-alias gdt="git difftool --dir-diff"
+alias gdt="git difftool"
 alias gf="git fetch"
 alias gl="git log"
 alias gs="git status"
@@ -221,7 +221,6 @@ alias gp="git pull"
 alias gtree="git log --graph --oneline --decorate"
 alias qa="(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/null) && git pull" 
 alias master="git checkout master && git pull"
-alias bump="echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status"
 
 . "/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_utilities" # source in araxis wsl utilities
 alias git="env TMPDIR='/mnt/c/users/medisked/appdata/' git" # alias git to have a particular TMPDIR

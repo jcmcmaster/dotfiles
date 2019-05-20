@@ -11,26 +11,83 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/section
+~MSle0~/net rounding balance
+
+# Last Substitute Search Pattern:
+~MSle0&Blaaark_use16 = 0     
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:wq
-|2,0,1557719036,,"wq"
-:w
-|2,0,1557718994,,"w"
 :q
-|2,0,1557518536,,"q"
+|2,0,1558360949,,"q"
+:wq
+|2,0,1558008245,,"wq"
+:echo line('$')
+|2,0,1557952603,,"echo line('$')"
+:linecount
+|2,0,1557952576,,"linecount"
+:lc
+|2,0,1557952573,,"lc"
+:'<,'>q
+|2,0,1557774638,,"'<,'>q"
+:py
+|2,0,1557774595,,"py"
+:py pass
+|2,0,1557774558,,"py pass"
+:exit
+|2,0,1557774512,,"exit"
+:PlugInstall
+|2,0,1557774255,,"PlugInstall"
 :find ~/.vimrc
-|2,0,1557508752,,"find ~/.vimrc"
+|2,0,1557769130,,"find ~/.vimrc"
+:w
+|2,0,1557769116,,"w"
+:qa
+|2,0,1557768095,,"qa"
+:b 
+|2,0,1557762357,,"b "
+:'<,'>s/Client/Service/g
+|2,0,1557761554,,"'<,'>s/Client/Service/g"
+:next
+|2,0,1557761833,,"next"
+:AirlineTheme ubaryd
+|2,0,1557758668,,"AirlineTheme ubaryd"
+:AirlineTheme dark
+|2,0,1557758651,,"AirlineTheme dark"
+:AirlineTheme bubblegum
+|2,0,1557758636,,"AirlineTheme bubblegum"
+:AirlineTheme solarized
+|2,0,1557758572,,"AirlineTheme solarized"
+:AirlineTheme fruit_punch
+|2,0,1557758527,,"AirlineTheme fruit_punch"
+:AirlineTheme simple
+|2,0,1557758510,,"AirlineTheme simple"
+:b 2
+|2,0,1557758450,,"b 2"
+:b 32
+|2,0,1557758444,,"b 32"
+:b 1
+|2,0,1557758442,,"b 1"
+:tabe ~/.vimrc
+|2,0,1557758242,,"tabe ~/.vimrc"
+:source %
+|2,0,1557758199,,"source %"
+:source
+|2,0,1557758196,,"source"
+:noh
+|2,0,1557756953,,"noh"
+:set wrap
+|2,0,1557751428,,"set wrap"
+:set wrap!
+|2,0,1557751392,,"set wrap!"
+:b 3
+|2,0,1557720439,,"b 3"
 :Rg
 |2,0,1557508721,,"Rg"
 :find ~/.zshrc
 |2,0,1557508603,,"find ~/.zshrc"
-:PlugInstall
-|2,0,1557508511,,"PlugInstall"
 :h fzf-vim-commands
 |2,0,1557508435,,"h fzf-vim-commands"
 :FZF
@@ -45,8 +102,6 @@ $
 |2,0,1557505660,,"help find"
 :find survey_questions_to_user_fields.py
 |2,0,1557420061,,"find survey_questions_to_user_fields.py"
-:b 1
-|2,0,1557416985,,"b 1"
 :find ./projects/scripts/work/py/surveyconfigurator/SurveyConfigurator.py
 |2,0,1557416973,,"find ./projects/scripts/work/py/surveyconfigurator/SurveyConfigurator.py"
 :find survey_questions_to_user_fields/survey_questions_to_user_fields.py
@@ -65,26 +120,44 @@ $
 |2,0,1557161594,,"'<,'>s/ "
 :'<,'>
 |2,0,1557161590,,"'<,'>"
-:find ~/projects/scripts/work/py/dbauto/dbauto.py
-|2,0,1557160867,,"find ~/projects/scripts/work/py/dbauto/dbauto.py"
-:find dbauto.py
-|2,0,1557160845,,"find dbauto.py"
-:48
-|2,0,1557159511,,"48"
-:47
-|2,0,1557159456,,"47"
-:(.,.-5)dd
-|2,0,1556548439,,"(.,.-5)dd"
-:wk
-|2,0,1556297946,,"wk"
-:PlugUpdate
-|2,0,1556212102,,"PlugUpdate"
-:exit
-|2,0,1556212035,,"exit"
 
 # Search String History (newest to oldest):
+?/net rounding balance
+|2,1,1558010698,47,"net rounding balance"
+?/buildmax
+|2,1,1558010363,47,"buildmax"
+?/sourcetable
+|2,1,1558008972,47,"sourcetable"
+?/serviceid
+|2,1,1558008857,47,"serviceid"
+?/billas
+|2,1,1558008809,47,"billas"
+?/set rs
+|2,1,1558008705,47,"set rs"
+?/claim-rounding-container
+|2,1,1558008638,47,"claim-rounding-container"
+?/vall
+|2,1,1558008240,47,"vall"
 ? @$
-|2,1,1557517441,,"@$"
+|2,1,1557952532,,"@$"
+?/plug
+|2,1,1557774240,47,"plug"
+?/service
+|2,1,1557761675,47,"service"
+? Client
+|2,1,1557761554,,"Client"
+?/buildmaxrounding
+|2,1,1557761330,47,"buildmaxrounding"
+?/function buildmax
+|2,1,1557761325,47,"function buildmax"
+??\a
+|2,1,1557762023,63,"\\a"
+?/set
+|2,1,1557757476,47,"set"
+?/billratio
+|2,1,1557751621,47,"billratio"
+?/.claim-rounding-data
+|2,1,1557751318,47,".claim-rounding-data"
 ?/section
 |2,1,1557517207,47,"section"
 ?/Section
@@ -128,328 +201,454 @@ $
 
 # Registers:
 "0	LINE	0
-	"----------"
-	" Mappings "
-	"----------"
-|3,0,0,1,3,0,1557718985,"\"----------\"","\" Mappings \"","\"----------\""
-""1	LINE	0
-	filetype indent plugin on
-	syntax enable
 	
-|3,1,1,1,3,0,1557719032,"filetype indent plugin on","syntax enable",""
+|3,0,0,1,1,0,1557952532,""
 "2	LINE	0
-	
-|3,0,2,1,1,0,1557718989,""
+	"----------"
+	" Settings "
+|3,0,2,1,2,0,1558008215,"\"----------\"","\" Settings \""
 "3	LINE	0
 	
-|3,0,3,1,1,0,1557718948,""
+|3,0,3,1,1,0,1557774249,""
 "4	LINE	0
-	" 
-|3,0,4,1,1,0,1557718862,"\" "
+	"----------"
+	" Settings "
+|3,0,4,1,2,0,1557769699,"\"----------\"","\" Settings \""
 "5	LINE	0
-	
-|3,0,5,1,1,0,1557718826,""
+	"----------"
+	" Settings "
+|3,0,5,1,2,0,1557769685,"\"----------\"","\" Settings \""
 "6	LINE	0
-	
-|3,0,6,1,1,0,1557718814,""
-"7	CHAR	0
-	" Plugin outside ~/.vim/plugged with post-update hook
-|3,0,7,0,1,0,1557718812,"\" Plugin outside ~/.vim/plugged with post-update hook"
+	alias bump="echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status"
+|3,0,6,1,1,0,1557766196,"alias bump=\"echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status\""
+"7	LINE	0
+	alias bump="echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status"
+|3,0,7,1,1,0,1557766196,"alias bump=\"echo bump >> readme.txt && git add readme.txt && git commit -m 'bump' && git push && clear && git status\""
 "8	LINE	0
-	
-|3,0,8,1,1,0,1557718805,""
+	colorscheme molokai
+|3,0,8,1,1,0,1557762301,"colorscheme molokai"
 "9	LINE	0
 	
-|3,0,9,1,1,0,1557718804,""
+|3,0,9,1,1,0,1557761368,""
 "a	CHAR	0
 	" Plugin outside ~/.vim/plugged with post-update hook
-|3,0,10,0,1,0,1557718812,"\" Plugin outside ~/.vim/plugged with post-update hook"
+|3,0,10,0,1,0,1557762015,"\" Plugin outside ~/.vim/plugged with post-update hook"
 "-	CHAR	0
-	Mappings
-|3,0,36,0,1,0,1557718991,"Mappings"
+	m-abyss
+|3,0,36,0,1,0,1557769904,"m-abyss"
 
 # File marks:
-'0  6  0  ~/.vimrc
-|4,48,6,0,1557719036,"~/.vimrc"
-'1  207  18  ~/.zshrc
-|4,49,207,18,1557518552,"~/.zshrc"
-'2  207  18  ~/.zshrc
-|4,50,207,18,1557518552,"~/.zshrc"
-'3  1  0  ~/.vimrc
-|4,51,1,0,1557518521,"~/.vimrc"
-'4  1  0  ~/.vimrc
-|4,52,1,0,1557518521,"~/.vimrc"
-'5  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,53,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
-'6  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,54,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
-'7  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,55,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
-'8  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,56,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
-'9  13  41  ~/.vimrc
-|4,57,13,41,1557517192,"~/.vimrc"
+'0  1  0  ~/.gitconfig
+|4,48,1,0,1558360949,"~/.gitconfig"
+'1  1409  33  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,49,1409,33,1558010836,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+'2  1105  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,50,1105,0,1558009571,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+'3  1104  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,51,1104,0,1558009571,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+'4  887  40  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,52,887,40,1558008554,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+'5  887  40  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,53,887,40,1558008554,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+'6  886  40  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,54,886,40,1558008554,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+'7  886  40  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,55,886,40,1558008554,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+'8  43  1  ~/.vimrc
+|4,56,43,1,1558008245,"~/.vimrc"
+'9  1  606  ~/.vimrc
+|4,57,1,606,1558008209,"~/.vimrc"
 
 # Jumplist (newest first):
--'  6  0  ~/.vimrc
-|4,39,6,0,1557719036,"~/.vimrc"
--'  20  11  ~/.vimrc
-|4,39,20,11,1557718971,"~/.vimrc"
--'  21  11  ~/.vimrc
-|4,39,21,11,1557718971,"~/.vimrc"
--'  39  0  ~/.vimrc
-|4,39,39,0,1557718971,"~/.vimrc"
--'  18  0  ~/.vimrc
-|4,39,18,0,1557718945,"~/.vimrc"
--'  32  11  ~/.vimrc
-|4,39,32,11,1557718939,"~/.vimrc"
--'  199  2  ~/.zshrc
-|4,39,199,2,1557718799,"~/.zshrc"
--'  200  0  ~/.zshrc
-|4,39,200,0,1557718793,"~/.zshrc"
--'  204  0  ~/.zshrc
-|4,39,204,0,1557718767,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1557718732,"~/.zshrc"
--'  207  18  ~/.zshrc
-|4,39,207,18,1557518552,"~/.zshrc"
--'  207  18  ~/.zshrc
-|4,39,207,18,1557518552,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1557518541,"~/.zshrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1557518521,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1557518521,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1557518521,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1557518521,"~/.vimrc"
--'  1  0  ~/.vimrc
-|4,39,1,0,1557518521,"~/.vimrc"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  1  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,1,0,1557517537,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  8  0  /mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left
-|4,39,8,0,1557517442,"/mnt/c/Users/Medisked/AppData/git-difftool.oZkyr/left"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
--'  72  0  ~/projects/scripts/work/py/dbauto/dbauto.py
-|4,39,72,0,1557517295,"~/projects/scripts/work/py/dbauto/dbauto.py"
+-'  1  0  ~/.gitconfig
+|4,39,1,0,1558360949,"~/.gitconfig"
+-'  1409  33  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1409,33,1558010836,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1409  33  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1409,33,1558010836,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1405  21  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1405,21,1558010709,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1405  21  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1405,21,1558010709,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1749  84  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1749,84,1558010700,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1749  84  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1749,84,1558010700,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1711  104  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1711,104,1558010698,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1711  104  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1711,104,1558010698,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1408  40  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1408,40,1558010629,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1408  40  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1408,40,1558010629,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  497  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,497,0,1558010616,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  497  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,497,0,1558010616,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  357  2  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,357,2,1558010364,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  357  2  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,357,2,1558010364,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1,0,1558010363,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1,0,1558010363,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1105  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1105,0,1558009571,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1104  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1104,0,1558009571,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1105  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1105,0,1558009571,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  1104  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,1104,0,1558009571,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  971  31  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,971,31,1558008980,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  970  31  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,970,31,1558008980,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  971  31  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,971,31,1558008980,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  970  31  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,970,31,1558008980,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  963  44  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,963,44,1558008978,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  962  44  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,962,44,1558008978,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  963  44  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,963,44,1558008978,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  962  44  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,962,44,1558008978,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  959  30  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,959,30,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  950  30  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,950,30,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  769  2  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,769,2,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  958  30  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,958,30,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  949  30  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,949,30,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  768  2  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,768,2,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  959  30  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,959,30,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  950  30  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,950,30,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  769  2  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,769,2,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  958  30  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,958,30,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  949  30  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,949,30,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  768  2  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,768,2,1558008977,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  956  4  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,956,4,1558008972,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  955  4  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,955,4,1558008972,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  956  4  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,956,4,1558008972,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  955  4  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,955,4,1558008972,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  962  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,962,0,1558008967,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  961  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,961,0,1558008967,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  962  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,962,0,1558008967,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  961  0  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,961,0,1558008967,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  857  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,857,19,1558008900,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  856  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,856,19,1558008900,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  857  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,857,19,1558008900,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  856  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,856,19,1558008900,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  774  412  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,774,412,1558008857,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  773  412  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,773,412,1558008857,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  774  412  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,774,412,1558008857,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  773  412  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,773,412,1558008857,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  125  66  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,125,66,1558008855,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  125  66  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,125,66,1558008855,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  783  78  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,783,78,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  788  58  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,788,58,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  789  8  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,789,8,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  806  58  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,806,58,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  782  78  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,782,78,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  787  58  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,787,58,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  788  8  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,788,8,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  805  58  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,805,58,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  783  78  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,783,78,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  788  58  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,788,58,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  789  8  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,789,8,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  806  58  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,806,58,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  782  78  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,782,78,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  787  58  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,787,58,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  788  8  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,788,8,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  805  58  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,805,58,1558008853,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  808  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,808,19,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  809  9  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,809,9,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  811  10  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,811,10,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  814  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,814,19,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  821  18  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,821,18,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  832  18  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,832,18,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  807  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,807,19,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  808  9  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,808,9,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  810  10  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,810,10,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  813  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,813,19,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  820  18  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,820,18,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  831  18  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,831,18,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  808  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,808,19,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  809  9  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,809,9,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  811  10  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,811,10,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  814  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,814,19,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  821  18  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,821,18,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  832  18  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,832,18,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  807  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,807,19,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  808  9  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,808,9,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  810  10  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,810,10,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  813  19  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,813,19,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  820  18  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,820,18,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  831  18  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,831,18,1558008852,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
+-'  840  47  /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+|4,39,840,47,1558008851,"/mnt/c/Projects/connectdev/home/billing/submitclaim.asp"
 
 # History of marks within files (newest to oldest):
 
+> ~/.gitconfig
+	*	1558360947	0
+	"	1	0
+	.	6	0
+	+	6	0
+	+	5	25
+	+	6	0
+
+> /mnt/c/Projects/connectdev/home/billing/submitclaim.asp
+	*	1558010834	0
+	"	1409	33
+	^	1711	105
+	.	1748	13
+	+	3740	88
+	+	3740	0
+	+	3740	602
+	+	3740	0
+	+	3740	44
+	+	3740	0
+	+	3740	46
+	+	3740	144
+	+	3740	0
+	+	3740	80
+	+	3740	72
+	+	3740	0
+	+	3740	59
+	+	3740	516
+	+	3740	70
+	+	3740	0
+	+	1	0
+	+	471	0
+	+	886	0
+	+	1000	3
+	+	1105	0
+	+	1	0
+	+	470	1
+	+	1748	13
+	a	956	4
+
+> /mnt/c/Projects/connectdev/home/billing/roundingreport.asp
+	*	1558008368	0
+	"	14	1
+
 > ~/.vimrc
-	*	1557719034	0
-	"	6	0
-	^	2	10
-	.	4	0
-	+	1	26
-	+	42	17
-	+	1	14
-	+	39	0
-	+	42	0
-	+	43	0
-	+	1	3
-	+	12	33
-	+	13	86
-	+	38	0
-	+	29	21
-	+	40	0
-	+	41	0
-	+	40	22
-	+	30	24
-	+	29	25
-	+	13	41
-	+	38	0
-	+	39	66
-	+	40	0
-	+	33	9
-	+	32	11
-	+	33	11
+	*	1558008244	0
+	"	43	1
+	^	43	2
+	.	43	1
+	+	20	0
+	+	19	0
+	+	16	0
+	+	19	1
+	+	17	11
+	+	19	11
+	+	18	2
+	+	17	10
+	+	19	10
+	+	17	0
+	+	1	648
+	+	1	670
+	+	1	658
+	+	1	684
+	+	1	658
+	+	1	671
+	+	1	648
+	+	1	0
+	+	1	22
+	+	1	0
+	+	1	39
+	+	1	646
+	+	1	25
+	+	1	38
+	+	1	64
+	+	1	78
+	+	1	79
+	+	1	95
+	+	1	126
+	+	1	201
+	+	1	239
+	+	1	264
+	+	1	306
+	+	1	349
+	+	1	411
+	+	1	491
+	+	1	586
+	+	1	630
+	+	1	647
+	+	1	648
+	+	1	660
+	+	1	673
+	+	1	686
+	+	1	707
+	+	1	733
+	+	1	754
+	+	1	0
+	+	3	0
+	+	16	27
+	+	29	0
+	+	27	29
+	+	29	0
+	+	32	43
+	+	28	4
+	+	27	1
+	+	28	0
+	+	1	99
 	+	35	0
-	+	34	0
-	+	31	0
-	+	34	1
-	+	32	11
-	+	34	11
-	+	33	2
-	+	32	10
-	+	34	10
-	+	32	0
+	+	35	7
+	+	37	8
+	+	35	0
+	+	37	0
+	+	32	1
+	+	35	0
+	+	33	0
+	+	34	18
+	+	1	91
+	+	39	17
+	+	39	0
+	+	39	3
+	+	38	0
+	+	1	26
+	+	1	97
+	+	1	13
+	+	1	96
 	+	18	0
-	+	19	0
-	+	20	9
-	+	19	10
-	+	21	10
-	+	19	10
-	+	20	10
-	+	19	0
-	+	1	0
-	+	2	9
-	+	1	0
-	+	4	0
+	+	1	97
+	+	26	0
+	+	27	0
+	+	26	55
+	+	27	0
+	+	1	25
+	+	1	38
+	+	1	64
+	+	1	78
+	+	1	98
+	+	1	99
+	+	1	115
+	+	1	146
+	+	1	221
+	+	1	259
+	+	1	284
+	+	1	326
+	+	1	369
+	+	1	431
+	+	1	511
+	+	1	606
+	+	3	0
+	+	2	0
+	+	43	1
+
+> ~/projects/scripts/home/dotfiles/.vimrc
+	*	1557953755	0
+	"	1	0
+
+> /mnt/c/Projects/connectdev/home/planning/subplan
+	*	1557952523	0
+	"	1	0
+
+> ~/.vim/colors/monokai.vim
+	*	1557769677	0
+	"	1	0
+
+> ~/projects/dotfiles/.vimrc
+	*	1557769326	0
+	"	1	0
+
+> /mnt/c/Users/Medisked/AppData/4q34ib_submitclaim.asp
+	*	1557768287	0
+	"	1	0
+
+> /mnt/c/Users/Medisked/AppData/ZF1rVJ_.gitignore
+	*	1557768277	0
+	"	1	0
+
+> /mnt/c/Projects/connectdev/.gitignore
+	*	1557768275	0
+	"	1	0
+
+> /mnt/c/Users/Medisked/AppData/9wqITM_submitclaim.asp
+	*	1557768109	0
+	"	1	0
 
 > ~/.zshrc
-	*	1557718793	0
-	"	199	2
+	*	1557766237	0
+	"	219	0
 	^	207	19
-	.	200	0
+	.	224	0
 	+	11	19
 	+	98	35
 	+	45	0
@@ -506,6 +705,70 @@ $
 	+	204	0
 	+	202	0
 	+	200	0
+	+	215	23
+	+	224	0
+
+> /mnt/c/Users/Medisked/AppData/ALADH1_submitclaim.asp
+	*	1557762367	0
+	"	1748	0
+
+> /mnt/c/Users/Medisked/AppData/554N2N_submitclaim.asp
+	*	1557762087	0
+	"	1739	107
+
+> /mnt/c/Users/Medisked/AppData/t5Uete_.gitignore
+	*	1557762038	0
+	"	1	0
+
+> /mnt/c/Users/Medisked/AppData/git-difftool.pBLyj/right/home/billing/submitclaim.asp
+	*	1557761975	0
+	"	6	0
+
+> /mnt/c/Users/Medisked/AppData/git-difftool.pBLyj/left/home/billing/submitclaim.asp
+	*	1557761974	0
+	"	3734	0
+
+> /mnt/c/Users/Medisked/AppData/KbW7ST_submitclaim.asp
+	*	1557759337	0
+	"	465	0
+
+> ~/.gitignore
+	*	1557759130	0
+	"	1	0
+
+> /mnt/c/Projects/connectdev/.gitattributes
+	*	1557758496	0
+	"	2	3
+	^	2	5
+	.	2	0
+	+	1	2
+	+	2	0
+
+> ~/projects/dotfiles/.zshrc
+	*	1557720440	0
+	"	216	0
+
+> ~/projects/dotfiles/NERD_tree_1
+	*	1557720430	0
+	"	4	0
+	.	1	0
+	+	1	0
+
+> ~/projects/dotfiles/.bashrc
+	*	1557720415	0
+	"	235	0
+
+> ~/projects/dotfiles/.bash_history
+	*	1557720373	0
+	"	1	0
+
+> ~/projects/scripts/work/dotfiles/.gitconfig
+	*	1557720008	0
+	"	1	0
+
+> ~/projects/scripts/work/dotfiles/.vimrc
+	*	1557719984	0
+	"	28	0
 
 > ~/projects/scripts/work/py/dbauto/dbauto.py
 	*	1557517535	0
@@ -611,18 +874,6 @@ $
 	+	71	0
 	+	73	0
 	+	72	0
-
-> ~/.gitconfig
-	*	1557516926	0
-	"	4	0
-	.	6	0
-	+	6	0
-	+	5	25
-	+	6	0
-
-> /mnt/c/Projects/connectdev/.gitignore
-	*	1557515903	0
-	"	1	0
 
 > ~/.bashrc
 	*	1557508681	0
@@ -755,3 +1006,12 @@ $
 	^	253	15
 	.	253	0
 	+	253	0
+
+> /mnt/c/Users/Medisked/AppData/NGcv8N_.gitignore
+	"	1	0
+
+> /mnt/c/Users/Medisked/AppData/W9tKHd_.gitignore
+	"	261	0
+
+> /mnt/c/Users/Medisked/AppData/Kr7Z7b_.gitignore
+	"	258	0

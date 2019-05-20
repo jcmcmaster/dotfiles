@@ -3,3 +3,5 @@
 	name = Jim McMaster
 [credential]
 	helper = cache --timeout=7200
+[diff]
+	tool = vimdiff
