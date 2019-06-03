@@ -184,6 +184,10 @@ ctrlp() {
 	fi
 }
 
+jot() {
+	echo "$*" >> ~/misc/jot
+}
+
 # deploy () {
 #   git fetch
 # 	git checkout master
@@ -228,6 +232,7 @@ alias gp="git pull"
 alias gtree="git log --graph --oneline --decorate"
 alias qa="(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/null) && git pull" 
 alias master="git checkout master && git pull"
+alias lineblame="git blame -L"
 
 . "/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_utilities" # source in araxis wsl utilities
 alias git="env TMPDIR='/mnt/c/users/medisked/appdata/' git" # alias git to have a particular TMPDIR
