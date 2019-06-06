@@ -237,6 +237,12 @@ alias lineblame="git blame -L"
 . "/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_utilities" # source in araxis wsl utilities
 alias git="env TMPDIR='/mnt/c/users/medisked/appdata/' git" # alias git to have a particular TMPDIR
 
+#taskwarrior
+alias t="task"
+alias tl="task list"
+alias ta="task add"
+alias tm="task modify"
+alias tap="task append"
 
 #-------------------------------------------------------------
 # Startup
@@ -261,4 +267,3 @@ bindkey -v # vim editing mode in zsh
 
 zle -N ctrlp
 bindkey "^p" ctrlp
-
