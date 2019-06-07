@@ -1,0 +1,5 @@
+let blacklists = ["https://mediskedcco.my.centrify.com/*"]
+let smoothscroll = "true"
+let barposition = "bottom"
+
+map yt :duplicate
