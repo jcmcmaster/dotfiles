@@ -188,6 +188,10 @@ jot() {
 	echo "$*" >> ~/misc/jot
 }
 
+tdir() {
+	mkdir $ticketDir/"$1"
+}
+
 # deploy () {
 #   git fetch
 # 	git checkout master
