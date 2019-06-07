@@ -1,0 +1,12 @@
+let blacklists = ["https://mediskedcco.my.centrify.com/*"]
+let smoothscroll = "true"
+let barposition = "bottom"
+
+map yt :duplicate<CR>
+
+let configpath = "c:\projects\dotfiles\.cvimrc"
+set localconfig " Update settings via a local file (and the `:source` command) rather
+                " than the default options page in chrome
+				" As long as localconfig is set in the .cvimrc file, cVim
+				" will continue to read settings from there
+				
