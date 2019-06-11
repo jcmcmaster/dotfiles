@@ -2,7 +2,7 @@ let blacklists = ["https://mediskedcco.my.centrify.com/*"]
 let smoothscroll = "true"
 let barposition = "bottom"
 let configpath = "c:\projects\dotfiles\.cvimrc"
-let hintcharacters = "asdfghjkl"
+let hintcharacters = "asdfghjkltybn"
 
 map yt :duplicate<CR>
 map g :tabnew google<Space>
