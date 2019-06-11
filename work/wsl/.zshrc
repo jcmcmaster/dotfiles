@@ -245,7 +245,10 @@ alias git="env TMPDIR='/mnt/c/users/medisked/appdata/' git" # alias git to have 
 #taskwarrior
 alias t="task"
 alias tl="task list"
+alias tlcoorse="task list project:coorse"
 alias ta="task add"
+alias tah"task add pri:H"
+alias tacoorse="task add project:coorse"
 alias tm="task modify"
 alias tap="task append"
 
