@@ -3,7 +3,7 @@
 #-------------------------------------------------------------
 
 # my code projects folder
-projects="C:/Projects"
+projects="C:/Users/JimMcMaster/projects"
 msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 
 #-------------------------------------------------------------
