@@ -5,6 +5,8 @@
 # my code projects folder
 projects="C:/Users/JimMcMaster/projects"
 msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+onedrive="~/OneDrive - Medisked"
+ticketDir="$onedrive/Tickets"
 
 #-------------------------------------------------------------
 # Functions
@@ -128,6 +130,7 @@ alias mcdb="cd ${projects}/connect_database"
 alias mcdev="cd ${projects}/connectdev"
 alias mcnet="cd ${projects}/connect_net"
 alias ssrs="cd ${projects}/\"SSRS Reports\" && clear && git status"
+alias lsa="ls -al"
 
 # git
 alias commit="git commit"
