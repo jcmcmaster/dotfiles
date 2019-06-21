@@ -100,12 +100,12 @@ source $ZSH/oh-my-zsh.sh
 #-------------------------------------------------------------
 
 # code projects folder
-projects="/mnt/c/Projects"
-onedrive="/mnt/c/Users/Medisked/OneDrive - Medisked"
+projects="/mnt/c/users/JimMcMaster/projects"
+onedrive="/mnt/c/Users/JimMcMaster/OneDrive - Medisked"
 ticketDir="$onedrive/Tickets"
 
 # appending exe folders to PATH
-export PATH=$PATH:"mnt/c/users/medisked/onedrive - medisked/scripts/bash"
+export PATH=$PATH:"mnt/c/users/JimMcMaster/onedrive - medisked/scripts/bash"
 
 #-------------------------------------------------------------
 # Functions
