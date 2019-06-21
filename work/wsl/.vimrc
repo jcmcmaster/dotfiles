@@ -5,7 +5,7 @@ filetype indent plugin on
 syntax enable
 
 let g:gruvbox_italic=1
-colorscheme gruvbox
+"colorscheme gruvbox
 set background=dark
 
 set nocompatible
