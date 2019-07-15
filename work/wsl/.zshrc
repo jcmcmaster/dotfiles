@@ -251,6 +251,7 @@ alias tah"task add pri:H"
 alias tacoorse="task add project:coorse"
 alias tm="task modify"
 alias tap="task append"
+alias td="task done"
 
 #-------------------------------------------------------------
 # Startup
