@@ -204,7 +204,6 @@ tdir() {
 #-------------------------------------------------------------
 
 #bash
-alias bashrc=". ~/.bashrc" 
 alias cl="clear && ls"
 alias cs="clear && git status"
 alias coordb="cd ${projects}/coordinate_database && clear && git status"
@@ -239,9 +238,6 @@ alias qa="(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/nul
 alias master="git checkout master && git pull"
 alias lineblame="git blame -L"
 
-. "/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_utilities" # source in araxis wsl utilities
-alias git="env TMPDIR='/mnt/c/users/medisked/appdata/' git" # alias git to have a particular TMPDIR
-
 #taskwarrior
 alias t="task"
 alias tl="task list"
@@ -271,4 +267,4 @@ bindkey -v # vim editing mode in zsh
 zle -N ctrlp
 bindkey "^p" ctrlp
 
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
