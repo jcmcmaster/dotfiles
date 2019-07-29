@@ -2,13 +2,13 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/$(whoami)/.oh-my-zsh"
+export ZSH="/home/jim_mcmaster/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=""
+ZSH_THEME="robbyrussell"
 
 # DEFAULT_USER=$USER
 # prompt_context() {}
@@ -204,7 +204,6 @@ tdir() {
 #-------------------------------------------------------------
 
 #bash
-alias bashrc=". ~/.bashrc" 
 alias cl="clear && ls"
 alias cs="clear && git status"
 alias coordb="cd ${projects}/coordinate_database && clear && git status"
@@ -239,9 +238,6 @@ alias qa="(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/nul
 alias master="git checkout master && git pull"
 alias lineblame="git blame -L"
 
-. "/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_utilities" # source in araxis wsl utilities
-alias git="env TMPDIR='/mnt/c/users/medisked/appdata/' git" # alias git to have a particular TMPDIR
-
 #taskwarrior
 alias t="task"
 alias tl="task list"
@@ -257,16 +253,10 @@ alias td="task done"
 # Startup
 #-------------------------------------------------------------
 
-fortune | cowsay
-
-source ~/.purepower
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
 # fzf + ripgrep
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 
 #-------------------------------------------------------------
 # Keybindings
@@ -277,13 +267,4 @@ bindkey -v # vim editing mode in zsh
 zle -N ctrlp
 bindkey "^p" ctrlp
 
-local -A ZPLGM
-### Added by Zplugin's installer
-source '/home/jim_mcmaster/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
-
-ZPLGM[MUTE_WARNINGS]=1
-
-zplugin light zdharma/fast-syntax-highlighting
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
