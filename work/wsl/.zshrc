@@ -8,7 +8,7 @@ export ZSH="/home/jim_mcmaster/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="pi"
 
 # DEFAULT_USER=$USER
 # prompt_context() {}
@@ -106,6 +106,7 @@ ticketDir="$onedrive/Tickets"
 
 # appending exe folders to PATH
 export PATH=$PATH:"mnt/c/users/JimMcMaster/onedrive - medisked/scripts/bash"
+export PATH=$PATH:"${projects}/jdb/jdb/bin/Release/netcoreapp2.1/win10-x64/"
 
 #-------------------------------------------------------------
 # Functions
@@ -118,7 +119,7 @@ cdp () {
 
 #dotnet
 publish () {
-	 dotnet publish -c $1 -r win10-x64
+	 dotnet.exe publish -c $1 -r win10-x64
 }
 
 #windows
@@ -218,7 +219,7 @@ alias ssrs="cd ${projects}/\"SSRS Reports\" && clear && git status"
 alias onedrive="cd \"${onedrive}\""
 alias tickets="cd \"${ticketDir}\""
 alias home="cd /mnt/c/users/medisked"
-alias py="python3.7"
+alias py="python3"
 alias pth='echo $PATH | tr : "\n" | less'
 
 #git
@@ -257,6 +258,7 @@ alias td="task done"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+cd
 
 #-------------------------------------------------------------
 # Keybindings
