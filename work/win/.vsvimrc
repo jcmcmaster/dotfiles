@@ -1,6 +1,7 @@
 set ignorecase
 set clipboard=unnamed
 
+map <Space>qa :vsc File.CloseAllButThis
 map <Space>, :vsc ReSharper.ReSharper_GotoText<CR>
 map <Space>/ :vsc ReSharper.ReSharper_LineComment<CR>
 map <Space>; A;<Esc>

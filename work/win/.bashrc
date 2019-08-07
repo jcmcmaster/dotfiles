@@ -44,6 +44,11 @@ gacp () {
 	git commit -m "$1"
 	git push
 }
+
+gcmp () {
+	git commit -m "$1"
+	git push
+}
     
 # undo all changes at all costs (DANGER ZONE ;])
 grip () { 
@@ -139,8 +144,10 @@ alias python='winpty python.exe'
 
 # git
 alias commit="git commit"
+alias gdd="git difftool --dir-diff"
 alias ga="git add"
 alias gc="git checkout"
+alias gcm="git commit -m"
 alias gd="git diff"
 alias gdt="git difftool"
 alias gf="git fetch"
