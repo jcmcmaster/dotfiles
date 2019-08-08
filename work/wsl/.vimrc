@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " on-demand loading
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf.vim' 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
@@ -24,6 +25,7 @@ set background=dark
 highlight Comment cterm=italic
 
 let g:airline#extensions#tabline#enabled=1 
+let g:airline_theme='dark'
 let g:gruvbox_italic=1
 
 let g:OmniSharp_server_path = '/mnt/c/OmniSharp/omnisharp-win-x64/OmniSharp.exe'
