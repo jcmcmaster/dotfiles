@@ -8,3 +8,4 @@
 [core]
 	editor = vim
 	autocrlf = input
+	excludesfile = /home/jim_mcmaster/.gitignore

@@ -8,7 +8,7 @@ export ZSH="/home/jim_mcmaster/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="pi"
+ZSH_THEME="robbyrussell"
 
 # DEFAULT_USER=$USER
 # prompt_context() {}
@@ -115,6 +115,10 @@ export PATH=$PATH:"${projects}/jdb/jdb/bin/Release/netcoreapp2.1/win10-x64/"
 #cd
 cdp () {
 	cd ${projects}/$1
+}
+
+cdt () {
+	cd "${ticketDir}"/"$1"
 }
 
 #dotnet

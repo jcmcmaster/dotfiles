@@ -25,7 +25,7 @@ set background=dark
 highlight Comment cterm=italic
 
 let g:airline#extensions#tabline#enabled=1 
-let g:airline_theme='dark'
+let g:airline_theme='dracula'
 let g:gruvbox_italic=1
 
 let g:OmniSharp_server_path = '/mnt/c/OmniSharp/omnisharp-win-x64/OmniSharp.exe'
