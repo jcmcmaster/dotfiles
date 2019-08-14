@@ -34,7 +34,7 @@ let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf' " Use fzf.vim
 let g:syntastic_cs_checkers = ['code_checker']
 
-let g:ale_linters = { 'cs': ['OmniSharp'] }
+let g:ale_linters = { 'cs': ['OmniSharp'], 'py': ['pylint'] }
 
 set nocompatible
 set hlsearch "highlight search
@@ -47,6 +47,8 @@ set confirm "instead of failing command because of unsaved changes, prompt user
 set path+=** " search down into subfolders, provides tab-completion for all file-related tasks
 set clipboard=unnamed "use system clipboard
 set scrolloff=15
+
+au FileType python setlocal formatprg=autopep8\ -
 
 "----------"
 " Mappings "
