@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jim_mcmaster/.oh-my-zsh"
@@ -211,15 +212,15 @@ tdir() {
 #bash
 alias cl="clear && ls"
 alias cs="clear && git status"
-alias coordb="cd ${projects}/coordinate_database && clear && git status"
-alias coordev="cd ${projects}/coordinate && clear && git status"
-alias coornet="cd ${projects}/coordinate_net && clear && git status"
-alias coorws="cd ${projects}/coordinate_webservice && clear && git status"
-alias cus="cd ${projects}/customer_portal && clear && git status"
-alias mcdb="cd ${projects}/connect_database && clear && git status"
-alias mcdev="cd ${projects}/connectdev && clear && git status"
-alias mcnet="cd ${projects}/connect_net && clear && git status"
-alias ssrs="cd ${projects}/\"SSRS Reports\" && clear && git status"
+alias coordb="cd ${projects}/coordinate_database"
+alias coordev="cd ${projects}/coordinate"
+alias coornet="cd ${projects}/coordinate_net"
+alias coorws="cd ${projects}/coordinate_webservice"
+alias cus="cd ${projects}/customer_portal"
+alias mcdb="cd ${projects}/connect_database"
+alias mcdev="cd ${projects}/connectdev"
+alias mcnet="cd ${projects}/connect_net"
+alias ssrs="cd ${projects}/\"SSRS Reports\""
 alias onedrive="cd \"${onedrive}\""
 alias tickets="cd \"${ticketDir}\""
 alias home="cd /mnt/c/users/medisked"
@@ -239,7 +240,6 @@ alias gs="git status"
 alias gcdd="git checkout -- ."
 alias gp="git pull"
 alias gtree="git log --graph --oneline --decorate"
-alias qa="(git checkout qa &> /dev/null ||git checkout coordinate-qa &> /dev/null) && git pull" 
 alias master="git checkout master && git pull"
 alias lineblame="git blame -L"
 
