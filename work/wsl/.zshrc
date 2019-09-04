@@ -115,95 +115,95 @@ export PATH=$PATH:"${projects}/jdb/jdb/bin/Release/netcoreapp2.1/win10-x64/"
 
 #cd
 cdp () {
-	cd ${projects}/$1
+    cd ${projects}/$1
 }
 
 cdt () {
-	cd "${ticketDir}"/"$1"
+    cd "${ticketDir}"/"$1"
 }
 
 #dotnet
 publish () {
-	 dotnet.exe publish -c $1 -r win10-x64
+     dotnet.exe publish -c $1 -r win10-x64
 }
 
 #windows
 serverReset () {
-	net stop MSSQLSERVER	
-	net start MSSQLSERVER
-	iisreset 
+    net stop MSSQLSERVER	
+    net start MSSQLSERVER
+    iisreset 
 }
 
 #git
 blame () {
-	git log --follow -- $1
+    git log --follow -- $1
 }
 
 
 gdtfactory () { 
-	git difftool origin/master $( git diff --name-only origin/master | grep 'connect.Common/Entity/.*Factory' )
+    git difftool origin/master $( git diff --name-only origin/master | grep 'connect.Common/Entity/.*Factory' )
 }
 
 gac () {
-	git add -A
-	git commit -m "$1"
+    git add -A
+    git commit -m "$1"
 }
 
 gacp () {
-	git add -A
-	git commit -m "$1"
-	git push
+    git add -A
+    git commit -m "$1"
+    git push
 }
     
 # undo all changes at all costs (DANGER ZONE ;])
 grip () { 
-	read -p "Are you sure? (y/n)" conf
-	
-	if [ "$conf" != "y" ] 
-	then
-		echo "Close call..." 
-		return
-	fi
-	
-	curBranch=$(git symbolic-ref -q HEAD)
-	curBranch=${curBranch##refs/heads/}
-	curBranch=${curBranch:-HEAD}
-	git reset --hard
-	git clean -f
-	git checkout -- .
-	git checkout -B grip_false_branch
-	git branch -D $curBranch
-	git checkout $curBranch
-	git branch -D grip_false_branch
-	git status
+    read -p "Are you sure? (y/n)" conf
+    
+    if [ "$conf" != "y" ] 
+    then
+            echo "Close call..." 
+            return
+    fi
+    
+    curBranch=$(git symbolic-ref -q HEAD)
+    curBranch=${curBranch##refs/heads/}
+    curBranch=${curBranch:-HEAD}
+    git reset --hard
+    git clean -f
+    git checkout -- .
+    git checkout -B grip_false_branch
+    git branch -D $curBranch
+    git checkout $curBranch
+    git branch -D grip_false_branch
+    git status
 }
 
 # build .sln files in the current directory
 build () {
-	"${msbuild_path}" ./*.sln
+    "${msbuild_path}" ./*.sln
 }
 
 ctrlp() {
-	fzf_output=$(fzf)
-	if [[ $fzf_output != "" ]] ; then
-		</dev/tty vim $fzf_output
-	fi
+    fzf_output=$(fzf)
+    if [[ $fzf_output != "" ]] ; then
+            </dev/tty vim $fzf_output
+    fi
 }
 
 jot() {
-	echo "$*" >> ~/misc/jot
+    echo "$*" >> ~/misc/jot
 }
 
 tdir() {
-	mkdir $ticketDir/"$1"
+    mkdir $ticketDir/"$1"
 }
 
-# deploy () {
-#   git fetch
-# 	git checkout master
-# 	git merge origin/staging
-# 	git push
-# }
+deploy () {
+    git fetch
+        git checkout master
+        git merge origin/staging
+        git push
+}
 
 #-------------------------------------------------------------
 # Aliases
