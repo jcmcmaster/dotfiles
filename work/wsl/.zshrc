@@ -223,7 +223,7 @@ alias mcnet="cd ${projects}/connect_net"
 alias ssrs="cd ${projects}/\"SSRS Reports\""
 alias onedrive="cd \"${onedrive}\""
 alias tickets="cd \"${ticketDir}\""
-alias home="cd /mnt/c/users/medisked"
+alias home="cd /mnt/c/users/JimMcMaster"
 alias py="python3"
 alias pth='echo $PATH | tr : "\n" | less'
 
