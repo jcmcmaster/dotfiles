@@ -23,17 +23,16 @@ filetype indent plugin on
 syntax enable
 set background=dark
 highlight Comment cterm=italic
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 let g:airline#extensions#tabline#enabled=1 
 let g:airline_theme='dracula'
 let g:gruvbox_italic=1
-
 let g:OmniSharp_server_path = '/mnt/c/OmniSharp/omnisharp-win-x64/OmniSharp.exe'
 let g:OmniSharp_translate_cygwin_wsl = 1
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf' " Use fzf.vim
 let g:syntastic_cs_checkers = ['code_checker']
-
 let g:ale_linters = { 'cs': ['OmniSharp'], 'py': ['pylint'] }
 
 set nocompatible
@@ -48,21 +47,40 @@ set path+=** " search down into subfolders, provides tab-completion for all file
 set clipboard=unnamed "use system clipboard
 set scrolloff=15
 
-au FileType python setlocal formatprg=autopep8\ -
+let mapleader = " "
 
 "----------"
 " Mappings "
 "----------"
-map <Space>; A;<Esc>
-map zl :so ~/.vsvimrc<CR>
-nmap <Space>w :w<CR>
-nmap <Space>q :q<CR>
-nnoremap <Space>m :<C-u>marks<CR>:normal! `
-nnoremap <Space>b :ls<CR>:b<Space>
-nnoremap <Space>n :NERDTree<CR>
-nnoremap <Space>f :FZF<CR>
-nnoremap <Space>g :Rg<CR>
-"nnoremap <Esc> :noh<CR><Esc>
+map <Leader>; A;<Esc>
+
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>m :<C-u>marks<CR>:normal! `
+nmap <Leader>b :ls<CR>:b<Leader>
+nmap <Leader>n :NERDTree<CR>
+nmap <Leader>fz :FZF<CR>
+nmap <Leader>g :Rg<CR>
+
+augroup omnisharp_commands
+	autocmd!
+	
+	autocmd FileType cs nnoremap <buffer> <Leader>cf :OmniSharpCodeFormat<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>doc :OmniSharpDocumentation<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbols<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>gca :OmniSharpGetCodeActions<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>j :OmniSharpNavigateDown<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>k :OmniSharpNavigateUp<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>pd :OmniSharpPreviewDefinition<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>pi :OmniSharpPreviewImplementations<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>r :OmniSharpRename<CR>
+        autocmd FileType cs nnoremap <buffer> <Leader>tl :OmniSharpTypeLookup<CR>
+augroup END
+
+au FileType python setlocal formatprg=autopep8\ -
 
 "Vim Split Goodies
 nnoremap <C-J> <C-W><C-J> 
