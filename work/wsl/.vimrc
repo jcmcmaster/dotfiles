@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-eunuch'
 Plug 'altercation/vim-colors-solarized'
 Plug 'prabirshrestha/asyncomplete.vim'
 
@@ -39,6 +40,7 @@ let g:OmniSharp_translate_cygwin_wsl = 1
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf' " Use fzf.vim
 let g:ale_linters = { 'cs': ['OmniSharp'], 'py': ['pylint'] }
+let NERDTreeShowHidden=1
 
 set nocompatible
 set hlsearch "highlight search
