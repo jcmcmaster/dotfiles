@@ -143,7 +143,7 @@ alias cus="cd ${projects}/customer_portal"
 alias mcdb="cd ${projects}/connect_database"
 alias mcdev="cd ${projects}/connectdev"
 alias mcnet="cd ${projects}/connect_net"
-alias ssrs="cd ${projects}/\"SSRS Reports\""
+alias ssrs="cd ${projects}/ssrs-reports"
 alias lsa="ls -al"
 alias python='winpty python.exe'
 

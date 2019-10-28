@@ -6,6 +6,6 @@ let hintcharacters = "asdfghjkltybn"
 
 map yt :duplicate<CR>
 map g :tabnew google<Space>
-map s :source c:/Projects/dotfiles/.cvimrc<CR>
+map s :source c:/Users/JimMcMaster/projects/dotfiles/.cvimrc<CR>
 
 set localconfig 
