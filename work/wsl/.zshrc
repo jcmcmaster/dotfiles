@@ -209,9 +209,18 @@ deploy () {
 # Aliases
 #-------------------------------------------------------------
 
-#bash
+#gen
 alias cl="clear && ls"
 alias cs="clear && git status"
+alias home="cd /mnt/c/users/JimMcMaster"
+alias py="python3"
+alias pth='echo $PATH | tr : "\n" | less'
+alias onedrive="cd \"${onedrive}\""
+alias tickets="cd \"${ticketDir}\""
+alias rgil="rg -il"
+alias vimrc="vim ~/.vimrc"
+
+#projects
 alias coordb="cd ${projects}/coordinate_database"
 alias coordev="cd ${projects}/coordinate"
 alias coornet="cd ${projects}/coordinate_net"
@@ -220,12 +229,7 @@ alias cus="cd ${projects}/customer_portal"
 alias mcdb="cd ${projects}/connect_database"
 alias mcdev="cd ${projects}/connectdev"
 alias mcnet="cd ${projects}/connect_net"
-alias ssrs="cd ${projects}/\"SSRS Reports\""
-alias onedrive="cd \"${onedrive}\""
-alias tickets="cd \"${ticketDir}\""
-alias home="cd /mnt/c/users/JimMcMaster"
-alias py="python3"
-alias pth='echo $PATH | tr : "\n" | less'
+alias ssrs="cd ${projects}/ssrs-reports"
 
 #git
 alias commit="git commit"
@@ -273,8 +277,9 @@ bindkey -v # vim editing mode in zsh
 zle -N ctrlp
 bindkey "^p" ctrlp
 
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/downloads/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+source /home/jim_mcmaster/downloads/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

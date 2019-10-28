@@ -9,10 +9,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outsi
 Plug 'junegunn/fzf.vim' 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-syntastic/syntastic'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-dadbod'
+Plug 'altercation/vim-colors-solarized'
+Plug 'prabirshrestha/asyncomplete.vim'
 
 call plug#end()
 
@@ -20,19 +21,23 @@ call plug#end()
 " Settings "
 "----------"
 filetype indent plugin on
-syntax enable
-set background=dark
 highlight Comment cterm=italic
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+set encoding=utf-8
+syntax enable
+set background=dark
+colorscheme solarized
+
 let g:airline#extensions#tabline#enabled=1 
-let g:airline_theme='dracula'
+let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 let g:gruvbox_italic=1
-let g:OmniSharp_server_path = '/mnt/c/OmniSharp/omnisharp-win-x64/OmniSharp.exe'
+let g:OmniSharp_server_path = '/mnt/c/Program Files/OmniSharp/OmniSharp.exe'
 let g:OmniSharp_translate_cygwin_wsl = 1
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf' " Use fzf.vim
-let g:syntastic_cs_checkers = ['code_checker']
 let g:ale_linters = { 'cs': ['OmniSharp'], 'py': ['pylint'] }
 
 set nocompatible
@@ -61,17 +66,23 @@ nmap <Leader>b :ls<CR>:b<Leader>
 nmap <Leader>n :NERDTree<CR>
 nmap <Leader>fz :FZF<CR>
 nmap <Leader>g :Rg<CR>
+nmap <C-p> :FZF<CR>
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 augroup omnisharp_commands
 	autocmd!
 	
 	autocmd FileType cs nnoremap <buffer> <Leader>cf :OmniSharpCodeFormat<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>doc :OmniSharpDocumentation<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>gca :OmniSharpGetCodeActions<CR>
+	autocmd FileType cs nnoremap <buffer> <Leader>gd :OmniSharpGotoDefinition<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbols<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>gca :OmniSharpGetCodeActions<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>j :OmniSharpNavigateDown<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>k :OmniSharpNavigateUp<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>pd :OmniSharpPreviewDefinition<CR>
