@@ -21,7 +21,7 @@ ticketDir="$onedrive/Tickets"
 #-------------------------------------------------------------
 # Functions
 #-------------------------------------------------------------
-[ -f ~/.functions ] && source .functions
+[ -f ~/.functions ] && source ~/.functions
 
 #-------------------------------------------------------------
 # Aliases
@@ -48,3 +48,5 @@ bindkey "^p" ctrlp
 # Etc.
 #-------------------------------------------------------------
 source ~/downloads/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.purepower
+source ~/powerlevel10k/powerlevel10k.zsh-theme
