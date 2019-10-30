@@ -10,13 +10,13 @@ alias rgil="rg -il"
 alias vimrc="vim ~/.vimrc"
 
 #projects
+alias coor="cd ${projects}/coordinate"
 alias coordb="cd ${projects}/coordinate_database"
-alias coordev="cd ${projects}/coordinate"
 alias coornet="cd ${projects}/coordinate_net"
 alias coorws="cd ${projects}/coordinate_webservice"
 alias cus="cd ${projects}/customer_portal"
+alias mc="cd ${projects}/connectdev"
 alias mcdb="cd ${projects}/connect_database"
-alias mcdev="cd ${projects}/connectdev"
 alias mcnet="cd ${projects}/connect_net"
 alias ssrs="cd ${projects}/ssrs-reports"
 

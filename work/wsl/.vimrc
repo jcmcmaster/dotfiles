@@ -15,6 +15,7 @@ Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-eunuch'
 Plug 'altercation/vim-colors-solarized'
 Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'OrangeT/vim-csharp'
 
 call plug#end()
 
