@@ -7,6 +7,7 @@ map <Leader>b :vsc Build.BuildSolution<CR>
 map <Leader>c :vsc ReSharper.ReSharper_DuplicateText<CR>
 map <Leader>cf :vsc Edit.FormatDocument<CR>
 map <Leader>ck :vsc Tools.CustomizeKeyboard<CR>
+map <Leader>cs :vsc Edit.CommentSelection<CR>
 map <Leader>d :vsc Debug.AttachtoProcess<CR>
 map <Leader>D :vsc Debug.ReattachtoProcess<CR>
 map <Leader>E :vsc ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
