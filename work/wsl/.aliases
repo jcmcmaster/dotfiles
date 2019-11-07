@@ -8,6 +8,7 @@ alias onedrive="cd \"${onedrive}\""
 alias tickets="cd \"${ticketDir}\""
 alias rgil="rg -il"
 alias vimrc="vim ~/.vimrc"
+alias tmux="TERM=screen-256color-bce tmux"
 
 #projects
 alias coor="cd ${projects}/coordinate"
