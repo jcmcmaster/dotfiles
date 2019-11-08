@@ -1,9 +1,15 @@
 [user]
 	email = jmcmaster008@gmail.com
-	name = =
+	name = Jim McMaster
 [credential]
 	helper = cache --timeout 7200
 [diff]
 	tool = vimdiff
 [difftool]
 	prompt = false
+[difftool "vscode"]
+    cmd = "code --wait --diff $LOCAL $REMOTE"
+[core]
+    editor = vim
+    autocrlf = input
+    excludesfile = /home/phrosty/.gitignore
