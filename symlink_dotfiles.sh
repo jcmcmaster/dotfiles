@@ -34,6 +34,7 @@ ln -s -f ~/projects/dotfiles/common/$env/.zshrc ~/.zshrc
 ln -s -f ~/projects/dotfiles/$place/$env/.ohmyzshconf ~/.ohmyzshconf
 ln -s -f ~/projects/dotfiles/$place/$env/.aliases ~/.aliases
 ln -s -f ~/projects/dotfiles/$place/$env/.functions ~/.functions
+ln -s -f ~/projects/dotfiles/$place/$env/.globals ~/.globals
 ln -s -f ~/projects/dotfiles/$place/$env/.gitconfig ~/.gitconfig
 ln -s -f ~/projects/dotfiles/$place/$env/.bashrc ~/.bashrc
 ln -s -f ~/projects/dotfiles/$place/$env/.taskrc ~/.taskrc
