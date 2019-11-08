@@ -1,0 +1,79 @@
+#cd
+cdp () {
+    cd ${projects}/$1
+}
+
+cdt () {
+    cd "${ticketDir}"/"$1"
+}
+
+#dotnet
+publish () {
+     dotnet.exe publish -c $1 -r win10-x64
+}
+
+#windows
+serverReset () {
+    net stop MSSQLSERVER	
+    net start MSSQLSERVER
+    iisreset 
+}
+
+# build .sln files in the current directory
+build () {
+    "${msbuild_path}" ./*.sln
+}
+
+ctrlp() {
+    fzf_output=$(fzf)
+    if [[ $fzf_output != "" ]] ; then
+            </dev/tty vim $fzf_output
+    fi
+}
+
+jot() {
+    echo "$*" >> ~/misc/jot
+}
+
+tdir() {
+    mkdir $ticketDir/"$1"
+}
+
+blame () {
+    git log --follow -- $1
+}
+
+# git
+gac () {
+    git add -A
+    git commit -m "$1"
+}
+
+gacp () {
+    git add -A
+    git commit -m "$1"
+    git push
+}
+    
+# undo all changes at all costs (DANGER ZONE ;])
+grip () { 
+    read -p "Are you sure? (y/n)" conf
+    
+    if [ "$conf" != "y" ] 
+    then
+            echo "Close call..." 
+            return
+    fi
+    
+    curBranch=$(git symbolic-ref -q HEAD)
+    curBranch=${curBranch##refs/heads/}
+    curBranch=${curBranch:-HEAD}
+    git reset --hard
+    git clean -f
+    git checkout -- .
+    git checkout -B grip_false_branch
+    git branch -D $curBranch
+    git checkout $curBranch
+    git branch -D grip_false_branch
+    git status
+}
