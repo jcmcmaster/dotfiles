@@ -1,9 +1,26 @@
+"---------"
+" VimPlug "
+"---------"
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " on-demand loading
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf.vim' 
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
 "----------"
 " Settings "
 "----------"
 filetype indent plugin on
 syntax enable
-colorscheme Blaaark
+"colorscheme Blaaark
+
+let g:OmniSharp_server_stdio = 1
 
 set nocompatible
 set hlsearch "highlight search
@@ -29,15 +46,3 @@ nnoremap <Space>b :ls<CR>:b<Space>
 nnoremap <Space>n :NERDTree<CR>
 nnoremap <Space>f :FZF<CR>
 nnoremap <Space>g :Rg<CR>
-
-"---------"
-" VimPlug "
-"---------"
-call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " on-demand loading
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf.vim' 
-
-call plug#end()

@@ -180,7 +180,7 @@ ctrlp() {
 # Aliases
 #-------------------------------------------------------------
 
-#bash
+#gen
 alias bashrc=". ~/.bashrc" 
 alias cl="clear && ls"
 alias cs="clear && git status"
@@ -209,8 +209,6 @@ alias master="git checkout master && git pull"
 # Startup
 #-------------------------------------------------------------
 
-fortune | cowsay
-
 source ~/.purepower
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -228,4 +226,3 @@ bindkey -v # vim editing mode in zsh
 
 zle -N ctrlp
 bindkey "^p" ctrlp
-
