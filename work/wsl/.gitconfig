@@ -1,9 +1,15 @@
 [user]
-	email = jmcmaster008@gmail.com
-	name = Jim McMaster
+    email = jmcmaster008@gmail.com
+    name = Jim McMaster
 [credential]
-	helper = cache --timeout=7200
+    helper = cache --timeout=7200
 [diff]
-	tool = vimdiff
+    tool = vimdiff
+[difftool "araxis"]
+    path = "/mnt/c/program files/Araxis/Araxis Merge/compare.exe"
+[difftool "vscode"]
+    cmd = "code --wait --diff $LOCAL $REMOTE"
 [core]
-	editor = vim
+    editor = vim
+    autocrlf = input
+    excludesfile = /home/jim_mcmaster/.gitignore

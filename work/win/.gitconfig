@@ -4,15 +4,15 @@
 [difftool "sourcetree"]
 	cmd = 'C:/Program Files/Araxis/Araxis Merge/compare.exe' \"$LOCAL\" \"$REMOTE\"
 [difftool "araxis"]
-	cmd = 'C:/Program Files/Araxis/Araxis Merge/compare.exe' \"$LOCAL\" \"$REMOTE\"	
+	path = "C:/Program Files/Araxis/Araxis Merge/compare.exe" 
 [mergetool "sourcetree"]
 	cmd = 'C:/Program Files/Araxis/Araxis Merge/compare.exe' -wait -merge -3 \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
 [mergetool "araxis"]
-     path = C:/Program Files/Araxis/Araxis Merge/compare.exe
-     trustExitCode = true
+	path = "C:/Program Files/Araxis/Araxis Merge/compare.exe" 
+	trustExitCode = true
 [core]
-	hooksPath = C:\\Users\\Medisked\\git_hooks\\git_hooks
+	hooksPath = C:\\Users\\JimMcMaster\\projects\\git_hooks\\git_hooks
 	editor = vim
 [diff]
 	tool = araxis

@@ -1,10 +1,15 @@
 #-------------------------------------------------------------
+# Path
+#-------------------------------------------------------------
+export PATH=$PATH:"C:\Users\JimMcMaster\projects\jdb\jdb\bin\Release\netcoreapp2.1\win10-x64"
+
+#-------------------------------------------------------------
 # Variables
 #-------------------------------------------------------------
 
 # my code projects folder
 projects="C:/Users/JimMcMaster/projects"
-msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin"
 onedrive="C:/Users/JimMcMaster/OneDrive - Medisked"
 ticketDir="$onedrive/Tickets"
 
@@ -44,6 +49,11 @@ gacp () {
 	git commit -m "$1"
 	git push
 }
+
+gcmp () {
+	git commit -m "$1"
+	git push
+}
     
 # undo all changes at all costs (DANGER ZONE ;])
 grip () { 
@@ -70,23 +80,23 @@ grip () {
 
 # build connect_net.sln
 mcbuild () {
-	"${msbuild_path}" "${projects}\connect_net\Connect.sln"
+	"${msbuild_path}/MSBuild.exe" "${projects}\connect_net\Connect.sln"
 }
 
 # build coordinate_net.sln and coordinate_webservice.sln
 coorbuild () {
-	"${msbuild_path}" "${projects}\coordinate_net\LifePlanBuilder2.sln"
-	"${msbuild_path}" "${projects}\coordinate_webservice\coordinate_webservice.sln"
+	"${msbuild_path}/MSBuild.exe" "${projects}\coordinate_net\LifePlanBuilder2.sln"
+	"${msbuild_path}/MSBuild.exe" "${projects}\coordinate_webservice\coordinate_webservice.sln"
 }
 
 # build customer-portals.sln
 cusbuild () {
-	"${msbuild_path}" "${projects}\customer_portal\customer-portals\customer-portals.sln"
+	"${msbuild_path}/MSBuild.exe" "${projects}\customer_portal\customer-portals\customer-portals.sln"
 }
 
 # build .sln files in the current directory
 build () {
-	"${msbuild_path}" ./*.sln
+	"${msbuild_path}/MSBuild.exe" ./*.sln
 }
 
 # delete apex AppData folder
@@ -133,14 +143,16 @@ alias cus="cd ${projects}/customer_portal"
 alias mcdb="cd ${projects}/connect_database"
 alias mcdev="cd ${projects}/connectdev"
 alias mcnet="cd ${projects}/connect_net"
-alias ssrs="cd ${projects}/\"SSRS Reports\""
+alias ssrs="cd ${projects}/ssrs-reports"
 alias lsa="ls -al"
 alias python='winpty python.exe'
 
 # git
 alias commit="git commit"
+alias gdd="git difftool --dir-diff"
 alias ga="git add"
 alias gc="git checkout"
+alias gcm="git commit -m"
 alias gd="git diff"
 alias gdt="git difftool"
 alias gf="git fetch"
@@ -162,3 +174,5 @@ alias ttlclean="git clean -f && git checkout ."
 # Color!
 alias ls='command ls --color=auto'
 alias grep='command grep --color=auto'
+
+set completion-ignore-case on
