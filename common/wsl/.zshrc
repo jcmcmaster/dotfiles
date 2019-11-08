@@ -14,9 +14,7 @@ export PATH=$PATH:"${projects}/jdb/jdb/bin/Release/netcoreapp2.1/win10-x64/"
 #-------------------------------------------------------------
 # Variables
 #-------------------------------------------------------------
-projects="/mnt/c/users/JimMcMaster/projects"
-onedrive="/mnt/c/Users/JimMcMaster/OneDrive - Medisked"
-ticketDir="$onedrive/Tickets"
+[ -f ~/.globals ] && source ~/.globals
 
 #-------------------------------------------------------------
 # Functions
