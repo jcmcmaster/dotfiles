@@ -87,12 +87,11 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 augroup omnisharp_commands
 	autocmd!
-	
 	autocmd FileType cs nnoremap <buffer> <Leader>cf :OmniSharpCodeFormat<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>doc :OmniSharpDocumentation<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>gca :OmniSharpGetCodeActions<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>gd :OmniSharpGotoDefinition<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
+	autocmd FileType cs nnoremap <buffer> gca :OmniSharpGetCodeActions<CR>
+	autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+	autocmd FileType cs nnoremap <buffer> gu :OmniSharpFindUsages<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbols<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
