@@ -27,11 +27,11 @@ else
 fi
 
 # make links
-ln -s -f ~/projects/dotfiles/.ohmyzshconf ~/.ohmyzshconf
-ln -s -f ~/projects/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s -f ~/projects/dotfiles/.vimrc ~/.vimrc
+ln -s -f ~/projects/dotfiles/common/.ohmyzshconf ~/.ohmyzshconf
+ln -s -f ~/projects/dotfiles/common/.tmux.conf ~/.tmux.conf
+ln -s -f ~/projects/dotfiles/common/.vimrc ~/.vimrc
+ln -s -f ~/projects/dotfiles/common/.zshrc ~/.zshrc
 
-ln -s -f ~/projects/dotfiles/$place/$env/.zshrc ~/.zshrc
 ln -s -f ~/projects/dotfiles/$place/$env/.aliases ~/.aliases
 ln -s -f ~/projects/dotfiles/$place/$env/.functions ~/.functions
 ln -s -f ~/projects/dotfiles/$place/$env/.gitconfig ~/.gitconfig
