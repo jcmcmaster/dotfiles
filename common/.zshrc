@@ -9,7 +9,7 @@ export PATH=$PATH:"${projects}/jdb/jdb/bin/Release/netcoreapp2.1/win10-x64/"
 #-------------------------------------------------------------
 # Oh My Zsh Conf
 #-------------------------------------------------------------
-[ -f ./ohmyzshconf ] && source ~/.ohmyzshconf
+[ -f ~/.ohmyzshconf ] && source ~/.ohmyzshconf
 
 #-------------------------------------------------------------
 # Variables
@@ -47,6 +47,5 @@ bindkey "^p" ctrlp
 #-------------------------------------------------------------
 # Etc.
 #-------------------------------------------------------------
-source ~/downloads/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.purepower
 source ~/powerlevel10k/powerlevel10k.zsh-theme
