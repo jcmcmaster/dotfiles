@@ -43,9 +43,3 @@ cd
 bindkey -v # vim editing mode in zsh
 zle -N ctrlp
 bindkey "^p" ctrlp
-
-#-------------------------------------------------------------
-# Etc.
-#-------------------------------------------------------------
-source ~/.purepower
-source ~/powerlevel10k/powerlevel10k.zsh-theme
