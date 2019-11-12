@@ -1,3 +1,6 @@
-projects="~/project"
-onedrive="/mnt/c/Users/JimMcMaster/OneDrive - Medisked"
+winhome="/mnt/c/Users/JimMcMaster/"
+
+projects="$winhome/projects"
+onedrive="$winhome/OneDrive - Medisked"
+
 ticketDir="$onedrive/Tickets"
