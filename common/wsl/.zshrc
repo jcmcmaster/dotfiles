@@ -1,10 +1,7 @@
 #-------------------------------------------------------------
 # PATH
 #-------------------------------------------------------------
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:"mnt/c/users/JimMcMaster/onedrive - medisked/scripts/bash"
-export PATH=$PATH:"${projects}/jdb/jdb/bin/Release/netcoreapp2.1/win10-x64/"
+[ -f ~/.path ] && source ~/.path
 
 #-------------------------------------------------------------
 # Oh My Zsh Conf
@@ -29,15 +26,9 @@ export PATH=$PATH:"${projects}/jdb/jdb/bin/Release/netcoreapp2.1/win10-x64/"
 #-------------------------------------------------------------
 # Startup
 #-------------------------------------------------------------
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-cd
+[ -f ~/.startup ] && source ~/.startup
 
 #-------------------------------------------------------------
 # Keybindings
 #-------------------------------------------------------------
-bindkey -v # vim editing mode in zsh
-zle -N ctrlp
-bindkey "^p" ctrlp
+[ -f ~/.keybindings ] && source ~/.keybindings
