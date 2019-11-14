@@ -31,6 +31,7 @@ ln -s -f ~/projects/dotfiles/common/$env/.tmux.conf ~/.tmux.conf
 ln -s -f ~/projects/dotfiles/common/$env/.vimrc ~/.vimrc
 ln -s -f ~/projects/dotfiles/common/$env/.zshrc ~/.zshrc
 ln -s -f ~/projects/dotfiles/common/$env/.keybindings ~/.keybindings
+ln -s -f ~/projects/dotfiles/common/$env/.dircolors ~/.dircolors
 
 ln -s -f ~/projects/dotfiles/$place/$env/.ohmyzshconf ~/.ohmyzshconf
 ln -s -f ~/projects/dotfiles/$place/$env/.aliases ~/.aliases
