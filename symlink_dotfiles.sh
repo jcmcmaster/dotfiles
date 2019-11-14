@@ -30,17 +30,16 @@ fi
 ln -s -f ~/projects/dotfiles/common/$env/.tmux.conf ~/.tmux.conf
 ln -s -f ~/projects/dotfiles/common/$env/.vimrc ~/.vimrc
 ln -s -f ~/projects/dotfiles/common/$env/.zshrc ~/.zshrc
+ln -s -f ~/projects/dotfiles/common/$env/.keybindings ~/.keybindings
 
 ln -s -f ~/projects/dotfiles/$place/$env/.ohmyzshconf ~/.ohmyzshconf
 ln -s -f ~/projects/dotfiles/$place/$env/.aliases ~/.aliases
 ln -s -f ~/projects/dotfiles/$place/$env/.functions ~/.functions
 ln -s -f ~/projects/dotfiles/$place/$env/.globals ~/.globals
+ln -s -f ~/projects/dotfiles/$place/$env/.path ~/.path
+ln -s -f ~/projects/dotfiles/$place/$env/.startup ~/.startup
 ln -s -f ~/projects/dotfiles/$place/$env/.gitconfig ~/.gitconfig
 ln -s -f ~/projects/dotfiles/$place/$env/.bashrc ~/.bashrc
 ln -s -f ~/projects/dotfiles/$place/$env/.taskrc ~/.taskrc
-
-if ! [[ $env == "wsl" ]] ; then
-	ln -s -f ~/projects/dotfiles/$place/$env/.vsvimrc ~/.vsvimrc
-fi
 
 exit 0

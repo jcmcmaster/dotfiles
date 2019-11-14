@@ -1,4 +1,3 @@
-"---------"
 " VimPlug "
 "---------"
 call plug#begin('~/.vim/plugged')
@@ -110,4 +109,16 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K> 
 nnoremap <C-L> <C-W><C-L> 
 nnoremap <C-H> <C-W><C-H> 
+
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
 

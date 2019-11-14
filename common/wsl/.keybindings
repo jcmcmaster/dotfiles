@@ -1,0 +1,3 @@
+bindkey -v # vim editing mode in zsh
+zle -N ctrlp
+bindkey "^p" ctrlp
