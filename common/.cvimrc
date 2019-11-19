@@ -4,8 +4,10 @@ let barposition = "bottom"
 let configpath = "c:\projects\dotfiles\.cvimrc"
 let hintcharacters = "asdfghjkltybn"
 
-map yt :duplicate<CR>
-map g :tabnew google<Space>
-map s :source c:/Users/JimMcMaster/projects/dotfiles/.cvimrc<CR>
+let mapleader = ","
+
+map <Leader>d :duplicate<CR>
+map <Leader>g :tabnew google<Space>
+map <Leader>s :source c:/Users/JimMcMaster/projects/dotfiles/.cvimrc<CR>
 
 set localconfig 
