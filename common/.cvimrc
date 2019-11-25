@@ -1,13 +1,18 @@
 let blacklists = ["https://mediskedcco.my.centrify.com/*"]
 let smoothscroll = "true"
 let barposition = "bottom"
-let configpath = "c:\projects\dotfiles\.cvimrc"
+let configpath = "c:/projects/dotfiles/common/.cvimrc"
 let hintcharacters = "asdfghjkltybn"
 
 let mapleader = ","
 
 map <Leader>d :duplicate<CR>
 map <Leader>g :tabnew google<Space>
-map <Leader>s :source c:/Users/JimMcMaster/projects/dotfiles/.cvimrc<CR>
+map <Leader>s :source c:/Users/JimMcMaster/projects/dotfiles/common/.cvimrc<CR>
+
+map L nextTab
+map H previousTab
+map J goBack
+map K goForward
 
 set localconfig 
