@@ -16,6 +16,8 @@ Plug 'dense-analysis/ale'
 Plug 'lifepillar/vim-solarized8'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'OrangeT/vim-csharp'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -71,14 +73,16 @@ map <Leader>; A;<Esc>
 cnoremap gdm Gdiffsplit origin/master:%
 cnoremap gdh Gdiffsplit head:%
 
-nmap <Leader>w :w<CR>
-nmap <Leader>q :q<CR>
-nmap <Leader>m :<C-u>marks<CR>:normal! `
+nmap <C-p> :FZF<CR>
 nmap <Leader>b :ls<CR>:b<Leader>
-nmap <Leader>n :NERDTree<CR>
 nmap <Leader>fz :FZF<CR>
 nmap <Leader>g :Rg<CR>
-nmap <C-p> :FZF<CR>
+nmap <Leader>h :bp<CR>
+nmap <Leader>l :bn<CR>
+nmap <Leader>m :<C-u>marks<CR>:normal! `
+nmap <Leader>n :NERDTree<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>w :w<CR>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -88,7 +92,7 @@ augroup omnisharp_commands
 	autocmd!
 	autocmd FileType cs nnoremap <buffer> <Leader>cf :OmniSharpCodeFormat<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>doc :OmniSharpDocumentation<CR>
-	autocmd FileType cs nnoremap <buffer> gca :OmniSharpGetCodeActions<CR>
+	autocmd FileType cs nnoremap <buffer> ga :OmniSharpGetCodeActions<CR>
 	autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
 	autocmd FileType cs nnoremap <buffer> gu :OmniSharpFindUsages<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbols<CR>
@@ -105,10 +109,10 @@ augroup END
 au FileType python setlocal formatprg=autopep8\ -
 
 "Vim Split Goodies
-nnoremap <C-J> <C-W><C-J> 
-nnoremap <C-K> <C-W><C-K> 
-nnoremap <C-L> <C-W><C-L> 
-nnoremap <C-H> <C-W><C-H> 
+" nnoremap <C-J> <C-W><C-J> 
+" nnoremap <C-K> <C-W><C-K> 
+" nnoremap <C-L> <C-W><C-L> 
+" nnoremap <C-H> <C-W><C-H> 
 
 function! InsertTabWrapper()
     let col = col('.') - 1

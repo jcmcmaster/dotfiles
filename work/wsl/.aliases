@@ -5,10 +5,12 @@ alias home="cd /mnt/c/users/JimMcMaster"
 alias py="python3"
 alias pth='echo $PATH | tr : "\n" | less'
 alias onedrive="cd \"${onedrive}\""
+alias rg="rg --color=always"
 alias tickets="cd \"${ticketDir}\""
 alias rgil="rg -il"
 alias vimrc="vim ~/.vimrc"
 alias tmux="TERM=screen-256color-bce tmux"
+alias vim="nvim"
 
 #projects
 alias coor="cd ${projects}/coordinate"
@@ -34,8 +36,8 @@ alias gs="git status"
 alias gcdd="git checkout -- ."
 alias gp="git pull"
 alias gtree="git log --graph --oneline --decorate"
-alias master="git checkout master && git pull"
 alias lineblame="git blame -L"
+alias master="git checkout master && git pull"
 
 #taskwarrior
 alias t="task"

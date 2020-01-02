@@ -68,7 +68,7 @@ gacp () {
     
 # undo all changes at all costs (DANGER ZONE ;])
 grip () { 
-    read -p "Are you sure? (y/n)" conf
+    vared -p "Are you sure? (y/n)" -c conf
     
     if [ "$conf" != "y" ] 
     then
@@ -87,4 +87,38 @@ grip () {
     git checkout $curBranch
     git branch -D grip_false_branch
     git status
+}
+
+coormaster() {
+    coornet
+    if output=$(git status --porcelain) && [ -z "$output" ]; then
+        git checkout master
+        git pull
+    else 
+        echo "coornet has uncommitted changes"
+    fi
+
+    coor
+    if output=$(git status --porcelain) && [ -z "$output" ]; then
+        git checkout master
+        git pull
+    else 
+        echo "coor has uncommitted changes"
+    fi
+
+    coordb
+    if output=$(git status --porcelain) && [ -z "$output" ]; then
+        git checkout master
+        git pull
+    else 
+        echo "coordb has uncommitted changes"
+    fi
+
+    coorws
+    if output=$(git status --porcelain) && [ -z "$output" ]; then
+        git checkout master
+        git pull
+    else 
+        echo "coorws has uncommitted changes"
+    fi
 }
