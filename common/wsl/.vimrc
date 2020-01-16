@@ -43,7 +43,6 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 let g:OmniSharp_server_path = '/mnt/c/Program Files/OmniSharp/OmniSharp.exe'
-let g:OmniSharp_translate_cygwin_wsl = 1
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf' " Use fzf.vim
 let g:ale_linters = { 'cs': ['OmniSharp'], 'py': ['pylint'] }
@@ -90,9 +89,9 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 augroup omnisharp_commands
 	autocmd!
+	autocmd FileType cs nnoremap <buffer> <Leader>ca :OmniSharpGetCodeActions<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>cf :OmniSharpCodeFormat<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>doc :OmniSharpDocumentation<CR>
-	autocmd FileType cs nnoremap <buffer> ga :OmniSharpGetCodeActions<CR>
 	autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
 	autocmd FileType cs nnoremap <buffer> gu :OmniSharpFindUsages<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbols<CR>
