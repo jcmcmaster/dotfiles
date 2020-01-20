@@ -1,23 +1,35 @@
+"---------"
 " VimPlug "
 "---------"
 call plug#begin('~/.vim/plugged')
-
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf.vim' 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " on-demand loading
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf.vim' 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
-Plug 'lifepillar/vim-solarized8'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'OrangeT/vim-csharp'
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'OrangeT/vim-csharp'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'ycm-core/YouCompleteMe'
+
+" Themes...
+Plug 'nanotech/jellybeans.vim'
+" Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'vim-scripts/plum.vim'
+" Plug 'cocopon/iceberg.vim'
+" Plug 'morhetz/gruvbox'
+" Plug 'matveyt/vim-modest'
+" Plug 'seesleestak/duo-mini'
+" Plug 'lifepillar/vim-solarized8'
+" Plug 'wadackel/vim-dogrun'
 
 call plug#end()
 
@@ -30,7 +42,9 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 set encoding=utf-8
 syntax enable
-colorscheme solarized8
+" colorscheme modest
+" colorscheme solarized8
+colorscheme jellybeans
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -40,8 +54,9 @@ set background=dark
 
 let g:airline#extensions#tabline#enabled=1 
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
+let g:airline_theme='jellybeans'
 let g:airline_solarized_bg='dark'
+let g:OmniSharp_translate_cygwin_wsl = 1
 let g:OmniSharp_server_path = '/mnt/c/Program Files/OmniSharp/OmniSharp.exe'
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf' " Use fzf.vim
@@ -69,9 +84,11 @@ let mapleader = " "
 "----------"
 map <Leader>; A;<Esc>
 
-cnoremap gdm Gdiffsplit origin/master:%
-cnoremap gdh Gdiffsplit head:%
+cnoremap gdm Gvdiffsplit origin/master:%
+cnoremap gdh Gvdiffsplit head:%
 
+nnoremap <a-h> 20zl<CR>
+nnoremap <a-l> 20zr<CR>
 nmap <C-p> :FZF<CR>
 nmap <Leader>b :ls<CR>:b<Leader>
 nmap <Leader>fz :FZF<CR>
@@ -107,11 +124,9 @@ augroup END
 
 au FileType python setlocal formatprg=autopep8\ -
 
-"Vim Split Goodies
-" nnoremap <C-J> <C-W><C-J> 
-" nnoremap <C-K> <C-W><C-K> 
-" nnoremap <C-L> <C-W><C-L> 
-" nnoremap <C-H> <C-W><C-H> 
+" vim diff
+nnoremap <expr> <Leader>j &diff ? ']c' : '<Leader>j'
+nnoremap <expr> <Leader>k &diff ? '[c' : '<Leader>j'
 
 function! InsertTabWrapper()
     let col = col('.') - 1

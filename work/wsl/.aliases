@@ -11,7 +11,7 @@ alias rgil="rg -il"
 alias vimrc="vim ~/.vimrc"
 alias tmux="TERM=screen-256color-bce tmux"
 alias vim="nvim"
-alias msb="msbuild.exe"
+alias msb="msbuild.exe -verbosity:m"
 
 #projects
 alias coor="cd ${projects}/coordinate"
@@ -27,6 +27,7 @@ alias ssrs="cd ${projects}/ssrs-reports"
 #git
 alias commit="git commit"
 alias ga="git add"
+alias gap="git add -p"
 alias gc="git checkout"
 alias gcm="git commit -m"
 alias gd="git diff"
