@@ -1,6 +1,10 @@
 let mapleader = " "
 set ignorecase
 set clipboard=unnamed
+set hlsearch
+set incsearch
+
+map <C-p> :vsc ReSharper.ReSharper_GotoType<CR>
 
 map <Leader><Leader> :vsc Tools.InvokeAceJumpCommand<CR>
 map <Leader>b :vsc Build.BuildSolution<CR>
@@ -14,6 +18,7 @@ map <Leader>E :vsc ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
 map <Leader>e :vsc ReSharper.ReSharper_GotoNextErrorInSolution<CR>
 map <Leader>em :vsc ReSharper.ReSharper_ExtractMethod<CR>
 map <Leader>f :vsc ReSharper.ReSharper_GotoFileMember<CR>
+map <Leader>g :vsc ReSharper.ReSharper_GotoText<CR>
 map <Leader>h :vsc Window.PreviousTab<CR>
 map <Leader>k :vsc ReSharper.ReSharper_GotoPrevMethod<CR>
 map <Leader>j :vsc ReSharper.ReSharper_GotoNextMethod<CR>
@@ -26,6 +31,7 @@ map <Leader>pf :vsc Edit.PeekForward<CR>
 map <Leader>q :vsc File.Close<CR>
 map <Leader>qa :vsc ReSharper_CloseAllCloseAll<CR>
 map <Leader>qab :vsc File.CloseAllButThis<CR>
+map <Leader>qabp :vsc ReSharper_CloseAllCloseAllButPinned<CR>
 map <Leader>r :vsc ReSharper.ReSharper_Rename<CR>
 map <Leader>s :vsc ReSharper.ReSharper_SurroundWith<CR>
 map <Leader>sd :vsc Debug.StopDebugging<CR>
