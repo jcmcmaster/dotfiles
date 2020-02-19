@@ -1,8 +1,8 @@
 [user]
-    email = jmcmaster008@gmail.com
+    email = jim_mcmaster@medisked.com
     name = Jim McMaster
 [credential]
-    helper = cache --timeout=7200
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
 [diff]
     tool = vimdiff
 [difftool "araxis"]

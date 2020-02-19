@@ -14,22 +14,19 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
+Plug 'vim-syntastic/syntastic'
 " Plug 'prabirshrestha/asyncomplete.vim'
 " Plug 'OrangeT/vim-csharp'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'ycm-core/YouCompleteMe'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Themes...
-Plug 'nanotech/jellybeans.vim'
-" Plug 'chriskempson/base16-vim'
-" Plug 'chriskempson/vim-tomorrow-theme'
-" Plug 'vim-scripts/plum.vim'
-" Plug 'cocopon/iceberg.vim'
-" Plug 'morhetz/gruvbox'
-" Plug 'matveyt/vim-modest'
-" Plug 'seesleestak/duo-mini'
-" Plug 'lifepillar/vim-solarized8'
-" Plug 'wadackel/vim-dogrun'
+Plug 'rafi/awesome-vim-colorschemes'
 
 call plug#end()
 
@@ -44,7 +41,7 @@ set encoding=utf-8
 syntax enable
 " colorscheme modest
 " colorscheme solarized8
-colorscheme jellybeans
+colorscheme iceberg
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -52,15 +49,27 @@ if exists('+termguicolors')
 endif
 set background=dark
 
+" airline vars
 let g:airline#extensions#tabline#enabled=1 
 let g:airline_powerline_fonts=1
-let g:airline_theme='jellybeans'
+let g:airline_theme='iceberg'
 let g:airline_solarized_bg='dark'
+
+" omnisharp vars
 let g:OmniSharp_translate_cygwin_wsl = 1
 let g:OmniSharp_server_path = '/mnt/c/Program Files/OmniSharp/OmniSharp.exe'
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf' " Use fzf.vim
+
+" ultisnips vars
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" ale vars
 let g:ale_linters = { 'cs': ['OmniSharp'], 'py': ['pylint'] }
+
+" nerdtree vars
 let NERDTreeShowHidden=1
 
 set nocompatible
@@ -76,6 +85,8 @@ set clipboard=unnamed "use system clipboard
 set scrolloff=15
 set splitbelow
 set splitright
+set cursorline
+set cursorcolumn
 
 let mapleader = " "
 
@@ -90,13 +101,14 @@ cnoremap gdh Gvdiffsplit head:%
 nnoremap <a-h> 20zl<CR>
 nnoremap <a-l> 20zr<CR>
 nmap <C-p> :FZF<CR>
+nmap <C-n> :noh<CR>
 nmap <Leader>b :ls<CR>:b<Leader>
 nmap <Leader>fz :FZF<CR>
 nmap <Leader>g :Rg<CR>
 nmap <Leader>h :bp<CR>
 nmap <Leader>l :bn<CR>
 nmap <Leader>m :<C-u>marks<CR>:normal! `
-nmap <Leader>n :NERDTree<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 
@@ -140,3 +152,14 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

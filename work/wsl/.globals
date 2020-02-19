@@ -1,4 +1,4 @@
-winhome="/mnt/c/Users/JimMcMaster/"
+winhome="/mnt/c/Users/JimMcMaster"
 
 projects="$winhome/projects"
 onedrive="$winhome/OneDrive - Medisked"
