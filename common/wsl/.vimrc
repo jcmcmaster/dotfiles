@@ -22,8 +22,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'sirver/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " Themes...
 Plug 'rafi/awesome-vim-colorschemes'
