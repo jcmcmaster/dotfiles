@@ -82,7 +82,6 @@ set autoindent "keep same indent as previous line on new line
 set confirm "instead of failing command because of unsaved changes, prompt user
 set path+=** " search down into subfolders, provides tab-completion for all file-related tasks
 set clipboard=unnamed "use system clipboard
-set scrolloff=15
 set splitbelow
 set splitright
 set cursorline
