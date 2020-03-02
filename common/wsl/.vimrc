@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 " Plug 'prabirshrestha/asyncomplete.vim'
 " Plug 'OrangeT/vim-csharp'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -67,7 +67,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " ale vars
-let g:ale_linters = { 'cs': ['OmniSharp'], 'py': ['pylint'] }
+let g:ale_linters = { 'cs': ['OmniSharp'] }
 
 " nerdtree vars
 let NERDTreeShowHidden=1
@@ -133,7 +133,7 @@ augroup omnisharp_commands
         autocmd FileType cs nnoremap <buffer> <Leader>tl :OmniSharpTypeLookup<CR>
 augroup END
 
-au FileType python setlocal formatprg=autopep8\ -
+" au FileType python setlocal formatprg=autopep8\ -
 
 " vim diff
 nnoremap <expr> <Leader>j &diff ? ']c' : '<Leader>j'
@@ -154,11 +154,14 @@ inoremap <s-tab> <c-n>
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_python_exec = 'python3'
+" let g:syntastic_python_checkers = ['python']
+" let g:syntastic_cs_checkers = ['code_checker']
