@@ -15,10 +15,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
 " Plug 'vim-syntastic/syntastic'
-" Plug 'prabirshrestha/asyncomplete.vim'
 " Plug 'OrangeT/vim-csharp'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'ycm-core/YouCompleteMe'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
@@ -35,19 +33,33 @@ call plug#end()
 "----------"
 filetype indent plugin on
 highlight Comment cterm=italic
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-
-set encoding=utf-8
 syntax enable
-" colorscheme modest
-" colorscheme solarized8
 colorscheme nord
+
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set encoding=utf-8
+set background=dark
+set hlsearch "highlight search
+set showcmd "something about showing partial commands at the end of a line
+set wildmenu "command line completion
+set relativenumber "relative line numbers
+set ignorecase "ignore case when searching
+set autoindent "keep same indent as previous line on new line
+set confirm "instead of failing command because of unsaved changes, prompt user
+set path+=** " search down into subfolders, provides tab-completion for all file-related tasks
+set clipboard=unnamed "use system clipboard
+set splitbelow "default position of new hz split is below current window
+set splitright "default position of new vt split is right of current window
+set cursorline "highlight the entire current line
+set cursorcolumn "highlight the entire current column
+
+let mapleader = " "
+
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-set background=dark
 
 " airline vars
 let g:airline#extensions#tabline#enabled=1 
@@ -71,23 +83,6 @@ let g:ale_linters = { 'cs': ['OmniSharp'] }
 
 " nerdtree vars
 let NERDTreeShowHidden=1
-
-set nocompatible
-set hlsearch "highlight search
-set showcmd "something about showing partial commands at the end of a line
-set wildmenu "command line completion
-set relativenumber "relative line numbers
-set ignorecase "ignore case when searching
-set autoindent "keep same indent as previous line on new line
-set confirm "instead of failing command because of unsaved changes, prompt user
-set path+=** " search down into subfolders, provides tab-completion for all file-related tasks
-set clipboard=unnamed "use system clipboard
-set splitbelow
-set splitright
-set cursorline
-set cursorcolumn
-
-let mapleader = " "
 
 "----------"
 " Mappings "
