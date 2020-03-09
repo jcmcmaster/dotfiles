@@ -32,3 +32,5 @@
 # Keybindings
 #-------------------------------------------------------------
 [ -f ~/.keybindings ] && source ~/.keybindings
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

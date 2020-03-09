@@ -1,40 +1,33 @@
-#gen
 alias cl="clear && ls"
-alias cs="clear && git status"
-alias home="cd /mnt/c/users/JimMcMaster"
-alias py="python3"
-alias pth='echo $PATH | tr : "\n" | less'
-alias onedrive="cd \"${onedrive}\""
-alias tickets="cd \"${ticketDir}\""
-alias rgil="rg -il"
-alias vimrc="vim ~/.vimrc"
-alias tmux="TERM=screen-256color-bce tmux"
-alias winpy='/mnt/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/Shared/Python37_64/python.exe'
-
-
-#projects
-
-#git
 alias commit="git commit"
+alias cs="clear && git status"
 alias ga="git add"
 alias gc="git checkout"
+alias gcdd="git checkout -- ."
 alias gcm="git commit -m"
 alias gd="git diff"
 alias gdt="git difftool"
 alias gf="git fetch"
 alias gl="git log"
-alias gs="git status"
-alias gcdd="git checkout -- ."
 alias gp="git pull"
+alias gs="git status"
 alias gtree="git log --graph --oneline --decorate"
-alias master="git checkout master && git pull"
+alias home="cd /mnt/c/users/JimMcMaster"
 alias lineblame="git blame -L"
-
-#taskwarrior
+alias master="git checkout master && git pull"
+alias onedrive="cd \"${onedrive}\""
+alias pth='echo $PATH | tr : "\n" | less'
+alias py="python3"
+alias rgil="rg -il"
 alias t="task"
-alias tl="task list"
 alias ta="task add"
 alias tah"task add pri:H"
-alias tm="task modify"
 alias tap="task append"
 alias td="task done"
+alias tickets="cd \"${ticketDir}\""
+alias tl="task list"
+alias tm="task modify"
+alias tmux="TERM=screen-256color-bce tmux"
+alias vim="nvim"
+alias vimrc="vim ~/.vimrc"
+alias winpy='/mnt/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/Shared/Python37_64/python.exe'
