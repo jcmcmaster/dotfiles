@@ -39,8 +39,6 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 set encoding=utf-8
 syntax enable
-" colorscheme modest
-" colorscheme solarized8
 colorscheme nord
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
