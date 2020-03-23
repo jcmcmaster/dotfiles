@@ -1,15 +1,15 @@
 [user]
-    email = jim_mcmaster@medisked.com
-    name = Jim McMaster
+        email = jim_mcmaster@medisked.com
+        name = Jim McMaster
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
 [diff]
-    tool = vimdiff
+        tool = vimdiff
 [difftool "araxis"]
-    path = "/mnt/c/program files/Araxis/Araxis Merge/compare.exe"
+        path = "/mnt/c/program files/Araxis/Araxis Merge/compare.exe"
 [difftool "vscode"]
-    cmd = "code --wait --diff $LOCAL $REMOTE"
+        cmd = "code --wait --diff $LOCAL $REMOTE"
 [core]
-    editor = vim
-    autocrlf = input
-    excludesfile = /home/jim_mcmaster/.gitignore
+        editor = vim
+        autocrlf = input
+        excludesfile = /home/jim_mcmaster/.gitignore
