@@ -1,3 +1,6 @@
 bindkey -v # vim editing mode in zsh
-zle -N ctrlp
-bindkey "^p" ctrlp
+
+bindkey  history-beginning-search-backward
+bindkey  history-beginning-search-forward
+
+bindkey -s  'fzf-to-vim'
