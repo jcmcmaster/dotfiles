@@ -4,12 +4,16 @@
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
 [diff]
-        tool = vimdiff
+        tool = meld
 [difftool "araxis"]
         path = "/mnt/c/program files/Araxis/Araxis Merge/compare.exe"
 [difftool "vscode"]
         cmd = "code --wait --diff $LOCAL $REMOTE"
+[difftool "meld"]
+        path = "/mnt/c/program files (x86)/meld/meld.exe"
 [core]
         editor = vim
         autocrlf = input
         excludesfile = /home/jim_mcmaster/.gitignore
+[mergetool "meld"]
+	path = "/mnt/c/program files (x86)/meld/meld.exe"
