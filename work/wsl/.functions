@@ -12,6 +12,10 @@ publish () {
      dotnet.exe publish -c $1 -r win10-x64
 }
 
+pr () {
+    publish Release
+}
+
 #windows
 serverReset () {
     net.exe stop MSSQLSERVER	

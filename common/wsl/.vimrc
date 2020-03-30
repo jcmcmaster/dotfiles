@@ -42,7 +42,7 @@ set background=dark
 set hlsearch "highlight search
 set showcmd "something about showing partial commands at the end of a line
 set wildmenu "command line completion
-set relativenumber "relative line numbers
+set number relativenumber "relative line numbers
 set ignorecase "ignore case when searching
 set autoindent "keep same indent as previous line on new line
 set confirm "instead of failing command because of unsaved changes, prompt user
