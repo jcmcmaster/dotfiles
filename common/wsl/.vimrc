@@ -160,3 +160,4 @@ nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 " let g:syntastic_python_python_exec = 'python3'
 " let g:syntastic_python_checkers = ['python']
 " let g:syntastic_cs_checkers = ['code_checker']
+let g:coc_disable_startup_warning = 1
