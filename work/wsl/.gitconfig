@@ -1,15 +1,22 @@
 [user]
-    email = jmcmaster008@gmail.com
-    name = Jim McMaster
+        email = jim_mcmaster@medisked.com
+        name = Jim McMaster
 [credential]
-    helper = cache --timeout=7200
-[diff]
-    tool = vimdiff
-[difftool "araxis"]
-    path = "/mnt/c/program files/Araxis/Araxis Merge/compare.exe"
-[difftool "vscode"]
-    cmd = "code --wait --diff $LOCAL $REMOTE"
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
 [core]
-    editor = vim
-    autocrlf = input
-    excludesfile = /home/jim_mcmaster/.gitignore
+        editor = vim
+        autocrlf = input
+        excludesfile = /home/jim_mcmaster/.gitignore
+        hooksPath = ~/projects/git_hooks
+[merge]
+        tool = vimdiff
+[mergetool "meld"]
+	path = "/mnt/c/program files (x86)/meld/meld.exe"
+[diff]
+        tool = vimdiff
+[difftool "araxis"]
+        path = /mnt/c/program files/Araxis/Araxis Merge/compare.exe
+[difftool "vscode"]
+        cmd = "code --wait --diff $LOCAL $REMOTE"
+[difftool "meld"]
+        path = "/mnt/c/program files (x86)/meld/meld.exe"

@@ -24,13 +24,6 @@ build () {
     "${msbuild_path}" ./*.sln
 }
 
-ctrlp() {
-    fzf_output=$(fzf)
-    if [[ $fzf_output != "" ]] ; then
-            </dev/tty vim $fzf_output
-    fi
-}
-
 jot() {
     echo "$*" >> ~/misc/jot
 }
@@ -76,4 +69,8 @@ grip () {
     git checkout $curBranch
     git branch -D grip_false_branch
     git status
+}
+
+fzf-to-vim () {
+    fzf --bind 'enter:execute(vim {1} < /dev/tty),tab:toggle'
 }

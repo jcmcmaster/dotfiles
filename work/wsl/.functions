@@ -12,11 +12,15 @@ publish () {
      dotnet.exe publish -c $1 -r win10-x64
 }
 
+pr () {
+    publish Release
+}
+
 #windows
 serverReset () {
-    net stop MSSQLSERVER	
-    net start MSSQLSERVER
-    iisreset 
+    net.exe stop MSSQLSERVER	
+    net.exe start MSSQLSERVER
+    iisreset.exe
 }
 
 # build .sln files in the current directory
@@ -87,6 +91,8 @@ grip () {
     git checkout $curBranch
     git branch -D grip_false_branch
     git status
+
+    unset conf
 }
 
 coormaster() {
