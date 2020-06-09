@@ -124,6 +124,7 @@ tdir () {
 __git_complete gc _git_checkout
 __git_complete gd _git_diff
 __git_complete gdt _git_diff
+__git_complete gdd _git_diff
 __git_complete gl _git_log
 __git_complete gm _git_merge
 __git_complete gmt _git_merge

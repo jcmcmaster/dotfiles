@@ -1,10 +1,9 @@
 let mapleader = " "
-set ignorecase
 set clipboard=unnamed
 set hlsearch
+set ignorecase
 set incsearch
-
-map <C-p> :vsc ReSharper.ReSharper_GotoType<CR>
+set number relativenumber
 
 map <Leader><Leader> :vsc Tools.InvokeAceJumpCommand<CR>
 map <Leader>b :vsc Build.BuildSolution<CR>
@@ -16,18 +15,24 @@ map <Leader>d :vsc Debug.AttachtoProcess<CR>
 map <Leader>D :vsc Debug.ReattachtoProcess<CR>
 map <Leader>E :vsc ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
 map <Leader>e :vsc ReSharper.ReSharper_GotoNextErrorInSolution<CR>
+map <Leader>el :vsc View.ErrorList<CR>
 map <Leader>em :vsc ReSharper.ReSharper_ExtractMethod<CR>
 map <Leader>f :vsc ReSharper.ReSharper_GotoFileMember<CR>
 map <Leader>g :vsc ReSharper.ReSharper_GotoText<CR>
 map <Leader>h :vsc Window.PreviousTab<CR>
 map <Leader>k :vsc ReSharper.ReSharper_GotoPrevMethod<CR>
+map <Leader>i :vsc Debug.Immediate<CR>
 map <Leader>j :vsc ReSharper.ReSharper_GotoNextMethod<CR>
 map <Leader>l :vsc Window.NextTab<CR>
+map <Leader>lt :vsc ReSharper.ReSharper_ShowLiveTemplates<CR>
 map <Leader>mo :vsc ReSharper.ReSharper_Move<CR>
 map <Leader>n :vsc Window.SolutionExplorerSearch<CR>
+map <Leader>o :vsc View.Output<CR>
+map <Leader>p :vsc Window.QuickLaunch<CR>
 map <Leader>pb :vsc Edit.PeekBackward<CR>
 map <Leader>pd :vsc Edit.PeekDefinition<CR>
 map <Leader>pf :vsc Edit.PeekForward<CR>
+map <Leader>pt :vsc Window.PinTab<CR>
 map <Leader>q :vsc File.Close<CR>
 map <Leader>qa :vsc ReSharper_CloseAllCloseAll<CR>
 map <Leader>qab :vsc File.CloseAllButThis<CR>
@@ -41,11 +46,15 @@ map <Leader>td :vsc ReSharper.ReSharper_UnitTestDebugContext<CR>
 map <Leader>tl :vsc ReSharper.ReSharper_UnitTestSessionRepeatPreviousRun<CR>
 map <Leader>tr :vsc ReSharper.ReSharper_UnitTestRunFromContext<CR>
 map <Leader>tt :vsc ReSharper.ReSharper_ShowUnitTestSessions<CR>
+map <Leader>us :vsc Edit.UncommentSelection<CR>
 map <Leader>ut :vsc Edit.UntabifySelectedLines<CR>
-map <Leader>, :vsc ReSharper.ReSharper_GotoText<CR>
+map <Leader>w1 :vsc Debug.Watch1<CR>
 map <Leader>/ :vsc ReSharper.ReSharper_LineComment<CR>
 map <Leader>; A;<Esc>
+
+map gb :vsc ReSharper.ReSharper_GotoBase<CR>
 map gd :vsc ReSharper.ReSharper_GotoDeclaration<CR>
+map gi :vsc ReSharper.ReSharper_GotoImplementations<CR>
 map gu :vsc ReSharper.ReSharper_GotoUsage<CR>
 map zl :so ~/.vsvimrc<CR>
 
