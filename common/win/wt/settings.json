@@ -68,7 +68,7 @@
             "name": "Debian",
             "source": "Windows.Terminal.Wsl",
             "fontFace": "DejaVu Sans Mono For Powerline",
-            "fontSize": 10,
+            "fontSize": 9,
             "padding": "0, 0, -20, 0",
             "colorScheme": "One Half Dark",
             "suppressApplicationTitle": true
