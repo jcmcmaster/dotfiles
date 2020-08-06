@@ -30,6 +30,8 @@ git clone https://github.com/jcmcmaster/dotfiles
 
 git clone https://github.com/jcmcmaster/scripts
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 chmod 700 ~/projects/dotfiles/symlinkers/symlink_dotfiles.sh
 
 pip3 install pynvim
