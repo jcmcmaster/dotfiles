@@ -2,29 +2,24 @@
 " VimPlug "
 "---------"
 call plug#begin('~/.vim/plugged')
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf.vim' 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " on-demand loading
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
-" Plug 'vim-syntastic/syntastic'
-" Plug 'OrangeT/vim-csharp'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
-" Plug 'sirver/ultisnips'
-" Plug 'honza/vim-snippets'
-
-" Themes...
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
