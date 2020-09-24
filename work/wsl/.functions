@@ -43,22 +43,11 @@ tdir() {
     mkdir $ticketDir/"$1"
 }
 
-# deploy () {
-#     git fetch
-#     git checkout master
-#     git merge origin/staging
-#     git push
-# }
-
 blame () {
     git log --follow -- $1
 }
 
 # git
-gdtfactory () { 
-    git difftool origin/master $( git diff --name-only origin/master | grep 'connect.Common/Entity/.*Factory' )
-}
-
 gac () {
     git add -A
     git commit -m "$1"
@@ -93,38 +82,4 @@ grip () {
     git status
 
     unset conf
-}
-
-coormaster() {
-    coornet
-    if output=$(git status --porcelain) && [ -z "$output" ]; then
-        git checkout master
-        git pull
-    else 
-        echo "coornet has uncommitted changes"
-    fi
-
-    coor
-    if output=$(git status --porcelain) && [ -z "$output" ]; then
-        git checkout master
-        git pull
-    else 
-        echo "coor has uncommitted changes"
-    fi
-
-    coordb
-    if output=$(git status --porcelain) && [ -z "$output" ]; then
-        git checkout master
-        git pull
-    else 
-        echo "coordb has uncommitted changes"
-    fi
-
-    coorws
-    if output=$(git status --porcelain) && [ -z "$output" ]; then
-        git checkout master
-        git pull
-    else 
-        echo "coorws has uncommitted changes"
-    fi
 }
