@@ -1,6 +1,6 @@
-winhome="/mnt/c/Users/JimMcMaster"
+winhome="/mnt/c/Users/jmcmaster"
 
 projects="$winhome/projects"
-onedrive="$winhome/OneDrive - Medisked"
+onedrive="$winhome/OneDrive - Home Point Financial Corporation"
 
 ticketDir="$onedrive/Tickets"
