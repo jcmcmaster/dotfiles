@@ -15,11 +15,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'google/vim-glaive'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'will133/vim-dirdiff'
 
 call plug#end()
 
@@ -64,7 +62,7 @@ let g:airline_solarized_bg='dark'
 
 " omnisharp vars
 let g:OmniSharp_translate_cygwin_wsl = 1
-let g:OmniSharp_server_path = '/mnt/c/Program Files/OmniSharp/OmniSharp.exe'
+let g:OmniSharp_server_path = '/mnt/c/Users/jmcmaster/tools/OmniSharp/OmniSharp.exe'
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf' " Use fzf.vim
 
@@ -75,9 +73,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " ale vars
 let g:ale_linters = { 'cs': ['OmniSharp'] }
-
-" nerdtree vars
-let NERDTreeShowHidden=1
 
 "----------"
 " Mappings "
@@ -97,7 +92,7 @@ nmap <Leader>g :Rg<CR>
 nmap <Leader>h :bp<CR>
 nmap <Leader>l :bn<CR>
 nmap <Leader>m :<C-u>marks<CR>:normal! `
-nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>t :CHADopen<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 

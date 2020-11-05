@@ -34,4 +34,4 @@ urgency.uda.priorityH.coefficient=6.0
 urgency.uda.priorityM.coefficient=3.9
 urgency.uda.priorityL.coefficient=0.0
 urgency.uda.priority..coefficient=2.0
-urgency.user.project.ms6.coefficient=6.0
+urgency.user.project.heloc.coefficient=5

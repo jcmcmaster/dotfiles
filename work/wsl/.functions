@@ -83,3 +83,11 @@ grip () {
 
     unset conf
 }
+
+owd () {
+    explorer.exe $(wslpath -w $(pwd))
+}
+
+cwd () {
+    code -n --folder-uri $(wslpath -w $(pwd))
+}
