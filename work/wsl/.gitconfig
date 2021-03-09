@@ -8,7 +8,7 @@
         autocrlf = input
         excludesfile = /home/jmcmaster/.gitignore
 [merge]
-        tool = araxis
+        tool = meld
 [mergetool "meld"]
 	path = "/mnt/c/Program Files (x86)/Meld/Meld.exe"
 [mergetool "meld"]
@@ -18,7 +18,7 @@
 [alias]
         dirdiff = difftool --ignore-submodules --dir-diff --no-symlinks --tool=vimdirdiff
 [diff]
-        tool = araxis
+        tool = meld
 [difftool "vscode"]
         cmd = "code --wait --diff $LOCAL $REMOTE"
 [difftool "meld"]

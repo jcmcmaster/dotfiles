@@ -16,7 +16,7 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'scrooloose/nerdtree'
 Plug 'will133/vim-dirdiff'
 
 call plug#end()
@@ -60,6 +60,9 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='nord'
 let g:airline_solarized_bg='dark'
 
+" nerdtree vars
+let g:NERDTreeWinSize=50
+
 " omnisharp vars
 let g:OmniSharp_translate_cygwin_wsl = 1
 let g:OmniSharp_server_path = '/mnt/c/Users/jmcmaster/tools/OmniSharp/OmniSharp.exe'
@@ -92,7 +95,7 @@ nmap <Leader>g :Rg<CR>
 nmap <Leader>h :bp<CR>
 nmap <Leader>l :bn<CR>
 nmap <Leader>m :<C-u>marks<CR>:normal! `
-nmap <Leader>t :CHADopen<CR>
+nmap <Leader>t :NERDTreeToggle<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 
@@ -151,3 +154,8 @@ nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 " let g:syntastic_python_checkers = ['python']
 " let g:syntastic_cs_checkers = ['code_checker']
 let g:coc_disable_startup_warning = 1
+
+" copy (write) highlighted text to .vimbuffer
+vmap <Leader>y y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe
+" paste from buffer
+map <Leader>p :r ~/.vimbuffer<CR>
