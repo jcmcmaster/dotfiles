@@ -18,6 +18,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'will133/vim-dirdiff'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 call plug#end()
 
@@ -27,7 +29,7 @@ call plug#end()
 filetype indent plugin on
 highlight Comment cterm=italic
 syntax enable
-colorscheme nord
+colorscheme gruvbox
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set encoding=utf-8
@@ -57,7 +59,7 @@ endif
 " airline vars
 let g:airline#extensions#tabline#enabled=1 
 let g:airline_powerline_fonts=1
-let g:airline_theme='nord'
+let g:airline_theme='gruvbox'
 let g:airline_solarized_bg='dark'
 
 " nerdtree vars
