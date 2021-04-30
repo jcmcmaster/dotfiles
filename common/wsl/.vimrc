@@ -3,20 +3,24 @@
 "---------"
 call plug#begin('~/.vim/plugged')
 
+" Plug 'OrangeT/vim-csharp'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf.vim' 
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'will133/vim-dirdiff'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -29,7 +33,7 @@ call plug#end()
 filetype indent plugin on
 highlight Comment cterm=italic
 syntax enable
-colorscheme gruvbox
+colorscheme atom-dark
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set encoding=utf-8
@@ -42,7 +46,7 @@ set ignorecase "ignore case when searching
 set autoindent "keep same indent as previous line on new line
 set confirm "instead of failing command because of unsaved changes, prompt user
 set path+=** " search down into subfolders, provides tab-completion for all file-related tasks
-set clipboard=unnamed "use system clipboard
+set clipboard=unnamedplus "use system clipboard
 set splitbelow "default position of new hz split is below current window
 set splitright "default position of new vt split is right of current window
 set cursorline "highlight the entire current line
@@ -59,7 +63,7 @@ endif
 " airline vars
 let g:airline#extensions#tabline#enabled=1 
 let g:airline_powerline_fonts=1
-let g:airline_theme='gruvbox'
+let g:airline_theme='deus'
 let g:airline_solarized_bg='dark'
 
 " nerdtree vars
@@ -110,20 +114,18 @@ augroup omnisharp_commands
 	autocmd FileType cs nnoremap <buffer> <Leader>ca :OmniSharpGetCodeActions<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>cf :OmniSharpCodeFormat<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>doc :OmniSharpDocumentation<CR>
-	autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
-	autocmd FileType cs nnoremap <buffer> gu :OmniSharpFindUsages<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbols<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>j :OmniSharpNavigateDown<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>k :OmniSharpNavigateUp<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>pd :OmniSharpPreviewDefinition<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>pi :OmniSharpPreviewImplementations<CR>
 	autocmd FileType cs nnoremap <buffer> <Leader>r :OmniSharpRename<CR>
+	autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+	autocmd FileType cs nnoremap <buffer> gi :OmniSharpFindImplementations<CR>
+	autocmd FileType cs nnoremap <buffer> gm :OmniSharpFindMembers<CR>
+	autocmd FileType cs nnoremap <buffer> gs :OmniSharpFindSymbols<CR>
+	autocmd FileType cs nnoremap <buffer> gu :OmniSharpFindUsages<CR>
         autocmd FileType cs nnoremap <buffer> <Leader>tl :OmniSharpTypeLookup<CR>
 augroup END
-
-" au FileType python setlocal formatprg=autopep8\ -
 
 " vim diff
 nnoremap <expr> <Leader>j &diff ? ']c' : '<Leader>j'
@@ -144,20 +146,4 @@ inoremap <s-tab> <c-n>
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_python_python_exec = 'python3'
-" let g:syntastic_python_checkers = ['python']
-" let g:syntastic_cs_checkers = ['code_checker']
 let g:coc_disable_startup_warning = 1
-
-" copy (write) highlighted text to .vimbuffer
-vmap <Leader>y y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe
-" paste from buffer
-map <Leader>p :r ~/.vimbuffer<CR>
