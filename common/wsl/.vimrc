@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'will133/vim-dirdiff'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
