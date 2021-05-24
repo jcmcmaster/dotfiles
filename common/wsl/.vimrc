@@ -3,18 +3,14 @@
 "---------"
 call plug#begin('~/.vim/plugged')
 
-" Plug 'OrangeT/vim-csharp'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'gosukiwi/vim-atom-dark'
-Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf.vim' 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -24,7 +20,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'will133/vim-dirdiff'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
