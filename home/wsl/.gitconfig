@@ -1,15 +1,29 @@
 [user]
-	email = jmcmaster008@gmail.com
-	name = Jim McMaster
+        email = jmcmaster@hpfc.com
+        name = Jim McMaster
 [credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
-[difftool "vscode"]
-    cmd = "code --wait --diff $LOCAL $REMOTE"
+       helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
 [core]
-    editor = vim
-    autocrlf = input
-    excludesfile = /home/phrosty/.gitignore
+        editor = nvim
+        autocrlf = input
+        excludesfile = /home/jmcmaster/.gitignore
+[merge]
+        tool = meld
+[mergetool "meld"]
+	path = "/mnt/c/Program Files (x86)/Meld/Meld.exe"
+[mergetool "meld"]
+        cmd = "meld.exe --auto-merge \"$(wslpath -aw $LOCAL)\" \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $REMOTE)\" --output \"$(wslpath -aw $MERGED)\" --label=Local --label=Base --label=Remote --diff \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $LOCAL)\" --diff \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $REMOTE)\""
+[mergetool "araxis"]
+        cmd = '/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_git_merge' $BASE $LOCAL $REMOTE $MERGED
+[alias]
+        dirdiff = difftool --ignore-submodules --dir-diff --no-symlinks --tool=vimdirdiff
+[diff]
+        tool = meld
+[difftool "vscode"]
+        cmd = "code --wait --diff $LOCAL $REMOTE"
+[difftool "meld"]
+        cmd = "meld.exe \"$(wslpath -aw $LOCAL)\" \"$(wslpath -aw $REMOTE)\""
+[difftool "vimdirdiff"]
+        cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
+[difftool "araxis"]
+        cmd = '/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_git_compare' $BASE $LOCAL $REMOTE

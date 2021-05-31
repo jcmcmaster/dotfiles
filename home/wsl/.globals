@@ -1,1 +1,8 @@
-projects="/home/phrosty/projects"
+winhome="/mnt/c/Users/jmcmaster"
+
+projects="$winhome/projects"
+onedrive="$winhome/OneDrive - Home Point Financial Corporation"
+
+ticketDir="$onedrive/Tickets"
+
+export BROWSER='/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'

@@ -12,16 +12,27 @@ publish () {
      dotnet.exe publish -c $1 -r win10-x64
 }
 
+pr () {
+    publish Release
+}
+
 #windows
 serverReset () {
-    net stop MSSQLSERVER	
-    net start MSSQLSERVER
-    iisreset 
+    net.exe stop MSSQLSERVER	
+    net.exe start MSSQLSERVER
+    iisreset.exe
 }
 
 # build .sln files in the current directory
 build () {
     "${msbuild_path}" ./*.sln
+}
+
+ctrlp() {
+    fzf_output=$(fzf)
+    if [[ $fzf_output != "" ]] ; then
+            </dev/tty vim $fzf_output
+    fi
 }
 
 jot() {
@@ -50,7 +61,7 @@ gacp () {
     
 # undo all changes at all costs (DANGER ZONE ;])
 grip () { 
-    read -p "Are you sure? (y/n)" conf
+    vared -p "Are you sure? (y/n)" -c conf
     
     if [ "$conf" != "y" ] 
     then
@@ -69,8 +80,14 @@ grip () {
     git checkout $curBranch
     git branch -D grip_false_branch
     git status
+
+    unset conf
 }
 
-fzf-to-vim () {
-    fzf --bind 'enter:execute(vim {1} < /dev/tty),tab:toggle'
+owd () {
+    explorer.exe $(wslpath -w $(pwd))
+}
+
+cwd () {
+    code -n --folder-uri $(wslpath -w $(pwd))
 }
