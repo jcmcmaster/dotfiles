@@ -12,6 +12,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -47,6 +49,7 @@ set splitbelow "default position of new hz split is below current window
 set splitright "default position of new vt split is right of current window
 set cursorline "highlight the entire current line
 set cursorcolumn "highlight the entire current column
+set mouse=a
 
 let mapleader = " "
 
@@ -121,6 +124,14 @@ augroup omnisharp_commands
 	autocmd FileType cs nnoremap <buffer> gs :OmniSharpFindSymbols<CR>
 	autocmd FileType cs nnoremap <buffer> gu :OmniSharpFindUsages<CR>
         autocmd FileType cs nnoremap <buffer> <Leader>tl :OmniSharpTypeLookup<CR>
+augroup END
+
+augroup ts_commands
+        autocmd!
+        autocmd FileType ts,tsx nmap <silent> gd <Plug>(coc-definition)
+        autocmd FileType ts,tsx nmap <silent> gy <Plug>(coc-type-definition)
+        autocmd FileType ts,tsx nmap <silent> gi <Plug>(coc-implementation)
+        autocmd FileType ts,tsx nmap <silent> gr <Plug>(coc-references)
 augroup END
 
 " vim diff
