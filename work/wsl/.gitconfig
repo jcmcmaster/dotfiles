@@ -2,7 +2,7 @@
         email = jmcmaster@hpfc.com
         name = Jim McMaster
 [credential]
-       helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
+        helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
 [core]
         editor = nvim
         autocrlf = input
@@ -27,3 +27,8 @@
         cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
 [difftool "araxis"]
         cmd = '/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_git_compare' $BASE $LOCAL $REMOTE
+[color]
+	ui = auto
+	diff = auto
+[color "diff"]
+	meta = cyan
