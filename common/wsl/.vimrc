@@ -54,9 +54,9 @@ set mouse=a
 let mapleader = " "
 
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
 endif
 
 " airline vars
@@ -111,29 +111,29 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 augroup omnisharp_commands
-	autocmd!
-	autocmd FileType cs nnoremap <buffer> <Leader>ca :OmniSharpGetCodeActions<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>cf :OmniSharpCodeFormat<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>doc :OmniSharpDocumentation<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>j :OmniSharpNavigateDown<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>k :OmniSharpNavigateUp<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>pd :OmniSharpPreviewDefinition<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>pi :OmniSharpPreviewImplementations<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>r :OmniSharpRename<CR>
-	autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
-	autocmd FileType cs nnoremap <buffer> gi :OmniSharpFindImplementations<CR>
-	autocmd FileType cs nnoremap <buffer> gm :OmniSharpFindMembers<CR>
-	autocmd FileType cs nnoremap <buffer> gs :OmniSharpFindSymbols<CR>
-	autocmd FileType cs nnoremap <buffer> gu :OmniSharpFindUsages<CR>
-        autocmd FileType cs nnoremap <buffer> <Leader>tl :OmniSharpTypeLookup<CR>
+    autocmd!
+    autocmd FileType cs nnoremap <buffer> <Leader>ca :OmniSharpGetCodeActions<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>cf :OmniSharpCodeFormat<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>doc :OmniSharpDocumentation<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>j :OmniSharpNavigateDown<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>k :OmniSharpNavigateUp<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>pd :OmniSharpPreviewDefinition<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>pi :OmniSharpPreviewImplementations<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>r :OmniSharpRename<CR>
+    autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+    autocmd FileType cs nnoremap <buffer> gi :OmniSharpFindImplementations<CR>
+    autocmd FileType cs nnoremap <buffer> gm :OmniSharpFindMembers<CR>
+    autocmd FileType cs nnoremap <buffer> gs :OmniSharpFindSymbols<CR>
+    autocmd FileType cs nnoremap <buffer> gu :OmniSharpFindUsages<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>tl :OmniSharpTypeLookup<CR>
 augroup END
 
 augroup ts_commands
-        autocmd!
-        autocmd FileType ts,tsx nmap <silent> gd <Plug>(coc-definition)
-        autocmd FileType ts,tsx nmap <silent> gy <Plug>(coc-type-definition)
-        autocmd FileType ts,tsx nmap <silent> gi <Plug>(coc-implementation)
-        autocmd FileType ts,tsx nmap <silent> gr <Plug>(coc-references)
+    autocmd!
+    autocmd FileType ts,tsx nmap <silent> gd <Plug>(coc-definition)
+    autocmd FileType ts,tsx nmap <silent> gy <Plug>(coc-type-definition)
+    autocmd FileType ts,tsx nmap <silent> gi <Plug>(coc-implementation)
+    autocmd FileType ts,tsx nmap <silent> gr <Plug>(coc-references)
 augroup END
 
 " vim diff
