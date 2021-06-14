@@ -33,7 +33,7 @@ highlight Comment cterm=italic
 syntax enable
 colorscheme atom-dark
 
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set encoding=utf-8
 set background=dark
 set hlsearch "highlight search
