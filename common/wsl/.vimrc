@@ -103,6 +103,8 @@ nmap <Leader>m :<C-u>marks<CR>:normal! `
 nmap <Leader>t :NERDTreeToggle<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
+vmap <leader>fd <Plug>(coc-format-selected)
+nmap <leader>fd <Plug>(coc-format-selected)
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
