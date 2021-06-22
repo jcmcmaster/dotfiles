@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
-Plug 'gosukiwi/vim-atom-dark'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf.vim' 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -31,7 +31,7 @@ call plug#end()
 filetype indent plugin on
 highlight Comment cterm=italic
 syntax enable
-colorscheme atom-dark
+colorscheme dracula
 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set encoding=utf-8
