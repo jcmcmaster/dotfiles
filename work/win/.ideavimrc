@@ -1,52 +1,41 @@
 " .ideavimrc
 " Jim McMaster, 2021
-
-" leader
+command! Qba :action CloseAllEditorsButActive
+command! Ql :action CloseAllToTheLeft
+command! Qr :action CloseAllToTheRight
+command! Qu :action CloseAllUnpinnedEditors
+command! Rc e c:/users/jmcmaster/.ideavimrc
+command! Run :action Run
+command! Scratch :action NewScratchBuffer
+command! ScratchEx :action Scratch.ExportToScratch
+command! ScratchF :action NewScratchFile
+command! Src source c:/users/jmcmaster/.ideavimrc
+command! Stop :action Stop
 let mapleader = " "
-
-" settings
+nmap <c--> <Action>(SplitHorizontally)
+nmap <c-i> <Action>(Forward)
+nmap <c-o> <Action>(Back)
+nmap <c-|> <Action>(SplitVertically)
+nmap <leader>. <Action>(SearchEverywhereActions)
+nmap <leader><leader> <Action>(AceAction)
+nmap <leader>b <Action>(build)
+nmap <leader>di <Action>(ImmediateWindowOpen)
+nmap <leader>f <Action>(FindInPath)
+nmap <leader>s <Action>(SearchEverywhere)
+nmap <s-h> <Action>(PrevSplitter)
+nmap <s-j> <Action>(MethodDown)
+nmap <s-k> <Action>(MethodUp)
+nmap <s-l> <Action>(NextSplitter)
+nmap gc <Action>(GotoClass)
+nmap gd <Action>(GotoDeclaration)
+nmap gf <Action>(GotoFile)
+nmap gh <Action>(SearchEverywhere)
+nmap gi <Action>(GotoImplementation)
+nmap gs <Action>(GotoSymbol)
+nmap gu <Action>(GotoUsage)
 set clipboard=unnamed
 set hlsearch
 set ideajoin
 set ignorecase
 set incsearch
 set number relativenumber
-
-" jump
-nmap <leader><leader> :action AceAction<cr>
-nmap <s-j> :action MethodDown<cr>
-nmap <s-k> :action MethodUp<cr>
-
-" goto
-nmap gc :action GotoClass<cr>
-nmap gd :action GotoDeclaration<cr>
-nmap gf :action GotoFile<cr>
-nmap gi :action GotoImplementation<cr>
-nmap gs :action GotoSymbol<cr>
-nmap gu :action GotoUsage<cr>
-
-" find
-nmap <leader>. :action FindAction<cr>
-nmap <leader>f :action SearchEverywhere<cr>
-
-" splits
-nmap <s-h> :action PrevSplitter<cr>
-nmap <s-l> :action NextSplitter<cr>
-nmap <c--> :action SplitHorizontally<cr>
-nmap <c-|> :action SplitVertically<cr>
-
-" build
-nmap <leader>b :action build<cr>
-
-" debug
-nmap <leader>di :action ImmediateWindowOpen<cr>
-
-" commands
-command! Qba :action CloseAllEditorsButActive<cr>
-command! Ql :action CloseAllToTheLeft<cr>
-command! Qr :action CloseAllToTheRight<cr>
-command! Qu :action CloseAllUnpinnedEditors<cr>
-command! Rc e c:/users/jmcmaster/.ideavimrc
-command! Run :action Run
-command! Stop :action Stop
-command! Src source c:/users/jmcmaster/.ideavimrc
