@@ -12,11 +12,10 @@ command! ScratchF :action NewScratchFile
 command! Src source c:/users/jmcmaster/.ideavimrc
 command! Stop :action Stop
 let mapleader = " "
-nmap <c--> <Action>(SplitHorizontally)
+nmap <c-h> <Action>(SplitHorizontally)
 nmap <c-i> <Action>(Forward)
+nmap <c-j> <Action>(SplitVertically)
 nmap <c-o> <Action>(Back)
-nmap <c-|> <Action>(SplitVertically)
-nmap <leader>. <Action>(SearchEverywhereActions)
 nmap <leader><leader> <Action>(AceAction)
 nmap <leader>b <Action>(build)
 nmap <leader>di <Action>(ImmediateWindowOpen)
