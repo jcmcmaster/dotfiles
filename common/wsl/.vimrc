@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
-Plug 'gosukiwi/vim-atom-dark'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf.vim' 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -32,7 +32,6 @@ filetype indent plugin on
 highlight Comment cterm=italic
 autocmd ColorScheme * highlight! link SignColumn LineNr
 syntax enable
-
 let g:codedark_italics=1
 colorscheme dark_plus
 
