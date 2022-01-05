@@ -1,0 +1,6 @@
+require('plugins')
+require('theme')
+require('settings')
+require('map')
+require('treesitter')
+require('startup')

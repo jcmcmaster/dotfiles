@@ -22,7 +22,7 @@
 [difftool "vscode"]
     cmd = "code --wait --diff $LOCAL $REMOTE"
 [difftool "meld"]
-    cmd = "meld.exe \"$(wslpath -aw $LOCAL)\" \"$(wslpath -aw $REMOTE)\""
+    cmd = meld \"$(wslpath -aw $LOCAL)\" \"$(wslpath -aw $REMOTE)\"
 [difftool "vimdirdiff"]
     cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
 [difftool "araxis"]
