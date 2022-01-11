@@ -20,11 +20,13 @@ ln -s -f ~/projects/dotfiles/common/wsl/.vimrc ~/.vimrc
 ln -s -f ~/projects/dotfiles/common/wsl/.zshrc ~/.zshrc
 ln -s -f ~/projects/dotfiles/common/wsl/.keybindings ~/.keybindings
 ln -s -f ~/projects/dotfiles/common/wsl/.dircolors ~/.dircolors
+ln -s -f -d ~/projects/dotfiles/common/wsl/.config/nvim/lua ~/.config/nvim/
+ln -s -f ~/projects/dotfiles/common/wsl/.config/nvim/init.lua ~/.config/nvim/init.lua
+
+# place specific
 ln -s -f ~/projects/dotfiles/$place/wsl/.bashrc ~/.bashrc
 ln -s -f ~/projects/dotfiles/$place/wsl/.startup ~/.startup
 ln -s -f ~/projects/dotfiles/$place/wsl/.functions ~/.functions
-
-# place specific
 ln -s -f ~/projects/dotfiles/$place/wsl/.ohmyzshconf ~/.ohmyzshconf
 ln -s -f ~/projects/dotfiles/$place/wsl/.aliases ~/.aliases
 ln -s -f ~/projects/dotfiles/$place/wsl/.globals ~/.globals
