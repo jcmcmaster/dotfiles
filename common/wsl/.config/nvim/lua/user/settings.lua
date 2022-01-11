@@ -1,0 +1,23 @@
+local opt = vim.opt
+
+opt.autoindent = true
+opt.clipboard = 'unnamedplus'
+opt.clipboard = 'unnamedplus'
+opt.confirm = true
+opt.cursorcolumn = true
+opt.cursorline = true
+opt.encoding = 'utf-8'
+opt.expandtab = true
+opt.hlsearch = true
+opt.ignorecase = true
+opt.mouse = 'a'
+opt.path = opt.path + '.,**' -- search down into subfolders, provides tab-completion for all file-related tasks
+opt.relativenumber = true
+opt.shiftwidth = 4
+opt.showcmd = true
+opt.smarttab = true
+opt.softtabstop = 0
+opt.splitbelow = true
+opt.splitright = true
+opt.tabstop = 4
+opt.wildmenu = true
