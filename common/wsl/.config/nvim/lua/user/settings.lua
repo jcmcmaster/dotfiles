@@ -1,14 +1,15 @@
 local opt = vim.opt
 
 opt.autoindent = true
--- opt.smartindent = true
+opt.smartindent = true
 opt.expandtab = true
 opt.smarttab = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
 
-opt.clipboard = 'unnamedplus'
+vim.cmd("filetype indent plugin on")
+
 opt.clipboard = 'unnamedplus'
 opt.confirm = true
 -- opt.cursorcolumn = true

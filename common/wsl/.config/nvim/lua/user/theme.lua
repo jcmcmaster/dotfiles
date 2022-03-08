@@ -5,8 +5,6 @@ vim.cmd [[
       set termguicolors
   endif
 
-  filetype indent plugin on
-
   highlight Comment cterm=italic
 
   autocmd ColorScheme * highlight! link SignColumn LineNr
