@@ -1,7 +1,3 @@
-vim.g.airline_theme = 'codedark'
-
-vim.opt.background = 'dark'
-
 vim.cmd [[
   if exists('+termguicolors')
       let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -17,7 +13,5 @@ vim.cmd [[
 
   syntax enable
 
-  let g:codedark_italics=1
-
-  colorscheme dark_plus
+  colorscheme nord
 ]]
