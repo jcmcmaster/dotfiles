@@ -4,21 +4,24 @@
 [credential]
     helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe
 [core]
-    editor = nvim
+    editor = neovim
     autocrlf = input
     excludesfile = /home/jmcmaster/.gitignore
 [merge]
-    tool = meld
+    tool = bc
 [mergetool "meld"]
     path = "/mnt/c/Program Files (x86)/Meld/Meld.exe"
 [mergetool "meld"]
     cmd = "meld.exe --auto-merge \"$(wslpath -aw $LOCAL)\" \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $REMOTE)\" --output \"$(wslpath -aw $MERGED)\" --label=Local --label=Base --label=Remote --diff \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $LOCAL)\" --diff \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $REMOTE)\""
 [mergetool "araxis"]
     cmd = '/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_git_merge' $BASE $LOCAL $REMOTE $MERGED
+[mergetool "bc"]
+    path = "/mnt/c/Program\\ Files/Beyond\\ Compare\\ 4/bcomp.exe"
+    cmd = "/mnt/c/Program\\ Files/Beyond\\ Compare\\ 4/bcomp.exe" "$(wslpath -aw $LOCAL)" "$(wslpath -aw $BASE)" "$(wslpath -aw $REMOTE)" "$(wslpath -aw $MERGED)"
 [alias]
     dirdiff = difftool --ignore-submodules --dir-diff --no-symlinks --tool=vimdirdiff
 [diff]
-    tool = meld
+    tool = bc
 [difftool "vscode"]
     cmd = "code --wait --diff $LOCAL $REMOTE"
 [difftool "meld"]
@@ -27,6 +30,9 @@
     cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE
 [difftool "araxis"]
     cmd = '/mnt/c/Program Files/Araxis/Araxis Merge/arx_wsl_git_compare' $BASE $LOCAL $REMOTE
+[difftool "bc"]
+    path = "/mnt/c/Program\\ Files/Beyond\\ Compare\\ 4/bcomp.exe"
+    cmd = "/mnt/c/Program\\ Files/Beyond\\ Compare\\ 4/bcomp.exe"  "$(wslpath -aw $LOCAL)" "$(wslpath -aw $REMOTE)"  
 [color]
     ui = auto
     diff = auto
