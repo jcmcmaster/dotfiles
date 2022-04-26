@@ -26,6 +26,7 @@ end
 -- }
 
 return require('packer').startup({function(use)
+    use 'tomasiser/vim-code-dark'
     use 'airblade/vim-gitgutter'
     use 'arcticicestudio/nord-vim'
     use 'christoomey/vim-tmux-navigator'
@@ -40,11 +41,8 @@ return require('packer').startup({function(use)
         },
         config = function()
             require'nvim-tree'.setup {
-                --open_on_setup = true,
-                auto_close = false,
-                view = {
-                    auto_resize = true,
-                }
+                open_on_setup = false,
+                open_on_setup_file = false,
             }
         end
     }

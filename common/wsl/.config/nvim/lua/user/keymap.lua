@@ -1,29 +1,27 @@
 local opts = { noremap = true, silent = true }
 
-local keymap = vim.api.nvim_set_keymap
-
-keymap("", "<Space>", "<Nop>", opts)
+vim.keymap.set("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
-keymap("n", "gf", ":Rg<CR>", opts)
-keymap("n", "gh", ":FZF<CR>", opts)
-keymap("n", "gj", ":NvimTreeToggle<CR>", opts)
+vim.keymap.set("n", "gh", ":Rg<CR>", opts)
+vim.keymap.set("n", "gf", ":FZF<CR>", opts)
+vim.keymap.set("n", "gj", ":NvimTreeToggle<CR>", opts)
 
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<S-l>", ":bnext<CR>", opts)
+vim.keymap.set("n", "<S-h>", ":bprevious<CR>", opts)
+vim.keymap.set("n", "<S-l>", ":bnext<CR>", opts)
 
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+vim.keymap.set("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
 
-keymap("v", "<A-j>", ":m '>+1<CR>gv", opts)
-keymap("v", "<A-k>", ":m '<-2<CR>gv", opts)
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv", opts)
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv", opts)
 
-keymap("v", "p", '"_dP', opts)
+vim.keymap.set("v", "p", '"_dP', opts)
 
 vim.cmd [[
     command Rc e ~/.config/nvim/init.lua

@@ -11,5 +11,7 @@ vim.cmd [[
 
   syntax enable
 
-  colorscheme nord
+  colorscheme codedark
+
+  let g:airline_theme='codedark'
 ]]

@@ -12,8 +12,8 @@ vim.cmd("filetype indent plugin on")
 
 opt.clipboard = 'unnamedplus'
 opt.confirm = true
--- opt.cursorcolumn = true
--- opt.cursorline = true
+opt.cursorcolumn = true
+opt.cursorline = true
 opt.encoding = 'utf-8'
 opt.expandtab = true
 opt.hlsearch = true

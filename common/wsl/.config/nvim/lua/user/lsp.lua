@@ -24,38 +24,35 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gu', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 
-  -- if client.resolved_capabilities.document_formatting then
-  --     vim.cmd([[
-  --         augroup FORMATTING
-  --             autocmd! * <buffer>
-  --             autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-  --         augroup END
-  --     ]])
-  -- end
+  if client.resolved_capabilities.document_formatting then
+      vim.cmd([[
+          augroup FORMATTING
+              autocmd! * <buffer>
+              autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+          augroup END
+      ]])
+  end
 end
 
-local nvim_lsp = require('lspconfig')
+local lsp_installer = require("nvim-lsp-installer")
 
-nvim_lsp.omnisharp.setup {
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  on_attach = on_attach,
-  cmd = { "/home/jmcmaster/.cache/omnisharp-vim/omnisharp-roslyn/run", "--languageserver" , "--hostPID", tostring(pid) },
-}
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+    local opts = {
+      on_attach = on_attach
+    }
 
-nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach,
-  cmd = { "/home/jmcmaster/.cache/lua-language-server/bin/lua-language-server" }
-}
+    if server.name == "omnisharp" then
+      opts.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      opts.cmd = { "/home/jmcmaster/.cache/omnisharp-vim/omnisharp-roslyn/run", "--languageserver" , "--hostPID", tostring(pid) }
+    end
 
-nvim_lsp.tflint.setup {
-    on_attach = on_attach,
-    cmd = { "/home/jmcmaster/.local/share/nvim/lsp_servers/tflint/tflint", "--langserver" }
-}
-
-nvim_lsp.terraformls.setup {
-    on_attach = on_attach,
-    cmd = { "/home/jmcmaster/.local/share/nvim/lsp_servers/terraform/terraform-ls/terraform-ls", "serve" }
-}
+    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+    -- before passing it onwards to lspconfig.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)
 
 local cmp = require 'cmp'
 
@@ -70,15 +67,7 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
+  }, {
+    { name = 'buffer' },
   }
 }
-
-local servers = { 'pyright', 'eslint', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
