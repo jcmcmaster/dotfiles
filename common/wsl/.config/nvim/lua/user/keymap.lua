@@ -3,8 +3,8 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "gh", ":Rg<CR>", opts)
-vim.keymap.set("n", "gf", ":FZF<CR>", opts)
+vim.keymap.set("n", "gf", ":Rg<CR>", opts)
+vim.keymap.set("n", "gh", ":FZF<CR>", opts)
 vim.keymap.set("n", "gj", ":NvimTreeToggle<CR>", opts)
 
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)

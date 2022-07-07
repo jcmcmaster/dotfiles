@@ -16,19 +16,18 @@ if not status_ok then
     return
 end
 
--- !! the float window would automatically lose focus, never to be focused again. disabling this for now cuz that's a pain.
--- packer.init {
---     display = {
---         open_fn = function()
---             return require("packer.util").float { border = "rounded" }
---         end,
---     },
--- }
+-- float the packer window with rounded border
+packer.init {
+    display = {
+        open_fn = function()
+            return require("packer.util").float { border = "rounded" }
+        end,
+    },
+}
 
 return require('packer').startup({function(use)
     use 'tomasiser/vim-code-dark'
     use 'airblade/vim-gitgutter'
-    use 'arcticicestudio/nord-vim'
     use 'christoomey/vim-tmux-navigator'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
