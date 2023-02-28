@@ -4,8 +4,78 @@
     "actions": 
     [
         {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "keys": "alt+left"
+        },
+        {
             "command": "find",
             "keys": "ctrl+f"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "left"
+            },
+            "keys": "ctrl+alt+shift+left"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+shift+down"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "shift+down"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "ctrl+shift+right"
+        },
+        {
+            "command": 
+            {
+                "action": "moveTab",
+                "direction": "backward"
+            }
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "keys": "alt+right"
+        },
+        {
+            "command": 
+            {
+                "action": "prevTab"
+            },
+            "keys": "alt+shift+left"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "up"
+            },
+            "keys": "ctrl+alt+shift+up"
         },
         {
             "command": "unbound",
@@ -178,21 +248,6 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "shift+up"
-        },
-        {
-            "command": 
-            {
-                "action": "moveTab",
-                "direction": "forward"
-            }
-        },
-        {
-            "command": 
-            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -201,122 +256,10 @@
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "right"
-            },
-            "keys": "ctrl+shift+right"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "left"
-            },
-            "keys": "ctrl+alt+shift+left"
-        },
-        {
-            "command": 
-            {
-                "action": "prevTab"
-            },
-            "keys": "alt+shift+left"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+shift+down"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "up"
-            },
-            "keys": "ctrl+alt+shift+up"
-        },
-        {
-            "command": 
-            {
-                "action": "moveTab",
-                "direction": "backward"
-            }
-        },
-        {
-            "command": 
-            {
                 "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "shift+down"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "keys": "alt+left"
-        },
-        {
-            "command": "breakIntoDebugger"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "down"
-            },
-            "keys": "ctrl+shift+down"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "keys": "alt+right"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "left"
-            },
-            "keys": "ctrl+shift+left"
-        },
-        {
-            "command": 
-            {
-                "action": "nextTab"
-            },
-            "keys": "alt+shift+right"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "up"
-            },
-            "keys": "ctrl+shift+up"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
                 "direction": "up"
             },
-            "keys": "alt+up"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
-                "direction": "right"
-            },
-            "keys": "ctrl+alt+shift+right"
+            "keys": "shift+up"
         },
         {
             "command": 
@@ -337,6 +280,63 @@
         {
             "command": 
             {
+                "action": "splitPane",
+                "split": "up"
+            },
+            "keys": "ctrl+shift+up"
+        },
+        {
+            "command": 
+            {
+                "action": "moveTab",
+                "direction": "forward"
+            }
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "keys": "alt+up"
+        },
+        {
+            "command": "breakIntoDebugger"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "right"
+            },
+            "keys": "ctrl+alt+shift+right"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "left"
+            },
+            "keys": "ctrl+shift+left"
+        },
+        {
+            "command": 
+            {
+                "action": "nextTab"
+            },
+            "keys": "alt+shift+right"
+        },
+        {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "right"
             },
@@ -348,10 +348,11 @@
     "copyOnSelect": false,
     "defaultProfile": "{85df65cd-faf2-5524-9308-5564009da112}",
     "experimental.rendering.forceFullRepaint": true,
-    "firstWindowPreference": "persistedWindowLayout",
+    "firstWindowPreference": "defaultProfile",
     "initialCols": 163,
     "initialPosition": "308,30",
-    "initialRows": 56,
+    "initialRows": 60,
+    "launchMode": "default",
     "profiles": 
     {
         "defaults": {},
@@ -366,7 +367,7 @@
                 "font": 
                 {
                     "face": "FantasqueSansMono NF",
-                    "size": 11
+                    "size": 11.0
                 },
                 "guid": "{85df65cd-faf2-5524-9308-5564009da112}",
                 "hidden": false,
@@ -377,9 +378,11 @@
                 "suppressApplicationTitle": true
             },
             {
+                "colorScheme": "Kasugano",
                 "font": 
                 {
-                    "face": "FantasqueSansMono NF"
+                    "face": "FiraCode NF",
+                    "size": 12.0
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -392,7 +395,7 @@
                 "font": 
                 {
                     "face": "DejaVuSansMono Nerd Font",
-                    "size": 10
+                    "size": 10.0
                 },
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
@@ -423,46 +426,52 @@
                 "name": "Git Bash"
             },
             {
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "guid": "{928962bf-5b58-5ba8-8904-3734f47f0386}",
                 "hidden": false,
-                "name": "Debian",
+                "name": "UbunThree",
                 "source": "Windows.Terminal.Wsl"
             },
             {
-                "guid": "{55d7850d-3a49-5f43-8fe8-cc038da62533}",
+                "guid": "{b51e8063-8acb-545f-a755-955a55ca397b}",
                 "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
+                "name": "Developer Command Prompt for VS 2022 (2)",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{194cec4d-7071-52ec-8799-ebe726c0017d}",
+                "guid": "{fd0bf0fb-198a-5052-8e57-f6592d573c4a}",
                 "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
+                "name": "Developer PowerShell for VS 2022 (2)",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{74239e0f-f8a9-554c-a36f-ae6c0a0cf760}",
+                "guid": "{cea364ef-fec2-501a-95d1-79433da85b12}",
                 "hidden": true,
                 "name": "Developer Command Prompt for VS 2019 (2)",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{73e2097a-58a8-517a-bd4b-89869fdc0434}",
+                "guid": "{594e4423-0e4c-5e98-af5f-60ab68fac6d0}",
                 "hidden": true,
                 "name": "Developer PowerShell for VS 2019 (2)",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{d2438196-0803-5518-9fe3-c51ac17a7925}",
+                "guid": "{2fc715ce-62a4-5b3a-b120-f32b0663df5e}",
                 "hidden": true,
-                "name": "Developer Command Prompt for VS 2019 (3)",
+                "name": "Developer Command Prompt for VS 2019",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{93e46a9f-83d6-5ec2-9389-e3b6abd2b3b5}",
+                "guid": "{eddd01ee-e4a3-5bf4-9540-dc17e1543317}",
                 "hidden": true,
-                "name": "Developer PowerShell for VS 2019 (3)",
+                "name": "Developer PowerShell for VS 2019",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{5fb123f1-af88-5b5c-8953-d14a8def1978}",
+                "hidden": false,
+                "name": "PowerShell 7",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
@@ -952,5 +961,6 @@
             "yellow": "#EFDFAC"
         }
     ],
-    "startOnUserLogin": true
+    "startOnUserLogin": true,
+    "themes": []
 }

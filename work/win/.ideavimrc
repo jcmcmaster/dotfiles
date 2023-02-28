@@ -42,6 +42,7 @@ nmap gl <Action>(GotoFile)
 nmap gs <Action>(Switcher)
 nmap gu <Action>(FindUsages)
 nmap gy <Action>(GotoSymbol)
+nmap pd <Action>(QuickImplementations)
 set clipboard=unnamed
 set hlsearch
 set ideajoin
