@@ -1,8 +1,15 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    -- vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
+
+local packer_bootstrap = ensure_packer()
 
 vim.cmd [[
     augroup packer_user_config
@@ -33,19 +40,8 @@ return require('packer').startup({function(use)
     use 'hrsh7th/cmp-nvim-lsp'
     use 'junegunn/fzf.vim'
     use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        },
-        config = function()
-            require'nvim-tree'.setup {
-                open_on_setup = false,
-                open_on_setup_file = false,
-            }
-        end
-    }
     use 'neovim/nvim-lspconfig'
+    use { 'nvim-tree/nvim-tree.lua', config = function() require("nvim-tree").setup() end }
     use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -66,7 +62,14 @@ return require('packer').startup({function(use)
     use 'vim-airline/vim-airline-themes'
     use 'wbthomason/packer.nvim'
     use 'will133/vim-dirdiff'
-    use 'williamboman/nvim-lsp-installer'
+    use { 
+      'williamboman/mason.nvim',
+      config = function() require("mason").setup() end,
+    }
+    use { 
+      'williamboman/mason-lspconfig.nvim',
+      config = function() require("mason-lspconfig").setup() end,
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

@@ -18,7 +18,8 @@ sudo apt update -y && sudo apt install -y \
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update -y && sudo apt upgrade -y
 sudo apt install neovim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\\n ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 mkdir -p ~/.config/nvim/
 cd && mkdir projects && cd projects

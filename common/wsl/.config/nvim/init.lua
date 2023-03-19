@@ -1,5 +1,5 @@
-require('user.lsp')
 require('user.plugins')
+require('user.lsp')
 require('user.theme')
 require('user.settings')
 require('user.keymap')
