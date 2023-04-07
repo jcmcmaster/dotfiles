@@ -14,8 +14,14 @@ alias gd="git diff"
 alias gdd="git difftool --dir-diff --no-symlinks"
 alias gdt="git difftool"
 alias gf="git fetch"
-# alias git="git.exe"
 alias gl="git log"
+alias go="cd ~ \
+  && cd \$(find \
+          * -type d \
+          -not -path '*node_modules*' \
+          -not -path '*.git*' \
+          -not -path '*.exercism*' \
+          | fzf)"
 alias gp="git pull"
 alias gs="git status"
 alias gsa="git stash apply"
@@ -32,7 +38,6 @@ alias py="python3"
 alias rg="rg --color=always"
 alias rgil="rg -il"
 alias sau="sudo apt update && sudo apt upgrade"
-alias sd="cd ~ && cd \$(find * -type d | fzf)"
 alias sz="source ~/.zshrc"
 alias t="task"
 alias ta="task add"

@@ -7,6 +7,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    vim.g["test#strategy"] = "neovim"
+    vim.g["test#neovim#start_normal"] = 1
 
     local opts = { buffer = ev.buf }
 
