@@ -53,5 +53,6 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv", opts)
 
 vim.keymap.set("v", "p", '"_dP', opts)
 
+vim.api.nvim_create_user_command("Diff", "DiffviewOpen", { nargs = "*" })
 vim.api.nvim_create_user_command("Rc", "e ~/.config/nvim/init.lua", {})
 vim.api.nvim_create_user_command("Src", "source ~/.config/nvim/init.lua", {})
