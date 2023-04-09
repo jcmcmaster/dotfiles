@@ -5,7 +5,7 @@ local M = {}
 function M.setup()
   require("dap-vscode-js").setup {
     node_path = "node",
-    debugger_path = DEBUGGER_PATH,
+    -- debugger_path = DEBUGGER_PATH,
     -- debugger_cmd = { "js-debug-adapter" },
     adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
   }

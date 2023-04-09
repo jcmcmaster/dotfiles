@@ -35,16 +35,38 @@ packer.init {
 return require('packer').startup({ function(use)
   use 'tomasiser/vim-code-dark'
   use 'airblade/vim-gitgutter'
-  use 'vim-test/vim-test'
   use 'christoomey/vim-tmux-navigator'
   use 'github/copilot.vim'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'junegunn/fzf.vim'
-  use { 'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
   use 'neovim/nvim-lspconfig'
-  use { 'nvim-tree/nvim-tree.lua', config = function() require("nvim-tree").setup() end }
-  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "haydenmeade/neotest-jest",
+    },
+    config = function()
+      require('neotest').setup({
+        adapters = {
+          require('neotest-jest'),
+        },
+        quickfix = {
+          open = false
+        }
+      })
+    end
+  }
+  use {
+    'nvim-tree/nvim-tree.lua',
+    config = function() require("nvim-tree").setup() end
+  }
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -56,6 +78,10 @@ return require('packer').startup({ function(use)
     'prettier/vim-prettier',
     run = "yarn install --frozen-lockfile --production",
   }
+  use {
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
   use 'tpope/vim-commentary'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-fugitive'
@@ -63,7 +89,6 @@ return require('packer').startup({ function(use)
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
   use 'wbthomason/packer.nvim'
-  use 'will133/vim-dirdiff'
   use {
     'williamboman/mason.nvim',
     config = function() require("mason").setup() end,
@@ -72,29 +97,21 @@ return require('packer').startup({ function(use)
     'williamboman/mason-lspconfig.nvim',
     config = function() require("mason-lspconfig").setup() end,
   }
-  -- use {
-  --   "mfussenegger/nvim-dap",
-  --   opt = true,
-  --   module = { "dap" },
-  --   requires = {
-  --     "theHamsta/nvim-dap-virtual-text",
-  --     "rcarriga/nvim-dap-ui",
-  --     "mfussenegger/nvim-dap-python",
-  --     "nvim-telescope/telescope-dap.nvim",
-  --     { "leoluz/nvim-dap-go",                module = "dap-go" },
-  --     { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-  --     { "mxsdev/nvim-dap-vscode-js" },
-  --     {
-  --       "microsoft/vscode-js-debug",
-  --       opt = true,
-  --       run = "npm install --legacy-peer-deps && npm run compile",
-  --     },
-  --   },
-  --   config = function()
-  --     require("config.dap").setup()
-  --   end,
-  --   disable = false,
-  -- }
+  use {
+    "mxsdev/nvim-dap-vscode-js",
+    requires = { "mfussenegger/nvim-dap" },
+    config = function() require("user.dap").setup() end,
+  }
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = { "mfussenegger/nvim-dap" },
+    config = function() require("dapui").setup() end,
+  }
+  use {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

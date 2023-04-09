@@ -12,12 +12,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     local opts = { buffer = ev.buf }
 
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '<leader>f', function()
+    vim.keymap.set('n', '<leader>cf', function()
       vim.lsp.buf.format { async = true }
     end, opts)
     vim.keymap.set('n', '<leader>h', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<leader>j', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
     vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'ge', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gu', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
   end
 })
@@ -49,7 +49,37 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
-  }, {
     { name = 'buffer' },
+    {
+      name = "copilot",
+      -- keyword_length = 0,
+      max_item_count = 3,
+      trigger_characters = {
+        {
+          ".",
+          ":",
+          "(",
+          "'",
+          '"',
+          "[",
+          ",",
+          "#",
+          "*",
+          "@",
+          "|",
+          "=",
+          "-",
+          "{",
+          "/",
+          "\\",
+          "+",
+          "?",
+          " ",
+          -- "\t",
+          -- "\n",
+        },
+      },
+      group_index = 2,
+    },
   }
 }
