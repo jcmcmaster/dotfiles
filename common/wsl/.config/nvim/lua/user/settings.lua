@@ -40,3 +40,6 @@ opt.showcmd = true
 opt.splitbelow = true
 opt.splitright = true
 opt.wildmenu = true
+
+vim.g["prettier#autoformat"] = 1
+vim.g["prettier#autoformat_require_pragma"] = 0

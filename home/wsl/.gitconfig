@@ -18,7 +18,7 @@
 [alias]
         dirdiff = difftool --ignore-submodules --dir-diff --no-symlinks --tool=vimdirdiff
 [diff]
-        tool = nvim
+        tool = meld
 [difftool "vscode"]
         cmd = "code --wait --diff $LOCAL $REMOTE"
 [difftool "meld"]

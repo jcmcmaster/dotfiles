@@ -112,9 +112,18 @@ return require('packer').startup({ function(use)
     opt = true,
     run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
   }
+  use {
+    "imNel/monorepo.nvim",
+    config = function()
+      require("monorepo").setup({
+        vim.keymap.set("n", "<leader>mo", function() require("telescope").extensions.monorepo.monorepo() end);
+        vim.keymap.set("n", "<leader>mt", function() require("monorepo").toggle_project() end);
+      })
+    end,
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+    dev = true,
+  }
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end

@@ -37,6 +37,7 @@ vim.keymap.set("n", "<leader>too", function() require("neotest").output.open() e
 vim.keymap.set("n", "<leader>top", function() require("neotest").output_panel.toggle() end, opts)
 vim.keymap.set("n", "<leader>tx", function() require("neotest").run.stop() end, opts)
 
+-- resizing (ctrl)
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
