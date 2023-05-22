@@ -23,8 +23,8 @@ vim.keymap.set("n", "<A-Down>", ":resize -2<CR>")
 vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>")
 vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>")
 
-vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
-vim.keymap.set("n", "<S-l>", ":bnext<CR>")
+vim.keymap.set("n", "<C-h>", ":bprevious<CR>")
+vim.keymap.set("n", "<C-l>", ":bnext<CR>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -36,8 +36,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 vim.api.nvim_create_user_command("Rc", "e ~/.config/nvim/init.lua", {})
 vim.api.nvim_create_user_command("Src", "source ~/.config/nvim/init.lua", {})
