@@ -64,13 +64,13 @@ return require('packer').startup({ function(use)
     end,
   }
   use 'nvim-treesitter/playground'
+  use 'nvim-treesitter/nvim-treesitter-context'
   use 'theprimeagen/harpoon'
   use 'theprimeagen/refactoring.nvim'
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
-  use 'nvim-treesitter/nvim-treesitter-context'
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -129,10 +129,8 @@ return require('packer').startup({ function(use)
     opt = true,
     run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out'
   }
-  use {
-    'nvim-tree/nvim-tree.lua',
-    config = function() require('nvim-tree').setup() end
-  }
+  use 'nvim-tree/nvim-tree.lua'
+  use 'nvim-tree/nvim-web-devicons'
   use {
     'prettier/vim-prettier',
     run = 'yarn install --frozen-lockfile --production',
