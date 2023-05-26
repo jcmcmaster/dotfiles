@@ -19,15 +19,35 @@ lsp.nvim_workspace()
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local luasnip = require('luasnip')
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+  ["<C-p>"] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item(cmp_select)
+    elseif luasnip.jumpable(-1) then
+      luasnip.jump(-1)
+    else
+      fallback()
+    end
+  end, { "i", "s" }),
+  ['<C-n>'] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item(cmp_select)
+    elseif luasnip.expand_or_jumpable() then
+      luasnip.expand_or_jump()
+    else
+      fallback()
+    end
+  end, { "i", "s" }),
   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
+
+require('luasnip.loaders.from_vscode').lazy_load()
+require('luasnip.loaders.from_snipmate').lazy_load()
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
