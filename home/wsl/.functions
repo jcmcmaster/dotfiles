@@ -1,33 +1,3 @@
-#cd
-cdp () {
-    cd ${projects}/$1
-}
-
-cdt () {
-    cd "${ticketDir}"/"$1"
-}
-
-#dotnet
-publish () {
-     dotnet.exe publish -c $1 -r win10-x64
-}
-
-pr () {
-    publish Release
-}
-
-#windows
-serverReset () {
-    net.exe stop MSSQLSERVER	
-    net.exe start MSSQLSERVER
-    iisreset.exe
-}
-
-# build .sln files in the current directory
-build () {
-    "${msbuild_path}" ./*.sln
-}
-
 ctrlp() {
     fzf_output=$(fzf)
     if [[ $fzf_output != "" ]] ; then
@@ -39,8 +9,21 @@ jot() {
     echo "$*" >> ~/misc/jot
 }
 
-tdir() {
-    mkdir $ticketDir/"$1"
+find_directory_and_go() {
+    target=$(find ~/ -type d \
+          -not -path '*node_modules*' \
+          -not -path '*.git*' \
+          -not -path '*.exercism*' | fzf)
+    if [[ -n $target ]]; then
+      cd $target
+    fi
+}
+
+find_project_and_go() {
+    target=$(find ~/projects -maxdepth 1 -type d | fzf)
+    if [[ -n $target ]]; then
+      cd $target
+    fi
 }
 
 blame () {
@@ -58,17 +41,17 @@ gacp () {
     git commit -m "$1"
     git push
 }
-    
+
 # undo all changes at all costs (DANGER ZONE ;])
-grip () { 
+grip () {
     vared -p "Are you sure? (y/n)" -c conf
-    
-    if [ "$conf" != "y" ] 
+
+    if [ "$conf" != "y" ]
     then
-            echo "Close call..." 
+            echo "Close call..."
             return
     fi
-    
+
     curBranch=$(git symbolic-ref -q HEAD)
     curBranch=${curBranch##refs/heads/}
     curBranch=${curBranch:-HEAD}

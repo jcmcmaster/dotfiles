@@ -3,14 +3,8 @@ alias cl="clear && ls"
 alias commit="git commit"
 alias cs="clear && git status"
 alias dotnet="dotnet.exe"
-alias f="sudo find / -path /mnt/c -prune -o -iname "
-alias fd="cd ~ \
-  && cd \$(find \
-          * -type d \
-          -not -path '*node_modules*' \
-          -not -path '*.git*' \
-          -not -path '*.exercism*' \
-          | fzf)"
+alias fd="find_directory_and_go"
+alias fp="find_project_and_go"
 alias ga="git add"
 alias gaa="git add -A"
 alias gbl="git branch --list"
@@ -58,3 +52,5 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias vim="nvim"
 alias vimrc="vim ~/.vimrc"
 alias yr="yarn run"
+alias yw="yarn workspace"
+alias yws="yarn workspaces"

@@ -34,6 +34,7 @@ packer.init {
 
 return require('packer').startup({ function(use)
   use 'wbthomason/packer.nvim'
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
