@@ -1,6 +1,7 @@
 require("jcmcmaster.packer")
 require("jcmcmaster.set")
 require("jcmcmaster.remap")
+require("jcmcmaster.auto")
 
 local augroup = vim.api.nvim_create_augroup
 local jcmcmasterGroup = augroup('jcmcmaster', {})
