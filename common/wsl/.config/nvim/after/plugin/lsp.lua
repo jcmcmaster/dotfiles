@@ -2,17 +2,26 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
-lsp.ensure_installed({
+local language_servers = {
+  'bashls',
+  'csharp_ls',
+  'cssls',
+  'dockerls',
   'eslint',
+  'fsautocomplete',
+  'html',
+  'jsonls',
+  'lua_ls',
+  'pyright',
   'tsserver',
-  'lua_ls'
-})
+  'rust_analyzer',
+  'vimls',
+  'yamlls',
+}
 
-lsp.setup_servers({
-  'tsserver',
-  'eslint',
-  'lua_ls'
-})
+lsp.ensure_installed(language_servers)
+
+lsp.setup_servers(language_servers)
 
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
@@ -63,7 +72,7 @@ lsp.set_preferences({
   }
 })
 
-lsp.on_attach(function(client, bufnr)
+local attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
   vim.g["test#strategy"] = "neovim"
   vim.g["test#neovim#start_normal"] = 1
@@ -89,7 +98,17 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
-end)
+end
+
+lsp.on_attach(attach)
+
+-- Language-specific
+local rust_tools = require('rust-tools')
+rust_tools.setup({
+  server = {
+    on_attach = attach,
+  },
+});
 
 lsp.setup()
 

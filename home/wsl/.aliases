@@ -1,9 +1,12 @@
+#!/bin/bash
+
 alias choco="choco.exe"
 alias cl="clear && ls"
 alias commit="git commit"
 alias cs="clear && git status"
-alias dotnet="dotnet.exe"
+alias cg="cargo"
 alias fd="find_directory_and_go"
+alias fda="find_any_directory_and_go"
 alias fp="find_project_and_go"
 alias ga="git add"
 alias gaa="git add -A"

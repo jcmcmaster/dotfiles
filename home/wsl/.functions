@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ctrlp() {
     fzf_output=$(fzf)
     if [[ $fzf_output != "" ]] ; then
@@ -11,9 +13,17 @@ jot() {
 
 find_directory_and_go() {
     target=$(find ~/ -type d \
-          -not -path '*node_modules*' \
-          -not -path '*.git*' \
-          -not -path '*.exercism*' | fzf)
+          -not -path '*/node_modules/*' \
+          -not -path '*/bin/*' \
+          -not -path '*/obj/*' \
+          -not -path '*/.*' | fzf)
+    if [[ -n $target ]]; then
+      cd $target
+    fi
+}
+
+find_any_directory_and_go() {
+    target=$(find ~/ -type d | fzf)
     if [[ -n $target ]]; then
       cd $target
     fi
