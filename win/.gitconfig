@@ -1,6 +1,5 @@
 [user]
 	name = Jim McMaster
-	email = jim_mcmaster@medisked.com
 [difftool "sourcetree"]
 	cmd = 'C:/Program Files/Araxis/Araxis Merge/compare.exe' \"$LOCAL\" \"$REMOTE\"
 [difftool "araxis"]
@@ -22,5 +21,3 @@
 	tool = araxis
 [merge]
 	tool = araxis
-[gui]
-	recentrepo = C:/Projects/connectdev
