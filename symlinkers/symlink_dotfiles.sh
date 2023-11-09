@@ -1,47 +1,21 @@
 #! /usr/bin/env zsh
-echo "\nONLY PROCEED IF YOU'VE BACKED UP ALL OF THE DOTFILES IN YOUR HOME DIRECTORY"
-echo "THIS SCRIPT WILL DELETE THEM\n"
-
-# work or home?
-vared -p "work(w) or home(h)? " -c place
-
-if ! [[ $place =~ '[wh]' ]] ; then
-	echo "Invalid option"
-	exit 1
-elif [[ $place == 'w' ]] ; then
-	place='work'
-else 
-	place='home'
-fi
-
-# win or wsl?
-vared -p "win(w) or wsl(l) " -c env
-
-if ! [[ $env =~ '[wl]' ]] ; then
-	echo "Invalid option"
-	exit 1
-elif [[ $env == 'w' ]] ; then
-	env='win'
-else
-	env='wsl'
-fi
 
 # make links
-ln -s -f ~/projects/dotfiles/common/$env/.tmux.conf ~/.tmux.conf
-ln -s -f ~/projects/dotfiles/common/$env/.vimrc ~/.vimrc
-ln -s -f ~/projects/dotfiles/common/$env/.zshrc ~/.zshrc
-ln -s -f ~/projects/dotfiles/common/$env/.keybindings ~/.keybindings
-ln -s -f ~/projects/dotfiles/common/$env/.dircolors ~/.dircolors
-ln -s -f ~/projects/dotfiles/common/$env/init.vim ~/.config/nvim/init.vim
-
-ln -s -f ~/projects/dotfiles/$place/$env/.ohmyzshconf ~/.ohmyzshconf
-ln -s -f ~/projects/dotfiles/$place/$env/.aliases ~/.aliases
-ln -s -f ~/projects/dotfiles/$place/$env/.functions ~/.functions
-ln -s -f ~/projects/dotfiles/$place/$env/.globals ~/.globals
-ln -s -f ~/projects/dotfiles/$place/$env/.path ~/.path
-ln -s -f ~/projects/dotfiles/$place/$env/.startup ~/.startup
-ln -s -f ~/projects/dotfiles/$place/$env/.gitconfig ~/.gitconfig
-ln -s -f ~/projects/dotfiles/$place/$env/.bashrc ~/.bashrc
-ln -s -f ~/projects/dotfiles/$place/$env/.taskrc ~/.taskrc
+ln -s -f ~/projects/dotfiles/linux/.aliases ~/.aliases
+ln -s -f ~/projects/dotfiles/linux/.bashrc ~/.bashrc
+rm -rf ~/.config/nvim && ln -s -f ~/projects/dotfiles/linux/.config/nvim ~/.config/
+ln -s -f ~/projects/dotfiles/linux/.dircolors ~/.dircolors
+ln -s -f ~/projects/dotfiles/linux/.functions ~/.functions
+ln -s -f ~/projects/dotfiles/linux/.gitconfig ~/.gitconfig
+ln -s -f ~/projects/dotfiles/linux/.globals ~/.globals
+ln -s -f ~/projects/dotfiles/linux/.keybindings ~/.keybindings
+ln -s -f ~/projects/dotfiles/linux/.ohmyzshconf ~/.ohmyzshconf
+ln -s -f ~/projects/dotfiles/linux/.path ~/.path
+ln -s -f ~/projects/dotfiles/linux/.startup ~/.startup
+ln -s -f ~/projects/dotfiles/linux/.taskrc ~/.taskrc
+ln -s -f ~/projects/dotfiles/linux/.tmux.conf ~/.tmux.conf
+ln -s -f ~/projects/dotfiles/linux/.vimrc ~/.vimrc
+ln -s -f ~/projects/dotfiles/linux/.zshrc ~/.zshrc
+ln -s -f ~/projects/dotfiles/linux/init.vim ~/.config/nvim/init.vim
 
 exit 0
