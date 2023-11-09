@@ -4,8 +4,12 @@
     "actions": 
     [
         {
-            "command": "find",
-            "keys": "ctrl+f"
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            }
         },
         {
             "command": "unbound",
@@ -38,10 +42,6 @@
         {
             "command": "unbound",
             "keys": "ctrl+numpad_plus"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+left"
         },
         {
             "command": "unbound",
@@ -169,11 +169,73 @@
         },
         {
             "command": "unbound",
-            "keys": "alt+shift+down"
+            "keys": "ctrl+shift+pgdn"
         },
         {
             "command": "unbound",
-            "keys": "alt+shift+up"
+            "keys": "ctrl+shift+end"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+home"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+pgup"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+w"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+down"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+left"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+right"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+up"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+f"
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "keys": "ctrl+alt+left"
+        },
+        {
+            "command": "toggleSplitOrientation",
+            "keys": "ctrl+alt+shift+o"
+        },
+        {
+            "command": 
+            {
+                "action": "moveTab",
+                "direction": "forward"
+            }
+        },
+        {
+            "command": "closePane",
+            "keys": "ctrl+alt+w"
+        },
+        {
+            "command": 
+            {
+                "action": "prevTab"
+            },
+            "keys": "alt+shift+left"
         },
         {
             "command": 
@@ -186,17 +248,10 @@
         {
             "command": 
             {
-                "action": "moveTab",
-                "direction": "forward"
-            }
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            }
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "shift+down"
         },
         {
             "command": 
@@ -210,21 +265,6 @@
             "command": 
             {
                 "action": "swapPane",
-                "direction": "left"
-            },
-            "keys": "ctrl+alt+shift+left"
-        },
-        {
-            "command": 
-            {
-                "action": "prevTab"
-            },
-            "keys": "alt+shift+left"
-        },
-        {
-            "command": 
-            {
-                "action": "swapPane",
                 "direction": "down"
             },
             "keys": "ctrl+alt+shift+down"
@@ -233,9 +273,9 @@
             "command": 
             {
                 "action": "swapPane",
-                "direction": "up"
+                "direction": "left"
             },
-            "keys": "ctrl+alt+shift+up"
+            "keys": "ctrl+alt+shift+left"
         },
         {
             "command": 
@@ -247,21 +287,17 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "down"
+                "action": "swapPane",
+                "direction": "up"
             },
-            "keys": "shift+down"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "keys": "alt+left"
+            "keys": "ctrl+alt+shift+up"
         },
         {
             "command": "breakIntoDebugger"
+        },
+        {
+            "command": "scrollToTop",
+            "keys": "alt+shift+home"
         },
         {
             "command": 
@@ -277,7 +313,7 @@
                 "action": "resizePane",
                 "direction": "right"
             },
-            "keys": "alt+right"
+            "keys": "ctrl+alt+right"
         },
         {
             "command": 
@@ -297,6 +333,14 @@
         {
             "command": 
             {
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+down"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "up"
             },
@@ -308,7 +352,7 @@
                 "action": "resizePane",
                 "direction": "up"
             },
-            "keys": "alt+up"
+            "keys": "ctrl+alt+up"
         },
         {
             "command": 
@@ -329,74 +373,70 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "alt+down"
-        },
-        {
-            "command": 
-            {
                 "action": "moveFocus",
                 "direction": "right"
             },
             "keys": "shift+right"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "keys": "alt+shift+up"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollDown"
+            },
+            "keys": "alt+shift+down"
+        },
+        {
+            "command": "scrollDownPage",
+            "keys": "alt+shift+pgdn"
+        },
+        {
+            "command": "scrollToBottom",
+            "keys": "alt+shift+end"
+        },
+        {
+            "command": "scrollUpPage",
+            "keys": "alt+shift+pgup"
         }
     ],
     "alwaysShowTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{85df65cd-faf2-5524-9308-5564009da112}",
+    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "experimental.rendering.forceFullRepaint": true,
     "firstWindowPreference": "persistedWindowLayout",
-    "initialCols": 163,
+    "initialCols": 120,
     "initialPosition": "308,30",
-    "initialRows": 56,
+    "initialRows": 40,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": {},
         "list": 
         [
             {
-                "bellStyle": "none",
-                "closeOnExit": "graceful",
                 "colorScheme": "Kasugano",
                 "cursorShape": "vintage",
-                "experimental.retroTerminalEffect": false,
                 "font": 
                 {
-                    "face": "FantasqueSansMono NF",
-                    "size": 11
-                },
-                "guid": "{85df65cd-faf2-5524-9308-5564009da112}",
-                "hidden": false,
-                "name": "UbunTwo",
-                "padding": "0",
-                "scrollbarState": "hidden",
-                "source": "Windows.Terminal.Wsl",
-                "suppressApplicationTitle": true
-            },
-            {
-                "font": 
-                {
-                    "face": "FantasqueSansMono NF"
-                },
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "hidden": false,
-                "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore"
-            },
-            {
-                "colorScheme": "Atom",
-                "cursorShape": "vintage",
-                "font": 
-                {
-                    "face": "DejaVuSansMono Nerd Font",
-                    "size": 10
+                    "face": "FiraCode Nerd Font Mono",
+                    "size": 12.0
                 },
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "name": "Ubuntu",
+                "opacity": 100,
                 "padding": "0, 0, -20, 0",
                 "source": "Windows.Terminal.Wsl",
                 "suppressApplicationTitle": true
@@ -423,45 +463,27 @@
                 "name": "Git Bash"
             },
             {
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
-                "name": "Debian",
-                "source": "Windows.Terminal.Wsl"
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "guid": "{55d7850d-3a49-5f43-8fe8-cc038da62533}",
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
+            },
+            {
+                "guid": "{e1f1e133-155c-5b65-b7b0-d2e1127a9d78}",
                 "hidden": false,
                 "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{194cec4d-7071-52ec-8799-ebe726c0017d}",
+                "guid": "{459ebe7d-7ff6-506e-b048-1249d7fb155a}",
                 "hidden": false,
                 "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{74239e0f-f8a9-554c-a36f-ae6c0a0cf760}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2019 (2)",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{73e2097a-58a8-517a-bd4b-89869fdc0434}",
-                "hidden": true,
-                "name": "Developer PowerShell for VS 2019 (2)",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{d2438196-0803-5518-9fe3-c51ac17a7925}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2019 (3)",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{93e46a9f-83d6-5ec2-9389-e3b6abd2b3b5}",
-                "hidden": true,
-                "name": "Developer PowerShell for VS 2019 (3)",
                 "source": "Windows.Terminal.VisualStudio"
             }
         ]
@@ -906,6 +928,29 @@
             "yellow": "#E0AF68"
         },
         {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
+        },
+        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -952,5 +997,50 @@
             "yellow": "#EFDFAC"
         }
     ],
-    "startOnUserLogin": true
+    "startOnUserLogin": true,
+    "themes": 
+    [
+        {
+            "name": "legacyDark",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacyLight",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "light",
+                "useMica": false
+            }
+        },
+        {
+            "name": "legacySystem",
+            "tab": 
+            {
+                "background": null,
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "window": 
+            {
+                "applicationTheme": "system",
+                "useMica": false
+            }
+        }
+    ]
 }
