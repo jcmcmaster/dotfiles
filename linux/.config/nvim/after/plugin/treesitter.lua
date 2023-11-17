@@ -31,6 +31,13 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["as"] = "@statement.outer"
+      }
+    },
     move = {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist

@@ -35,13 +35,7 @@ packer.init {
 return require('packer').startup({ function(use)
   use 'wbthomason/packer.nvim'
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-  use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-      vim.cmd('colorscheme rose-pine')
-    end
-  })
+  use "folke/tokyonight.nvim"
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -57,9 +51,6 @@ return require('packer').startup({ function(use)
     config = function()
       require('trouble').setup {
         icons = false,
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
       }
     end
   })

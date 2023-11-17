@@ -4,6 +4,7 @@ lsp.preset("recommended")
 
 local language_servers = {
   'bashls',
+  'bicep',
   'csharp_ls',
   'cssls',
   'dockerls',
@@ -16,6 +17,7 @@ local language_servers = {
   'tsserver',
   'rust_analyzer',
   'vimls',
+  'lemminx',
   'yamlls',
 }
 
