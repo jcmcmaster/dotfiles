@@ -65,7 +65,6 @@ return require('packer').startup({ function(use)
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'theprimeagen/harpoon'
-  use 'theprimeagen/refactoring.nvim'
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
@@ -93,44 +92,12 @@ return require('packer').startup({ function(use)
 
       -- Language-specific
       { 'simrat39/rust-tools.nvim' },
+      { 'Decodetalkers/csharpls-extended-lsp.nvim' }
     }
   }
   use('folke/zen-mode.nvim')
   use('github/copilot.vim')
   use('eandrju/cellular-automaton.nvim')
-  use {
-    'nvim-neotest/neotest',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim',
-      'haydenmeade/neotest-jest',
-    },
-    config = function()
-      require('neotest').setup({
-        adapters = {
-          require('neotest-jest'),
-        },
-        quickfix = {
-          open = false
-        }
-      })
-    end
-  }
-  use {
-    'mxsdev/nvim-dap-vscode-js',
-    requires = { 'mfussenegger/nvim-dap' },
-  }
-  use {
-    'rcarriga/nvim-dap-ui',
-    requires = { 'mfussenegger/nvim-dap' },
-    config = function() require('dapui').setup() end,
-  }
-  use {
-    'microsoft/vscode-js-debug',
-    opt = true,
-    run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out'
-  }
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use {

@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1699392533/share/lua/5.1/?.lua;/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1699392533/share/lua/5.1/?/init.lua;/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1699392533/lib/luarocks/rocks-5.1/?.lua;/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1699392533/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1699392533/lib/lua/5.1/?.so"
+local package_path_str = "/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1727870382/share/lua/5.1/?.lua;/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1727870382/share/lua/5.1/?/init.lua;/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1727870382/lib/luarocks/rocks-5.1/?.lua;/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1727870382/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/jcmcmaster/.cache/nvim/packer_hererocks/2.1.1727870382/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["FixCursorHold.nvim"] = {
-    loaded = true,
-    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
-    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -124,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
+  ["csharpls-extended-lsp.nvim"] = {
+    loaded = true,
+    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/csharpls-extended-lsp.nvim",
+    url = "https://github.com/Decodetalkers/csharpls-extended-lsp.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -149,37 +149,10 @@ _G.packer_plugins = {
     path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  neotest = {
-    config = { "\27LJ\2\nŠ\1\0\0\a\0\b\1\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0006\4\0\0'\6\3\0B\4\2\0?\4\0\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\rquickfix\1\0\1\topen\1\radapters\1\0\0\17neotest-jest\nsetup\fneotest\frequire\3€€À™\4\0" },
-    loaded = true,
-    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/neotest",
-    url = "https://github.com/nvim-neotest/neotest"
-  },
-  ["neotest-jest"] = {
-    loaded = true,
-    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/neotest-jest",
-    url = "https://github.com/haydenmeade/neotest-jest"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-ui"] = {
-    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ndapui\frequire\0" },
-    loaded = true,
-    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
-  },
-  ["nvim-dap-vscode-js"] = {
-    loaded = true,
-    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/nvim-dap-vscode-js",
-    url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -225,11 +198,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["refactoring.nvim"] = {
-    loaded = true,
-    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
-    url = "https://github.com/theprimeagen/refactoring.nvim"
   },
   ["rust-tools.nvim"] = {
     loaded = true,
@@ -283,12 +251,6 @@ _G.packer_plugins = {
     path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
-  ["vscode-js-debug"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/opt/vscode-js-debug",
-    url = "https://github.com/microsoft/vscode-js-debug"
-  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "/home/jcmcmaster/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
@@ -297,22 +259,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\nS\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\19live_grep_args\19load_extension\14telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
--- Config for: neotest
-time([[Config for neotest]], true)
-try_loadstring("\27LJ\2\nŠ\1\0\0\a\0\b\1\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0006\4\0\0'\6\3\0B\4\2\0?\4\0\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\rquickfix\1\0\1\topen\1\radapters\1\0\0\17neotest-jest\nsetup\fneotest\frequire\3€€À™\4\0", "config", "neotest")
-time([[Config for neotest]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
--- Config for: nvim-dap-ui
-time([[Config for nvim-dap-ui]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
-time([[Config for nvim-dap-ui]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\nS\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\19live_grep_args\19load_extension\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

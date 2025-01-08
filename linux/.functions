@@ -36,6 +36,13 @@ find_project_and_go() {
     fi
 }
 
+find_windows_project_and_go() {
+    target=$(find /mnt/c/Users/472696/Projects -maxdepth 1 -type d | fzf)
+    if [[ -n $target ]]; then
+      cd $target
+    fi
+}
+
 blame () {
     git log --follow -- $1
 }
@@ -84,3 +91,13 @@ owd () {
 cwd () {
     code -n --folder-uri $(wslpath -w $(pwd))
 }
+
+# git () {
+#     # if we're in /mnt/c/, use windows git
+
+#     if [[ $(pwd) == /mnt/c/* ]]; then
+#         /mnt/c/Program\ Files/Git/bin/git.exe $@
+#     else
+#         /usr/bin/git $@
+#     fi
+# }

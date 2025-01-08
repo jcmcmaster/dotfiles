@@ -13,8 +13,9 @@ local language_servers = {
   'html',
   'jsonls',
   'lua_ls',
+  'powershell_es',
   'pyright',
-  'tsserver',
+  'terraformls',
   'rust_analyzer',
   'vimls',
   'lemminx',
@@ -111,6 +112,15 @@ rust_tools.setup({
     on_attach = attach,
   },
 });
+
+local config = {
+  handlers = {
+    ["textDocument/definition"] = require('csharpls_extended').handler,
+  },
+  cmd = { "csharp-ls" },
+}
+
+require'lspconfig'.csharp_ls.setup(config)
 
 lsp.setup()
 
