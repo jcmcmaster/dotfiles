@@ -114,10 +114,10 @@ function StashPop {
 }
 Set-Alias -Name gsp -Value StashPop
 
-function Nvim {
+function Neovim {
     & nvim $args
 }
-Set-Alias -Name vim -Value Nvim
+Set-Alias -Name vim -Value Neovim
 
 function GitAddAllAndPush {
     & git add -A
