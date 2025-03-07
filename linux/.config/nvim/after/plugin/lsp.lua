@@ -9,13 +9,13 @@ local language_servers = {
   'cssls',
   'dockerls',
   'eslint',
+  'graphql',
   'fsautocomplete',
   'html',
   'jsonls',
   'lua_ls',
+  'powershell_es',
   'pyright',
-  'tsserver',
-  'rust_analyzer',
   'vimls',
   'lemminx',
   'yamlls',
@@ -103,14 +103,6 @@ local attach = function(client, bufnr)
 end
 
 lsp.on_attach(attach)
-
--- Language-specific
-local rust_tools = require('rust-tools')
-rust_tools.setup({
-  server = {
-    on_attach = attach,
-  },
-});
 
 lsp.setup()
 

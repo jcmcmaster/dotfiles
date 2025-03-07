@@ -34,7 +34,7 @@ packer.init {
 
 return require('packer').startup({ function(use)
   use 'wbthomason/packer.nvim'
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
   use "folke/tokyonight.nvim"
   use {
     'nvim-telescope/telescope.nvim',
@@ -90,47 +90,11 @@ return require('packer').startup({ function(use)
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
       { 'rafamadriz/friendly-snippets' },
-
-      -- Language-specific
-      { 'simrat39/rust-tools.nvim' },
     }
   }
   use('folke/zen-mode.nvim')
   use('github/copilot.vim')
   use('eandrju/cellular-automaton.nvim')
-  use {
-    'nvim-neotest/neotest',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim',
-      'haydenmeade/neotest-jest',
-    },
-    config = function()
-      require('neotest').setup({
-        adapters = {
-          require('neotest-jest'),
-        },
-        quickfix = {
-          open = false
-        }
-      })
-    end
-  }
-  use {
-    'mxsdev/nvim-dap-vscode-js',
-    requires = { 'mfussenegger/nvim-dap' },
-  }
-  use {
-    'rcarriga/nvim-dap-ui',
-    requires = { 'mfussenegger/nvim-dap' },
-    config = function() require('dapui').setup() end,
-  }
-  use {
-    'microsoft/vscode-js-debug',
-    opt = true,
-    run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out'
-  }
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use {
