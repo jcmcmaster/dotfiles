@@ -64,8 +64,6 @@ return require('packer').startup({ function(use)
   use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'theprimeagen/harpoon'
-  use 'theprimeagen/refactoring.nvim'
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
