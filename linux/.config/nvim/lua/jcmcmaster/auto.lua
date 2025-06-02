@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({"BufLeave"}, {
 
 local autoFormatGroup = vim.api.nvim_create_augroup("AutoFormat", {});
 
--- automatically format Rust files with rustfmt
+-- automatically format files
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   group = autoFormatGroup,
   pattern = {"*.rs", "*.fs", "*.cs"},

@@ -1,7 +1,3 @@
-local lsp = require("lsp-zero")
-
-lsp.preset("recommended")
-
 local language_servers = {
   'bashls',
   'bicep',
@@ -21,63 +17,13 @@ local language_servers = {
   'yamlls',
 }
 
-lsp.ensure_installed(language_servers)
-
-lsp.setup_servers(language_servers)
-
--- Fix Undefined global 'vim'
-lsp.nvim_workspace()
-
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local luasnip = require('luasnip')
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<C-p>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_prev_item(cmp_select)
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
-  ['<C-n>'] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_next_item(cmp_select)
-    elseif luasnip.expand_or_jumpable() then
-      luasnip.expand_or_jump()
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
-})
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-require('luasnip.loaders.from_vscode').lazy_load()
-require('luasnip.loaders.from_snipmate').lazy_load()
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
-
-lsp.set_preferences({
-  suggest_lsp_servers = false,
-  sign_icons = {
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
-  }
-})
+require("mason").setup()
+require("mason-lspconfig").setup {
+  ensure_installed = language_servers,
+}
 
 local attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
-  vim.g["test#strategy"] = "neovim"
-  vim.g["test#neovim#start_normal"] = 1
 
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', '<leader>cf', function()
@@ -102,9 +48,19 @@ local attach = function(client, bufnr)
   vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
 end
 
-lsp.on_attach(attach)
+vim.lsp.config('*', {
+  on_attach = attach
+})
 
-lsp.setup()
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      },
+    }
+  }
+})
 
 vim.diagnostic.config({
   virtual_text = true
