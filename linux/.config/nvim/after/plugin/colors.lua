@@ -1,6 +1,5 @@
-function ColorMyPencils(color)
-	color = color or "tokyonight-night"
-	vim.cmd.colorscheme(color)
-end
+require("tokyonight").setup {
+  style = "night"
+}
 
-ColorMyPencils()
+vim.cmd.colorscheme("tokyonight")

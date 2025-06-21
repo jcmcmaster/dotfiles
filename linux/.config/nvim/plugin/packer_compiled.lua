@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["CopilotChat.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\CopilotChat.nvim",
+    url = "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
@@ -93,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -114,15 +124,30 @@ _G.packer_plugins = {
     path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["copilot.vim"] = {
+  ["copilot-cmp"] = {
     loaded = true,
-    path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\copilot.vim",
-    url = "https://github.com/github/copilot.vim"
+    path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\copilot-cmp",
+    url = "https://github.com/zbirenbaum/copilot-cmp"
+  },
+  ["copilot.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\copilot.lua",
+    url = "https://github.com/zbirenbaum/copilot.lua"
   },
   ["friendly-snippets"] = {
     loaded = true,
     path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -201,7 +226,6 @@ _G.packer_plugins = {
     url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
-    config = { "\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0" },
     loaded = true,
     path = "C:\\Users\\472696\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
@@ -239,10 +263,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\nS\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\19live_grep_args\19load_extension\14telescope\frequire\0", "config", "telescope.nvim")

@@ -22,7 +22,7 @@ require("mason-lspconfig").setup {
   ensure_installed = language_servers,
 }
 
-local attach = function(client, bufnr)
+local attach = function(_client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
@@ -34,7 +34,7 @@ local attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-  vim.keymap.set('n', '<loader>wl', function()
+  vim.keymap.set('n', '<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, opts)
   vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
@@ -49,7 +49,8 @@ local attach = function(client, bufnr)
 end
 
 vim.lsp.config('*', {
-  on_attach = attach
+  on_attach = attach,
+  capabilities = require('cmp_nvim_lsp').default_capabilities()
 })
 
 vim.lsp.config('lua_ls', {

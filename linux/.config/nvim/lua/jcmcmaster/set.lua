@@ -10,22 +10,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
--- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
-
-vim.opt.clipboard = 'unnamedplus'
--- vim.g.clipboard = {
---     name = 'WslClipboard',
---     copy = {
---        ["+"] = 'clip.exe',
---        ["*"] = 'clip.exe',
---      },
---     paste = {
---        ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
---        ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
---     },
---     cache_enabled = 0,
---   }
 
 vim.opt.confirm = true
 
@@ -48,3 +33,5 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 
 vim.opt.scrolloff = 8
+
+vim.opt.shell = 'pwsh.exe'
