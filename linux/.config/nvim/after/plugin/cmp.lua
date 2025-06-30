@@ -28,8 +28,8 @@ cmp.setup({
     { name = 'copilot',  group_index = 1 },
   },
   window = {
-    completion = cmp.config.window.bordered({ border = "double" }),
-    documentation = cmp.config.window.bordered({ border = "double" }),
+    completion = cmp.config.window.bordered({ border = "rounded" }),
+    documentation = cmp.config.window.bordered({ border = "rounded" }),
   }
 })
 

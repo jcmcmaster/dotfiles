@@ -1,8 +1,6 @@
 vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 vim.keymap.set("n", "J", "mzJ`z")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -24,6 +22,9 @@ vim.keymap.set("n", "<A-Up>", ":resize +2<CR>")
 vim.keymap.set("n", "<A-Down>", ":resize -2<CR>")
 vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>")
 vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>")
+
+vim.keymap.set("n", "<S-Down>", ":split<CR>")
+vim.keymap.set("n", "<S-Right>", ":vsplit<CR>")
 
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>")
 vim.keymap.set("n", "<C-l>", ":bnext<CR>")

@@ -22,6 +22,22 @@ require("mason-lspconfig").setup {
   ensure_installed = language_servers,
 }
 
+local borderType = 'rounded'
+
+local function bordered_hover(_opts)
+    _opts = _opts or {}
+    return vim.lsp.buf.hover(vim.tbl_deep_extend("force", _opts, {
+        border = borderType
+    }))
+end
+
+local function bordered_signature_help(_opts)
+    _opts = _opts or {}
+    return vim.lsp.buf.signature_help(vim.tbl_deep_extend("force", _opts, {
+        border = borderType
+    }))
+end
+
 local attach = function(_client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
@@ -30,7 +46,7 @@ local attach = function(_client, bufnr)
     vim.lsp.buf.format { async = true }
   end, opts)
   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-  vim.keymap.set('n', '<leader>h', vim.lsp.buf.signature_help, opts)
+  vim.keymap.set('n', '<leader>h', bordered_signature_help, opts)
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
@@ -38,7 +54,7 @@ local attach = function(_client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, opts)
   vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', 'K', bordered_hover, opts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gE', vim.diagnostic.goto_prev, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -64,5 +80,8 @@ vim.lsp.config('lua_ls', {
 })
 
 vim.diagnostic.config({
-  virtual_text = true
+  virtual_text = false,
+  float = {
+    border = borderType
+  }
 })
