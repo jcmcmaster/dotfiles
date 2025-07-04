@@ -33,7 +33,6 @@ return {
       require("mini.cursorword").setup()
       require("mini.diff").setup()
       require("mini.extra").setup()
-      require('mini.git').setup()
       require("mini.files").setup()
       require("mini.icons").setup()
       require("mini.indentscope").setup()

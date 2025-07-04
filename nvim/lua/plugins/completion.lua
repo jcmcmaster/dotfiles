@@ -2,12 +2,19 @@ return {
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
+      -- sources
+      'L3MON4D3/LuaSnip',
+      'rafamadriz/friendly-snippets',
+      'zbirenbaum/copilot.lua',
+      'CopilotC-Nvim/CopilotChat.nvim',
+
+      -- cmp source setup
+      'zbirenbaum/copilot-cmp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lua',
       'saadparwaiz1/cmp_luasnip',
-      'zbirenbaum/copilot.lua',
       'zbirenbaum/copilot-cmp',
     },
     config = function()
@@ -58,6 +65,8 @@ return {
           }
         })
       })
+
+      require("copilot_cmp").setup() -- see cmp config
     end
   },
 }
