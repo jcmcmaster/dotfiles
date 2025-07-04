@@ -30,59 +30,20 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
   }
 }
 
-function fp {
+function fp
+{
   $projectsDir = "$HOME\Projects"
   $projects = Get-ChildItem -Directory -Path $projectsDir | ForEach-Object FullName
   $projects += @($projectsDir)
   $target = $projects | fzf
-  if ($target) {
+  if ($target)
+  {
     Set-Location $target
   }
 }
 
-function gs { & git status $args }
-
-function ga { & git add $args }
-
-function gaa { & git add -A $args }
-
-function gbl { & git branch --list $args }
-
-function gap { & git add -p $args }
-
-Remove-Alias gc -Force -ErrorAction SilentlyContinue
-function gc { & git checkout $args }
-
-function gcdd { & git checkout -- . }
-
-Remove-Alias gcm -Force -ErrorAction SilentlyContinue
-function gcm { & git commit -m $args }
-
-function gd { & git diff $args }
-
-function gdd { & git difftool --dir-diff $args }
-
-function gdc { & git diff --cached $args }
-
-function gddc { & git difftool --dir-diff --cached $args }
-
-function gdt { & git difftool $args }
-
-function gf { & git fetch $args }
-
-Remove-Alias gl -Force -ErrorAction SilentlyContinue
-function gl { & git log $args }
-
-Remove-Alias gp -Force -ErrorAction SilentlyContinue
-function gp { & git pull $args }
-
-function gsl { & git stash list }
-
-function gsp { & git stash pop $args }
-
-function vim { & nvim $args }
-
-function gacp {
+function gacp
+{
   & git add -A
   & git commit -m "$args"
   & git push
