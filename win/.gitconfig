@@ -1,0 +1,28 @@
+[user]
+  email = jmcmaster008@gmail.com
+  name = Jim  
+
+[diff]
+  tool = meld
+
+[difftool "meld"]
+  cmd = "\"C:/Program Files/Meld/Meld.exe\" \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+  tool = meld
+
+[mergetool "meld"]
+  cmd = "\"C:/Program Files/Meld/Meld.exe\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+
+[alias]
+  a = add
+  aa = add --all
+  b = branch
+  c = checkout
+  cdd = checkout -- .
+  cm = commit --message
+  d = diff
+  dd = difftool --dir-diff
+  f = fetch
+  l = log
+  s = status
