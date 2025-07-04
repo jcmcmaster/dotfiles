@@ -28,6 +28,18 @@
     [
         {
             "id": null,
+            "keys": "ctrl+alt+5"
+        },
+        {
+            "id": "Terminal.NextTab",
+            "keys": "alt+shift+right"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+c"
+        },
+        {
+            "id": null,
             "keys": "ctrl+w"
         },
         {
@@ -36,15 +48,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+alt+5"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+c"
-        },
-        {
-            "id": "Terminal.NextTab",
-            "keys": "alt+shift+right"
+            "keys": "alt+right"
         },
         {
             "id": "Terminal.FindText",
@@ -52,19 +56,15 @@
         },
         {
             "id": null,
-            "keys": "alt+right"
-        },
-        {
-            "id": null,
             "keys": "ctrl+numpad_minus"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+f"
+            "keys": "ctrl+comma"
         },
         {
             "id": null,
-            "keys": "ctrl+comma"
+            "keys": "ctrl+shift+f"
         },
         {
             "id": null,
@@ -79,16 +79,20 @@
             "keys": "alt+f4"
         },
         {
+            "id": null,
+            "keys": "ctrl+shift+3"
+        },
+        {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+3"
+            "keys": "ctrl+numpad_plus"
         },
         {
             "id": null,
-            "keys": "ctrl+numpad_plus"
+            "keys": "alt+down"
         },
         {
             "id": "User.newTab.5DEADB41",
@@ -100,19 +104,7 @@
         },
         {
             "id": null,
-            "keys": "alt+down"
-        },
-        {
-            "id": null,
             "keys": "ctrl+shift+1"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+2"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+5"
         },
         {
             "id": null,
@@ -124,6 +116,14 @@
         },
         {
             "id": null,
+            "keys": "ctrl+shift+5"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+2"
+        },
+        {
+            "id": null,
             "keys": "ctrl+shift+6"
         },
         {
@@ -132,11 +132,15 @@
         },
         {
             "id": null,
+            "keys": "ctrl+shift+home"
+        },
+        {
+            "id": null,
             "keys": "ctrl+shift+7"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+home"
+            "keys": "ctrl+shift+8"
         },
         {
             "id": "Terminal.ResizePaneUp",
@@ -144,15 +148,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+8"
-        },
-        {
-            "id": null,
             "keys": "ctrl+shift+9"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+n"
         },
         {
             "id": null,
@@ -161,6 +157,10 @@
         {
             "id": null,
             "keys": "ctrl+alt+4"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+n"
         },
         {
             "id": null,
@@ -176,15 +176,15 @@
         },
         {
             "id": null,
+            "keys": "ctrl+alt+8"
+        },
+        {
+            "id": null,
             "keys": "ctrl+shift+v"
         },
         {
             "id": "Terminal.SwapPaneLeft",
             "keys": "ctrl+alt+shift+left"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+8"
         },
         {
             "id": null,
@@ -203,24 +203,24 @@
             "keys": "ctrl+alt+down"
         },
         {
-            "id": "Terminal.PrevTab",
-            "keys": "alt+shift+left"
+            "id": "Terminal.SwapPaneDown",
+            "keys": "ctrl+alt+shift+down"
         },
         {
             "id": null,
             "keys": "ctrl+alt+1"
         },
         {
-            "id": "Terminal.SwapPaneDown",
-            "keys": "ctrl+alt+shift+down"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+2"
+            "id": "Terminal.PrevTab",
+            "keys": "alt+shift+left"
         },
         {
             "id": null,
             "keys": "ctrl+alt+9"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+2"
         },
         {
             "id": null,
@@ -232,7 +232,11 @@
         },
         {
             "id": null,
-            "keys": "f11"
+            "keys": "ctrl+shift+pgdn"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+pgup"
         },
         {
             "id": null,
@@ -240,11 +244,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+pgdn"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+pgup"
+            "keys": "f11"
         },
         {
             "id": null,
@@ -267,16 +267,16 @@
             "keys": "alt+left"
         },
         {
-            "id": null,
-            "keys": "alt+up"
-        },
-        {
             "id": "Terminal.ClosePane",
             "keys": "ctrl+alt+w"
         },
         {
             "id": "Terminal.ScrollToBottom",
             "keys": "alt+shift+end"
+        },
+        {
+            "id": null,
+            "keys": "alt+up"
         },
         {
             "id": "Terminal.SplitPaneDown",
@@ -307,12 +307,12 @@
             "keys": "ctrl+shift+left"
         },
         {
-            "id": "Terminal.ScrollToTop",
-            "keys": "alt+shift+home"
-        },
-        {
             "id": "Terminal.ScrollUp",
             "keys": "alt+shift+up"
+        },
+        {
+            "id": "Terminal.ScrollToTop",
+            "keys": "alt+shift+home"
         },
         {
             "id": "Terminal.ResizePaneRight",
@@ -343,7 +343,8 @@
         {
             "font": 
             {
-                "face": "FiraCode Nerd Font"
+                "face": "FiraCode Nerd Font",
+                "size": 10
             },
             "padding": "0",
             "scrollbarState": "hidden"
