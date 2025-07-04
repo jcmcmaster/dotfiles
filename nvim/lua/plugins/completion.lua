@@ -66,7 +66,7 @@ return {
         })
       })
 
-      require("copilot_cmp").setup() -- see cmp config
+      require("copilot_cmp").setup()
     end
   },
 }
