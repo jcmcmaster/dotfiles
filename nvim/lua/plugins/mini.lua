@@ -2,16 +2,14 @@
 -- see: https://github.com/echasnovski/mini.nvim/blob/48f48e4b3f317e9da34ee7a01958b4c5018e2d34/doc/mini-pick.txt#L1138
 local function setup_ripgrep()
   local ripgreprc_path = vim.fn.stdpath("data") .. "/.ripgreprc"
-  local ripgreprc_content = [[
+  local file = io.open(ripgreprc_path, "w")
+  if file then
+    file:write([[
     --hidden
     --glob
     !.git/*
     --smart-case
-    ]]
-
-  local file = io.open(ripgreprc_path, "w")
-  if file then
-    file:write(ripgreprc_content)
+    ]])
     file:close()
   else
     print("Failed to write .ripgreprc file")
