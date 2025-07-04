@@ -76,7 +76,7 @@ return {
               ["af"] = "@function.outer",
               ["if"] = "@function.inner",
               ["ac"] = "@class.outer",
-              ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+              ["ic"] = "@class.inner",
             }
           },
         },
