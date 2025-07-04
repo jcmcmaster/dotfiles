@@ -36,7 +36,18 @@ return {
       require("mini.icons").setup()
       require("mini.indentscope").setup()
       require("mini.pick").setup()
-      require("mini.starter").setup()
+      require("mini.starter").setup({
+        header =
+        [[
+         ╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
+         │││├┤ │ │╰┐┌╯││││
+         ╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
+        ]],
+        footer =
+        [[
+        ~=================~
+        ]]
+      })
       require("mini.statusline").setup()
       require("mini.surround").setup()
       require("mini.tabline").setup()
