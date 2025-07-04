@@ -3,6 +3,7 @@
 local function setup_ripgrep()
   local ripgreprc_path = vim.fn.stdpath("data") .. "/.ripgreprc"
   local file = io.open(ripgreprc_path, "w")
+
   if file then
     file:write([[
     --hidden
