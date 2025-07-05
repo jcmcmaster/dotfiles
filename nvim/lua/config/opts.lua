@@ -21,6 +21,7 @@ return {
     vim.opt.signcolumn = 'yes'
     vim.opt.termguicolors = true
 
+    vim.opt.ignorecase = true
     vim.opt.smartcase = true
 
     vim.opt.incsearch = true

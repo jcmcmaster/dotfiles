@@ -6,6 +6,7 @@ local function configure_mini_pick()
   if file then
     file:write([[
       --hidden
+      --smart-case
       ]])
     file:close()
   else
