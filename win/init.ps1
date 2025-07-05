@@ -9,6 +9,7 @@ $packages = @(
   "Neovim.Neovim",
   "Obsidian.Obsidian",
   "Postman.Postman",
+  "jqlang.jq",
   "junegunn.fzf",
   "zig.zig"
 )
