@@ -57,11 +57,6 @@ function fp
   find-dir("$HOME\Projects")
 }
 
-function fe
-{
-  find-dir("$HOME\Exercism")
-}
-
 function gacp
 {
   & git add -A
@@ -70,8 +65,7 @@ function gacp
 }
 
 New-Alias g git
+Import-Module posh-git
 
 New-Alias vim nvim
 New-Alias vi nvim
-
-Import-Module posh-git
