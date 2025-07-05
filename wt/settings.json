@@ -51,10 +51,6 @@
             "keys": "alt+right"
         },
         {
-            "id": "Terminal.FindText",
-            "keys": "ctrl+f"
-        },
-        {
             "id": null,
             "keys": "ctrl+numpad_minus"
         },
@@ -63,11 +59,11 @@
             "keys": "ctrl+comma"
         },
         {
-            "id": null,
+            "id": "Terminal.FindText",
             "keys": "ctrl+shift+f"
         },
         {
-            "id": null,
+            "id": "Terminal.ClosePane",
             "keys": "ctrl+shift+w"
         },
         {
@@ -265,10 +261,6 @@
         {
             "id": null,
             "keys": "alt+left"
-        },
-        {
-            "id": "Terminal.ClosePane",
-            "keys": "ctrl+alt+w"
         },
         {
             "id": "Terminal.ScrollToBottom",

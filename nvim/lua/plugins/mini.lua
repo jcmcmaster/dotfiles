@@ -1,3 +1,8 @@
+local function configure_mini_files()
+  vim.keymap.set("n", "<leader>e.", ":e .<CR>")
+  vim.keymap.set("n", "<leader>ef", function() require('mini.files').open() end)
+end
+
 local function configure_mini_pick()
   -- configure ripgrep defaults to search the way i want for mini.pick
   -- see: https://github.com/echasnovski/mini.nvim/blob/48f48e4b3f317e9da34ee7a01958b4c5018e2d34/doc/mini-pick.txt#L1138
@@ -26,22 +31,16 @@ local function configure_mini_pick()
   vim.keymap.set("n", "<leader>ft", ":Pick treesitter<CR>")
 end
 
-local function configure_mini_files()
-  vim.keymap.set("n", "<leader>e.", ":e .<CR>")
-  vim.keymap.set("n", "<leader>ef", function() require('mini.files').open() end)
-end
-
 local mini_starter_config = {
-  header =
-  [[
-   ╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
-   │││├┤ │ │╰┐┌╯││││
-   ╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
-  ]],
-  footer =
-  [[
-  ~=================~
-  ]]
+  header = [[
+╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
+│││├┤ │ │╰┐┌╯││││
+╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
+]],
+  footer = [[
+
+~===============~
+]]
 }
 
 return {
