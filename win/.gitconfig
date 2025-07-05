@@ -23,6 +23,7 @@
   cm = commit --message
   d = diff
   dd = difftool --dir-diff
+  ddc = difftool --dir-diff --cached
   f = fetch
   l = log
   s = status

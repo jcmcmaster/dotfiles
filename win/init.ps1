@@ -1,11 +1,19 @@
-winget install Docker.DockerDesktop -e
-winget install Git.Git -e
-winget install GitHub.cli -e
-winget install JanDeDobbeleer.OhMyPosh -e
-winget install Meld.Meld -e
-winget install Microsoft.PowerShell -e
-winget install Neovim.Neovim -e
-winget install Obsidian.Obsidian -e
-winget install Postman.Postman -e
-winget install junegunn.fzf -e
-winget install zig.zig -e
+$packages = @(
+  "BurntSushi.ripgrep.MSVC",
+  "Docker.DockerDesktop",
+  "Git.Git",
+  "GitHub.cli",
+  "JanDeDobbeleer.OhMyPosh",
+  "Meld.Meld",
+  "Microsoft.PowerShell",
+  "Neovim.Neovim",
+  "Obsidian.Obsidian",
+  "Postman.Postman",
+  "junegunn.fzf",
+  "zig.zig"
+)
+
+foreach ($pkg in $packages)
+{
+  winget install $pkg -e
+}

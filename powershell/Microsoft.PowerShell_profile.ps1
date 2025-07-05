@@ -30,16 +30,36 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
   }
 }
 
+function find-dir
+{
+  param(
+    [string]$searchPath = "."
+  )
+  $options = Get-ChildItem -Directory -Path $searchPath | ForEach-Object FullName
+  $options += @($searchPath)
+  $choice = $options | fzf
+  if ($choice)
+  {
+    Set-Location $choice
+  }
+}
+
+function fd
+{
+  param(
+    [string]$searchPath = "."
+  )
+  find-dir($searchPath)
+}
+
 function fp
 {
-  $projectsDir = "$HOME\Projects"
-  $projects = Get-ChildItem -Directory -Path $projectsDir | ForEach-Object FullName
-  $projects += @($projectsDir)
-  $target = $projects | fzf
-  if ($target)
-  {
-    Set-Location $target
-  }
+  find-dir("$HOME\Projects")
+}
+
+function fe
+{
+  find-dir("$HOME\Exercism")
 }
 
 function gacp
@@ -50,5 +70,8 @@ function gacp
 }
 
 New-Alias g git
+
+New-Alias vim nvim
+New-Alias vi nvim
 
 Import-Module posh-git
