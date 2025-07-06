@@ -72,11 +72,14 @@ return {
             enable = true,
             lookahead = true,
             keymaps = {
-              ["as"] = "@statement.outer",
               ["af"] = "@function.outer",
               ["if"] = "@function.inner",
               ["ac"] = "@class.outer",
               ["ic"] = "@class.inner",
+              ["as"] = "@statement.outer",
+              ["is"] = "@statement.inner",
+              ["al"] = "@loop.outer",
+              ["il"] = "@loop.inner",
             }
           },
         },

@@ -34,9 +34,6 @@ return {
           },
         },
       },
-      web_search_engine = {
-        provider = "google"
-      }
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
