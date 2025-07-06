@@ -3,7 +3,6 @@ return {
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- sources
-      'L3MON4D3/LuaSnip',
       'rafamadriz/friendly-snippets',
       'zbirenbaum/copilot.lua',
       'CopilotC-Nvim/CopilotChat.nvim',
@@ -15,8 +14,7 @@ return {
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lua',
-      'saadparwaiz1/cmp_luasnip',
-      'zbirenbaum/copilot-cmp',
+      "abeldekat/cmp-mini-snippets",
     },
     config = function()
       local cmp = require('cmp')
@@ -36,20 +34,15 @@ return {
           ['<C-e>'] = cmp.mapping.abort(),
         },
         preselect = cmp.PreselectMode.Item,
-        snippet = {
-          expand = function(args)
-            require 'luasnip'.lsp_expand(args.body)
-          end
-        },
         sources = {
-          { name = 'buffer',   group_index = 2 },
-          { name = 'cmdline',  group_index = 2 },
-          { name = 'copilot',  group_index = 1 },
-          { name = 'easy-dotnet', group_index = 1 },
-          { name = 'luasnip',  group_index = 2 },
-          { name = 'nvim_lsp', group_index = 1 },
-          { name = 'nvim_lua', group_index = 2 },
-          { name = 'path',     group_index = 2 },
+          { name = 'copilot' },
+          { name = 'nvim_lsp' },
+          { name = 'easy-dotnet' },
+          { name = 'nvim_lua' },
+          { name = 'mini_snippets', option = { use_items_cache = false } },
+          { name = 'path' },
+          { name = 'buffer' },
+          { name = 'cmdline' },
         },
         window = {
           completion = cmp.config.window.bordered({ border = "rounded" }),
@@ -72,5 +65,5 @@ return {
 
       require("copilot_cmp").setup()
     end
-  },
+  }
 }

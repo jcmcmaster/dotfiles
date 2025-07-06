@@ -60,6 +60,7 @@ return {
     require("mini.indentscope").setup()
     require("mini.pick").setup()
     configure_mini_pick()
+    require("mini.snippets").setup()
     require("mini.starter").setup(mini_starter_config)
     require("mini.statusline").setup()
     require("mini.surround").setup()

@@ -2,7 +2,6 @@ return {
   "nvim-neotest/neotest",
   dependencies = {
     "nsidorenco/neotest-vstest",
-    "Issafalcon/neotest-dotnet",
     "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
@@ -11,7 +10,6 @@ return {
   config = function()
     require("neotest").setup({
       adapters = {
-        require("neotest-dotnet"),
         require("neotest-vstest")
       }
     })
