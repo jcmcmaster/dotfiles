@@ -1,0 +1,61 @@
+" .ideavimrc
+" Jim McMaster, 2024
+command! Qba :action CloseAllEditorsButActive
+command! Ql :action CloseAllToTheLeft
+command! Qr :action CloseAllToTheRight
+command! Qu :action CloseAllUnpinnedEditors
+command! Rc e c:/users/472696/.ideavimrc
+command! Run :action Run
+command! Scratch :action NewScratchBuffer
+command! ScratchEx :action Scratch.ExportToScratch
+command! ScratchF :action NewScratchFile
+command! Src source c:/users/472696/.ideavimrc
+command! Stop :action Stop
+let mapleader = " "
+nmap <c-h> <Action>(PreviousTab)
+nmap <c-i> <Action>(Forward)
+nmap <c-j> <Action>(MethodDown)
+nmap <c-k> <Action>(MethodUp)
+nmap <c-l> <Action>(NextTab)
+nmap <c-o> <Action>(Back)
+nmap <leader><leader> <Action>(AceAction)
+nmap <leader>bb <Action>(build)
+nmap <leader>bc <Action>(CleanSolutionAction)
+nmap <leader>br <Action>(RebuildSolutionAction)
+nmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>cf <Action>(ReformatCode)
+nmap <leader>di <Action>(ImmediateWindowOpen)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fg <Action>(FindInPath)
+nmap <leader>fe <Action>(SearchEverywhere)
+nmap <leader>fp <Action>(FindInPath)
+nmap <leader>fu <Action>(FindUsages)
+nmap <leader>nt <Action>(Explorer)
+nmap <leader>pt <Action>(PinActiveTabToggle)
+nmap <leader>r <Action>(RenameElement)
+nmap <leader>s <Action>(ActivateStructureToolWindow)
+nmap <leader>ta <Action>(Rider.UnitTesting.RunSolution)
+nmap <leader>tc <Action>(Rider.UnitTesting.RunContext)
+nmap <leader>zm <Action>(ToggleZenMode)
+nmap <s-k> <Action>(ShowHoverInfo)
+nmap <c-Left> <Action>(PrevSplitter)
+nmap <c-Right> <Action>(NextSplitter)
+nmap gE <Action>(GotoPreviousError)
+nmap ga <Action>(GotoAction)
+nmap gd <Action>(GotoDeclaration)
+nmap ge <Action>(GotoNextError)
+nmap gi <Action>(GotoImplementation)
+nmap gl <Action>(GotoFile)
+nmap gs <Action>(Switcher)
+nmap gy <Action>(GotoSymbol)
+nmap pd <Action>(QuickImplementations)
+vnoremap < <gv
+vnoremap > >gv
+set clipboard=unnamed
+set commentary
+set hlsearch
+set ideajoin
+set ignorecase
+set incsearch
+set number relativenumber
+set visualbell
