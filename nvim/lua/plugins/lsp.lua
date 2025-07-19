@@ -69,7 +69,7 @@ return {
 
       vim.lsp.config('*', {
         on_attach = attach,
-        -- capabilities = require('cmp_nvim_lsp').default_capabilities()
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
       })
 
       vim.lsp.config('lua_ls', {

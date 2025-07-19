@@ -1,3 +1,10 @@
+local function configure_mini_diff()
+  local diff = require("mini.diff")
+  diff.setup({
+    source = diff.gen_source.none(), -- for codecompanion
+  })
+end
+
 local function configure_mini_files()
   vim.keymap.set("n", "<leader>e.", ":e .<CR>")
   vim.keymap.set("n", "<leader>ef", function() require('mini.files').open() end)
@@ -48,11 +55,11 @@ return {
   version = false,
   config = function()
     require("mini.ai").setup()
-    require("mini.animate").setup()
     require("mini.bracketed").setup()
     require("mini.comment").setup()
     require("mini.cursorword").setup()
     require("mini.diff").setup()
+    configure_mini_diff()
     require("mini.extra").setup()
     require("mini.files").setup()
     configure_mini_files()

@@ -5,7 +5,6 @@ return {
       -- sources
       'rafamadriz/friendly-snippets',
       'zbirenbaum/copilot.lua',
-      'CopilotC-Nvim/CopilotChat.nvim',
       'GustavEikaas/easy-dotnet.nvim',
 
       -- cmp source setup

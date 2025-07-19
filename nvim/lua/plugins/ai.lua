@@ -3,66 +3,49 @@ return {
     'zbirenbaum/copilot.lua',
     config = function()
       require("copilot").setup({
-        suggestion = { enabled = false }, -- see cmp config
-        panel = { enabled = false },      -- see cmp config
+        suggestion = { enabled = false }, -- used with cmp
+        panel = { enabled = false },      -- used with cmp
       })
     end
   },
   {
-    "yetone/avante.nvim",
-    build = function()
-      if vim.fn.has("win32") == 1 then
-        return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-      else
-        return "make"
-      end
+    "olimorris/codecompanion.nvim",
+    opts = {},
+    config = function()
+      require("codecompanion").setup({
+        extensions = {
+          mcphub = {
+            callback = "mcphub.extensions.codecompanion",
+            opts = {
+              -- MCP Tools
+              make_tools = true,                    -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
+              show_server_tools_in_chat = true,     -- Show individual tools in chat completion (when make_tools=true)
+              add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
+              show_result_in_chat = true,           -- Show tool results directly in chat buffer
+              format_tool = nil,                    -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
+              -- MCP Resources
+              make_vars = true,                     -- Convert MCP resources to #variables for prompts
+              -- MCP Prompts
+              make_slash_commands = true,           -- Add MCP prompts as /slash commands
+            }
+          }
+        }
+      })
+      vim.keymap.set({ "n", "v" }, "<leader>ac", ":CodeCompanionChat<CR>")
     end,
-    event = "VeryLazy",
-    version = false,
-    ---@module 'avante'
-    ---@diagnostic disable-next-line: undefined-doc-name
-    ---@type avante.Config
-    opts = {
-      provider = "copilot",
-      providers = {
-        copilot = {
-          model = "gpt-4",
-          timeout = 30000,
-          extra_request_body = {
-            temperature = 0.75,
-            max_tokens = 2048,
-          },
-        },
-      },
-    },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "echasnovski/mini.pick",
-      "hrsh7th/nvim-cmp",
-      "echasnovski/mini.icons",
-      "zbirenbaum/copilot.lua",
-      {
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
+      "nvim-treesitter/nvim-treesitter",
     },
+  },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    build = "npm install -g mcp-hub@latest",
+    config = function()
+      require("mcphub").setup()
+    end
   }
 }

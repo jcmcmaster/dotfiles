@@ -34,6 +34,8 @@ return {
           "jq",
           "json",
           "lua",
+          "markdown",
+          "markdown_inline",
           "powershell",
           "python",
           "regex",
