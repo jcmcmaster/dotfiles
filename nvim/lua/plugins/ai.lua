@@ -49,6 +49,7 @@ return {
     build = "npm install -g mcp-hub@latest",
     config = function()
       require("mcphub").setup()
+      vim.keymap.set("n", "<leader>am", "<cmd>MCPHub<cr>")
     end
   }
 }
