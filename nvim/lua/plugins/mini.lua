@@ -1,16 +1,19 @@
-local function configure_mini_diff()
+local function setup_mini_diff()
+  require("mini.diff").setup()
   local diff = require("mini.diff")
   diff.setup({
-    source = diff.gen_source.none(), -- for codecompanion
+    source = diff.gen_source.none()
   })
 end
 
-local function configure_mini_files()
+local function setup_mini_files()
+  require("mini.files").setup()
   vim.keymap.set("n", "<leader>e.", ":e .<CR>")
   vim.keymap.set("n", "<leader>ef", function() require('mini.files').open() end)
 end
 
-local function configure_mini_pick()
+local function setup_mini_pick()
+  require("mini.pick").setup()
   -- configure ripgrep defaults to search the way i want for mini.pick
   -- see: https://github.com/echasnovski/mini.nvim/blob/48f48e4b3f317e9da34ee7a01958b4c5018e2d34/doc/mini-pick.txt#L1138
   local ripgreprc_path = vim.fn.stdpath("data") .. "/.ripgreprc"
@@ -58,15 +61,12 @@ return {
     require("mini.bracketed").setup()
     require("mini.comment").setup()
     require("mini.cursorword").setup()
-    require("mini.diff").setup()
-    configure_mini_diff()
+    setup_mini_diff()
     require("mini.extra").setup()
-    require("mini.files").setup()
-    configure_mini_files()
+    setup_mini_files()
     require("mini.icons").setup()
     require("mini.indentscope").setup()
-    require("mini.pick").setup()
-    configure_mini_pick()
+    setup_mini_pick()
     require("mini.snippets").setup()
     require("mini.starter").setup(mini_starter_config)
     require("mini.statusline").setup()

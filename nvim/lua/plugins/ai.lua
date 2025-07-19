@@ -31,7 +31,10 @@ return {
           }
         }
       })
-      vim.keymap.set({ "n", "v" }, "<leader>ac", ":CodeCompanionChat<CR>")
+      vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+      vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+      vim.keymap.set("v", "<leader>aa", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+      vim.cmd([[cab cc CodeCompanion]])
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
