@@ -30,6 +30,7 @@ return {
     lazy = false,
     config = function()
       vim.cmd [[ colorscheme github_dark_default ]]
+      vim.g.terminal_color_8 = "#6E7681" -- command opts were hard to read
     end,
   },
   {
