@@ -19,24 +19,24 @@ local language_servers = {
 
 return {
   {
-    "mason-org/mason.nvim",
+    'mason-org/mason.nvim',
     opts = {}
   },
   {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     config = function()
       local borderType = 'rounded'
 
       local function bordered_hover(_opts)
         _opts = _opts or {}
-        return vim.lsp.buf.hover(vim.tbl_deep_extend("force", _opts, {
+        return vim.lsp.buf.hover(vim.tbl_deep_extend('force', _opts, {
           border = borderType
         }))
       end
 
       local function bordered_signature_help(_opts)
         _opts = _opts or {}
-        return vim.lsp.buf.signature_help(vim.tbl_deep_extend("force", _opts, {
+        return vim.lsp.buf.signature_help(vim.tbl_deep_extend('force', _opts, {
           border = borderType
         }))
       end
@@ -91,13 +91,13 @@ return {
     end
   },
   {
-    "mason-org/mason-lspconfig.nvim",
+    'mason-org/mason-lspconfig.nvim',
     opts = {
       ensure_installed = language_servers,
     },
     dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
-      "neovim/nvim-lspconfig",
+      { 'mason-org/mason.nvim', opts = {} },
+      'neovim/nvim-lspconfig',
     },
   },
   { 'onsails/lspkind.nvim' },

@@ -2,20 +2,20 @@ return {
   {
     'zbirenbaum/copilot.lua',
     config = function()
-      require("copilot").setup({
+      require('copilot').setup({
         suggestion = { enabled = false }, -- used with cmp
         panel = { enabled = false },      -- used with cmp
       })
     end
   },
   {
-    "olimorris/codecompanion.nvim",
+    'olimorris/codecompanion.nvim',
     opts = {},
     config = function()
-      require("codecompanion").setup({
+      require('codecompanion').setup({
         extensions = {
           mcphub = {
-            callback = "mcphub.extensions.codecompanion",
+            callback = 'mcphub.extensions.codecompanion',
             opts = {
               -- MCP Tools
               make_tools = true,                    -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
@@ -31,25 +31,25 @@ return {
           }
         }
       })
-      vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-      vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-      vim.keymap.set("v", "<leader>aa", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+      vim.keymap.set({ 'n', 'v' }, '<leader>aa', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
+      vim.keymap.set({ 'n', 'v' }, '<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>', { noremap = true, silent = true })
+      vim.keymap.set('v', '<leader>aa', '<cmd>CodeCompanionChat Add<cr>', { noremap = true, silent = true })
       vim.cmd([[cab cc CodeCompanion]])
     end,
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
     },
   },
   {
-    "ravitemer/mcphub.nvim",
+    'ravitemer/mcphub.nvim',
     dependencies = {
-      "nvim-lua/plenary.nvim",
+      'nvim-lua/plenary.nvim',
     },
-    build = "npm install -g mcp-hub@latest",
+    build = 'npm install -g mcp-hub@latest',
     config = function()
-      require("mcphub").setup()
-      vim.keymap.set("n", "<leader>am", "<cmd>MCPHub<cr>")
+      require('mcphub').setup()
+      vim.keymap.set('n', '<leader>am', '<cmd>MCPHub<cr>')
     end
   }
 }

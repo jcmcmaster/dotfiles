@@ -11,13 +11,13 @@ return {
     lazy = false,
     config = function()
       vim.g.everforest_enable_italic = true
-      vim.g.everforest_background = "hard"
+      vim.g.everforest_background = 'hard'
       vim.cmd [[ colorscheme everforest ]]
     end
   },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    'rose-pine/neovim',
+    name = 'rose-pine',
     lazy = false,
     config = function()
       vim.cmd [[ colorscheme rose-pine ]]
@@ -30,11 +30,11 @@ return {
     lazy = false,
     config = function()
       vim.cmd [[ colorscheme github_dark_default ]]
-      vim.g.terminal_color_8 = "#6E7681" -- command opts were hard to read
+      vim.g.terminal_color_8 = '#6E7681' -- command opts were hard to read
     end,
   },
   {
-    "EdenEast/nightfox.nvim",
+    'EdenEast/nightfox.nvim',
     config = function()
       vim.cmd [[ colorscheme carbonfox ]]
     end
