@@ -17,7 +17,6 @@ return {
 
     vim.opt.confirm = true
 
-    vim.opt.colorcolumn = '80'
     vim.opt.signcolumn = 'yes'
     vim.opt.termguicolors = true
 

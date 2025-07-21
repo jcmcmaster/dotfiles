@@ -329,7 +329,7 @@
     "defaults": {
       "colorScheme": "GitHub Dark",
       "font": {
-        "cellHeight": "1.6",
+        "cellHeight": "1.7",
         "cellWidth": "0.7",
         "face": "FiraCode Nerd Font",
         "size": 10
