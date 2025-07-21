@@ -17,7 +17,6 @@ return {
 
     vim.opt.confirm = true
 
-    vim.opt.colorcolumn = '80'
     vim.opt.signcolumn = 'yes'
     vim.opt.termguicolors = true
 
@@ -26,18 +25,18 @@ return {
 
     vim.opt.incsearch = true
 
-    vim.opt.isfname:append("@-@")
+    vim.opt.isfname:append('@-@')
 
     vim.opt.mouse = 'a'
 
     vim.opt.relativenumber = true
     vim.opt.number = true
 
-    vim.opt.shell = "pwsh"
-    vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
-    vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
-    vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-    vim.opt.shellquote = ""
-    vim.opt.shellxquote = ""
+    vim.opt.shell = 'pwsh'
+    vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
+    vim.opt.shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait'
+    vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+    vim.opt.shellquote = ''
+    vim.opt.shellxquote = ''
   end
 }
