@@ -41,11 +41,17 @@ return {
           { name = 'mini_snippets', option = { use_items_cache = false } },
           { name = 'path' },
           { name = 'buffer' },
-          { name = 'cmdline' },
         },
         window = {
           completion = cmp.config.window.bordered({ border = 'rounded' }),
           documentation = cmp.config.window.bordered({ border = 'rounded' }),
+        }
+      })
+
+      cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' }
         }
       })
 
