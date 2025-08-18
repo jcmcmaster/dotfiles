@@ -1,13 +1,5 @@
 return {
-  {
-    'zbirenbaum/copilot.lua',
-    config = function()
-      require('copilot').setup({
-        suggestion = { enabled = false }, -- used with cmp
-        panel = { enabled = false },      -- used with cmp
-      })
-    end
-  },
+  { 'zbirenbaum/copilot.lua' },
   {
     'olimorris/codecompanion.nvim',
     opts = {},
