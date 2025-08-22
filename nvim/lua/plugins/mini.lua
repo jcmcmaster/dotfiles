@@ -7,7 +7,12 @@ local function setup_mini_diff()
 end
 
 local function setup_mini_files()
-  require('mini.files').setup()
+  require('mini.files').setup({
+    mappings = {
+      go_in = '<Right>',
+      go_out = '<Left>'
+    }
+  })
   vim.keymap.set('n', '<leader>e.', ':e .<CR>')
   vim.keymap.set('n', '<leader>ef', function() require('mini.files').open() end)
 end
@@ -42,18 +47,6 @@ local function setup_mini_pick()
   vim.keymap.set('n', '<leader>ft', ':Pick treesitter<CR>')
 end
 
-local mini_starter_config = {
-  header = [[
-╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
-│││├┤ │ │╰┐┌╯││││
-╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
-]],
-  footer = [[
-
-~===============~
-]]
-}
-
 return {
   'echasnovski/mini.nvim',
   version = false,
@@ -69,7 +62,6 @@ return {
     require('mini.indentscope').setup()
     setup_mini_pick()
     require('mini.snippets').setup()
-    require('mini.starter').setup(mini_starter_config)
     require('mini.statusline').setup()
     require('mini.surround').setup()
     require('mini.tabline').setup()

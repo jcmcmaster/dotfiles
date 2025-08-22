@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('config.opts').setup()
 require('config.maps').setup()
+require('config.auto').setup()
 
 require('lazy').setup({
   spec = {
