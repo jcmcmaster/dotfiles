@@ -41,6 +41,7 @@ return {
           { name = 'mini_snippets', option = { use_items_cache = false } },
           { name = 'path' },
           { name = 'buffer' },
+          { name = 'lazydev' }
         },
         window = {
           completion = cmp.config.window.bordered({ border = 'rounded' }),

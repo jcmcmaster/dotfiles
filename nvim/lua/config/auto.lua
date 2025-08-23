@@ -87,11 +87,6 @@ return {
       vim.bo[buf].bufhidden = 'wipe'
       vim.bo[buf].buftype = 'nofile'
       vim.bo[buf].swapfile = false
-      local prev_opts = {
-        number = vim.api.nvim_win_get_option(win, 'number'),
-        relativenumber = vim.api.nvim_win_get_option(win, 'relativenumber'),
-        cursorline = vim.api.nvim_win_get_option(win, 'cursorline'),
-      }
       vim.api.nvim_win_set_option(win, 'number', false)
       vim.api.nvim_win_set_option(win, 'relativenumber', false)
       vim.api.nvim_win_set_option(win, 'cursorline', false)
@@ -101,17 +96,6 @@ return {
         buffer = buf,
         callback = function()
           if vim.bo.filetype ~= '' then pcall(vim.api.nvim_buf_delete, buf, { force = true }) end
-        end
-      })
-
-      vim.api.nvim_create_autocmd('BufWipeout', {
-        buffer = buf,
-        callback = function()
-          if vim.api.nvim_win_is_valid(win) and prev_opts then
-            for opt, val in pairs(prev_opts) do
-              pcall(vim.api.nvim_win_set_option, win, opt, val)
-            end
-          end
         end
       })
 
