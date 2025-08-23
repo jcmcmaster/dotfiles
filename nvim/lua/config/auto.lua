@@ -14,12 +14,18 @@ return {
     end
     apply_logo_hls()
 
-    local function create_start_screen()
-      if not (vim.fn.argc() == 0 and vim.fn.line2byte('$') == -1) then return end
+      local function create_start_screen()
+        if not (vim.fn.argc() == 0 and vim.fn.line2byte('$') == -1) then return end
 
-      local buf = vim.api.nvim_create_buf(false, true)
-      vim.api.nvim_set_current_buf(buf)
-      local win = vim.api.nvim_get_current_win()
+        local buf = vim.api.nvim_create_buf(false, true)
+        vim.api.nvim_set_current_buf(buf)
+        local win = vim.api.nvim_get_current_win()
+
+        local original_settings = {
+          number = vim.wo[win].number,
+          relativenumber = vim.wo[win].relativenumber,
+          cursorline = vim.wo[win].cursorline
+        }
 
       local logo = {
         '╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮',
@@ -36,7 +42,6 @@ return {
           return
         end
         vim.bo[buf].modifiable = true
-        -- Re-apply highlight groups in case colorscheme changed
         apply_logo_hls()
 
         local win_h = vim.api.nvim_win_get_height(win)
@@ -58,14 +63,15 @@ return {
         for idx, data in ipairs(centered) do
           local buf_line = top_pad + idx - 1
           local raw, pad_len = data.text, data.pad
-          local char_count = vim.str_utfindex(raw)
-          for ci = 0, char_count - 1 do
-            local sb = vim.str_byteindex(raw, ci)
-            local eb = vim.str_byteindex(raw, ci + 1)
-            local ch = raw:sub(sb + 1, eb)
+          for i = 1, #raw do
+            local ch = raw:sub(i, i)
             if ch ~= ' ' then
-              local group = 'StartScreenLogo' .. ((ci % #colors) + 1)
-              vim.api.nvim_buf_add_highlight(buf, ns, group, buf_line, pad_len + sb, pad_len + eb)
+              local color_idx = ((i - 1) % #colors) + 1
+              local group = 'StartScreenLogo' .. color_idx
+              vim.api.nvim_buf_set_extmark(buf, ns, buf_line, pad_len + i - 1, {
+                end_col = pad_len + i,
+                hl_group = group
+              })
             end
           end
         end
@@ -82,22 +88,43 @@ return {
 
       render()
 
-      vim.bo[buf].modifiable = false
-      vim.bo[buf].buflisted = false
-      vim.bo[buf].bufhidden = 'wipe'
-      vim.bo[buf].buftype = 'nofile'
-      vim.bo[buf].swapfile = false
-      vim.api.nvim_win_set_option(win, 'number', false)
-      vim.api.nvim_win_set_option(win, 'relativenumber', false)
-      vim.api.nvim_win_set_option(win, 'cursorline', false)
-      vim.api.nvim_buf_set_name(buf, '[StartScreen]')
+        vim.bo[buf].modifiable = false
+        vim.bo[buf].buflisted = false
+        vim.bo[buf].bufhidden = 'wipe'
+        vim.bo[buf].buftype = 'nofile'
+        vim.bo[buf].swapfile = false
+        vim.wo[win].number = false
+        vim.wo[win].relativenumber = false
+        vim.wo[win].cursorline = false
+        vim.api.nvim_buf_set_name(buf, '[StartScreen]')
 
-      vim.api.nvim_create_autocmd('BufEnter', {
-        buffer = buf,
-        callback = function()
-          if vim.bo.filetype ~= '' then pcall(vim.api.nvim_buf_delete, buf, { force = true }) end
+        local function restore_window_settings()
+          if vim.api.nvim_win_is_valid(win) then
+            vim.wo[win].number = original_settings.number
+            vim.wo[win].relativenumber = original_settings.relativenumber
+            vim.wo[win].cursorline = original_settings.cursorline
+          end
         end
-      })
+
+        vim.api.nvim_create_autocmd('BufEnter', {
+          buffer = buf,
+          callback = function()
+            if vim.bo.filetype ~= '' then 
+              restore_window_settings()
+              pcall(vim.api.nvim_buf_delete, buf, { force = true }) 
+            end
+          end
+        })
+
+        vim.api.nvim_create_autocmd('BufLeave', {
+          buffer = buf,
+          callback = restore_window_settings
+        })
+
+        vim.api.nvim_create_autocmd('BufWipeout', {
+          buffer = buf,
+          callback = restore_window_settings
+        })
 
       vim.api.nvim_create_autocmd({ 'VimResized', 'WinResized', 'WinEnter', 'TabEnter' }, {
         callback = function()
@@ -108,7 +135,6 @@ return {
       })
     end
 
-    -- Reapply highlight groups whenever colorscheme changes
     vim.api.nvim_create_autocmd('ColorScheme', {
       callback = function()
         apply_logo_hls()
