@@ -5,9 +5,9 @@ return {
 
     -- n
     vim.keymap.set('n', '<A-Left>', ':bprevious<CR>')
-    vim.keymap.set('n', '<A-Right>', ':bnext<CR>')
-    vim.keymap.set('n', '<A-Up>', ':tabprevious<CR>')
     vim.keymap.set('n', '<A-Down>', ':tabnext<CR>')
+    vim.keymap.set('n', '<A-Up>', ':tabprevious<CR>')
+    vim.keymap.set('n', '<A-Right>', ':bnext<CR>')
 
     vim.keymap.set('n', '<C-Left>', ':wincmd h<CR>')
     vim.keymap.set('n', '<C-Down>', ':wincmd j<CR>')
