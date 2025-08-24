@@ -14,18 +14,18 @@ return {
     end
     apply_logo_hls()
 
-      local function create_start_screen()
-        if not (vim.fn.argc() == 0 and vim.fn.line2byte('$') == -1) then return end
+    local function create_start_screen()
+      if not (vim.fn.argc() == 0 and vim.fn.line2byte('$') == -1) then return end
 
-        local buf = vim.api.nvim_create_buf(false, true)
-        vim.api.nvim_set_current_buf(buf)
-        local win = vim.api.nvim_get_current_win()
+      local buf = vim.api.nvim_create_buf(false, true)
+      vim.api.nvim_set_current_buf(buf)
+      local win = vim.api.nvim_get_current_win()
 
-        local original_settings = {
-          number = vim.wo[win].number,
-          relativenumber = vim.wo[win].relativenumber,
-          cursorline = vim.wo[win].cursorline
-        }
+      local original_settings = {
+        number = vim.wo[win].number,
+        relativenumber = vim.wo[win].relativenumber,
+        cursorline = vim.wo[win].cursorline
+      }
 
       local logo = {
         '╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮',
@@ -37,8 +37,8 @@ return {
 
       local function render()
         if not (vim.api.nvim_buf_is_valid(buf)
-            and vim.api.nvim_win_is_valid(win)
-            and vim.api.nvim_win_get_buf(win) == buf) then
+              and vim.api.nvim_win_is_valid(win)
+              and vim.api.nvim_win_get_buf(win) == buf) then
           return
         end
         vim.bo[buf].modifiable = true
@@ -49,14 +49,14 @@ return {
 
         local top_pad = math.max(0, math.floor((win_h - #logo) / 2))
         local lines, centered = {}, {}
-        for _ = 1, top_pad do lines[#lines+1] = '' end
+        for _ = 1, top_pad do lines[#lines + 1] = '' end
         for _, l in ipairs(logo) do
           local pad = math.max(0, math.floor((win_w - vim.fn.strdisplaywidth(l)) / 2))
           local padded = string.rep(' ', pad) .. l
-            lines[#lines+1] = padded
-          centered[#centered+1] = { text = l, pad = pad }
+          lines[#lines + 1] = padded
+          centered[#centered + 1] = { text = l, pad = pad }
         end
-        lines[#lines+1] = ''
+        lines[#lines + 1] = ''
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 
         vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1)
@@ -88,43 +88,50 @@ return {
 
       render()
 
-        vim.bo[buf].modifiable = false
-        vim.bo[buf].buflisted = false
-        vim.bo[buf].bufhidden = 'wipe'
-        vim.bo[buf].buftype = 'nofile'
-        vim.bo[buf].swapfile = false
-        vim.wo[win].number = false
-        vim.wo[win].relativenumber = false
-        vim.wo[win].cursorline = false
-        vim.api.nvim_buf_set_name(buf, '[StartScreen]')
+      vim.bo[buf].modifiable = false
+      vim.bo[buf].buflisted = false
+      vim.bo[buf].bufhidden = 'wipe'
+      vim.bo[buf].buftype = 'nofile'
+      vim.bo[buf].swapfile = false
+      vim.wo[win].number = false
+      vim.wo[win].relativenumber = false
+      vim.wo[win].cursorline = false
+      vim.api.nvim_buf_set_name(buf, '[StartScreen]')
 
-        local function restore_window_settings()
-          if vim.api.nvim_win_is_valid(win) then
-            vim.wo[win].number = original_settings.number
-            vim.wo[win].relativenumber = original_settings.relativenumber
-            vim.wo[win].cursorline = original_settings.cursorline
+      local function restore_window_settings()
+        if vim.api.nvim_win_is_valid(win) then
+          vim.wo[win].number = original_settings.number
+          vim.wo[win].relativenumber = original_settings.relativenumber
+          vim.wo[win].cursorline = original_settings.cursorline
+        end
+      end
+
+      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile', 'BufReadPost' }, {
+        callback = function(event)
+          if event.buf == buf then return end
+
+          local buftype = vim.bo[event.buf].buftype
+          local filetype = vim.bo[event.buf].filetype
+          local bufname = vim.api.nvim_buf_get_name(event.buf)
+
+          if (filetype ~= '' and filetype ~= 'startscreen') or
+              (buftype == '' and bufname ~= '') or
+              (buftype ~= 'nofile' and buftype ~= '') then
+            restore_window_settings()
+            pcall(vim.api.nvim_buf_delete, buf, { force = true })
           end
         end
+      })
 
-        vim.api.nvim_create_autocmd('BufEnter', {
-          buffer = buf,
-          callback = function()
-            if vim.bo.filetype ~= '' then 
-              restore_window_settings()
-              pcall(vim.api.nvim_buf_delete, buf, { force = true }) 
-            end
-          end
-        })
+      vim.api.nvim_create_autocmd('BufLeave', {
+        buffer = buf,
+        callback = restore_window_settings
+      })
 
-        vim.api.nvim_create_autocmd('BufLeave', {
-          buffer = buf,
-          callback = restore_window_settings
-        })
-
-        vim.api.nvim_create_autocmd('BufWipeout', {
-          buffer = buf,
-          callback = restore_window_settings
-        })
+      vim.api.nvim_create_autocmd('BufWipeout', {
+        buffer = buf,
+        callback = restore_window_settings
+      })
 
       vim.api.nvim_create_autocmd({ 'VimResized', 'WinResized', 'WinEnter', 'TabEnter' }, {
         callback = function()
