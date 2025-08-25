@@ -1,3 +1,5 @@
+-- Bootstrap lazy.nvim plugin manager
+-- This will automatically install lazy.nvim if it's not already installed
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -14,13 +16,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('config.opts').setup()
-require('config.maps').setup()
-require('config.auto').setup()
+-- Load core configuration modules
+require('config.opts').setup()  -- Vim options and settings
+require('config.maps').setup()  -- Key mappings and shortcuts
+require('config.auto').setup()  -- Autocommands and startup screen
 
+-- Initialize lazy.nvim with plugin specifications
 require('lazy').setup({
   spec = {
-    { import = 'plugins' },
+    { import = 'plugins' },  -- Load all plugins from the plugins/ directory
   },
-  checker = { enabled = true },
+  checker = { enabled = true },  -- Enable automatic plugin update checking
 })
