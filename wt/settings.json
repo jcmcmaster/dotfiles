@@ -37,6 +37,10 @@
         },
         {
             "id": null,
+            "keys": "alt+shift+right"
+        },
+        {
+            "id": null,
             "keys": "ctrl+shift+c"
         },
         {
@@ -62,10 +66,6 @@
         {
             "id": null,
             "keys": "alt+f4"
-        },
-        {
-            "id": "Terminal.DuplicatePaneAuto",
-            "keys": "alt+shift+d"
         },
         {
             "id": null,
@@ -314,6 +314,10 @@
         {
             "id": null,
             "keys": "alt+shift+down"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+left"
         }
     ],
     "newTabMenu": 
