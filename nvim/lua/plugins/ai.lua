@@ -6,15 +6,17 @@ return {
     config = function()
       require('codecompanion').setup({
         adapters = {
-          copilot = function()
-            return require("codecompanion.adapters").extend("copilot", {
-              schema = {
-                model = {
-                  default = "claude-sonnet-4",
+          http = {
+            copilot = function()
+              return require("codecompanion.adapters").extend("copilot", {
+                schema = {
+                  model = {
+                    default = "claude-sonnet-4",
+                  },
                 },
-              },
-            })
-          end,
+              })
+            end,
+          }
         },
         extensions = {
           mcphub = {
@@ -54,5 +56,17 @@ return {
       require('mcphub').setup()
       vim.keymap.set('n', '<leader>am', '<cmd>MCPHub<cr>')
     end
-  }
+  },
+  {
+    "HakonHarnes/img-clip.nvim",
+    opts = {
+      filetypes = {
+        codecompanion = {
+          prompt_for_file_name = false,
+          template = "[Image]($FILE_PATH)",
+          use_absolute_path = true,
+        },
+      },
+    },
+  },
 }
