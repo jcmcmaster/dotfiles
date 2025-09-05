@@ -1,5 +1,5 @@
 return {
-  { 'zbirenbaum/copilot.lua' },
+  { 'github/copilot.vim' },
   {
     'olimorris/codecompanion.nvim',
     opts = {},
@@ -11,7 +11,7 @@ return {
               return require("codecompanion.adapters").extend("copilot", {
                 schema = {
                   model = {
-                    default = "claude-sonnet-4",
+                    default = "gpt-5",
                   },
                 },
               })
