@@ -4,13 +4,14 @@ $packages = @(
   "Git.Git",
   "GitHub.cli",
   "JanDeDobbeleer.OhMyPosh",
+  "jqlang.jq",
+  "junegunn.fzf",
   "Meld.Meld",
+  "microsoft.azd",
   "Microsoft.PowerShell",
   "Neovim.Neovim",
   "Obsidian.Obsidian",
   "Postman.Postman",
-  "jqlang.jq",
-  "junegunn.fzf",
   "zig.zig"
 )
 
