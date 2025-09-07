@@ -8,6 +8,7 @@ $packages = @(
   "junegunn.fzf",
   "Meld.Meld",
   "microsoft.azd",
+  "Microsoft.AzureCLI"
   "Microsoft.PowerShell",
   "Neovim.Neovim",
   "Obsidian.Obsidian",
