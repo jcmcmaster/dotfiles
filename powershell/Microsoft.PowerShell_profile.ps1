@@ -30,38 +30,53 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
   }
 }
 
-function find-dir
+function Find-Dir
+{ 
+  param(
+    [string]$SearchPath = ".",
+    [int]$Depth = 0
+  )
+
+  $options = Get-ChildItem -Directory -Depth $Depth -Path $SearchPath | ForEach-Object FullName
+  $options += @($SearchPath)
+  $options | fzf
+}
+
+function Find-Dir-And-Go
 {
   param(
-    [string]$searchPath = "."
+    [string]$SearchPath = ".",
+    [int]$Depth = 0
   )
-  $options = Get-ChildItem -Directory -Path $searchPath | ForEach-Object FullName
-  $options += @($searchPath)
-  $choice = $options | fzf
+  $choice = Find-Dir -SearchPath $SearchPath -Depth $Depth
   if ($choice)
   {
     Set-Location $choice
   }
 }
 
-function fd
-{
-  param(
-    [string]$searchPath = "."
-  )
-  find-dir($searchPath)
-}
+Set-Alias fd Find-Dir-And-Go
 
 function fp
 {
-  find-dir("$HOME\Projects")
+  Find-Dir-And-Go -SearchPath "$HOME\Projects" -Depth 0
 }
 
-function gacp
+function fdev
 {
-  & git add -A
-  & git commit -m "$args"
-  & git push
+  param(
+    [string]$SearchPath = ".",
+    [int]$Depth = 0,
+    [string]$SessionName = ""
+  )
+  $choice = Find-Dir -SearchPath $SearchPath
+  if (-not $choice) { return }
+  if (-not $SessionName) 
+  { 
+    $SessionName = [System.IO.Path]::GetFileName($choice)
+  }
+  wt new-tab --startingDirectory $choice --title $SessionName --suppressApplicationTitle `; `
+    split-pane --startingDirectory $choice --vertical --size .7 --title $SessionName --suppressApplicationTitle nvim
 }
 
 New-Alias g git

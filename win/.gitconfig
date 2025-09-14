@@ -17,6 +17,7 @@
 [alias]
   a = add
   aa = add --all
+  acp = !git add -A && git commit -m "$*" && git push
   b = branch
   c = checkout
   cdd = checkout -- .
