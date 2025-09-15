@@ -8,6 +8,10 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim', },
     config = function()
       require('easy-dotnet').setup()
+
+      if vim.fn.executable('dotnet') == 1 then
+        vim.fn.jobstart({ 'dotnet', 'tool', 'install', '-g', 'EasyDotnet' })
+      end
     end
   },
   {

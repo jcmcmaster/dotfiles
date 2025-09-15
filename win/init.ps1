@@ -1,4 +1,5 @@
 $packages = @(
+  "astral-sh.uv",
   "BurntSushi.ripgrep.MSVC",
   "Docker.DockerDesktop",
   "Git.Git",
@@ -12,7 +13,9 @@ $packages = @(
   "Microsoft.PowerShell",
   "Neovim.Neovim",
   "Obsidian.Obsidian",
+  "OpenJS.NodeJS",
   "Postman.Postman",
+  "Python.Python.3.13",
   "zig.zig"
 )
 
@@ -20,3 +23,6 @@ foreach ($pkg in $packages)
 {
   winget install $pkg -e
 }
+
+uv tool install "vectorcode<1.0.0"
+uv tool update-shell

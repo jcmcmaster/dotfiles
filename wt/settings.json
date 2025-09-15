@@ -29,10 +29,6 @@
     [
         {
             "id": null,
-            "keys": "ctrl+w"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+5"
         },
         {
@@ -44,12 +40,8 @@
             "keys": "ctrl+shift+c"
         },
         {
-            "id": "Terminal.FindText",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "id": null,
-            "keys": "ctrl+comma"
+            "keys": "ctrl+w"
         },
         {
             "id": null,
@@ -58,6 +50,14 @@
         {
             "id": null,
             "keys": "ctrl+numpad_minus"
+        },
+        {
+            "id": "Terminal.FindText",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+comma"
         },
         {
             "id": "Terminal.ClosePane",
@@ -77,7 +77,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+4"
+            "keys": "alt+down"
         },
         {
             "id": "User.newTab.5DEADB41",
@@ -85,11 +85,19 @@
         },
         {
             "id": null,
-            "keys": "alt+down"
+            "keys": "ctrl+shift+4"
         },
         {
             "id": null,
             "keys": "ctrl+shift+1"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+comma"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+0"
         },
         {
             "id": null,
@@ -101,23 +109,15 @@
         },
         {
             "id": null,
-            "keys": "ctrl+0"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+comma"
-        },
-        {
-            "id": null,
             "keys": "ctrl+shift+6"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+7"
         },
         {
             "id": "Terminal.SplitPaneLeft",
             "keys": "ctrl+shift+home"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+7"
         },
         {
             "id": null,
@@ -128,18 +128,6 @@
             "keys": "ctrl+shift+9"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+n"
-        },
-        {
-            "id": "Terminal.MoveFocusUp",
-            "keys": "ctrl+pgup"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+4"
-        },
-        {
             "id": "Terminal.NextTab",
             "keys": "alt+end"
         },
@@ -148,12 +136,28 @@
             "keys": "ctrl+alt+7"
         },
         {
+            "id": null,
+            "keys": "ctrl+alt+4"
+        },
+        {
+            "id": "Terminal.MoveFocusUp",
+            "keys": "ctrl+pgup"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+n"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+alt+comma"
+        },
+        {
             "id": "Terminal.ScrollDownPage",
             "keys": "alt+shift+pgdn"
         },
         {
             "id": null,
-            "keys": "ctrl+alt+comma"
+            "keys": "ctrl+shift+space"
         },
         {
             "id": "Terminal.SwapPaneUp",
@@ -161,23 +165,19 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+space"
+            "keys": "ctrl+alt+8"
         },
         {
             "id": null,
             "keys": "ctrl+shift+v"
         },
         {
-            "id": null,
-            "keys": "ctrl+alt+8"
+            "id": "Terminal.SwapPaneDown",
+            "keys": "ctrl+alt+shift+pgdn"
         },
         {
             "id": null,
             "keys": "alt+shift+minus"
-        },
-        {
-            "id": "Terminal.SwapPaneDown",
-            "keys": "ctrl+alt+shift+pgdn"
         },
         {
             "id": null,
@@ -193,15 +193,23 @@
         },
         {
             "id": null,
-            "keys": "ctrl+alt+2"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+9"
         },
         {
             "id": null,
+            "keys": "ctrl+alt+2"
+        },
+        {
+            "id": null,
             "keys": "ctrl+alt+3"
+        },
+        {
+            "id": "Terminal.SplitPaneDown",
+            "keys": "ctrl+shift+pgdn"
+        },
+        {
+            "id": "Terminal.SplitPaneUp",
+            "keys": "ctrl+shift+pgup"
         },
         {
             "id": null,
@@ -210,14 +218,6 @@
         {
             "id": null,
             "keys": "f11"
-        },
-        {
-            "id": "Terminal.SplitPaneUp",
-            "keys": "ctrl+shift+pgup"
-        },
-        {
-            "id": "Terminal.SplitPaneDown",
-            "keys": "ctrl+shift+pgdn"
         },
         {
             "id": null,
@@ -236,44 +236,44 @@
             "keys": "alt+left"
         },
         {
-            "id": null,
-            "keys": "alt+up"
-        },
-        {
             "id": "Terminal.ScrollToBottom",
             "keys": "alt+shift+end"
         },
         {
-            "id": "Terminal.SwapPaneLeft",
-            "keys": "ctrl+alt+shift+home"
+            "id": null,
+            "keys": "alt+up"
         },
         {
             "id": "Terminal.ToggleSplitOrientation",
             "keys": "ctrl+alt+shift+o"
         },
         {
-            "id": "Terminal.SwapPaneRight",
-            "keys": "ctrl+alt+shift+end"
+            "id": "Terminal.SwapPaneLeft",
+            "keys": "ctrl+alt+shift+home"
         },
         {
-            "id": null,
-            "keys": "alt+shift+up"
+            "id": "Terminal.SwapPaneRight",
+            "keys": "ctrl+alt+shift+end"
         },
         {
             "id": "Terminal.ScrollToTop",
             "keys": "alt+shift+home"
         },
         {
-            "id": "Terminal.ScrollUpPage",
-            "keys": "alt+shift+pgup"
+            "id": null,
+            "keys": "alt+shift+up"
+        },
+        {
+            "id": null,
+            "keys": "enter"
         },
         {
             "id": "Terminal.MoveFocusLeft",
             "keys": "ctrl+home"
         },
         {
-            "id": null,
-            "keys": "enter"
+            "id": "Terminal.ScrollUpPage",
+            "keys": "alt+shift+pgup"
         },
         {
             "id": "Terminal.MoveFocusDown",
@@ -397,6 +397,18 @@
                 "hidden": false,
                 "name": "QMK MSYS",
                 "source": "QMK"
+            },
+            {
+                "guid": "{495c39d5-d8e1-532e-ab29-b124db3cf050}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{54106129-6320-554a-9785-205479d46ffa}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
