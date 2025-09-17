@@ -1,6 +1,14 @@
 ---@diagnostic disable: undefined-doc-name
+
 return {
-  { 'github/copilot.vim' },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup({})
+    end,
+  },
   {
     'olimorris/codecompanion.nvim',
     opts = {},
@@ -9,10 +17,10 @@ return {
         adapters = {
           http = {
             copilot = function()
-              return require("codecompanion.adapters").extend("copilot", {
+              return require('codecompanion.adapters').extend('copilot', {
                 schema = {
                   model = {
-                    default = "gemini-2.5-pro"
+                    default = 'gemini-2.5-pro'
                   }
                 }
               })
@@ -49,7 +57,7 @@ return {
               },
               tool_opts = {
                 ---@type VectorCode.CodeCompanion.ToolOpts
-                ["*"] = {},
+                ['*'] = {},
                 ---@type VectorCode.CodeCompanion.LsToolOpts
                 ls = {},
                 ---@type VectorCode.CodeCompanion.VectoriseToolOpts
@@ -99,21 +107,21 @@ return {
     end
   },
   {
-    "HakonHarnes/img-clip.nvim",
+    'HakonHarnes/img-clip.nvim',
     opts = {
       filetypes = {
         codecompanion = {
           prompt_for_file_name = false,
-          template = "[Image]($FILE_PATH)",
+          template = '[Image]($FILE_PATH)',
           use_absolute_path = true,
         },
       },
     },
   },
   {
-    "Davidyz/VectorCode",
-    version = "*",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    build = "uv tool upgrade vectorcode"
+    'Davidyz/VectorCode',
+    version = '*',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    build = 'uv tool upgrade vectorcode'
   }
 }
