@@ -69,7 +69,7 @@ function fdev
     [int]$Depth = 0,
     [string]$SessionName = ""
   )
-  $choice = Find-Dir -SearchPath $SearchPath
+  $choice = Find-Dir -SearchPath $SearchPath -Depth $Depth
   if (-not $choice) { return }
   if (-not $SessionName) 
   { 
@@ -85,4 +85,4 @@ Import-Module posh-git
 New-Alias vim nvim
 New-Alias vi nvim
 
-. "C:\Users\jcmcmaster\OneDrive\Documents\PowerShell\gh-copilot.ps1"
+. "$env:OneDrive\Documents\PowerShell\gh-copilot.ps1"
