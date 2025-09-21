@@ -15,6 +15,8 @@ return {
     vim.opt.backup = false
     vim.opt.undofile = true
 
+    vim.opt.autoread = true
+
     vim.opt.confirm = true
 
     vim.opt.signcolumn = 'yes'
@@ -32,11 +34,13 @@ return {
     vim.opt.relativenumber = true
     vim.opt.number = true
 
-    vim.opt.shell = 'pwsh'
-    vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
-    vim.opt.shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait'
-    vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-    vim.opt.shellquote = ''
-    vim.opt.shellxquote = ''
+    if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
+      vim.opt.shell = 'pwsh'
+      vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
+      vim.opt.shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait'
+      vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+      vim.opt.shellquote = ''
+      vim.opt.shellxquote = ''
+    end
   end
 }

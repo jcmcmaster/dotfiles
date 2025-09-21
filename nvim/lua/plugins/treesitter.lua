@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -23,6 +24,7 @@ return {
           'gitattributes',
           'gitcommit',
           'gitignore',
+          'gleam',
           'go',
           'graphql',
           'helm',

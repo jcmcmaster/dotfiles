@@ -1,33 +1,14 @@
-local language_servers = {
-  'bashls',
-  'bicep',
-  'csharp_ls',
-  'cssls',
-  'dockerls',
-  'eslint',
-  'graphql',
-  'fsautocomplete',
-  'html',
-  'jsonls',
-  'lua_ls',
-  'powershell_es',
-  'pyright',
-  'vimls',
-  'lemminx',
-  'yamlls',
-}
-
 return {
   {
     'mason-org/mason.nvim',
     opts = {}
   },
   {
-    "folke/lazydev.nvim",
-    ft = "lua",
+    'folke/lazydev.nvim',
+    ft = 'lua',
     opts = {
       library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
       },
     },
   },
@@ -68,9 +49,9 @@ return {
         vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
         vim.keymap.set('n', 'K', bordered_hover, opts)
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gE', vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', 'gE', vim.diagnostic.get_prev, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'ge', vim.diagnostic.goto_next, opts)
+        vim.keymap.set('n', 'ge', vim.diagnostic.get_next, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
@@ -91,6 +72,16 @@ return {
         }
       })
 
+      -- lsp is bundled with gleam
+      vim.lsp.config('gleam', {
+        cmd = { 'gleam', 'lsp' },
+        filetypes = { 'gleam' },
+        root_markers = { 'gleam.toml', '.git' }
+      })
+
+      -- mason dosn't support gleam yet
+      vim.lsp.enable('gleam')
+
       vim.diagnostic.config({
         virtual_text = false,
         float = {
@@ -102,7 +93,24 @@ return {
   {
     'mason-org/mason-lspconfig.nvim',
     opts = {
-      ensure_installed = language_servers,
+      ensure_installed = {
+        'bashls',
+        'bicep',
+        'csharp_ls',
+        'cssls',
+        'dockerls',
+        'eslint',
+        'graphql',
+        'fsautocomplete',
+        'html',
+        'jsonls',
+        'lua_ls',
+        'powershell_es',
+        'pyright',
+        'vimls',
+        'lemminx',
+        'yamlls',
+      }
     },
     dependencies = {
       { 'mason-org/mason.nvim', opts = {} },
