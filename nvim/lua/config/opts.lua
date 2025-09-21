@@ -9,7 +9,7 @@ return {
     vim.opt.softtabstop = 2
 
     vim.opt.scrolloff = 8
-    vim.opt.wrap = false
+    vim.opt.wrap = true
 
     vim.opt.swapfile = false
     vim.opt.backup = false

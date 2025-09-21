@@ -36,6 +36,7 @@ local function setup_mini_pick()
 
   vim.keymap.set('n', '<leader>fb', ':Pick buffers<CR>')
   vim.keymap.set('n', '<leader>fc', ':Pick commands<CR>')
+  vim.keymap.set('n', '<leader>fd', ':Pick diagnostics<CR>')
   vim.keymap.set('n', '<leader>fe', ':Pick explorer<CR>')
   vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
   vim.keymap.set('n', '<leader>fg', ':Pick grep_live<CR>')
