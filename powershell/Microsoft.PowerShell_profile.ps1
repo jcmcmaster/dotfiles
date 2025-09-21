@@ -13,6 +13,7 @@ if ($host.Name -eq 'ConsoleHost')
 
   Set-PSReadLineKeyHandler -Key Ctrl+n -Function NextSuggestion
   Set-PSReadLineKeyHandler -Key Ctrl+p -Function PreviousSuggestion
+  Set-PSReadLineKeyHandler -Key Ctrl+y -Function Complete
 }
 
 # PowerShell parameter completion shim for the dotnet CLI
