@@ -6,18 +6,13 @@ if ($host.Name -eq 'ConsoleHost')
 {
   Import-Module PSReadLine -ErrorAction SilentlyContinue || Install-Module PSReadLine -Force
 
-  Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
-  Set-PSReadLineKeyHandler -Key PageDown -Function HistorySearchForward
-  Set-PSReadLineKeyHandler -Key PageUp -Function HistorySearchBackward
-  Set-PSReadLineKeyHandler -Key LeftArrow -Function BackwardWord
-  Set-PSReadLineKeyHandler -Key RightArrow -Function ForwardWord
-  Set-PSReadLineKeyHandler -Key Ctrl+d -Function ForwardDeleteLine
-  Set-PSReadLineKeyHandler -Key Ctrl+Shift+d -Function BackwardDeleteLine
-
   Set-PSReadLineOption -PredictionSource HistoryAndPlugin
   Set-PSReadLineOption -PredictionViewStyle ListView
   Set-PSReadLineOption -HistorySearchCursorMovesToEnd
   Set-PSReadLineOption -EditMode Vi
+
+  Set-PSReadLineKeyHandler -Key Ctrl+n -Function NextSuggestion
+  Set-PSReadLineKeyHandler -Key Ctrl+p -Function PreviousSuggestion
 }
 
 # PowerShell parameter completion shim for the dotnet CLI
