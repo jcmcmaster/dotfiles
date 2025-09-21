@@ -25,6 +25,7 @@ return {
     vim.keymap.set('n', '<leader>q', ':q<CR>')
     vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
     vim.keymap.set('n', '<leader>w', ':tabc<CR>')
+    vim.keymap.set('n', '<leader>x', ':bd<CR>')
 
     -- n, v
     vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d"]])

@@ -40,7 +40,6 @@ return {
         end, opts)
         vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', '<leader>h', bordered_signature_help, opts)
-        vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
         vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set('n', '<leader>wl', function()
