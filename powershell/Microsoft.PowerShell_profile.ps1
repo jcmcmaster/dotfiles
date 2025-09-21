@@ -73,7 +73,10 @@ function fdev
     $SessionName = [System.IO.Path]::GetFileName($choice)
   }
   wt new-tab -d $choice --title $SessionName --suppressApplicationTitle `; `
-    split-pane -d $choice --vertical --size .7 --title $SessionName --suppressApplicationTitle pwsh -c nvim
+    split-pane -d $choice --vertical --size .7 --title $SessionName --suppressApplicationTitle pwsh -c nvim `; `
+    move-focus left `; `
+    split-pane -d $choice --horizontal --title $SessionName --suppressApplicationTitle `; `
+    move-focus up
 }
 
 New-Alias g git
