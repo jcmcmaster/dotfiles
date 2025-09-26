@@ -26,6 +26,7 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 
 function Find-Dir
 { 
+  [CmdletBinding()]
   param(
     [string]$SearchPath = ".",
     [int]$Depth = 0
@@ -38,6 +39,7 @@ function Find-Dir
 
 function Find-Dir-And-Go
 {
+  [CmdletBinding()]
   param(
     [string]$SearchPath = ".",
     [int]$Depth = 0
@@ -58,11 +60,18 @@ function fp
 
 function fdev
 {
+  [CmdletBinding()]
   param(
     [string]$SearchPath = ".",
     [int]$Depth = 0,
-    [string]$SessionName = ""
+    [string]$SessionName = "",
+    [switch]$Exercism
   )
+  if ($Exercism)
+  {
+    $SearchPath = "$HOME\Exercism"
+    $Depth = 1
+  }
   $choice = Find-Dir -SearchPath $SearchPath -Depth $Depth
   if (-not $choice)
   {
@@ -74,9 +83,7 @@ function fdev
   }
   wt new-tab -d $choice --title $SessionName --suppressApplicationTitle `; `
     split-pane -d $choice --vertical --size .7 --title $SessionName --suppressApplicationTitle pwsh -c nvim `; `
-    move-focus left `; `
-    split-pane -d $choice --horizontal --title $SessionName --suppressApplicationTitle `; `
-    move-focus up
+    move-focus left
 }
 
 New-Alias g git

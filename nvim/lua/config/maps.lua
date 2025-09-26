@@ -36,5 +36,8 @@ return {
     -- v
     vim.keymap.set('v', '<', '<gv')
     vim.keymap.set('v', '>', '>gv')
+
+    -- t
+    vim.keymap.set('t', '<Leader><Esc>', '<C-\\><C-n>')
   end
 }

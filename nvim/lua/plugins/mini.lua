@@ -27,6 +27,8 @@ local function setup_mini_pick()
     file:write([[
       --hidden
       --smart-case
+      --no-ignore
+      --glob=!.git/*
       ]])
     file:close()
   else
@@ -39,6 +41,7 @@ local function setup_mini_pick()
   vim.keymap.set('n', '<leader>fd', ':Pick diagnostic<CR>')
   vim.keymap.set('n', '<leader>fe', ':Pick explorer<CR>')
   vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
+
   vim.keymap.set('n', '<leader>fg', ':Pick grep_live<CR>')
   vim.keymap.set('n', '<leader>fh', ':Pick help<CR>')
   vim.keymap.set('n', '<leader>fi', ':Pick git_files<CR>')
