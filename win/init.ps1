@@ -29,6 +29,8 @@ choco install watchexec -y
 uv tool install "vectorcode<1.0.0"
 uv tool update-shell
 
+npm install -g @github/copilot
+
 gh auth login --web
 gh extension install github/gh-copilot --force
 $GH_COPILOT_PROFILE = Join-Path -Path $(Split-Path -Path $PROFILE -Parent) -ChildPath "gh-copilot.ps1"

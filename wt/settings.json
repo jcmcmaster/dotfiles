@@ -24,16 +24,16 @@
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 120,
-    "initialRows": 50,
+    "initialRows": 55,
     "keybindings": 
     [
         {
             "id": null,
-            "keys": "ctrl+w"
+            "keys": "ctrl+alt+5"
         },
         {
             "id": null,
-            "keys": "ctrl+alt+5"
+            "keys": "alt+shift+right"
         },
         {
             "id": null,
@@ -41,15 +41,7 @@
         },
         {
             "id": null,
-            "keys": "alt+shift+right"
-        },
-        {
-            "id": "Terminal.FindText",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+comma"
+            "keys": "ctrl+w"
         },
         {
             "id": null,
@@ -58,6 +50,14 @@
         {
             "id": null,
             "keys": "ctrl+numpad_minus"
+        },
+        {
+            "id": "Terminal.FindText",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+comma"
         },
         {
             "id": "Terminal.ClosePane",
@@ -76,6 +76,10 @@
             "keys": "ctrl+numpad_plus"
         },
         {
+            "id": null,
+            "keys": "alt+down"
+        },
+        {
             "id": "User.newTab.5DEADB41",
             "keys": "ctrl+shift+t"
         },
@@ -85,19 +89,7 @@
         },
         {
             "id": null,
-            "keys": "alt+down"
-        },
-        {
-            "id": null,
             "keys": "ctrl+shift+1"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+2"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+5"
         },
         {
             "id": null,
@@ -109,15 +101,23 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+6"
+            "keys": "ctrl+shift+5"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+7"
+            "keys": "ctrl+shift+2"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+6"
         },
         {
             "id": "Terminal.SplitPaneLeft",
             "keys": "ctrl+shift+home"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+7"
         },
         {
             "id": null,
@@ -128,16 +128,12 @@
             "keys": "ctrl+shift+9"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+n"
+            "id": "Terminal.NextTab",
+            "keys": "alt+end"
         },
         {
             "id": null,
             "keys": "ctrl+alt+7"
-        },
-        {
-            "id": "Terminal.NextTab",
-            "keys": "alt+end"
         },
         {
             "id": null,
@@ -146,6 +142,10 @@
         {
             "id": "Terminal.MoveFocusUp",
             "keys": "ctrl+pgup"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+n"
         },
         {
             "id": null,
@@ -165,19 +165,19 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+v"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+8"
         },
         {
             "id": null,
-            "keys": "alt+shift+minus"
+            "keys": "ctrl+shift+v"
         },
         {
             "id": "Terminal.SwapPaneDown",
             "keys": "ctrl+alt+shift+pgdn"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+minus"
         },
         {
             "id": null,
@@ -193,23 +193,15 @@
         },
         {
             "id": null,
-            "keys": "ctrl+alt+2"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+9"
         },
         {
             "id": null,
+            "keys": "ctrl+alt+2"
+        },
+        {
+            "id": null,
             "keys": "ctrl+alt+3"
-        },
-        {
-            "id": null,
-            "keys": "f11"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+numpad0"
         },
         {
             "id": "Terminal.SplitPaneDown",
@@ -218,6 +210,14 @@
         {
             "id": "Terminal.SplitPaneUp",
             "keys": "ctrl+shift+pgup"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+numpad0"
+        },
+        {
+            "id": null,
+            "keys": "f11"
         },
         {
             "id": null,
@@ -236,20 +236,20 @@
             "keys": "alt+left"
         },
         {
-            "id": null,
-            "keys": "alt+up"
-        },
-        {
             "id": "Terminal.ScrollToBottom",
             "keys": "alt+shift+end"
         },
         {
-            "id": "Terminal.SwapPaneLeft",
-            "keys": "ctrl+alt+shift+home"
+            "id": null,
+            "keys": "alt+up"
         },
         {
             "id": "Terminal.ToggleSplitOrientation",
             "keys": "ctrl+alt+shift+o"
+        },
+        {
+            "id": "Terminal.SwapPaneLeft",
+            "keys": "ctrl+alt+shift+home"
         },
         {
             "id": "Terminal.SwapPaneRight",
@@ -264,16 +264,16 @@
             "keys": "alt+shift+up"
         },
         {
-            "id": "Terminal.ScrollUpPage",
-            "keys": "alt+shift+pgup"
-        },
-        {
             "id": null,
             "keys": "enter"
         },
         {
             "id": "Terminal.MoveFocusLeft",
             "keys": "ctrl+home"
+        },
+        {
+            "id": "Terminal.ScrollUpPage",
+            "keys": "alt+shift+pgup"
         },
         {
             "id": "Terminal.MoveFocusDown",
