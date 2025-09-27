@@ -9,7 +9,7 @@
   "cmp-path": { "branch": "main", "commit": "c642487086dbd9a93160e1679a1327be111cbc25" },
   "codecompanion.nvim": { "branch": "main", "commit": "ee1c317d4ac468f8c5938d7e954e65cb037757e7" },
   "copilot-cmp": { "branch": "master", "commit": "15fc12af3d0109fa76b60b5cffa1373697e261d1" },
-  "copilot.lua": { "branch": "master", "commit": "e5246c36319c7e3c38193e65f7b1a8d819210fd1" },
+  "copilot.lua": { "branch": "master", "commit": "619493a538c140393f0c80fd386144e0b5d3b96f" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "easy-dotnet.nvim": { "branch": "main", "commit": "2340f02a806cbea442657abfd27bc88587306d01" },
   "everforest": { "branch": "master", "commit": "3fffb096f6ac11372944ac964c60f8af41d8809f" },

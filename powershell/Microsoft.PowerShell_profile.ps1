@@ -31,7 +31,6 @@ function Find-Dir
     [string]$SearchPath = ".",
     [int]$Depth = 0
   )
-
   $options = Get-ChildItem -Directory -Depth $Depth -Path $SearchPath | ForEach-Object FullName
   $options += @($SearchPath)
   $options | fzf
@@ -42,8 +41,14 @@ function Find-Dir-And-Go
   [CmdletBinding()]
   param(
     [string]$SearchPath = ".",
-    [int]$Depth = 0
+    [int]$Depth = 0,
+    [switch]$Exercism
   )
+  if ($Exercism)
+  {
+    $SearchPath = "$HOME\Exercism"
+    $Depth = 1
+  }
   $choice = Find-Dir -SearchPath $SearchPath -Depth $Depth
   if ($choice)
   {
