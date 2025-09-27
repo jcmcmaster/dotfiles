@@ -19,13 +19,26 @@ return {
     vim.keymap.set('n', '<S-Up>', ':resize +2<CR>')
     vim.keymap.set('n', '<S-Right>', ':vertical resize +2<CR>')
 
-    vim.keymap.set('n', '<C-S-Down>', ':split<CR>')
-    vim.keymap.set('n', '<C-S-Right>', ':vsplit<CR>')
+    vim.keymap.set('n', '<C-S-Left>', ':leftabove vsplit<CR>')
+    vim.keymap.set('n', '<C-S-Down>', ':rightbelow split<CR>')
+    vim.keymap.set('n', '<C-S-Up>', ':leftabove split<CR>')
+    vim.keymap.set('n', '<C-S-Right>', ':rightbelow vsplit<CR>')
 
+    vim.keymap.set('n', '<C-S-A-Left>', ':leftabove vertical terminal<CR>')
+    vim.keymap.set('n', '<C-S-A-Down>', ':rightbelow horizontal terminal<CR>')
+    vim.keymap.set('n', '<C-S-A-Up>', ':leftabove horizontal terminal<CR>')
+    vim.keymap.set('n', '<C-S-A-Right>', ':rightbelow vertical terminal<CR>')
+
+    vim.keymap.set('n', '<leader>bd', ':bd<CR>')
     vim.keymap.set('n', '<leader>q', ':q<CR>')
     vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
     vim.keymap.set('n', '<leader>w', ':tabc<CR>')
-    vim.keymap.set('n', '<leader>x', ':bd<CR>')
+    vim.keymap.set('n', '<leader>x', ':close<CR>')
+
+    vim.api.nvim_create_user_command("CloseTerminals", function()
+      vim.cmd("silent! bufdo if &buftype == 'terminal' | bdelete! | endif")
+    end, {})
+    vim.keymap.set('n', '<leader>xt', ':CloseTerminals<CR>')
 
     -- n, v
     vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d"]])
