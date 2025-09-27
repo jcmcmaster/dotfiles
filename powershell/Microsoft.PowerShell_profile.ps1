@@ -63,6 +63,11 @@ function fp
   Find-Dir-And-Go -SearchPath "$HOME\Projects" -Depth 0
 }
 
+function fdx
+{
+  Find-Dir-And-Go -Exercism
+}
+
 function fdev
 {
   [CmdletBinding()]

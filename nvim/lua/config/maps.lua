@@ -14,10 +14,10 @@ return {
     vim.keymap.set('n', '<C-Up>', ':wincmd k<CR>')
     vim.keymap.set('n', '<C-Right>', ':wincmd l<CR>')
 
-    vim.keymap.set('n', '<S-Left>', ':vertical resize -2<CR>')
-    vim.keymap.set('n', '<S-Down>', ':resize -2<CR>')
-    vim.keymap.set('n', '<S-Up>', ':resize +2<CR>')
-    vim.keymap.set('n', '<S-Right>', ':vertical resize +2<CR>')
+    vim.keymap.set('n', '<S-Left>', ':vertical resize -5<CR>')
+    vim.keymap.set('n', '<S-Down>', ':resize -5<CR>')
+    vim.keymap.set('n', '<S-Up>', ':resize +5<CR>')
+    vim.keymap.set('n', '<S-Right>', ':vertical resize +5<CR>')
 
     vim.keymap.set('n', '<C-S-Left>', ':leftabove vsplit<CR>')
     vim.keymap.set('n', '<C-S-Down>', ':rightbelow split<CR>')
@@ -38,7 +38,7 @@ return {
     vim.api.nvim_create_user_command("CloseTerminals", function()
       vim.cmd("silent! bufdo if &buftype == 'terminal' | bdelete! | endif")
     end, {})
-    vim.keymap.set('n', '<leader>xt', ':CloseTerminals<CR>')
+    vim.keymap.set('n', '<C-t><C-x>', ':CloseTerminals<CR>')
 
     -- n, v
     vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d"]])
