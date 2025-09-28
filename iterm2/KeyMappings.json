@@ -1,0 +1,97 @@
+{
+  "Key Mappings": [
+    {
+      "Description": "Windows Terminal Key Mapping Equivalents for iTerm2",
+      "Note": "These mappings attempt to replicate Windows Terminal functionality in iTerm2"
+    }
+  ],
+  "iTerm2_Key_Bindings": {
+    "Split Pane Horizontally": {
+      "Windows_Terminal": "ctrl+shift+down",
+      "iTerm2": "⌘+D",
+      "iTerm2_Alternative": "⇧+⌘+D"
+    },
+    "Split Pane Vertically": {
+      "Windows_Terminal": "ctrl+shift+right", 
+      "iTerm2": "⌘+⇧+D",
+      "iTerm2_Alternative": "⌘+D (then select split direction)"
+    },
+    "Close Pane": {
+      "Windows_Terminal": "ctrl+shift+w",
+      "iTerm2": "⌘+W"
+    },
+    "New Tab": {
+      "Windows_Terminal": "ctrl+shift+t",
+      "iTerm2": "⌘+T"
+    },
+    "Next Tab": {
+      "Windows_Terminal": "alt+end",
+      "iTerm2": "⌘+→ or ⌘+⇧+]"
+    },
+    "Previous Tab": {
+      "Windows_Terminal": "alt+home", 
+      "iTerm2": "⌘+← or ⌘+⇧+["
+    },
+    "Find": {
+      "Windows_Terminal": "ctrl+shift+f",
+      "iTerm2": "⌘+F"
+    },
+    "Move Focus Up": {
+      "Windows_Terminal": "ctrl+pgup",
+      "iTerm2": "⌘+⌥+↑"
+    },
+    "Move Focus Down": {
+      "Windows_Terminal": "ctrl+pgdn", 
+      "iTerm2": "⌘+⌥+↓"
+    },
+    "Move Focus Left": {
+      "Windows_Terminal": "ctrl+home",
+      "iTerm2": "⌘+⌥+←"
+    },
+    "Move Focus Right": {
+      "Windows_Terminal": "ctrl+end",
+      "iTerm2": "⌘+⌥+→"
+    },
+    "Resize Pane Left": {
+      "Windows_Terminal": "shift+home",
+      "iTerm2": "⌃+⌘+←"
+    },
+    "Resize Pane Right": {
+      "Windows_Terminal": "shift+end",
+      "iTerm2": "⌃+⌘+→"
+    },
+    "Resize Pane Up": {
+      "Windows_Terminal": "shift+pgup",
+      "iTerm2": "⌃+⌘+↑"
+    },
+    "Resize Pane Down": {
+      "Windows_Terminal": "shift+pgdn",
+      "iTerm2": "⌃+⌘+↓"
+    },
+    "Scroll Up": {
+      "Windows_Terminal": "alt+shift+up",
+      "iTerm2": "⇧+PgUp"
+    },
+    "Scroll Down": {
+      "Windows_Terminal": "alt+shift+down",
+      "iTerm2": "⇧+PgDn"
+    },
+    "Scroll To Top": {
+      "Windows_Terminal": "alt+shift+home",
+      "iTerm2": "⌘+Home"
+    },
+    "Scroll To Bottom": {
+      "Windows_Terminal": "alt+shift+end",
+      "iTerm2": "⌘+End"
+    }
+  },
+  "Custom_iTerm2_Setup_Instructions": [
+    "1. Import DynamicProfiles.json and ColorSchemes.json into iTerm2",
+    "2. Set GitHub Dark Profile as default",
+    "3. Configure key bindings in iTerm2 > Preferences > Keys",
+    "4. Install FiraCode Nerd Font if not already installed",
+    "5. Adjust window size to 120x55 in profile settings",
+    "6. Disable copy on select in General preferences",
+    "7. Hide scrollbars in Appearance preferences"
+  ]
+}

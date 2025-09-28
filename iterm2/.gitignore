@@ -1,0 +1,24 @@
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# iTerm2 specific
+*.itermcolors.backup
+*.json.backup
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
