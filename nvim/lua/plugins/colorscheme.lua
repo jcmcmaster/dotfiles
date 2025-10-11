@@ -25,8 +25,8 @@ return {
   },
   {
     'projekt0n/github-nvim-theme',
-    priority = 0,
     name = 'github-theme',
+    priority = 0,
     lazy = false,
     config = function()
       vim.cmd [[ colorscheme github_dark_default ]]
@@ -35,15 +35,9 @@ return {
   },
   {
     'EdenEast/nightfox.nvim',
+    lazy = false,
     config = function()
       vim.cmd [[ colorscheme carbonfox ]]
     end
   },
-  {
-    'AlexvZyl/nordic.nvim',
-    lazy = false,
-    config = function()
-      require('nordic').load()
-    end
-  }
 }
