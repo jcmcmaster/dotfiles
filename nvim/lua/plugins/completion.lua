@@ -5,7 +5,6 @@ return {
       -- sources
       'rafamadriz/friendly-snippets',
       'zbirenbaum/copilot.lua',
-      'GustavEikaas/easy-dotnet.nvim',
 
       -- cmp source setup
       'zbirenbaum/copilot-cmp',
@@ -17,8 +16,6 @@ return {
     },
     config = function()
       local cmp = require('cmp')
-
-      cmp.register_source('easy-dotnet', require('easy-dotnet').package_completion_source)
 
       cmp.setup({
         formatting = {
@@ -36,7 +33,6 @@ return {
         sources = {
           { name = 'copilot' },
           { name = 'nvim_lsp' },
-          { name = 'easy-dotnet' },
           { name = 'nvim_lua' },
           { name = 'mini_snippets', option = { use_items_cache = false } },
           { name = 'path' },

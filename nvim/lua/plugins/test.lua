@@ -1,10 +1,10 @@
+---@diagnostic disable: missing-fields
 return {
   'nvim-neotest/neotest',
   dependencies = {
     'nsidorenco/neotest-vstest',
     'nvim-neotest/nvim-nio',
     'nvim-lua/plenary.nvim',
-    'antoinemadec/FixCursorHold.nvim',
     'nvim-treesitter/nvim-treesitter'
   },
   config = function()
