@@ -34,8 +34,9 @@ return {
       local attach = function(_client, bufnr)
         local opts = { buffer = bufnr, remap = false }
 
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', '<leader>cf', function()
+        vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', '<C-.>', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', '<leader>lf', function()
           vim.lsp.buf.format { async = true }
         end, opts)
         vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)

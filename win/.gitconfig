@@ -23,6 +23,7 @@
   cdd = checkout -- .
   cm = commit --message
   d = diff
+  dc = diff --cached
   dd = difftool --dir-diff
   ddc = difftool --dir-diff --cached
   f = fetch
