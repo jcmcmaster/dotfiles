@@ -1,0 +1,246 @@
+{
+  "Profiles": [
+    {
+      "Name": "Everforest Dark Hard",
+      "Guid": "everforest-dark-hard",
+      "Dynamic Profile Parent Name": "Default",
+      "Tags": ["everforest", "dark", "green"],
+      
+      "Ansi 0 Color": {
+        "Red Component": 0.278431,
+        "Green Component": 0.321569,
+        "Blue Component": 0.345098
+      },
+      "Ansi 1 Color": {
+        "Red Component": 0.901961,
+        "Green Component": 0.494118,
+        "Blue Component": 0.501961
+      },
+      "Ansi 2 Color": {
+        "Red Component": 0.654902,
+        "Green Component": 0.752941,
+        "Blue Component": 0.501961
+      },
+      "Ansi 3 Color": {
+        "Red Component": 0.858824,
+        "Green Component": 0.737255,
+        "Blue Component": 0.498039
+      },
+      "Ansi 4 Color": {
+        "Red Component": 0.498039,
+        "Green Component": 0.733333,
+        "Blue Component": 0.701961
+      },
+      "Ansi 5 Color": {
+        "Red Component": 0.839216,
+        "Green Component": 0.600000,
+        "Blue Component": 0.713725
+      },
+      "Ansi 6 Color": {
+        "Red Component": 0.513725,
+        "Green Component": 0.752941,
+        "Blue Component": 0.572549
+      },
+      "Ansi 7 Color": {
+        "Red Component": 0.827451,
+        "Green Component": 0.776471,
+        "Blue Component": 0.666667
+      },
+      "Ansi 8 Color": {
+        "Red Component": 0.294118,
+        "Green Component": 0.337255,
+        "Blue Component": 0.360784
+      },
+      "Ansi 9 Color": {
+        "Red Component": 0.901961,
+        "Green Component": 0.494118,
+        "Blue Component": 0.501961
+      },
+      "Ansi 10 Color": {
+        "Red Component": 0.654902,
+        "Green Component": 0.752941,
+        "Blue Component": 0.501961
+      },
+      "Ansi 11 Color": {
+        "Red Component": 0.858824,
+        "Green Component": 0.737255,
+        "Blue Component": 0.498039
+      },
+      "Ansi 12 Color": {
+        "Red Component": 0.498039,
+        "Green Component": 0.733333,
+        "Blue Component": 0.701961
+      },
+      "Ansi 13 Color": {
+        "Red Component": 0.839216,
+        "Green Component": 0.600000,
+        "Blue Component": 0.713725
+      },
+      "Ansi 14 Color": {
+        "Red Component": 0.513725,
+        "Green Component": 0.752941,
+        "Blue Component": 0.572549
+      },
+      "Ansi 15 Color": {
+        "Red Component": 0.827451,
+        "Green Component": 0.776471,
+        "Blue Component": 0.666667
+      },
+      
+      "Background Color": {
+        "Red Component": 0.137255,
+        "Green Component": 0.164706,
+        "Blue Component": 0.180392
+      },
+      "Foreground Color": {
+        "Red Component": 0.827451,
+        "Green Component": 0.776471,
+        "Blue Component": 0.666667
+      },
+      "Cursor Color": {
+        "Red Component": 1.0,
+        "Green Component": 1.0,
+        "Blue Component": 1.0
+      },
+      "Selection Color": {
+        "Red Component": 1.0,
+        "Green Component": 1.0,
+        "Blue Component": 1.0
+      },
+      
+      "Normal Font": "FiraCodeNerdFont-Regular 10",
+      "Non Ascii Font": "FiraCodeNerdFont-Regular 10",
+      
+      "Columns": 120,
+      "Rows": 55,
+      
+      "Scrollback Lines": 10000,
+      "Show Mark Indicators": false,
+      "Terminal Type": "xterm-256color",
+      
+      "Copy Selection": false,
+      "Working Directory": "~/"
+    },
+    {
+      "Name": "Tokyo Night Moon",
+      "Guid": "tokyo-night-moon",
+      "Dynamic Profile Parent Name": "Default", 
+      "Tags": ["tokyo", "night", "moon", "purple"],
+      
+      "Ansi 0 Color": {
+        "Red Component": 0.105882,
+        "Green Component": 0.113725,
+        "Blue Component": 0.168627
+      },
+      "Ansi 1 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.458824,
+        "Blue Component": 0.498039
+      },
+      "Ansi 2 Color": {
+        "Red Component": 0.764706,
+        "Green Component": 0.909804,
+        "Blue Component": 0.552941
+      },
+      "Ansi 3 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.780392,
+        "Blue Component": 0.466667
+      },
+      "Ansi 4 Color": {
+        "Red Component": 0.509804,
+        "Green Component": 0.635294,
+        "Blue Component": 1.0
+      },
+      "Ansi 5 Color": {
+        "Red Component": 0.752941,
+        "Green Component": 0.600000,
+        "Blue Component": 1.0
+      },
+      "Ansi 6 Color": {
+        "Red Component": 0.525490,
+        "Green Component": 0.882353,
+        "Blue Component": 0.988235
+      },
+      "Ansi 7 Color": {
+        "Red Component": 0.784314,
+        "Green Component": 0.827451,
+        "Blue Component": 0.960784
+      },
+      "Ansi 8 Color": {
+        "Red Component": 0.266667,
+        "Green Component": 0.278431,
+        "Blue Component": 0.450980
+      },
+      "Ansi 9 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.458824,
+        "Blue Component": 0.498039
+      },
+      "Ansi 10 Color": {
+        "Red Component": 0.764706,
+        "Green Component": 0.909804,
+        "Blue Component": 0.552941
+      },
+      "Ansi 11 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.780392,
+        "Blue Component": 0.466667
+      },
+      "Ansi 12 Color": {
+        "Red Component": 0.509804,
+        "Green Component": 0.635294,
+        "Blue Component": 1.0
+      },
+      "Ansi 13 Color": {
+        "Red Component": 0.988235,
+        "Green Component": 0.658824,
+        "Blue Component": 0.917647
+      },
+      "Ansi 14 Color": {
+        "Red Component": 0.407843,
+        "Green Component": 0.992157,
+        "Blue Component": 0.996078
+      },
+      "Ansi 15 Color": {
+        "Red Component": 0.784314,
+        "Green Component": 0.827451,
+        "Blue Component": 0.960784
+      },
+      
+      "Background Color": {
+        "Red Component": 0.133333,
+        "Green Component": 0.141176,
+        "Blue Component": 0.211765
+      },
+      "Foreground Color": {
+        "Red Component": 0.784314,
+        "Green Component": 0.827451,
+        "Blue Component": 0.960784
+      },
+      "Cursor Color": {
+        "Red Component": 0.784314,
+        "Green Component": 0.827451,
+        "Blue Component": 0.960784
+      },
+      "Selection Color": {
+        "Red Component": 0.176471,
+        "Green Component": 0.247059,
+        "Blue Component": 0.462745
+      },
+      
+      "Normal Font": "FiraCodeNerdFont-Regular 10",
+      "Non Ascii Font": "FiraCodeNerdFont-Regular 10",
+      
+      "Columns": 120,
+      "Rows": 55,
+      
+      "Scrollback Lines": 10000,
+      "Show Mark Indicators": false,
+      "Terminal Type": "xterm-256color",
+      
+      "Copy Selection": false,
+      "Working Directory": "~/"
+    }
+  ]
+}

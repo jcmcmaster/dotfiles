@@ -1,0 +1,167 @@
+{
+  "Profiles": [
+    {
+      "Name": "GitHub Dark Profile",
+      "Guid": "github-dark-main",
+      "Dynamic Profile Parent Name": "Default",
+      "Tags": ["github", "dark", "main"],
+      
+      "Ansi 0 Color": {
+        "Red Component": 0.282353,
+        "Green Component": 0.309804,
+        "Blue Component": 0.345098
+      },
+      "Ansi 1 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.482353,
+        "Blue Component": 0.447059
+      },
+      "Ansi 2 Color": {
+        "Red Component": 0.247059,
+        "Green Component": 0.725490,
+        "Blue Component": 0.313725
+      },
+      "Ansi 3 Color": {
+        "Red Component": 0.823529,
+        "Green Component": 0.596078,
+        "Blue Component": 0.133333
+      },
+      "Ansi 4 Color": {
+        "Red Component": 0.345098,
+        "Green Component": 0.650980,
+        "Blue Component": 1.0
+      },
+      "Ansi 5 Color": {
+        "Red Component": 0.737255,
+        "Green Component": 0.549020,
+        "Blue Component": 1.0
+      },
+      "Ansi 6 Color": {
+        "Red Component": 0.223529,
+        "Green Component": 0.772549,
+        "Blue Component": 0.811765
+      },
+      "Ansi 7 Color": {
+        "Red Component": 0.694118,
+        "Green Component": 0.729412,
+        "Blue Component": 0.768627
+      },
+      "Ansi 8 Color": {
+        "Red Component": 0.431373,
+        "Green Component": 0.462745,
+        "Blue Component": 0.505882
+      },
+      "Ansi 9 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.482353,
+        "Blue Component": 0.447059
+      },
+      "Ansi 10 Color": {
+        "Red Component": 0.337255,
+        "Green Component": 0.831373,
+        "Blue Component": 0.392157
+      },
+      "Ansi 11 Color": {
+        "Red Component": 0.890196,
+        "Green Component": 0.701961,
+        "Blue Component": 0.254902
+      },
+      "Ansi 12 Color": {
+        "Red Component": 0.474510,
+        "Green Component": 0.752941,
+        "Blue Component": 1.0
+      },
+      "Ansi 13 Color": {
+        "Red Component": 0.823529,
+        "Green Component": 0.658824,
+        "Blue Component": 1.0
+      },
+      "Ansi 14 Color": {
+        "Red Component": 0.337255,
+        "Green Component": 0.831373,
+        "Blue Component": 0.866667
+      },
+      "Ansi 15 Color": {
+        "Red Component": 1.0,
+        "Green Component": 1.0,
+        "Blue Component": 1.0
+      },
+      
+      "Background Color": {
+        "Red Component": 0.050980,
+        "Green Component": 0.067451,
+        "Blue Component": 0.090196
+      },
+      "Foreground Color": {
+        "Red Component": 0.788235,
+        "Green Component": 0.819608,
+        "Blue Component": 0.850980
+      },
+      "Cursor Color": {
+        "Red Component": 0.788235,
+        "Green Component": 0.819608,
+        "Blue Component": 0.850980
+      },
+      "Selection Color": {
+        "Red Component": 0.129412,
+        "Green Component": 0.149020,
+        "Blue Component": 0.176471
+      },
+      
+      "Normal Font": "FiraCodeNerdFont-Regular 10",
+      "Non Ascii Font": "FiraCodeNerdFont-Regular 10",
+      
+      "Columns": 120,
+      "Rows": 55,
+      
+      "Scrollback Lines": 10000,
+      "Show Mark Indicators": false,
+      "Terminal Type": "xterm-256color",
+      
+      "Use Custom Window Title": true,
+      "Custom Window Title": "Terminal",
+      
+      "Copy Selection": false,
+      
+      "Working Directory": "~/",
+      "Custom Command": "No",
+      "Command": ""
+    },
+    {
+      "Name": "PowerShell Profile",
+      "Guid": "powershell-profile",
+      "Dynamic Profile Parent Name": "GitHub Dark Profile",
+      "Tags": ["powershell", "shell"],
+      
+      "Custom Command": "Yes",
+      "Command": "/usr/local/bin/pwsh",
+      "Custom Window Title": "PowerShell",
+      
+      "Badge Text": "PS"
+    },
+    {
+      "Name": "Bash Profile", 
+      "Guid": "bash-profile",
+      "Dynamic Profile Parent Name": "GitHub Dark Profile",
+      "Tags": ["bash", "shell"],
+      
+      "Custom Command": "Yes", 
+      "Command": "/bin/bash",
+      "Custom Window Title": "Bash",
+      
+      "Badge Text": "BASH"
+    },
+    {
+      "Name": "Zsh Profile",
+      "Guid": "zsh-profile", 
+      "Dynamic Profile Parent Name": "GitHub Dark Profile",
+      "Tags": ["zsh", "shell"],
+      
+      "Custom Command": "Yes",
+      "Command": "/bin/zsh",
+      "Custom Window Title": "Zsh",
+      
+      "Badge Text": "ZSH"
+    }
+  ]
+}
