@@ -2,13 +2,13 @@
 
 ## Repository Overview
 
-This is a Windows-focused dotfiles repository managing configurations for Neovim, PowerShell, ZSH (WSL), Windows Terminal, Git, JetBrains IDEs (IdeaVim), and a QMK keyboard layout. There are no build/test/lint commands — this is a pure configuration repo deployed via symlinks.
+Cross-platform dotfiles repository managing configurations for Neovim, PowerShell (Windows), ZSH (Linux/WSL), Windows Terminal, Git, JetBrains IDEs (IdeaVim), and a QMK keyboard layout. All platforms are equally supported — changes should preserve cross-platform compatibility. There are no build/test/lint commands — this is a pure configuration repo deployed via symlinks.
 
-The `archive/` directory contains legacy Linux configs that are no longer actively maintained. Focus work on the active top-level directories.
+The `archive/` directory contains legacy configs that are no longer actively maintained. Focus work on the active top-level directories.
 
 ## Neovim Configuration (`nvim/`)
 
-Built on **lazy.nvim** with a modular Lua architecture:
+Cross-platform — works on both Windows (PowerShell) and Linux/WSL (ZSH). Built on **lazy.nvim** with a modular Lua architecture:
 
 - `init.lua` → bootstraps `lua/config/lazy.lua`
 - `lua/config/` — core settings split by concern:
@@ -31,15 +31,15 @@ Built on **lazy.nvim** with a modular Lua architecture:
 - **Format-on-save** is configured via `BufWritePre` autocommands in `auto.lua`. When adding a new filetype, add it to the existing pattern list there.
 - **LSP servers** are installed via Mason. The server list lives in `plugins/lsp.lua` inside the `ensure_installed` table.
 - **UI borders** use `'rounded'` style consistently (LSP hover, signature help, completion).
-- **Platform detection** — `opts.lua` detects Windows and configures PowerShell as the shell. On Linux/WSL it uses the system default. Preserve this cross-platform awareness when editing.
+- **Platform detection** — `opts.lua` detects Windows and configures PowerShell as the shell; on Linux/WSL it uses the system default. Preserve this cross-platform awareness when editing.
 
 ## ZSH Configuration (`zsh/`)
 
-Modular ZSH setup for Ubuntu/WSL using **Oh My Zsh** + **Oh My Posh** (material theme). Uses `ZDOTDIR` to load config directly from the repo — only `~/.zshenv` is needed in the home directory.
+Modular ZSH setup for Linux/WSL using **Oh My Zsh** + **Oh My Posh** (material theme). Uses `ZDOTDIR` to load config directly from the repo — only `~/.zshenv` is needed in the home directory.
 
 - `.zshrc` — main config: Oh My Zsh framework, Oh My Posh prompt, sources modular files
 - `aliases.zsh`, `functions.zsh`, `keybindings.zsh`, `completions.zsh` — modular config files
-- `init.sh` — bootstrap script for fresh WSL installs
+- `init.sh` — bootstrap script for fresh Linux/WSL installs
 
 ### Conventions
 
@@ -56,18 +56,12 @@ Modular ZSH setup for Ubuntu/WSL using **Oh My Zsh** + **Oh My Posh** (material 
 - Aliases: `g` → git, `vim`/`vi` → nvim.
 - Sources a GitHub Copilot CLI script from the user's OneDrive Documents folder.
 
-## Windows Init Script (`win/init.ps1`)
+## Windows Configuration (`win/`)
 
-Bootstraps a Windows dev environment using **winget** (primary) and **Chocolatey** (fallback for packages not in winget). Installs ~21 winget packages plus additional tools via choco, uv, npm, and gh. Add new tools here following the existing patterns.
-
-## Git Config (`win/.gitconfig`)
-
-Uses short aliases for frequent operations (`a`, `c`, `d`, `s`, `b`, `l`) and composite aliases for workflows (`acp` = add all + commit + push). Diff/merge tool is **Meld**.
-
-## IdeaVim Config (`win/.ideavimrc`)
-
-Vim keybindings for JetBrains IDEs. Shares some Neovim leader key categories (`<leader>f*` for find, `<leader>t*` for test) but adapts others for IDE-specific actions (e.g., `<leader>b*` is Build/Rebuild/Clean in IdeaVim vs Buffers in Neovim). Custom commands are defined with `:command` for IDE actions.
+- **`init.ps1`** — Bootstraps a Windows dev environment using **winget** (primary) and **Chocolatey** (fallback). Installs ~21 winget packages plus additional tools via choco, uv, npm, and gh.
+- **`.gitconfig`** — Short aliases for frequent operations (`a`, `c`, `d`, `s`, `b`, `l`) and composite aliases for workflows (`acp` = add all + commit + push). Diff/merge tool is **Meld**.
+- **`.ideavimrc`** — Vim keybindings for JetBrains IDEs. Shares some Neovim leader key categories (`<leader>f*` for find, `<leader>t*` for test) but adapts others for IDE-specific actions (e.g., `<leader>b*` is Build/Rebuild/Clean vs Buffers in Neovim).
 
 ## Deployment
 
-Configs are deployed by **symlinking** from this repo to their expected system locations. On WSL, `zsh/init.sh` handles bootstrap and symlinks. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.
+Configs are deployed by **symlinking** from this repo to their expected system locations. On Linux/WSL, `zsh/init.sh` handles bootstrap and symlinks. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.
