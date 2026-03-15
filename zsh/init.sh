@@ -11,8 +11,11 @@ echo "  ZSH dir:  ${ZSH_DIR}"
 echo ""
 
 # ── System update ──────────────────────────────────────────────────
-echo "Updating and upgrading system packages..."
-sudo DEBIAN_FRONTEND=noninteractive apt update -y && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
+sudo DEBIAN_FRONTEND=noninteractive apt update -y
+if [[ " $* " == *" --upgrade "* ]]; then
+  echo "Upgrading system packages (--upgrade flag set)..."
+  sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
+fi
 
 # ── Prerequisites via apt ──────────────────────────────────────────
 echo "Installing apt packages..."
@@ -117,7 +120,7 @@ fi
 # ── Azure CLI ──────────────────────────────────────────────────────
 if ! command -v az &>/dev/null; then
   echo "Installing Azure CLI..."
-  curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  curl -fsSL https://aka.ms/InstallAzureCLIDeb | sudo bash
   echo "Azure CLI installed: $(az version --query '\"azure-cli\"' -o tsv)"
 else
   echo "Azure CLI already installed: $(az version --query '\"azure-cli\"' -o tsv)"
