@@ -1,7 +1,7 @@
 ZDOTDIR="${ZDOTDIR:-$HOME}"
 
 typeset -U path
-path=("${HOME}/bin" $path)
+path=("${HOME}/.local/bin" "${HOME}/bin" $path)
 
 # nvm
 export NVM_DIR="${HOME}/.nvm"
