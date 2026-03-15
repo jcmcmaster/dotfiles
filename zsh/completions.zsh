@@ -9,7 +9,6 @@ fi
 
 # GitHub Copilot CLI aliases
 if command -v gh &>/dev/null; then
-  local _copilot_aliases
   _copilot_aliases="$(gh copilot alias -- zsh 2>/dev/null)" && eval "${_copilot_aliases}"
   unset _copilot_aliases
 fi
