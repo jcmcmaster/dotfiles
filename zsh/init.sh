@@ -23,16 +23,41 @@ sudo apt update -y && sudo apt install -y \
   unzip
 
 # ── Neovim (latest stable from GitHub releases) ───────────────────
-if ! command -v nvim &>/dev/null; then
-  echo "Installing Neovim..."
+install_neovim() {
+  echo "Installing Neovim (latest stable)..."
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
   sudo rm -rf /opt/nvim-linux-x86_64
   sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
   rm nvim-linux-x86_64.tar.gz
   sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
-  echo "Neovim installed."
+  echo "Neovim installed: $(nvim --version | head -1)"
+}
+
+if ! command -v nvim &>/dev/null; then
+  install_neovim
+elif [[ "${1:-}" == "--force" ]]; then
+  echo "Force flag set — reinstalling Neovim..."
+  install_neovim
 else
   echo "Neovim already installed: $(nvim --version | head -1)"
+fi
+
+# ── nvm (Node Version Manager) ─────────────────────────────────────
+if [[ ! -d "${HOME}/.nvm" ]]; then
+  echo "Installing nvm..."
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE=/dev/null bash
+  export NVM_DIR="${HOME}/.nvm"
+  [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
+  echo "Installing latest Node LTS..."
+  nvm install --lts
+else
+  echo "nvm already installed."
+  export NVM_DIR="${HOME}/.nvm"
+  [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
+  if ! command -v node &>/dev/null; then
+    echo "Node not found — installing latest LTS..."
+    nvm install --lts
+  fi
 fi
 
 # ── Oh My Zsh ─────────────────────────────────────────────────────
@@ -54,6 +79,32 @@ fi
 if [[ ! -d "${ZSH_CUSTOM}/plugins/zsh-autosuggestions" ]]; then
   echo "Installing zsh-autosuggestions..."
   git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
+fi
+
+# ── GitHub CLI ─────────────────────────────────────────────────────
+if ! command -v gh &>/dev/null; then
+  echo "Installing GitHub CLI..."
+  sudo mkdir -p -m 755 /etc/apt/keyrings
+  wget -nv -O /tmp/githubcli-archive-keyring.gpg https://cli.github.com/packages/githubcli-archive-keyring.gpg
+  sudo cp /tmp/githubcli-archive-keyring.gpg /etc/apt/keyrings/githubcli-archive-keyring.gpg
+  sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+  ARCH=$(dpkg --print-architecture)
+  echo "deb [arch=${ARCH} signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+    | sudo tee /etc/apt/sources.list.d/github-cli-stable.list > /dev/null
+  sudo apt update -y && sudo apt install gh -y
+  rm -f /tmp/githubcli-archive-keyring.gpg
+  echo "GitHub CLI installed: $(gh --version | head -1)"
+else
+  echo "GitHub CLI already installed: $(gh --version | head -1)"
+fi
+
+# ── GitHub Copilot CLI ─────────────────────────────────────────────
+if ! command -v copilot &>/dev/null; then
+  echo "Installing GitHub Copilot CLI..."
+  npm install -g @github/copilot
+  echo "Copilot CLI installed: $(copilot --version)"
+else
+  echo "Copilot CLI already installed: $(copilot --version)"
 fi
 
 # ── Oh My Posh ─────────────────────────────────────────────────────
@@ -106,5 +157,8 @@ echo "  ~/.zshenv          → points ZDOTDIR to ${ZSH_DIR}"
 echo "  ~/.config/nvim     → symlinked to ${DOTFILES_DIR}/nvim"
 echo "  oh-my-zsh          → ${HOME}/.oh-my-zsh"
 echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not found')"
+echo "  gh                 → $(command -v gh 2>/dev/null || echo 'not found')"
+echo "  copilot            → $(command -v copilot 2>/dev/null || echo 'not found')"
+echo "  nvm                → ${HOME}/.nvm"
 echo ""
 echo "Restart your terminal or run: exec zsh"

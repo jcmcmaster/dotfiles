@@ -1,5 +1,12 @@
 ZDOTDIR="${ZDOTDIR:-$HOME}"
 
+typeset -U path
+path=("${HOME}/bin" $path)
+
+# nvm
+export NVM_DIR="${HOME}/.nvm"
+[ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
+
 export HISTFILE="${ZDOTDIR}/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
