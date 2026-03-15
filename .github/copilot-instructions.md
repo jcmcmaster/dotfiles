@@ -68,7 +68,7 @@ Modular ZSH setup for Ubuntu/WSL using **Oh My Zsh** + **Oh My Posh** (material 
 
 ## Windows Init Script (`win/init.ps1`)
 
-Bootstraps a Windows dev environment using **winget** (primary) and **Chocolatey** (fallback for packages not in winget). Installs ~23 packages. Add new tools here following the existing `winget install` pattern.
+Bootstraps a Windows dev environment using **winget** (primary) and **Chocolatey** (fallback for packages not in winget). Installs ~21 winget packages plus additional tools via choco, uv, npm, and gh. Add new tools here following the existing patterns.
 
 ## Git Config (`win/.gitconfig`)
 
@@ -76,7 +76,7 @@ Uses short aliases for frequent operations (`a`, `c`, `d`, `s`, `b`, `l`) and co
 
 ## IdeaVim Config (`win/.ideavimrc`)
 
-Vim keybindings for JetBrains IDEs. Mirrors Neovim leader key categories where possible (`<leader>f*` for find, `<leader>b*` for build, `<leader>t*` for test). Custom commands are defined with `:command` for IDE actions.
+Vim keybindings for JetBrains IDEs. Shares some Neovim leader key categories (`<leader>f*` for find, `<leader>t*` for test) but adapts others for IDE-specific actions (e.g., `<leader>b*` is Build/Rebuild/Clean in IdeaVim vs Buffers in Neovim). Custom commands are defined with `:command` for IDE actions.
 
 ## Deployment
 
