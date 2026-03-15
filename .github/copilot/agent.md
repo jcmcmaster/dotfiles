@@ -14,4 +14,5 @@ Use **trunk-based development** against `master`. Never commit directly to `mast
 
 - Before pushing, merge `master` into the feature branch to keep it up to date
 - After addressing review feedback, commit and push the fixes, then reply to each comment thread
+- After every push to a PR, poll for new review feedback and address it iteratively until there are no unresolved comments
 - When creating PRs, include a summary table of changes and note any dependencies on other PRs
