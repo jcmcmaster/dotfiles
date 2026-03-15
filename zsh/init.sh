@@ -10,9 +10,13 @@ echo "  Dotfiles: ${DOTFILES_DIR}"
 echo "  ZSH dir:  ${ZSH_DIR}"
 echo ""
 
+# ── System update ──────────────────────────────────────────────────
+echo "Updating and upgrading system packages..."
+sudo apt update -y && sudo apt upgrade -y
+
 # ── Prerequisites via apt ──────────────────────────────────────────
 echo "Installing apt packages..."
-sudo apt update -y && sudo apt install -y \
+sudo apt install -y \
   zsh \
   fzf \
   ripgrep \
@@ -103,11 +107,20 @@ if ! command -v gh &>/dev/null; then
   ARCH=$(dpkg --print-architecture)
   echo "deb [arch=${ARCH} signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
     | sudo tee /etc/apt/sources.list.d/github-cli-stable.list > /dev/null
-  sudo apt update -y && sudo apt install gh -y
+  sudo apt install gh -y
   rm -f /tmp/githubcli-archive-keyring.gpg
   echo "GitHub CLI installed: $(gh --version | head -1)"
 else
   echo "GitHub CLI already installed: $(gh --version | head -1)"
+fi
+
+# ── Azure CLI ──────────────────────────────────────────────────────
+if ! az version &>/dev/null; then
+  echo "Installing Azure CLI..."
+  curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  echo "Azure CLI installed: $(az version | head -1)"
+else
+  echo "Azure CLI already installed: $(az version | head -1)"
 fi
 
 # ── GitHub Copilot CLI ─────────────────────────────────────────────
@@ -192,6 +205,7 @@ echo "  ~/.config/nvim     → symlinked to ${DOTFILES_DIR}/nvim"
 echo "  oh-my-zsh          → ${HOME}/.oh-my-zsh"
 echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not found')"
 echo "  gh                 → $(command -v gh 2>/dev/null || echo 'not found')"
+echo "  az                 → $(command -v az 2>/dev/null || echo 'not found')"
 echo "  copilot            → $(command -v copilot 2>/dev/null || echo 'not found')"
 echo "  nvm                → ${HOME}/.nvm"
 echo "  dotnet             → $(command -v dotnet 2>/dev/null || echo 'not found')"
