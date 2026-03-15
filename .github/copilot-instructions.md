@@ -8,4 +8,4 @@ The `archive/` directory contains legacy configs that are no longer actively mai
 
 ## Deployment
 
-Configs are deployed by **symlinking** from this repo to their expected system locations. On Linux/WSL, `zsh/init.sh` handles bootstrap and symlinks. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.
+Configs are deployed by **symlinking** from this repo to their expected system locations. On Linux/WSL, `zsh/init.sh` handles bootstrap and symlinks including `~/.gitconfig` and the Neovim config. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.

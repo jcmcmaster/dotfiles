@@ -42,6 +42,18 @@ else
   echo "Neovim already installed: $(nvim --version | head -1)"
 fi
 
+# ── .NET SDK (for csharp_ls / fsautocomplete LSP servers) ──────────
+export DOTNET_ROOT="${HOME}/.dotnet"
+export PATH="${DOTNET_ROOT}:${PATH}"
+
+if ! command -v dotnet &>/dev/null; then
+  echo "Installing .NET SDK (latest LTS)..."
+  curl -fsSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel LTS --install-dir "${DOTNET_ROOT}"
+  echo ".NET SDK installed: $(dotnet --version)"
+else
+  echo ".NET SDK already installed: $(dotnet --version)"
+fi
+
 # ── nvm (Node Version Manager) ─────────────────────────────────────
 if [[ ! -d "${HOME}/.nvm" ]]; then
   echo "Installing nvm..."
@@ -136,6 +148,21 @@ if [[ -f "${HOME}/.zshenv" ]]; then
 fi
 echo "export ZDOTDIR=\"${ZSH_DIR}\"" > "${HOME}/.zshenv"
 
+# ── Git config symlink ─────────────────────────────────────────────
+GITCONFIG_TARGET="${ZSH_DIR}/.gitconfig"
+if [[ -L "${HOME}/.gitconfig" && "$(readlink "${HOME}/.gitconfig")" == "${GITCONFIG_TARGET}" ]]; then
+  echo "Git config symlink already correct."
+else
+  echo "Symlinking Git config..."
+  if [[ -L "${HOME}/.gitconfig" ]]; then
+    rm "${HOME}/.gitconfig"
+  elif [[ -e "${HOME}/.gitconfig" ]]; then
+    echo "  Backing up existing ~/.gitconfig to ~/.gitconfig.bak"
+    mv "${HOME}/.gitconfig" "${HOME}/.gitconfig.bak"
+  fi
+  ln -s "${GITCONFIG_TARGET}" "${HOME}/.gitconfig"
+fi
+
 # ── Neovim config symlink ─────────────────────────────────────────
 echo "Symlinking Neovim config..."
 mkdir -p "${HOME}/.config"
@@ -160,11 +187,13 @@ echo "=== Setup complete! ==="
 echo ""
 echo "What was set up:"
 echo "  ~/.zshenv          → points ZDOTDIR to ${ZSH_DIR}"
+echo "  ~/.gitconfig       → symlinked to ${ZSH_DIR}/.gitconfig"
 echo "  ~/.config/nvim     → symlinked to ${DOTFILES_DIR}/nvim"
 echo "  oh-my-zsh          → ${HOME}/.oh-my-zsh"
 echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not found')"
 echo "  gh                 → $(command -v gh 2>/dev/null || echo 'not found')"
 echo "  copilot            → $(command -v copilot 2>/dev/null || echo 'not found')"
 echo "  nvm                → ${HOME}/.nvm"
+echo "  dotnet             → $(command -v dotnet 2>/dev/null || echo 'not found')"
 echo ""
 echo "Restart your terminal or run: exec zsh"

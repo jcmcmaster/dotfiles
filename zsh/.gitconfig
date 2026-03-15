@@ -1,0 +1,24 @@
+[user]
+  email = jmcmaster008@gmail.com
+  name = Jim McMaster
+
+[core]
+  editor = nvim
+  autocrlf = input
+
+[credential]
+  helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+
+[alias]
+  a = add
+  aa = add --all
+  acp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f"
+  b = branch
+  c = checkout
+  cdd = checkout -- .
+  cm = commit --message
+  d = diff
+  dc = diff --cached
+  f = fetch
+  l = log
+  s = status
