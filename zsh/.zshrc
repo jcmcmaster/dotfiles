@@ -25,7 +25,9 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source "${ZSH}/oh-my-zsh.sh"
 
-eval "$(oh-my-posh init zsh --config "${HOME}/.cache/oh-my-posh/themes/material.omp.json")"
+if (( $+commands[oh-my-posh] )); then
+  eval "$(oh-my-posh init zsh --config "${HOME}/.cache/oh-my-posh/themes/material.omp.json")"
+fi
 
 # source modular config files
 for config_file in aliases functions keybindings completions; do
