@@ -9,18 +9,6 @@
 [credential]
   helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 
-[diff]
-  tool = meld
-
-[difftool "meld"]
-  cmd = "meld.exe \"$(wslpath -aw $LOCAL)\" \"$(wslpath -aw $REMOTE)\""
-
-[merge]
-  tool = meld
-
-[mergetool "meld"]
-  cmd = "meld.exe --auto-merge \"$(wslpath -aw $LOCAL)\" \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $REMOTE)\" --output \"$(wslpath -aw $MERGED)\" --label=Local --label=Base --label=Remote --diff \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $LOCAL)\" --diff \"$(wslpath -aw $BASE)\" \"$(wslpath -aw $REMOTE)\""
-
 [alias]
   a = add
   aa = add --all
@@ -31,8 +19,6 @@
   cm = commit --message
   d = diff
   dc = diff --cached
-  dd = difftool --dir-diff
-  ddc = difftool --dir-diff --cached
   f = fetch
   l = log
   s = status
