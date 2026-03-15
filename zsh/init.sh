@@ -10,9 +10,16 @@ echo "  Dotfiles: ${DOTFILES_DIR}"
 echo "  ZSH dir:  ${ZSH_DIR}"
 echo ""
 
+# ── System update ──────────────────────────────────────────────────
+sudo DEBIAN_FRONTEND=noninteractive apt update -y
+if [[ " $* " == *" --upgrade "* ]]; then
+  echo "Upgrading system packages (--upgrade flag set)..."
+  sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
+fi
+
 # ── Prerequisites via apt ──────────────────────────────────────────
 echo "Installing apt packages..."
-sudo apt update -y && sudo apt install -y \
+sudo apt install -y \
   zsh \
   fzf \
   ripgrep \
@@ -110,6 +117,15 @@ else
   echo "GitHub CLI already installed: $(gh --version | head -1)"
 fi
 
+# ── Azure CLI ──────────────────────────────────────────────────────
+if ! command -v az &>/dev/null; then
+  echo "Installing Azure CLI..."
+  curl -fsSL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  echo "Azure CLI installed: $(az version --query '\"azure-cli\"' -o tsv)"
+else
+  echo "Azure CLI already installed: $(az version --query '\"azure-cli\"' -o tsv)"
+fi
+
 # ── GitHub Copilot CLI ─────────────────────────────────────────────
 if ! command -v copilot &>/dev/null; then
   echo "Installing GitHub Copilot CLI..."
@@ -192,6 +208,7 @@ echo "  ~/.config/nvim     → symlinked to ${DOTFILES_DIR}/nvim"
 echo "  oh-my-zsh          → ${HOME}/.oh-my-zsh"
 echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not found')"
 echo "  gh                 → $(command -v gh 2>/dev/null || echo 'not found')"
+echo "  az                 → $(command -v az 2>/dev/null || echo 'not found')"
 echo "  copilot            → $(command -v copilot 2>/dev/null || echo 'not found')"
 echo "  nvm                → ${HOME}/.nvm"
 echo "  dotnet             → $(command -v dotnet 2>/dev/null || echo 'not found')"
