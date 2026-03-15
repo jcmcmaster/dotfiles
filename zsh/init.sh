@@ -42,6 +42,18 @@ else
   echo "Neovim already installed: $(nvim --version | head -1)"
 fi
 
+# ── .NET SDK (for csharp_ls / fsautocomplete LSP servers) ──────────
+export DOTNET_ROOT="${HOME}/.dotnet"
+export PATH="${DOTNET_ROOT}:${PATH}"
+
+if ! command -v dotnet &>/dev/null; then
+  echo "Installing .NET SDK (latest LTS)..."
+  curl -fsSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel LTS --install-dir "${DOTNET_ROOT}"
+  echo ".NET SDK installed: $(dotnet --version)"
+else
+  echo ".NET SDK already installed: $(dotnet --version)"
+fi
+
 # ── nvm (Node Version Manager) ─────────────────────────────────────
 if [[ ! -d "${HOME}/.nvm" ]]; then
   echo "Installing nvm..."
@@ -166,5 +178,6 @@ echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not 
 echo "  gh                 → $(command -v gh 2>/dev/null || echo 'not found')"
 echo "  copilot            → $(command -v copilot 2>/dev/null || echo 'not found')"
 echo "  nvm                → ${HOME}/.nvm"
+echo "  dotnet             → $(command -v dotnet 2>/dev/null || echo 'not found')"
 echo ""
 echo "Restart your terminal or run: exec zsh"
