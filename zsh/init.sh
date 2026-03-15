@@ -12,7 +12,7 @@ echo ""
 
 # ── System update ──────────────────────────────────────────────────
 echo "Updating and upgrading system packages..."
-sudo apt update -y && sudo apt upgrade -y
+sudo DEBIAN_FRONTEND=noninteractive apt update -y && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
 # ── Prerequisites via apt ──────────────────────────────────────────
 echo "Installing apt packages..."
@@ -107,7 +107,7 @@ if ! command -v gh &>/dev/null; then
   ARCH=$(dpkg --print-architecture)
   echo "deb [arch=${ARCH} signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
     | sudo tee /etc/apt/sources.list.d/github-cli-stable.list > /dev/null
-  sudo apt install gh -y
+  sudo apt update -y && sudo apt install gh -y
   rm -f /tmp/githubcli-archive-keyring.gpg
   echo "GitHub CLI installed: $(gh --version | head -1)"
 else
@@ -115,12 +115,12 @@ else
 fi
 
 # ── Azure CLI ──────────────────────────────────────────────────────
-if ! az version &>/dev/null; then
+if ! command -v az &>/dev/null; then
   echo "Installing Azure CLI..."
   curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-  echo "Azure CLI installed: $(az version | head -1)"
+  echo "Azure CLI installed: $(az version --query '\"azure-cli\"' -o tsv)"
 else
-  echo "Azure CLI already installed: $(az version | head -1)"
+  echo "Azure CLI already installed: $(az version --query '\"azure-cli\"' -o tsv)"
 fi
 
 # ── GitHub Copilot CLI ─────────────────────────────────────────────
