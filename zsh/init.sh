@@ -108,6 +108,12 @@ else
 fi
 
 # ── Oh My Posh ─────────────────────────────────────────────────────
+# oh-my-posh installs to ~/.local/bin by default
+case ":${PATH:-}:" in
+  *:"${HOME}/.local/bin":*) ;;
+  *) export PATH="${HOME}/.local/bin${PATH:+:${PATH}}" ;;
+esac
+
 if ! command -v oh-my-posh &>/dev/null; then
   echo "Installing Oh My Posh..."
   curl -s https://ohmyposh.dev/install.sh | bash -s
