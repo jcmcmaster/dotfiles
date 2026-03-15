@@ -3,7 +3,11 @@ alias vim="nvim"
 alias vi="nvim"
 
 # Pin copilot to the WSL-native binary (not the Windows one via /mnt/c)
-alias copilot="$(command -v copilot 2>/dev/null || echo copilot)"
+copilot() {
+  local wsl_bin
+  wsl_bin="$(whence -p copilot | grep -v '^/mnt/c' | head -1)"
+  "${wsl_bin:-copilot}" "$@"
+}
 
 alias cl="clear && ls"
 alias cs="clear && git status"

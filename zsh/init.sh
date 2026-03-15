@@ -149,14 +149,19 @@ fi
 echo "export ZDOTDIR=\"${ZSH_DIR}\"" > "${HOME}/.zshenv"
 
 # ── Git config symlink ─────────────────────────────────────────────
-echo "Symlinking Git config..."
-if [[ -L "${HOME}/.gitconfig" ]]; then
-  rm "${HOME}/.gitconfig"
-elif [[ -e "${HOME}/.gitconfig" ]]; then
-  echo "  Backing up existing ~/.gitconfig to ~/.gitconfig.bak"
-  mv "${HOME}/.gitconfig" "${HOME}/.gitconfig.bak"
+GITCONFIG_TARGET="${ZSH_DIR}/.gitconfig"
+if [[ -L "${HOME}/.gitconfig" && "$(readlink "${HOME}/.gitconfig")" == "${GITCONFIG_TARGET}" ]]; then
+  echo "Git config symlink already correct."
+else
+  echo "Symlinking Git config..."
+  if [[ -L "${HOME}/.gitconfig" ]]; then
+    rm "${HOME}/.gitconfig"
+  elif [[ -e "${HOME}/.gitconfig" ]]; then
+    echo "  Backing up existing ~/.gitconfig to ~/.gitconfig.bak"
+    mv "${HOME}/.gitconfig" "${HOME}/.gitconfig.bak"
+  fi
+  ln -s "${GITCONFIG_TARGET}" "${HOME}/.gitconfig"
 fi
-ln -s "${ZSH_DIR}/.gitconfig" "${HOME}/.gitconfig"
 
 # ── Neovim config symlink ─────────────────────────────────────────
 echo "Symlinking Neovim config..."
