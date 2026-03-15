@@ -109,7 +109,10 @@ fi
 
 # ── Oh My Posh ─────────────────────────────────────────────────────
 # oh-my-posh installs to ~/bin by default
-export PATH="${HOME}/bin:${PATH}"
+case ":${PATH:-}:" in
+  *:"${HOME}/bin":*) ;;
+  *) export PATH="${HOME}/bin${PATH:+:${PATH}}" ;;
+esac
 
 if ! command -v oh-my-posh &>/dev/null; then
   echo "Installing Oh My Posh..."
