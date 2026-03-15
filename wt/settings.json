@@ -30,7 +30,7 @@
     "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{338bd38a-90e8-5960-9bca-f5958ac99ba9}",
+    "defaultProfile": "{f1fcf712-c88e-4fa6-9b16-de9ef0e304c0}",
     "initialCols": 120,
     "initialRows": 40,
     "keybindings": 
@@ -41,15 +41,7 @@
         },
         {
             "id": null,
-            "keys": "ctrl+w"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+5"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+c"
         },
         {
             "id": null,
@@ -57,11 +49,11 @@
         },
         {
             "id": null,
-            "keys": "ctrl+comma"
+            "keys": "ctrl+shift+c"
         },
         {
-            "id": "Terminal.FindText",
-            "keys": "ctrl+shift+f"
+            "id": null,
+            "keys": "ctrl+w"
         },
         {
             "id": null,
@@ -70,6 +62,14 @@
         {
             "id": null,
             "keys": "ctrl+numpad_minus"
+        },
+        {
+            "id": "Terminal.FindText",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+comma"
         },
         {
             "id": "Terminal.ClosePane",
@@ -88,6 +88,10 @@
             "keys": "ctrl+numpad_plus"
         },
         {
+            "id": null,
+            "keys": "alt+down"
+        },
+        {
             "id": "User.newTab.5DEADB41",
             "keys": "ctrl+shift+t"
         },
@@ -97,19 +101,7 @@
         },
         {
             "id": null,
-            "keys": "alt+down"
-        },
-        {
-            "id": null,
             "keys": "ctrl+shift+1"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+2"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+5"
         },
         {
             "id": null,
@@ -121,15 +113,23 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+6"
+            "keys": "ctrl+shift+5"
         },
         {
             "id": null,
-            "keys": "ctrl+shift+7"
+            "keys": "ctrl+shift+2"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+6"
         },
         {
             "id": "Terminal.SplitPaneLeft",
             "keys": "ctrl+shift+home"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+7"
         },
         {
             "id": null,
@@ -140,16 +140,12 @@
             "keys": "ctrl+shift+9"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+n"
+            "id": "Terminal.NextTab",
+            "keys": "alt+end"
         },
         {
             "id": null,
             "keys": "ctrl+alt+7"
-        },
-        {
-            "id": "Terminal.NextTab",
-            "keys": "alt+end"
         },
         {
             "id": null,
@@ -158,6 +154,10 @@
         {
             "id": "Terminal.MoveFocusUp",
             "keys": "ctrl+pgup"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+n"
         },
         {
             "id": null,
@@ -177,19 +177,19 @@
         },
         {
             "id": null,
-            "keys": "ctrl+shift+v"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+8"
         },
         {
             "id": null,
-            "keys": "alt+shift+minus"
+            "keys": "ctrl+shift+v"
         },
         {
             "id": "Terminal.SwapPaneDown",
             "keys": "ctrl+alt+shift+pgdn"
+        },
+        {
+            "id": null,
+            "keys": "alt+shift+minus"
         },
         {
             "id": null,
@@ -205,23 +205,15 @@
         },
         {
             "id": null,
-            "keys": "ctrl+alt+2"
-        },
-        {
-            "id": null,
             "keys": "ctrl+alt+9"
         },
         {
             "id": null,
+            "keys": "ctrl+alt+2"
+        },
+        {
+            "id": null,
             "keys": "ctrl+alt+3"
-        },
-        {
-            "id": null,
-            "keys": "f11"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+numpad0"
         },
         {
             "id": "Terminal.SplitPaneDown",
@@ -230,6 +222,14 @@
         {
             "id": "Terminal.SplitPaneUp",
             "keys": "ctrl+shift+pgup"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+numpad0"
+        },
+        {
+            "id": null,
+            "keys": "f11"
         },
         {
             "id": null,
@@ -248,20 +248,20 @@
             "keys": "alt+left"
         },
         {
-            "id": null,
-            "keys": "alt+up"
-        },
-        {
             "id": "Terminal.ScrollToBottom",
             "keys": "alt+shift+end"
         },
         {
-            "id": "Terminal.SwapPaneLeft",
-            "keys": "ctrl+alt+shift+home"
+            "id": null,
+            "keys": "alt+up"
         },
         {
             "id": "Terminal.ToggleSplitOrientation",
             "keys": "ctrl+alt+shift+o"
+        },
+        {
+            "id": "Terminal.SwapPaneLeft",
+            "keys": "ctrl+alt+shift+home"
         },
         {
             "id": "Terminal.SwapPaneRight",
@@ -276,16 +276,16 @@
             "keys": "alt+shift+up"
         },
         {
-            "id": "Terminal.ScrollUpPage",
-            "keys": "alt+shift+pgup"
-        },
-        {
             "id": null,
             "keys": "enter"
         },
         {
             "id": "Terminal.MoveFocusLeft",
             "keys": "ctrl+home"
+        },
+        {
+            "id": "Terminal.ScrollUpPage",
+            "keys": "alt+shift+pgup"
         },
         {
             "id": "Terminal.MoveFocusDown",
@@ -360,10 +360,17 @@
         "list": 
         [
             {
-                "guid": "{338bd38a-90e8-5960-9bca-f5958ac99ba9}",
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu-24.04",
+                "font": 
+                {
+                    "size": 9
+                },
+                "guid": "{f1fcf712-c88e-4fa6-9b16-de9ef0e304c0}",
                 "hidden": false,
-                "name": "Ubuntu-24.04",
-                "source": "Windows.Terminal.Wsl"
+                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
+                "name": "Ubuntu",
+                "pathTranslationStyle": "wsl",
+                "startingDirectory": "~"
             },
             {
                 "font": 
@@ -401,52 +408,10 @@
                 "source": "Git"
             },
             {
-                "guid": "{dafc018f-4a1e-587b-aac0-17a282a3119f}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{3c7fc595-2a2a-5951-821f-19ecc1610da9}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
-                "hidden": true,
-                "name": "Visual Studio Debug Console",
-                "source": "VSDebugConsole"
-            },
-            {
                 "guid": "{db1d8c35-5f1f-5c6e-bf9b-ade86c5c16c4}",
                 "hidden": false,
                 "name": "QMK MSYS",
                 "source": "QMK"
-            },
-            {
-                "guid": "{495c39d5-d8e1-532e-ab29-b124db3cf050}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{54106129-6320-554a-9785-205479d46ffa}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{ce21004f-ae75-5bff-b498-b875fe6f7d1d}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 18 [Preview]",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{3e14d3d7-b873-55e5-a0db-0f5d2ef905e8}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 18 [Preview]",
-                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
