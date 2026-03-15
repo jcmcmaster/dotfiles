@@ -1,7 +1,7 @@
 ZDOTDIR="${ZDOTDIR:-$HOME}"
 
 typeset -U path
-path=("${HOME}/.dotnet" "${HOME}/.local/bin" "${HOME}/bin" $path)
+path=("${HOME}/.dotnet" "${HOME}/.dotnet/tools" "${HOME}/.local/bin" "${HOME}/bin" $path)
 
 # dotnet
 export DOTNET_ROOT="${HOME}/.dotnet"

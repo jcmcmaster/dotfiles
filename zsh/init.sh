@@ -48,7 +48,7 @@ export PATH="${DOTNET_ROOT}:${PATH}"
 
 if ! command -v dotnet &>/dev/null; then
   echo "Installing .NET SDK (latest LTS)..."
-  curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel LTS
+  curl -fsSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel LTS --install-dir "${DOTNET_ROOT}"
   echo ".NET SDK installed: $(dotnet --version)"
 else
   echo ".NET SDK already installed: $(dotnet --version)"
