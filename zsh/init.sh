@@ -52,6 +52,12 @@ if [[ ! -d "${HOME}/.nvm" ]]; then
   nvm install --lts
 else
   echo "nvm already installed."
+  export NVM_DIR="${HOME}/.nvm"
+  [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
+  if ! command -v node &>/dev/null; then
+    echo "Node not found — installing latest LTS..."
+    nvm install --lts
+  fi
 fi
 
 # ── Oh My Zsh ─────────────────────────────────────────────────────
