@@ -1,15 +1,5 @@
 # Copilot Instructions
 
-## Git Workflow
-
-Use **trunk-based development** against `master`. Never commit directly to `master`.
-
-- Create **feature branches** for each logical unit of work (e.g., `feat/zsh-core`, `fix/nvim-lsp`)
-- Push the branch and **raise a PR** for review
-- When work spans multiple PRs, **stack branches** (each based on the previous) and note dependencies in PR descriptions
-- Always respond to PR review comments — reply to each thread explaining what was fixed or why feedback was declined
-- Use conventional commit messages: `feat:`, `fix:`, `docs:`, `refactor:`, etc.
-
 ## Repository Overview
 
 This is a Windows-focused dotfiles repository managing configurations for Neovim, PowerShell, ZSH (WSL), Windows Terminal, Git, JetBrains IDEs (IdeaVim), and a QMK keyboard layout. There are no build/test/lint commands — this is a pure configuration repo deployed via symlinks.
