@@ -38,6 +38,7 @@ Cross-platform — works on both Windows (PowerShell) and Linux/WSL (ZSH). Built
 Modular ZSH setup for Linux/WSL using **Oh My Zsh** + **Oh My Posh** (material theme). Uses `ZDOTDIR` to load config directly from the repo — only `~/.zshenv` is needed in the home directory.
 
 - `.zshrc` — main config: Oh My Zsh framework, Oh My Posh prompt, sources modular files
+- `.gitconfig` — Linux/WSL Git config used by the bootstrap script
 - `aliases.zsh`, `functions.zsh`, `keybindings.zsh`, `completions.zsh` — modular config files
 - `init.sh` — bootstrap script for fresh Linux/WSL installs
 
@@ -64,4 +65,4 @@ Modular ZSH setup for Linux/WSL using **Oh My Zsh** + **Oh My Posh** (material t
 
 ## Deployment
 
-Configs are deployed by **symlinking** from this repo to their expected system locations. On Linux/WSL, `zsh/init.sh` handles bootstrap and symlinks. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.
+Configs are deployed by **symlinking** from this repo to their expected system locations. On Linux/WSL, `zsh/init.sh` handles bootstrap and symlinks including `~/.gitconfig` and the Neovim config. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.
