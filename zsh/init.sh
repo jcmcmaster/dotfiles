@@ -148,6 +148,21 @@ if [[ -f "${HOME}/.zshenv" ]]; then
 fi
 echo "export ZDOTDIR=\"${ZSH_DIR}\"" > "${HOME}/.zshenv"
 
+# ── Git config symlink ─────────────────────────────────────────────
+GITCONFIG_TARGET="${ZSH_DIR}/.gitconfig"
+if [[ -L "${HOME}/.gitconfig" && "$(readlink "${HOME}/.gitconfig")" == "${GITCONFIG_TARGET}" ]]; then
+  echo "Git config symlink already correct."
+else
+  echo "Symlinking Git config..."
+  if [[ -L "${HOME}/.gitconfig" ]]; then
+    rm "${HOME}/.gitconfig"
+  elif [[ -e "${HOME}/.gitconfig" ]]; then
+    echo "  Backing up existing ~/.gitconfig to ~/.gitconfig.bak"
+    mv "${HOME}/.gitconfig" "${HOME}/.gitconfig.bak"
+  fi
+  ln -s "${GITCONFIG_TARGET}" "${HOME}/.gitconfig"
+fi
+
 # ── Neovim config symlink ─────────────────────────────────────────
 echo "Symlinking Neovim config..."
 mkdir -p "${HOME}/.config"
@@ -172,6 +187,7 @@ echo "=== Setup complete! ==="
 echo ""
 echo "What was set up:"
 echo "  ~/.zshenv          → points ZDOTDIR to ${ZSH_DIR}"
+echo "  ~/.gitconfig       → symlinked to ${ZSH_DIR}/.gitconfig"
 echo "  ~/.config/nvim     → symlinked to ${DOTFILES_DIR}/nvim"
 echo "  oh-my-zsh          → ${HOME}/.oh-my-zsh"
 echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not found')"

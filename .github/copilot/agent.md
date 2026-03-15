@@ -33,7 +33,7 @@ Idempotent script for fresh Ubuntu/WSL installs. Safe to re-run. Installs:
 | Copilot CLI | `@github/copilot` via npm |
 | Oh My Posh | Prompt theme engine to `~/.local/bin` |
 
-Also configures: `ZDOTDIR` via `~/.zshenv`, nvim config symlink, default shell to zsh.
+Also configures: `ZDOTDIR` via `~/.zshenv`, `~/.gitconfig` symlink, nvim config symlink, default shell to zsh.
 
 When adding a new tool dependency (e.g., a new Mason LSP server that needs a runtime), add the install step to this script and ensure the runtime's bin directory is on PATH in both `init.sh` and `.zshrc`.
 

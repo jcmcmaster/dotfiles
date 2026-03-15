@@ -34,7 +34,7 @@ chmod +x ~/projects/dotfiles/zsh/init.sh
 # Restart your terminal (or: exec zsh)
 ```
 
-The init script installs zsh, Oh My Zsh, Oh My Posh, Neovim, fzf, and plugins. It sets up `~/.zshenv` with `ZDOTDIR` pointing to the repo so ZSH loads config directly — no other dotfiles are needed in `~`.
+The init script installs zsh, Oh My Zsh, Oh My Posh, Neovim, fzf, and plugins. It sets up `~/.zshenv` with `ZDOTDIR` pointing to the repo, symlinks `~/.gitconfig`, and symlinks the Neovim config — so only bootstrap-managed files need to live in `~`.
 
 ## Structure
 
@@ -61,6 +61,7 @@ Uses ZSH's `ZDOTDIR` feature — a single `~/.zshenv` file sets `ZDOTDIR=~/proje
 | File | Purpose |
 |------|---------|
 | `.zshrc` | Main config: Oh My Zsh + Oh My Posh prompt, sources modular files |
+| `.gitconfig` | Linux/WSL Git config with aliases, editor, credential helper, and difftool/mergetool setup |
 | `aliases.zsh` | `g`→git, `vim`/`vi`→nvim, common shell aliases |
 | `functions.zsh` | fzf directory navigation (`fd`, `fp`, `fdx`, `fdev`) |
 | `keybindings.zsh` | Vi mode, Ctrl+n/p/y for autosuggestion navigation |
@@ -93,4 +94,4 @@ Platform detection in `opts.lua` configures PowerShell as the shell on Windows; 
 
 ## Deployment
 
-Configs are deployed via **symlinks** from this repo to their expected system locations. The `zsh/init.sh` script handles this for WSL. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.
+Configs are deployed via **symlinks** from this repo to their expected system locations. The `zsh/init.sh` script handles this for WSL, including `~/.gitconfig` and `~/.config/nvim`. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.
