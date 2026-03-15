@@ -26,6 +26,7 @@ sudo apt install -y \
   curl \
   wget \
   git \
+  gnupg \
   build-essential \
   unzip
 
@@ -126,6 +127,23 @@ else
   echo "Azure CLI already installed: $(az version --query '\"azure-cli\"' -o tsv)"
 fi
 
+# ── Terraform ──────────────────────────────────────────────────────
+if ! command -v terraform &>/dev/null; then
+  echo "Installing Terraform..."
+  sudo mkdir -p -m 755 /etc/apt/keyrings
+  wget -nv -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/hashicorp-archive-keyring.gpg
+  sudo chmod go+r /etc/apt/keyrings/hashicorp-archive-keyring.gpg
+  ARCH=$(dpkg --print-architecture)
+  # shellcheck source=/etc/os-release
+  source /etc/os-release
+  echo "deb [arch=${ARCH} signed-by=/etc/apt/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com ${VERSION_CODENAME} main" \
+    | sudo tee /etc/apt/sources.list.d/hashicorp.list > /dev/null
+  sudo apt update -y && sudo apt install terraform -y
+  echo "Terraform installed: $(terraform --version | head -1)"
+else
+  echo "Terraform already installed: $(terraform --version | head -1)"
+fi
+
 # ── GitHub Copilot CLI ─────────────────────────────────────────────
 if ! command -v copilot &>/dev/null; then
   echo "Installing GitHub Copilot CLI..."
@@ -209,6 +227,7 @@ echo "  oh-my-zsh          → ${HOME}/.oh-my-zsh"
 echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not found')"
 echo "  gh                 → $(command -v gh 2>/dev/null || echo 'not found')"
 echo "  az                 → $(command -v az 2>/dev/null || echo 'not found')"
+echo "  terraform          → $(command -v terraform 2>/dev/null || echo 'not found')"
 echo "  copilot            → $(command -v copilot 2>/dev/null || echo 'not found')"
 echo "  nvm                → ${HOME}/.nvm"
 echo "  dotnet             → $(command -v dotnet 2>/dev/null || echo 'not found')"
