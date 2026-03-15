@@ -57,19 +57,19 @@
         },
         {
             "id": null,
+            "keys": "ctrl+numpad_minus"
+        },
+        {
+            "id": null,
             "keys": "alt+right"
         },
         {
             "id": null,
-            "keys": "ctrl+numpad_minus"
+            "keys": "ctrl+comma"
         },
         {
             "id": "Terminal.FindText",
             "keys": "ctrl+shift+f"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+comma"
         },
         {
             "id": "Terminal.ClosePane",
@@ -349,7 +349,10 @@
             "colorScheme": "GitHub Dark",
             "font": 
             {
-                "face": "FiraCode Nerd Font"
+                "cellHeight": "1.7",
+                "cellWidth": "0.7",
+                "face": "FiraCode Nerd Font",
+                "size": 9
             },
             "scrollbarState": "hidden"
         },
