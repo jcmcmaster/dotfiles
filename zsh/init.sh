@@ -26,6 +26,7 @@ sudo apt install -y \
   curl \
   wget \
   git \
+  gnupg \
   build-essential \
   unzip
 
@@ -131,8 +132,11 @@ if ! command -v terraform &>/dev/null; then
   echo "Installing Terraform..."
   sudo mkdir -p -m 755 /etc/apt/keyrings
   wget -nv -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/hashicorp-archive-keyring.gpg
+  sudo chmod go+r /etc/apt/keyrings/hashicorp-archive-keyring.gpg
   ARCH=$(dpkg --print-architecture)
-  echo "deb [arch=${ARCH} signed-by=/etc/apt/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+  # shellcheck source=/etc/os-release
+  source /etc/os-release
+  echo "deb [arch=${ARCH} signed-by=/etc/apt/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com ${VERSION_CODENAME} main" \
     | sudo tee /etc/apt/sources.list.d/hashicorp.list > /dev/null
   sudo apt update -y && sudo apt install terraform -y
   echo "Terraform installed: $(terraform --version | head -1)"
