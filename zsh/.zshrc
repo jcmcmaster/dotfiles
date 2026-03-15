@@ -1,7 +1,11 @@
 ZDOTDIR="${ZDOTDIR:-$HOME}"
 
 typeset -U path
-path=("${HOME}/.local/bin" "${HOME}/bin" $path)
+path=("${HOME}/.dotnet" "${HOME}/.local/bin" "${HOME}/bin" $path)
+
+# dotnet
+export DOTNET_ROOT="${HOME}/.dotnet"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # nvm
 export NVM_DIR="${HOME}/.nvm"
