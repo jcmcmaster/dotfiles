@@ -34,12 +34,8 @@ brew install \
   terraform
 
 # ── FiraCode Nerd Font ─────────────────────────────────────────────
-if ! brew list --cask font-fira-code-nerd-font &>/dev/null; then
-  echo "Installing FiraCode Nerd Font..."
-  brew install --cask font-fira-code-nerd-font
-else
-  echo "FiraCode Nerd Font already installed."
-fi
+echo "Installing FiraCode Nerd Font (skipping if already installed)..."
+brew install --cask font-fira-code-nerd-font || true
 
 # ── iTerm2 ─────────────────────────────────────────────────────────
 if ! brew list --cask iterm2 &>/dev/null; then
