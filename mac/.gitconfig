@@ -1,0 +1,24 @@
+[user]
+  email = jmcmaster008@gmail.com
+  name = Jim McMaster
+
+[core]
+  editor = nvim
+  autocrlf = input
+
+[credential]
+  helper = osxkeychain
+
+[alias]
+  a = add
+  aa = add --all
+  acp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f"
+  b = branch
+  c = checkout
+  cdd = checkout -- .
+  cm = commit --message
+  d = diff
+  dc = diff --cached
+  f = fetch
+  l = log
+  s = status
