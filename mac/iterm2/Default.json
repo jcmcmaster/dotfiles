@@ -1,0 +1,336 @@
+{
+  "Profiles": [
+    {
+      "Name": "Default",
+      "Guid": "00000000-0000-0000-0000-000000000001",
+      "Custom Command": "No",
+      "Working Directory": "~",
+
+      "Normal Font": "FiraCodeNFM-Reg 13",
+      "Non Ascii Font": "FiraCodeNFM-Reg 13",
+      "Use Non-ASCII Font": false,
+      "Horizontal Spacing": 1,
+      "Vertical Spacing": 1,
+
+      "Default Bookmark": "Yes",
+
+      "Initial Use Transparency": false,
+      "Transparency": 0,
+
+      "Scrollback Lines": 10000,
+      "Scrollback With Status Bar": false,
+      "Hide Scrollbar": true,
+
+      "Terminal Type": "xterm-256color",
+      "Unicode Normalization": 0,
+      "Option Key Sends": 2,
+      "Right Option Key Sends": 2,
+
+      "Columns": 120,
+      "Rows": 40,
+
+      "Custom Window Title": "",
+      "Use Custom Window Title": false,
+
+      "Copy to Pasteboard on Selection": false,
+
+      "Draw Powerline Glyphs": true,
+      "Use Ligatures": true,
+
+      "Background Color": {
+        "Red Component": 0.050980392156862744,
+        "Green Component": 0.06666666666666667,
+        "Blue Component": 0.09019607843137255,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Foreground Color": {
+        "Red Component": 0.788235294117647,
+        "Green Component": 0.8196078431372549,
+        "Blue Component": 0.8509803921568627,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Bold Color": {
+        "Red Component": 0.788235294117647,
+        "Green Component": 0.8196078431372549,
+        "Blue Component": 0.8509803921568627,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Cursor Color": {
+        "Red Component": 0.788235294117647,
+        "Green Component": 0.8196078431372549,
+        "Blue Component": 0.8509803921568627,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Cursor Text Color": {
+        "Red Component": 0.050980392156862744,
+        "Green Component": 0.06666666666666667,
+        "Blue Component": 0.09019607843137255,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Selection Color": {
+        "Red Component": 0.12941176470588237,
+        "Green Component": 0.14901960784313725,
+        "Blue Component": 0.17647058823529413,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Selected Text Color": {
+        "Red Component": 0.788235294117647,
+        "Green Component": 0.8196078431372549,
+        "Blue Component": 0.8509803921568627,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 0 Color": {
+        "Red Component": 0.2823529411764706,
+        "Green Component": 0.30980392156862746,
+        "Blue Component": 0.34509803921568627,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 1 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.4823529411764706,
+        "Blue Component": 0.44705882352941173,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 2 Color": {
+        "Red Component": 0.24705882352941178,
+        "Green Component": 0.7254901960784313,
+        "Blue Component": 0.31372549019607843,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 3 Color": {
+        "Red Component": 0.8235294117647058,
+        "Green Component": 0.6,
+        "Blue Component": 0.13333333333333333,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 4 Color": {
+        "Red Component": 0.34509803921568627,
+        "Green Component": 0.6509803921568628,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 5 Color": {
+        "Red Component": 0.7372549019607844,
+        "Green Component": 0.5490196078431373,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 6 Color": {
+        "Red Component": 0.2235294117647059,
+        "Green Component": 0.7725490196078432,
+        "Blue Component": 0.8117647058823529,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 7 Color": {
+        "Red Component": 0.6941176470588235,
+        "Green Component": 0.7294117647058823,
+        "Blue Component": 0.7058823529411765,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 8 Color": {
+        "Red Component": 0.43137254901960786,
+        "Green Component": 0.4627450980392157,
+        "Blue Component": 0.5058823529411764,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 9 Color": {
+        "Red Component": 1.0,
+        "Green Component": 0.4823529411764706,
+        "Blue Component": 0.44705882352941173,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 10 Color": {
+        "Red Component": 0.33725490196078434,
+        "Green Component": 0.8274509803921568,
+        "Blue Component": 0.39215686274509803,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 11 Color": {
+        "Red Component": 0.8901960784313725,
+        "Green Component": 0.7019607843137254,
+        "Blue Component": 0.2549019607843137,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 12 Color": {
+        "Red Component": 0.47450980392156863,
+        "Green Component": 0.7529411764705882,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 13 Color": {
+        "Red Component": 0.8235294117647058,
+        "Green Component": 0.6784313725490196,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 14 Color": {
+        "Red Component": 0.33725490196078434,
+        "Green Component": 0.8352941176470589,
+        "Blue Component": 0.8666666666666667,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+      "Ansi 15 Color": {
+        "Red Component": 1.0,
+        "Green Component": 1.0,
+        "Blue Component": 1.0,
+        "Alpha Component": 1,
+        "Color Space": "sRGB"
+      },
+
+      "Keyboard Map": {
+        "0x0d-0x20000": {
+          "Action": 12,
+          "Text": "\u001b\r",
+          "Label": "Send ESC+Enter"
+        },
+        "0xf702-0x40000": {
+          "Action": 10,
+          "Text": "[1;5D",
+          "Label": "Move Focus Left (ctrl+left → ctrl+home equiv)"
+        },
+        "0xf700-0x40000": {
+          "Action": 10,
+          "Text": "[1;5A",
+          "Label": "Move Focus Up (ctrl+up)"
+        },
+        "0xf703-0x40000": {
+          "Action": 10,
+          "Text": "[1;5C",
+          "Label": "Move Focus Right (ctrl+right)"
+        },
+        "0xf701-0x40000": {
+          "Action": 10,
+          "Text": "[1;5B",
+          "Label": "Move Focus Down (ctrl+down)"
+        },
+        "0xf72c-0x40000": {
+          "Action": 10,
+          "Text": "[5;5~",
+          "Label": "Move Focus Up (ctrl+pgup)"
+        },
+        "0xf72d-0x40000": {
+          "Action": 10,
+          "Text": "[6;5~",
+          "Label": "Move Focus Down (ctrl+pgdn)"
+        },
+        "0xf729-0x40000": {
+          "Action": 10,
+          "Text": "[1;5H",
+          "Label": "Move Focus Left (ctrl+home)"
+        },
+        "0xf72b-0x40000": {
+          "Action": 10,
+          "Text": "[1;5F",
+          "Label": "Move Focus Right (ctrl+end)"
+        },
+        "0xf729-0x60000": {
+          "Action": 27,
+          "Text": "",
+          "Label": "Split Pane Left (ctrl+shift+home)"
+        },
+        "0xf72b-0x60000": {
+          "Action": 26,
+          "Text": "",
+          "Label": "Split Pane Right (ctrl+shift+end)"
+        },
+        "0xf72c-0x60000": {
+          "Action": 25,
+          "Text": "",
+          "Label": "Split Pane Up (ctrl+shift+pgup)"
+        },
+        "0xf72d-0x60000": {
+          "Action": 24,
+          "Text": "",
+          "Label": "Split Pane Down (ctrl+shift+pgdn)"
+        },
+        "0xf729-0x80000": {
+          "Action": 32,
+          "Text": "",
+          "Label": "Previous Tab (alt+home)"
+        },
+        "0xf72b-0x80000": {
+          "Action": 33,
+          "Text": "",
+          "Label": "Next Tab (alt+end)"
+        },
+        "0xf72c-0xa0000": {
+          "Action": 7,
+          "Text": "",
+          "Label": "Scroll Up Page (alt+shift+pgup)"
+        },
+        "0xf72d-0xa0000": {
+          "Action": 6,
+          "Text": "",
+          "Label": "Scroll Down Page (alt+shift+pgdn)"
+        },
+        "0xf729-0xa0000": {
+          "Action": 5,
+          "Text": "",
+          "Label": "Scroll To Top (alt+shift+home)"
+        },
+        "0xf72b-0xa0000": {
+          "Action": 4,
+          "Text": "",
+          "Label": "Scroll To Bottom (alt+shift+end)"
+        },
+        "0xf729-0x20000": {
+          "Action": 7,
+          "Text": "",
+          "Label": "Resize Pane Left (shift+home)"
+        },
+        "0xf72b-0x20000": {
+          "Action": 6,
+          "Text": "",
+          "Label": "Resize Pane Right (shift+end)"
+        },
+        "0xf72c-0x20000": {
+          "Action": 5,
+          "Text": "",
+          "Label": "Resize Pane Up (shift+pgup)"
+        },
+        "0xf72d-0x20000": {
+          "Action": 4,
+          "Text": "",
+          "Label": "Resize Pane Down (shift+pgdn)"
+        },
+        "0x66-0x60000": {
+          "Action": 17,
+          "Text": "",
+          "Label": "Find (ctrl+shift+f)"
+        },
+        "0x77-0x60000": {
+          "Action": 28,
+          "Text": "",
+          "Label": "Close Pane (ctrl+shift+w)"
+        },
+        "0x74-0x60000": {
+          "Action": 29,
+          "Text": "",
+          "Label": "New Tab (ctrl+shift+t)"
+        }
+      }
+    }
+  ]
+}
