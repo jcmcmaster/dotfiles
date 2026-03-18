@@ -34,7 +34,7 @@ brew install \
   terraform
 
 # ── FiraCode Nerd Font ─────────────────────────────────────────────
-if ! fc-list 2>/dev/null | grep -qi "firacode nerd"; then
+if ! brew list --cask font-fira-code-nerd-font &>/dev/null; then
   echo "Installing FiraCode Nerd Font..."
   brew install --cask font-fira-code-nerd-font
 else
