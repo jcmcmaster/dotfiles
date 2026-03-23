@@ -26,26 +26,32 @@ return {
       provider = 'copilot',
       mode = 'agentic',
       default_model = 'opus-4.6',
-      acp_providers = {
-        ['copilot-cli'] = {
-          command = (function()
-            local paths = vim.fn.exepath('copilot')
-            if paths ~= '' and not paths:match('^/mnt/c') then return paths end
-            -- Fall back to nvm-managed copilot on WSL
-            local nvm_bin = vim.env.NVM_DIR and vim.env.NVM_DIR .. '/versions/node'
-            if nvm_bin then
-              local glob = vim.fn.glob(nvm_bin .. '/*/bin/copilot', false, true)
-              for i = #glob, 1, -1 do
-                if not glob[i]:match('^/mnt/c') then return glob[i] end
-              end
-            end
-            return 'copilot'
-          end)(),
-          args = { '--acp', '--stdio' },
-        },
-      },
     },
     config = function(_, opts)
+      -- Resolve WSL-native copilot binary at load time (not startup)
+      -- so NVM_DIR is guaranteed to be set
+      local copilot_bin = vim.fn.exepath('copilot')
+      if copilot_bin == '' or copilot_bin:match('^/mnt/c') then
+        local nvm_bin = vim.env.NVM_DIR and vim.env.NVM_DIR .. '/versions/node'
+        if nvm_bin then
+          local glob = vim.fn.glob(nvm_bin .. '/*/bin/copilot', false, true)
+          for i = #glob, 1, -1 do
+            if not glob[i]:match('^/mnt/c') then
+              copilot_bin = glob[i]
+              break
+            end
+          end
+        end
+        if copilot_bin == '' or copilot_bin:match('^/mnt/c') then
+          copilot_bin = 'copilot'
+        end
+      end
+      opts.acp_providers = {
+        ['copilot-cli'] = {
+          command = copilot_bin,
+          args = { '--acp', '--stdio' },
+        },
+      }
       require('avante').setup(opts)
       vim.keymap.set('n', '<leader>az', function()
         require('avante.api').zen_mode()
