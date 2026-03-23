@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-doc-name
-
 return {
   {
     'zbirenbaum/copilot.lua',
@@ -10,60 +8,65 @@ return {
     end,
   },
   {
-    'olimorris/codecompanion.nvim',
-    opts = {},
-    config = function()
-      require('codecompanion').setup({
-        adapters = {
-          http = {
-            copilot = function()
-              return require('codecompanion.adapters').extend('copilot', {
-                schema = {
-                  model = {
-                    default = 'claude-sonnet-4.5'
-                  }
-                }
-              })
+    'yetone/avante.nvim',
+    cmd = { 'Avante', 'AvanteZen' },
+    event = 'VeryLazy',
+    version = false,
+    build = vim.fn.has('win32') ~= 0
+        and (function()
+          local shell = vim.fn.exepath('pwsh')
+          if shell == '' then shell = vim.fn.exepath('powershell') end
+          if shell == '' then shell = 'pwsh' end
+          return vim.fn.shellescape(shell)
+            .. ' -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false'
+        end)()
+        or 'make',
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      provider = 'copilot',
+      mode = 'agentic',
+      default_model = 'opus-4.6',
+    },
+    config = function(_, opts)
+      -- Resolve WSL-native copilot binary at load time (not startup)
+      -- so NVM_DIR is guaranteed to be set
+      local copilot_bin = vim.fn.exepath('copilot')
+      if copilot_bin == '' or copilot_bin:match('^/mnt/c') then
+        local nvm_bin = vim.env.NVM_DIR and vim.env.NVM_DIR .. '/versions/node'
+        if nvm_bin then
+          local glob = vim.fn.glob(nvm_bin .. '/*/bin/copilot', false, true)
+          for i = #glob, 1, -1 do
+            if not glob[i]:match('^/mnt/c') then
+              copilot_bin = glob[i]
+              break
             end
-          }
+          end
+        end
+        if copilot_bin == '' or copilot_bin:match('^/mnt/c') then
+          copilot_bin = 'copilot'
+        end
+      end
+      opts.acp_providers = {
+        ['copilot-cli'] = {
+          command = copilot_bin,
+          args = { '--acp', '--stdio' },
         },
-        extensions = {
-          mcphub = {
-            callback = 'mcphub.extensions.codecompanion',
-            opts = {
-              -- MCP Tools
-              make_tools = true,                    -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
-              show_server_tools_in_chat = true,     -- Show individual tools in chat completion (when make_tools=true)
-              add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
-              show_result_in_chat = true,           -- Show tool results directly in chat buffer
-              format_tool = nil,                    -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
-              -- MCP Resources
-              make_vars = false,                    -- Convert MCP resources to #variables for prompts
-              -- MCP Prompts
-              make_slash_commands = true            -- Add MCP prompts as /slash commands
-            }
-          }
-        }
-      })
-      vim.keymap.set({ 'n', 'v' }, '<leader>aa', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
-      vim.keymap.set({ 'n', 'v' }, '<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>', { noremap = true, silent = true })
-      vim.keymap.set('v', '<leader>aa', '<cmd>CodeCompanionChat Add<cr>', { noremap = true, silent = true })
-      vim.cmd([[cab cc CodeCompanion]])
+      }
+      require('avante').setup(opts)
+      vim.keymap.set('n', '<leader>az', function()
+        require('avante.api').zen_mode()
+      end, { desc = 'Avante zen mode' })
+      vim.api.nvim_create_user_command('AvanteZen', function()
+        require('avante.api').zen_mode()
+      end, { desc = 'Open Avante in zen mode' })
+      vim.cmd([[cabbrev av Avante]])
     end,
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'zbirenbaum/copilot.lua',
       'nvim-treesitter/nvim-treesitter',
     },
   },
-  {
-    'ravitemer/mcphub.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    build = 'npm install -g mcp-hub@latest',
-    config = function()
-      require('mcphub').setup()
-      vim.keymap.set('n', '<leader>am', '<cmd>MCPHub<cr>')
-    end
-  }
 }

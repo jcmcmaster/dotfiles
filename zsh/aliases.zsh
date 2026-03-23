@@ -9,6 +9,9 @@ copilot() {
   "${wsl_bin:-copilot}" "$@"
 }
 
+# Requires avante.nvim plugin (AvanteZen command registered on VeryLazy load)
+alias avante='nvim -c AvanteZen'
+
 alias cl="clear && ls"
 alias cs="clear && git status"
 alias sz='source "${ZDOTDIR}/.zshrc"'
