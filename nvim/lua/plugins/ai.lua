@@ -12,7 +12,12 @@ return {
     event = 'VeryLazy',
     version = false,
     build = vim.fn.has('win32') ~= 0
-        and 'powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false'
+        and (function()
+          local shell = vim.fn.exepath('pwsh')
+          if shell == '' then shell = vim.fn.exepath('powershell') end
+          if shell == '' then shell = 'pwsh' end
+          return shell .. ' -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false'
+        end)()
         or 'make',
     ---@module 'avante'
     ---@type avante.Config
@@ -22,7 +27,19 @@ return {
       default_model = 'opus-4.6',
       acp_providers = {
         ['copilot-cli'] = {
-          command = 'copilot',
+          command = (function()
+            local paths = vim.fn.exepath('copilot')
+            if paths ~= '' and not paths:match('^/mnt/c') then return paths end
+            -- Fall back to nvm-managed copilot on WSL
+            local nvm_bin = vim.env.NVM_DIR and vim.env.NVM_DIR .. '/versions/node'
+            if nvm_bin then
+              local glob = vim.fn.glob(nvm_bin .. '/*/bin/copilot', false, true)
+              for i = #glob, 1, -1 do
+                if not glob[i]:match('^/mnt/c') then return glob[i] end
+              end
+            end
+            return 'copilot'
+          end)(),
           args = { '--acp', '--stdio' },
         },
       },
