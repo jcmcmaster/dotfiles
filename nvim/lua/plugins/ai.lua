@@ -16,7 +16,8 @@ return {
           local shell = vim.fn.exepath('pwsh')
           if shell == '' then shell = vim.fn.exepath('powershell') end
           if shell == '' then shell = 'pwsh' end
-          return shell .. ' -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false'
+          return vim.fn.shellescape(shell)
+            .. ' -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false'
         end)()
         or 'make',
     ---@module 'avante'
