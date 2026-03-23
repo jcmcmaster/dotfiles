@@ -53,7 +53,7 @@ return {
       vim.api.nvim_create_user_command('AvanteZen', function()
         require('avante.api').zen_mode()
       end, { desc = 'Open Avante in zen mode' })
-      vim.cmd([[cab cc Avante]])
+      vim.cmd([[cabbrev av Avante]])
     end,
     dependencies = {
       'nvim-lua/plenary.nvim',
