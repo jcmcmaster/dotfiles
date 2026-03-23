@@ -50,6 +50,9 @@ return {
       vim.keymap.set('n', '<leader>az', function()
         require('avante.api').zen_mode()
       end, { desc = 'Avante zen mode' })
+      vim.api.nvim_create_user_command('AvanteZen', function()
+        require('avante.api').zen_mode()
+      end, { desc = 'Open Avante in zen mode' })
       vim.cmd([[cab cc Avante]])
     end,
     dependencies = {

@@ -9,7 +9,7 @@ copilot() {
   "${wsl_bin:-copilot}" "$@"
 }
 
-alias avante='nvim -c "lua vim.defer_fn(function()local ok,avante=pcall(require,\"avante.api\");if ok and avante and avante.zen_mode then avante.zen_mode()end end, 100)"'
+alias avante='nvim -c AvanteZen'
 
 alias cl="clear && ls"
 alias cs="clear && git status"
