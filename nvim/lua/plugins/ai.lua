@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-doc-name
-
 return {
   {
     'zbirenbaum/copilot.lua',
@@ -10,60 +8,37 @@ return {
     end,
   },
   {
-    'olimorris/codecompanion.nvim',
-    opts = {},
-    config = function()
-      require('codecompanion').setup({
-        adapters = {
-          http = {
-            copilot = function()
-              return require('codecompanion.adapters').extend('copilot', {
-                schema = {
-                  model = {
-                    default = 'claude-sonnet-4.5'
-                  }
-                }
-              })
-            end
-          }
+    'yetone/avante.nvim',
+    event = 'VeryLazy',
+    version = false,
+    build = vim.fn.has('win32') ~= 0
+        and 'powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false'
+        or 'make',
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      provider = 'copilot',
+      mode = 'agentic',
+      default_model = 'opus-4.6',
+      acp_providers = {
+        ['copilot-cli'] = {
+          command = 'copilot',
+          args = { '--acp', '--stdio' },
         },
-        extensions = {
-          mcphub = {
-            callback = 'mcphub.extensions.codecompanion',
-            opts = {
-              -- MCP Tools
-              make_tools = true,                    -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
-              show_server_tools_in_chat = true,     -- Show individual tools in chat completion (when make_tools=true)
-              add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
-              show_result_in_chat = true,           -- Show tool results directly in chat buffer
-              format_tool = nil,                    -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
-              -- MCP Resources
-              make_vars = false,                    -- Convert MCP resources to #variables for prompts
-              -- MCP Prompts
-              make_slash_commands = true            -- Add MCP prompts as /slash commands
-            }
-          }
-        }
-      })
-      vim.keymap.set({ 'n', 'v' }, '<leader>aa', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
-      vim.keymap.set({ 'n', 'v' }, '<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>', { noremap = true, silent = true })
-      vim.keymap.set('v', '<leader>aa', '<cmd>CodeCompanionChat Add<cr>', { noremap = true, silent = true })
-      vim.cmd([[cab cc CodeCompanion]])
+      },
+    },
+    config = function(_, opts)
+      require('avante').setup(opts)
+      vim.keymap.set('n', '<leader>az', function()
+        require('avante.api').zen_mode()
+      end, { desc = 'Avante zen mode' })
+      vim.cmd([[cab cc Avante]])
     end,
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'zbirenbaum/copilot.lua',
       'nvim-treesitter/nvim-treesitter',
     },
   },
-  {
-    'ravitemer/mcphub.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    build = 'npm install -g mcp-hub@latest',
-    config = function()
-      require('mcphub').setup()
-      vim.keymap.set('n', '<leader>am', '<cmd>MCPHub<cr>')
-    end
-  }
 }
