@@ -9,6 +9,7 @@ return {
   },
   {
     'yetone/avante.nvim',
+    cmd = { 'Avante', 'AvanteZen' },
     event = 'VeryLazy',
     version = false,
     build = vim.fn.has('win32') ~= 0
