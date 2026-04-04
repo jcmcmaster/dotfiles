@@ -27,10 +27,10 @@ Use **trunk-based development** against `master`. Never commit directly to `mast
 
 After every push to a PR branch, verify the PR is healthy before considering the work done:
 
-1. **Run the verification script.** Use `scripts/wait-for-pr-reviews.sh <PR_NUMBER>` to wait for CI checks and Copilot code review, then check for unresolved review threads. The script:
-   - Waits for all CI check runs to complete via `gh pr checks --watch`.
-   - Polls for the "Copilot code review" workflow run matching the PR's head SHA, then watches it until completion (default timeout: 5 minutes, configurable with `--timeout`). CI checks also have a timeout (default: 10 minutes, configurable with `--ci-timeout`).
-   - Queries unresolved review threads via GraphQL (up to 100 threads per PR) and reports them.
+1. **Run the verification script.** Use `scripts/wait-for-pr-reviews.sh <PR_NUMBER>` to wait for CI checks and Copilot code review, then check for unresolved review threads. The script must be run from within the cloned repo. It:
+   - Waits for all CI check runs to complete via `gh pr checks --watch`. Skips gracefully if no CI checks are configured.
+   - Polls for the "Copilot code review" workflow run matching the PR's head SHA, then watches it until completion (default timeout: 5 minutes, configurable with `--timeout`). Skips gracefully if no such workflow exists. CI checks also have a timeout (default: 10 minutes, configurable with `--ci-timeout`).
+   - Queries unresolved review threads via GraphQL (up to 100 threads per PR) and reports them — this catches Copilot review comments regardless of whether the workflow was found.
    - Exits 0 if clean, 1 if unresolved threads exist, 2 if CI failed, 3 if the thread query failed.
 2. **Address all review feedback.** For each unresolved review thread: fix the issue, commit, push, and reply to the comment thread explaining what changed and referencing the commit SHA.
    - **Copilot review threads:** After replying, resolve the thread using the GraphQL `resolveReviewThread` mutation so it collapses in the PR timeline.

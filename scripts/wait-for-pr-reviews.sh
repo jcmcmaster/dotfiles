@@ -86,7 +86,11 @@ fi
 
 # ── Detect repository and validate PR ───────────────────────────────
 
-REPO_NWO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+if ! REPO_NWO=$(gh repo view --json nameWithOwner -q .nameWithOwner 2>&1); then
+    echo "Error: not inside a GitHub repository. Run this script from within a cloned repo." >&2
+    [[ -n "$REPO_NWO" ]] && echo "$REPO_NWO" >&2
+    exit 1
+fi
 OWNER="${REPO_NWO%%/*}"
 REPO="${REPO_NWO##*/}"
 
@@ -137,48 +141,59 @@ echo ""
 echo "--- Step 2: Waiting for Copilot code review (timeout: ${COPILOT_TIMEOUT}s) ---"
 echo "PR head SHA: ${HEAD_SHA:0:12}"
 
-ELAPSED=0
-COPILOT_DONE=false
+# Check if the Copilot review workflow exists before polling.
+set +e
+WORKFLOW_CHECK=$(gh run list -w "$COPILOT_REVIEW_WORKFLOW" -L 1 --json databaseId 2>&1)
+WORKFLOW_EXIT=$?
+set -e
 
-while [[ $ELAPSED -lt $COPILOT_TIMEOUT ]]; do
-    MATCH=$(gh run list \
-        -w "$COPILOT_REVIEW_WORKFLOW" \
-        --json databaseId,headSha,status,conclusion \
-        -L 50 \
-        --jq '.[] | select(.headSha == "'"$HEAD_SHA"'") | "\(.databaseId)\t\(.status)\t\(.conclusion // "pending")"' \
-        2>&1 | head -1 || true)
-
-    if [[ -n "$MATCH" && ! "$MATCH" == *$'\t'* ]]; then
-        echo "⚠️  gh run list: $MATCH" >&2
-        MATCH=""
-    fi
-
-    if [[ -n "$MATCH" ]]; then
-        IFS=$'\t' read -r RUN_ID STATUS CONCLUSION <<< "$MATCH"
-
-        if [[ "$STATUS" == "completed" ]]; then
-            if [[ "$CONCLUSION" == "success" ]]; then
-                echo "✅ Copilot code review completed (run ${RUN_ID})."
-            else
-                echo "⚠️  Copilot code review completed with conclusion: ${CONCLUSION} (run ${RUN_ID})."
-            fi
-            COPILOT_DONE=true
-            break
-        fi
-        echo "⏳ Copilot code review in progress (run ${RUN_ID}, status: ${STATUS})... [${ELAPSED}s/${COPILOT_TIMEOUT}s]"
-    else
-        echo "⏳ Waiting for Copilot code review to start... [${ELAPSED}s/${COPILOT_TIMEOUT}s]"
-    fi
-
-    sleep "$POLL_INTERVAL"
-    ELAPSED=$((ELAPSED + POLL_INTERVAL))
-done
-
-if [[ "$COPILOT_DONE" != "true" ]]; then
-    echo "⚠️  Copilot review did not complete within ${COPILOT_TIMEOUT}s. Checking threads anyway."
+if [[ $WORKFLOW_EXIT -ne 0 ]] || echo "$WORKFLOW_CHECK" | grep -qi "could not find\|no workflow\|not found"; then
+    echo "ℹ️  No '${COPILOT_REVIEW_WORKFLOW}' workflow found. Skipping."
+    echo "   Copilot review threads (if any) will still be checked in Step 3."
 else
-    echo "Waiting ${THREAD_PROPAGATION_DELAY}s for review threads to propagate..."
-    sleep "$THREAD_PROPAGATION_DELAY"
+    ELAPSED=0
+    COPILOT_DONE=false
+
+    while [[ $ELAPSED -lt $COPILOT_TIMEOUT ]]; do
+        MATCH=$(gh run list \
+            -w "$COPILOT_REVIEW_WORKFLOW" \
+            --json databaseId,headSha,status,conclusion \
+            -L 50 \
+            --jq '.[] | select(.headSha == "'"$HEAD_SHA"'") | "\(.databaseId)\t\(.status)\t\(.conclusion // "pending")"' \
+            2>&1 | head -1 || true)
+
+        if [[ -n "$MATCH" && ! "$MATCH" == *$'\t'* ]]; then
+            echo "⚠️  gh run list: $MATCH" >&2
+            MATCH=""
+        fi
+
+        if [[ -n "$MATCH" ]]; then
+            IFS=$'\t' read -r RUN_ID STATUS CONCLUSION <<< "$MATCH"
+
+            if [[ "$STATUS" == "completed" ]]; then
+                if [[ "$CONCLUSION" == "success" ]]; then
+                    echo "✅ Copilot code review completed (run ${RUN_ID})."
+                else
+                    echo "⚠️  Copilot code review completed with conclusion: ${CONCLUSION} (run ${RUN_ID})."
+                fi
+                COPILOT_DONE=true
+                break
+            fi
+            echo "⏳ Copilot code review in progress (run ${RUN_ID}, status: ${STATUS})... [${ELAPSED}s/${COPILOT_TIMEOUT}s]"
+        else
+            echo "⏳ Waiting for Copilot code review to start... [${ELAPSED}s/${COPILOT_TIMEOUT}s]"
+        fi
+
+        sleep "$POLL_INTERVAL"
+        ELAPSED=$((ELAPSED + POLL_INTERVAL))
+    done
+
+    if [[ "$COPILOT_DONE" != "true" ]]; then
+        echo "⚠️  Copilot review did not complete within ${COPILOT_TIMEOUT}s. Checking threads anyway."
+    else
+        echo "Waiting ${THREAD_PROPAGATION_DELAY}s for review threads to propagate..."
+        sleep "$THREAD_PROPAGATION_DELAY"
+    fi
 fi
 echo ""
 
