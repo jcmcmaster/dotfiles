@@ -1,5 +1,11 @@
 # Agent Instructions
 
+## Collaboration expectations
+
+- Keep commits small and focused on a single coherent change.
+- Use conventional commit messages: `feat:`, `fix:`, `docs:`, `refactor:`, etc.
+- Favor small, composable changes that are easy to review.
+
 ## Git Workflow
 
 Use **trunk-based development** against `master`. Never commit directly to `master`.
@@ -7,15 +13,31 @@ Use **trunk-based development** against `master`. Never commit directly to `mast
 - Create **feature branches** for each logical unit of work (e.g., `feat/zsh-core`, `fix/nvim-lsp`)
 - Push the branch and **raise a PR** for review
 - When work spans multiple PRs, **stack branches** (each based on the previous) and note dependencies in PR descriptions
-- Always respond to PR review comments — reply to each thread explaining what was fixed or why feedback was declined
-- Use conventional commit messages: `feat:`, `fix:`, `docs:`, `refactor:`, etc.
+- Branch naming: `feat/<feature>`, `fix/<issue>`, `docs/<topic>`, `chore/<task>`
+- **Do not rebase or force-push when addressing PR feedback.** Make separate commits for each fix so the review history is visible. PRs are squash-merged, so feature branch commit history does not need to be clean.
 
 ## PR Operations
 
 - Before pushing, merge `master` into the feature branch to keep it up to date
-- After addressing review feedback, commit and push the fixes, then reply to each comment thread
-- After every push to a PR, poll for new review feedback and address it iteratively until there are no unresolved comments
-- When creating PRs, include a summary table of changes and note any dependencies on other PRs
+- When creating PRs, include a summary of changes and note any dependencies on other PRs
+- **Use file-based input for PR bodies.** Write the body to a temporary file and pass it via `gh pr create --body-file` or `gh api -F body=@file`. Do not pass markdown inline — shells mangle backticks and special characters.
+- The user reviews every PR before merge. Do not merge PRs without explicit user approval.
+
+## Post-push PR verification
+
+After every push to a PR branch, verify the PR is healthy before considering the work done:
+
+1. **Run the verification script.** Use `scripts/wait-for-pr-reviews.sh <PR_NUMBER>` to wait for CI checks and Copilot code review, then check for unresolved review threads. The script must be run from within the cloned repo. It:
+   - Waits for all CI check runs to complete via `gh pr checks --watch`. Skips gracefully if no CI checks are configured.
+   - Polls for the "Copilot code review" workflow run matching the PR's head SHA, then watches it until completion (default timeout: 5 minutes, configurable with `--timeout`). Skips gracefully if no such workflow exists. CI checks also have a timeout (default: 10 minutes, configurable with `--ci-timeout`).
+   - Queries unresolved review threads via GraphQL (up to 100 threads per PR) and reports them — this catches Copilot review comments regardless of whether the workflow was found.
+   - Exits 0 if clean, 1 if unresolved threads exist, 2 if CI failed, 3 if the thread query failed.
+2. **Address all review feedback.** For each unresolved review thread: fix the issue, commit, push, and reply to the comment thread explaining what changed and referencing the commit SHA.
+   - **Copilot review threads:** After replying, resolve the thread using the GraphQL `resolveReviewThread` mutation so it collapses in the PR timeline.
+   - **Human review threads:** Reply with the fix explanation but **do not resolve** the thread. The reviewer will resolve it after confirming the fix.
+3. **Iterate until clean.** Each fix-and-push cycle triggers new CI runs and may trigger new reviews. Repeat steps 1–2 until all checks pass, all Copilot review threads are resolved, and all human review threads have been replied to.
+
+This applies to every push — initial PR creation, feedback fixes, and follow-up commits alike.
 
 ## Bootstrap Scripts
 
