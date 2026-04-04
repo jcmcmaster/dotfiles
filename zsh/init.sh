@@ -28,7 +28,8 @@ sudo apt install -y \
   git \
   gnupg \
   build-essential \
-  unzip
+  unzip \
+  dnsutils
 
 # ── Neovim (latest stable from GitHub releases) ───────────────────
 install_neovim() {
