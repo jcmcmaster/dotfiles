@@ -103,12 +103,13 @@ echo ""
 
 echo "--- Step 1: Waiting for CI checks (timeout: ${CI_TIMEOUT}s) ---"
 set +e
+CI_OUTPUT=""
 if command -v timeout &>/dev/null; then
-    timeout "$CI_TIMEOUT" gh pr checks "$PR_NUMBER" --watch 2>&1
+    CI_OUTPUT=$(timeout "$CI_TIMEOUT" gh pr checks "$PR_NUMBER" --watch 2>&1)
     CI_EXIT=$?
 else
     echo "⚠️  'timeout' command not found; CI wait has no timeout." >&2
-    gh pr checks "$PR_NUMBER" --watch 2>&1
+    CI_OUTPUT=$(gh pr checks "$PR_NUMBER" --watch 2>&1)
     CI_EXIT=$?
 fi
 set -e
@@ -117,13 +118,18 @@ if [[ $CI_EXIT -eq 124 ]]; then
     echo ""
     echo "❌ CI checks did not complete within ${CI_TIMEOUT}s."
     exit 2
+elif [[ $CI_EXIT -ne 0 ]] && echo "$CI_OUTPUT" | grep -qi "no checks"; then
+    echo "ℹ️  No CI checks configured for this PR. Skipping."
 elif [[ $CI_EXIT -ne 0 ]]; then
+    echo "$CI_OUTPUT"
     echo ""
     echo "❌ One or more CI checks failed."
     exit 2
+else
+    echo "$CI_OUTPUT"
+    echo ""
+    echo "✅ CI checks passed."
 fi
-echo ""
-echo "✅ CI checks passed."
 echo ""
 
 # ── Step 2: Wait for Copilot code review ────────────────────────────
