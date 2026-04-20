@@ -56,6 +56,13 @@
       function fpg
         fdg ~/Projects 1
       end
+
+      if test -f $HOME/.corporate-ca.pem
+        set -gx NIX_SSL_CERT_FILE $HOME/.combined-ca-bundle.pem
+        set -gx SSL_CERT_FILE $HOME/.combined-ca-bundle.pem
+        set -gx NODE_EXTRA_CA_CERTS $HOME/.corporate-ca.pem
+        set -gx GIT_SSL_CAINFO $HOME/.combined-ca-bundle.pem
+      end
     '';
     plugins = [
       {

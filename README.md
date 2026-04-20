@@ -1,6 +1,6 @@
 # dotfiles
 
-Windows-focused dotfiles managing configurations for Neovim, PowerShell, ZSH (WSL), Windows Terminal, Git, and IdeaVim.
+Cross-platform dotfiles managing configurations for Neovim, PowerShell (Windows), ZSH (WSL), Fish (macOS via Nix), Windows Terminal, Git, and IdeaVim.
 
 ## Quick Start
 
@@ -36,11 +36,30 @@ chmod +x ~/projects/dotfiles/zsh/init.sh
 
 The init script installs zsh, Oh My Zsh, Oh My Posh, Neovim, fzf, and plugins. It sets up `~/.zshenv` with `ZDOTDIR` pointing to the repo, symlinks `~/.gitconfig`, and symlinks the Neovim config — so only bootstrap-managed files need to live in `~`.
 
+### macOS (nix-darwin + Home Manager)
+
+```bash
+# Install Nix (if not already installed)
+# See https://nixos.org/download
+
+# Clone the repo
+git clone https://github.com/jcmcmaster/dotfiles ~/Projects/dotfiles
+
+# Build and activate (uses $USER for config parameterization)
+cd ~/Projects/dotfiles/nix
+sudo darwin-rebuild switch --flake .#default --impure
+```
+
+The Nix flake uses `builtins.getEnv` (requires `--impure`) to read the current username so the config isn't tied to a specific machine or user. Fish shell, Neovim, and dev tools are all managed declaratively via Home Manager.
+
+If you're behind a **corporate TLS inspection proxy**, see [Corporate SSL/TLS Setup](#corporate-ssltls-setup) below before installing LSP servers or other tools that download from the internet.
+
 ## Structure
 
 | Directory | Purpose |
 |-----------|---------|
-| `nvim/` | Neovim config (lazy.nvim, Lua, cross-platform) |
+| `nvim/` | Neovim config (cross-platform, Lua) |
+| `nix/` | nix-darwin + Home Manager config for macOS (Fish, packages, system settings) |
 | `powershell/` | PowerShell profile (Oh My Posh, PSReadLine vi mode, fzf) |
 | `zsh/` | ZSH config for WSL (Oh My Zsh + Oh My Posh, vi mode, fzf) |
 | `win/` | Windows init script, `.gitconfig`, `.ideavimrc` |
@@ -94,4 +113,39 @@ Platform detection in `opts.lua` configures PowerShell as the shell on Windows; 
 
 ## Deployment
 
-Configs are deployed via **symlinks** from this repo to their expected system locations. The `zsh/init.sh` script handles this for WSL, including `~/.gitconfig` and `~/.config/nvim`. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`.
+Configs are deployed via **symlinks** from this repo to their expected system locations. The `zsh/init.sh` script handles this for WSL, including `~/.gitconfig` and `~/.config/nvim`. For Windows, symlink manually or adapt the pattern from `archive/symlinkers/`. On macOS, nix-darwin and Home Manager handle all config placement declaratively.
+
+## Corporate SSL/TLS Setup
+
+If you're on a corporate network with a **TLS inspection proxy** (e.g., Zscaler, Netskope), tools like curl, Mason, npm, and pip will fail with SSL errors. The proxy re-signs HTTPS traffic with a corporate CA that isn't in the Nix certificate bundle.
+
+### Fix
+
+1. **Extract the proxy's root CA** from a live connection:
+
+   ```bash
+   echo | openssl s_client -connect github.com:443 -showcerts 2>/dev/null \
+     | awk '/-----BEGIN CERTIFICATE-----/{n++} n==2' > ~/.corporate-ca.pem
+
+   # Verify — subject and issuer should match your company's proxy CA:
+   openssl x509 -in ~/.corporate-ca.pem -noout -subject -issuer
+   ```
+
+   > **Tip:** The proxy CA may differ from the general corporate root CA in your Keychain. Always extract from a live connection.
+
+2. **Build a combined CA bundle:**
+
+   ```bash
+   cat /etc/ssl/certs/ca-certificates.crt > ~/.combined-ca-bundle.pem
+   echo "" >> ~/.combined-ca-bundle.pem
+   cat ~/.corporate-ca.pem >> ~/.combined-ca-bundle.pem
+   ```
+
+3. **Restart your terminal** and verify:
+
+   ```bash
+   curl -sS -o /dev/null -w "%{http_code}" https://api.github.com
+   # Should print: 200
+   ```
+
+The env vars pointing tools at `~/.combined-ca-bundle.pem` are already configured in `nix/home.nix` (Fish `interactiveShellInit`). Rebuild the combined bundle after any `darwin-rebuild switch` that updates the Nix CA bundle or if your company rotates its proxy CA.
