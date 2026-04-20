@@ -1,7 +1,7 @@
 vim.pack.add({
   'https://github.com/zbirenbaum/copilot.lua',
   'https://github.com/olimorris/codecompanion.nvim'
- })
+})
 
 require('copilot').setup()
 require('codecompanion').setup({
@@ -25,3 +25,6 @@ require('codecompanion').setup({
     }
   }
 })
+
+vim.keymap.set('n', '<leader>ac', ':CodeCompanion chat<CR>')
+vim.keymap.set('n', '<leader>ai', ':CodeCompanionCLI<CR>')

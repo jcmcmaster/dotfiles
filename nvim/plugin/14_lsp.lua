@@ -1,11 +1,23 @@
-vim.pack.add({ 
+vim.pack.add({
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/mason-org/mason-lspconfig.nvim',
+  'https://github.com/hrsh7th/cmp-nvim-lsp',
   'https://github.com/onsails/lspkind.nvim'
 })
 
 vim.lsp.config('*', {
   capabilities = require('cmp_nvim_lsp').default_capabilities()
+})
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
+  }
 })
 
 vim.keymap.set('n', '<C-.>', vim.lsp.buf.code_action)
@@ -25,7 +37,7 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 
-vim.lsp.enable({
+local servers = {
   'bashls',
   'bicep',
   'csharp_ls',
@@ -42,4 +54,11 @@ vim.lsp.enable({
   'pyright',
   'vimls',
   'yamlls'
+}
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = servers
 })
+
+vim.lsp.enable(servers)
