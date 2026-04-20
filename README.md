@@ -96,13 +96,23 @@ Uses ZSH's `ZDOTDIR` feature — a single `~/.zshenv` file sets `ZDOTDIR=~/proje
 
 ## Neovim Configuration (`nvim/`)
 
-Built on **lazy.nvim** with a modular Lua architecture. Cross-platform — works on both Windows (PowerShell) and WSL (ZSH).
+Uses Neovim's **built-in package manager** (`vim.pack`, Neovim 0.11+) with no external plugin manager. Files in `nvim/plugin/` are auto-sourced by Neovim at startup in numeric order.
 
-- `init.lua` → bootstraps `lua/config/lazy.lua`
-- `lua/config/` — `opts.lua`, `maps.lua`, `auto.lua`
-- `lua/plugins/` — one file per plugin concern (lsp, completion, ai, git, etc.)
-
-Platform detection in `opts.lua` configures PowerShell as the shell on Windows; on Linux/WSL it uses the system default.
+| File | Purpose |
+|------|---------|
+| `plugin/01_opt.lua` | Editor options (indentation, search, display) |
+| `plugin/02_map.lua` | Global keybindings and leader key setup |
+| `plugin/03_auto.lua` | Autocommands (format-on-save, etc.) |
+| `plugin/10_mini.lua` | mini.nvim suite (statusline, files, fuzzy find) |
+| `plugin/11_color.lua` | Colorscheme |
+| `plugin/12_git.lua` | Git integration |
+| `plugin/13_treesitter.lua` | Treesitter syntax and highlighting |
+| `plugin/14_lsp.lua` | LSP servers via Mason + nvim-lspconfig |
+| `plugin/15_ai.lua` | AI tools (Copilot) |
+| `plugin/16_markdown.lua` | Markdown rendering |
+| `plugin/17_test.lua` | Test runner (neotest) |
+| `plugin/20_completion.lua` | Completion (nvim-cmp) |
+| `nvim-pack-lock.json` | Plugin lock file (pinned commits) |
 
 ## PowerShell Profile (`powershell/`)
 
