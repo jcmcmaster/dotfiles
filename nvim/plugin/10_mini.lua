@@ -1,0 +1,57 @@
+vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
+vim.pack.add({ 'https://github.com/rafamadriz/friendly-snippets' })
+
+require('mini.ai').setup()
+require('mini.bracketed').setup()
+require('mini.comment').setup()
+require('mini.cursorword').setup()
+require('mini.diff').setup()
+require('mini.extra').setup()
+
+require('mini.files').setup({
+  mappings = {
+    go_in = '<Right>',
+    go_out = '<Left>'
+  }
+})
+vim.keymap.set('n', '<leader>e.', ':e .<CR>')
+vim.keymap.set('n', '<leader>ef', function() require('mini.files').open() end)
+
+require('mini.icons').setup()
+require('mini.indentscope').setup()
+
+require('mini.pick').setup()
+-- configure ripgrep defaults to search the way i want for mini.pick
+-- see: https://github.com/echasnovski/mini.nvim/blob/48f48e4b3f317e9da34ee7a01958b4c5018e2d34/doc/mini-pick.txt#L1138
+local ripgreprc_path = vim.fn.stdpath('data') .. '/.ripgreprc'
+local file = io.open(ripgreprc_path, 'w')
+if file then
+  file:write([[
+    --hidden
+    --smart-case
+    --no-ignore
+    --glob=!.git/*
+    ]])
+  file:close()
+else
+  print('Failed to write .ripgreprc file')
+end
+vim.env.RIPGREP_CONFIG_PATH = ripgreprc_path
+vim.keymap.set('n', '<leader>fb', ':Pick buffers<CR>')
+vim.keymap.set('n', '<leader>fc', ':Pick commands<CR>')
+vim.keymap.set('n', '<leader>fd', ':Pick diagnostic<CR>')
+vim.keymap.set('n', '<leader>fe', ':Pick explorer<CR>')
+vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
+vim.keymap.set('n', '<leader>fF', ':Pick git_files<CR>')
+vim.keymap.set('n', '<leader>fg', ':Pick grep_live<CR>')
+vim.keymap.set('n', '<leader>fh', ':Pick help<CR>')
+vim.keymap.set('n', '<leader>fl', ':Pick git_commits<CR>')
+vim.keymap.set('n', '<leader>fo', ':Pick options<CR>')
+vim.keymap.set('n', '<leader>fr', ':Pick registers<CR>')
+vim.keymap.set('n', '<leader>ft', ':Pick treesitter<CR>')
+
+require('mini.snippets').setup()
+require('mini.statusline').setup()
+require('mini.surround').setup()
+require('mini.tabline').setup()
+
