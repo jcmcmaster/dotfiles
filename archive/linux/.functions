@@ -1,0 +1,86 @@
+#!/bin/bash
+
+ctrlp() {
+    fzf_output=$(fzf)
+    if [[ $fzf_output != "" ]] ; then
+            </dev/tty vim $fzf_output
+    fi
+}
+
+jot() {
+    echo "$*" >> ~/misc/jot
+}
+
+find_directory_and_go() {
+    target=$(find ~/ -type d \
+          -not -path '*/node_modules/*' \
+          -not -path '*/bin/*' \
+          -not -path '*/obj/*' \
+          -not -path '*/.*' | fzf)
+    if [[ -n $target ]]; then
+      cd $target
+    fi
+}
+
+find_any_directory_and_go() {
+    target=$(find ~/ -type d | fzf)
+    if [[ -n $target ]]; then
+      cd $target
+    fi
+}
+
+find_project_and_go() {
+    target=$(find ~/projects -maxdepth 1 -type d | fzf)
+    if [[ -n $target ]]; then
+      cd $target
+    fi
+}
+
+blame () {
+    git log --follow -- $1
+}
+
+# git
+gac () {
+    git add -A
+    git commit -m "$1"
+}
+
+gacp () {
+    git add -A
+    git commit -m "$1"
+    git push
+}
+
+# undo all changes at all costs (DANGER ZONE ;])
+grip () {
+    vared -p "Are you sure? (y/n)" -c conf
+
+    if [ "$conf" != "y" ]
+    then
+            echo "Close call..."
+            return
+    fi
+
+    curBranch=$(git symbolic-ref -q HEAD)
+    curBranch=${curBranch##refs/heads/}
+    curBranch=${curBranch:-HEAD}
+    git reset --hard
+    git clean -f
+    git checkout -- .
+    git checkout -B grip_false_branch
+    git branch -D $curBranch
+    git checkout $curBranch
+    git branch -D grip_false_branch
+    git status
+
+    unset conf
+}
+
+owd () {
+    explorer.exe $(wslpath -w $(pwd))
+}
+
+cwd () {
+    code -n --folder-uri $(wslpath -w $(pwd))
+}
