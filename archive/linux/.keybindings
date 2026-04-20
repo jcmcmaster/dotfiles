@@ -1,6 +1,0 @@
-bindkey -v # vim editing mode in zsh
-
-bindkey  history-beginning-search-backward
-bindkey  history-beginning-search-forward
-
-bindkey -s  'fzf-to-vim'

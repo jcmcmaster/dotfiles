@@ -1,4 +1,0 @@
-eval "$(dircolors -b ~/.dircolors)"
-cd
-
-export BROWSER=/home/jcmcmaster/projects/dotfiles/common/wsl/browser.sh
