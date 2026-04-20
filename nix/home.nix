@@ -80,6 +80,7 @@
     enable = true;
     settings = {
       user.name = "Jim McMaster";
+      user.email = "jmcmaster008@gmail.com";
       init.defaultBranch = "main";
       alias = {
         a = "add";
