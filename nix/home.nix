@@ -4,9 +4,6 @@
     sessionVariables = {
       "EDITOR" = "nvim";
     };
-    shell = {
-      enableFishIntegration = true;
-    };
     stateVersion = "23.11"; # Don't change this
     username = username;
   };
@@ -83,7 +80,6 @@
     enable = true;
     settings = {
       user.name = "Jim McMaster";
-      user.email = "472696@wegmans.com";
       init.defaultBranch = "main";
       alias = {
         a = "add";

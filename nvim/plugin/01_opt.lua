@@ -13,7 +13,6 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.infercase = true
 vim.o.incsearch = true
-vim.o.ignorecase = true
 
 vim.o.signcolumn = 'yes'
 vim.o.relativenumber = true

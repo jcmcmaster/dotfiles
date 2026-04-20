@@ -30,8 +30,7 @@ cmp.setup({
     { name = 'nvim_lua' },
     { name = 'mini_snippets', option = { use_items_cache = false } },
     { name = 'path' },
-    { name = 'buffer' },
-    { name = 'lazydev' }
+    { name = 'buffer' }
   }
 })
 
