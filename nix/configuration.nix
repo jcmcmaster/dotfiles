@@ -13,7 +13,7 @@
 
   system.stateVersion = 4;
 
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform = pkgs.stdenv.hostPlatform.system;
   nixpkgs.config.allowUnfree = true;
 
   homebrew = {
