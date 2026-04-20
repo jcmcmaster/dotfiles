@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.color_scheme = 'rose-pine'
-config.default_prog = { '/etc/profiles/per-user/472696/bin/fish', '-l' }
+config.default_prog = { '/etc/profiles/per-user/' .. os.getenv('USER') .. '/bin/fish', '-l' }
 config.font_size = 12
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.max_fps = 120
