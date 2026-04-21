@@ -1,6 +1,6 @@
 # dotfiles
 
-Cross-platform developer environment. Same editor, same muscle memory, same git aliases — macOS, Windows, or WSL.
+Cross-platform dotfiles. Configurations for macOS (Nix), Windows (PowerShell), and WSL/Linux (ZSH), with a shared Neovim config.
 
 Active development is on the macOS Nix config. Everything is organized by the program it configures.
 
@@ -8,7 +8,7 @@ Active development is on the macOS Nix config. Everything is organized by the pr
 
 ## What's Shared Across Platforms
 
-The whole point is consistency. These work the same everywhere:
+The following work the same on all three platforms:
 
 | Thing | macOS | Windows | WSL/Linux |
 |---|---|---|---|
@@ -19,7 +19,7 @@ The whole point is consistency. These work the same everywhere:
 | Git aliases | `g`, `acp`, `cm`, `d`, `dc`… | `g`, `acp`, `cm`, `d`, `dc`… | `g`, `acp`, `cm`, `d`, `dc`… |
 | AI assistant | Copilot CLI + Neovim | Copilot CLI + Neovim | Copilot CLI + Neovim |
 
-**Fuzzy nav functions** (`fd`/`fp`/`fdx`/`fdev`) use fzf to jump into directories. `fdev` goes further — it opens the chosen directory in a terminal split with Neovim already running alongside. Implemented independently in Fish, ZSH, and PowerShell with identical UX.
+**Fuzzy nav functions** (`fd`/`fp`/`fdx`/`fdev`) use fzf to jump into directories. `fdev` opens the chosen directory in a terminal split with Neovim running alongside. Implemented independently in Fish, ZSH, and PowerShell.
 
 ---
 
@@ -84,7 +84,7 @@ dotfiles/
 
 ## Neovim (`nvim/`)
 
-Single config, runs everywhere. Uses Neovim's **built-in `vim.pack`** — no lazy.nvim, no packer, no plugin manager overhead.
+Single config, runs everywhere. Uses Neovim's **built-in `vim.pack`** as the plugin manager — no lazy.nvim or packer.
 
 Plugin files live in `nvim/plugin/` and are auto-sourced alphabetically at startup. They're numbered to enforce load order:
 
@@ -131,7 +131,7 @@ Lock file: `nvim-pack-lock.json` pins exact plugin commits for reproducible inst
 
 ## macOS — Nix (`nix/`)
 
-Declarative macOS setup via **nix-darwin** + **Home Manager**. One command rebuilds the entire environment.
+Declarative macOS setup via **nix-darwin** + **Home Manager**.
 
 ```
 nix/
