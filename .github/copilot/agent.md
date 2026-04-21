@@ -37,11 +37,7 @@ Use **trunk-based development** against `master`. Never commit directly to `mast
 
 After every push to a PR branch, verify the PR is healthy before considering the work done:
 
-1. **Run the verification script.** Use `scripts/wait-for-pr-reviews.sh <PR_NUMBER>` to wait for CI checks and Copilot code review, then check for unresolved review threads. It:
-   - Waits for CI check runs via `gh pr checks --watch` (skips if no CI configured).
-   - Polls for the "Copilot code review" workflow run and watches it to completion.
-   - Queries unresolved review threads via GraphQL and reports them.
-   - Exits 0 if clean, 1 if unresolved threads, 2 if CI failed, 3 if thread query failed.
+1. **Check CI and review status.** Use `gh pr checks --watch <PR_NUMBER>` to wait for CI, then inspect any Copilot code review for unresolved threads.
 2. **Address all review feedback.** For each unresolved thread: fix, commit, push, reply with the commit SHA.
    - **Copilot threads:** Resolve via GraphQL `resolveReviewThread` after replying.
    - **Human threads:** Reply but **do not resolve** — let the reviewer do it.
