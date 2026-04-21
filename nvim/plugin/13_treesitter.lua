@@ -1,10 +1,10 @@
-vim.pack.add {
+vim.pack.add({
   {
     src = 'https://github.com/nvim-treesitter/nvim-treesitter',
     branch = 'main'
   },
   'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
-}
+})
 
 local servers = {
   'bash',
@@ -58,7 +58,7 @@ local set_select = function(maps, selection)
     { 'x', 'o' },
     maps,
     function()
-      require("nvim-treesitter-textobjects.select").select_textobject(selection, "textobjects")
+      require('nvim-treesitter-textobjects.select').select_textobject(selection, 'textobjects')
     end
   )
 end
