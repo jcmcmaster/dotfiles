@@ -2,6 +2,16 @@
 
 Active development is on `nix/`. Prefer declarative changes there over ad hoc setup elsewhere.
 
+## User involvement — read this first
+
+The user wants to understand and approve every non-trivial decision in this repo.
+
+- **Propose before implementing.** For anything structural — adding a tool, changing a workflow, reorganising files — explain what you're thinking and why, then wait for approval.
+- **Explain your reasoning.** Don't just make a change; say what it does and why it's the right call.
+- **Ask when uncertain.** If there are multiple reasonable approaches, surface them. Don't pick one silently.
+- **Never merge a PR.** The user merges everything.
+- Small, obvious fixes (typos, broken paths, stale docs) can proceed without asking. Everything else: ask first.
+
 ## Collaboration expectations
 
 - Keep commits small and focused on a single coherent change.
