@@ -36,6 +36,8 @@ sudo darwin-rebuild switch --flake .#default --impure
 
 `--impure` is required: the flake reads `$SUDO_USER` at eval time to avoid hardcoding a username.
 
+> **Apple Silicon only.** The flake hardcodes `system = "aarch64-darwin"`. It will not evaluate on Intel Macs without modification.
+
 > **Corporate proxy?** See [Corporate SSL/TLS Setup](#corporate-ssltls-setup) before running `darwin-rebuild`.
 
 ### Windows — PowerShell
@@ -100,10 +102,10 @@ Plugin files live in `nvim/plugin/` and are auto-sourced alphabetically at start
 |---|---|
 | **UI** | Rose Pine colorscheme, mini.nvim (statusline, tabline, file explorer, icons) |
 | **Fuzzy finding** | mini.pick (ripgrep-backed) — `<leader>f*` for files, grep, git, buffers, diagnostics |
-| **Syntax** | Treesitter with 47 language parsers; AST-based text objects (`af/if`, `ac/ic`, `al/il`) |
-| **LSP** | Mason + nvim-lspconfig; 16 servers: Bash, C#, F#, Python, Lua, TypeScript, Terraform, YAML, and more |
+| **Syntax** | Treesitter with 38 language parsers; AST-based text objects (`af/if`, `ac/ic`, `al/il`) |
+| **LSP** | Mason + nvim-lspconfig; 16 servers: Bash, Bicep, C#, CSS, Docker, ESLint, F#, GraphQL, HTML, JSON, XML, Lua, PowerShell, Python, Vimscript, YAML |
 | **Completion** | nvim-cmp; sources: Copilot → LSP → snippets → buffer → paths |
-| **AI** | copilot.lua (inline) + CodeCompanion (chat, GPT-4) |
+| **AI** | copilot.lua (inline) + CodeCompanion (chat via Copilot) |
 | **Git** | Neogit (`<leader>gg`) + Diffview (side-by-side diffs, merge tool) |
 | **Tests** | Neotest + neotest-vstest (C#/.NET) |
 | **Markdown** | render-markdown.nvim (renders in-buffer) |
@@ -156,7 +158,7 @@ nix/
 
 **Git** is configured declaratively in `home.nix`: user info, openpgp signing, and all aliases match the other platforms.
 
-**Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `home.nix` automatically injects a combined CA bundle into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, `NODE_EXTRA_CA_CERTS`, and `GIT_SSL_CAINFO`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
+**Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `home.nix` automatically injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`, and sets `NODE_EXTRA_CA_CERTS` to `~/.corporate-ca.pem`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
 
 ---
 
@@ -301,4 +303,4 @@ curl -sS -o /dev/null -w "%{http_code}" https://api.github.com
 # 200
 ```
 
-`nix/home.nix` automatically detects `~/.corporate-ca.pem` and injects the bundle into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, `NODE_EXTRA_CA_CERTS`, and `GIT_SSL_CAINFO`. Rebuild the bundle after any `darwin-rebuild switch` that updates the Nix CA store, or when your company rotates its proxy CA.
+`nix/home.nix` automatically detects `~/.corporate-ca.pem` and injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`. `NODE_EXTRA_CA_CERTS` is set to `~/.corporate-ca.pem` directly. Rebuild the bundle after any `darwin-rebuild switch` that updates the Nix CA store, or when your company rotates its proxy CA.
