@@ -9,6 +9,7 @@
   };
 
   home.packages = with pkgs; [
+    azure-cli
     bat
     curl
     fd
@@ -25,6 +26,7 @@
     spotify
     terraform
     tree
+    tree-sitter
     wget
     yq
   ];
