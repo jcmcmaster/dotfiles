@@ -13,9 +13,6 @@
 
   system.stateVersion = 4;
 
-  nixpkgs.hostPlatform = "aarch64-darwin";
-  nixpkgs.config.allowUnfree = true;
-
   homebrew = {
     enable = true;
     casks = [

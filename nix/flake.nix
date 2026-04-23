@@ -9,20 +9,31 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
   let
+    system = "aarch64-darwin";
     username = builtins.getEnv "SUDO_USER";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in {
+    homeConfigurations."default" = let
+      user = builtins.getEnv "USER";
+    in home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./home.nix
+        {
+          home.username = user;
+          home.homeDirectory = "/Users/${user}";
+        }
+      ];
+    };
+
     darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
+      inherit system pkgs;
       specialArgs = { inherit username; };
       modules = [
         ./configuration.nix
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit username; };
-          home-manager.users.${username} = import ./home.nix;
-        }
       ];
     };
   };

@@ -25,20 +25,39 @@ The following work the same on all three platforms:
 
 ## Quick Start
 
-### macOS — nix-darwin + Home Manager
+### macOS — Home Manager (standalone) + optional nix-darwin
 
 ```bash
 # Install Nix first if needed: https://nixos.org/download
 git clone https://github.com/jcmcmaster/dotfiles ~/Projects/dotfiles
 cd ~/Projects/dotfiles/nix
+```
+
+**User profile** (packages, shell, git, programs — no sudo):
+
+```bash
+# First run (home-manager not yet on PATH):
+nix run home-manager -- switch --flake .#default --impure
+
+# Subsequent runs:
+home-manager switch --flake .#default --impure
+```
+
+**System-level** (Homebrew casks, Fish login shell — only when needed):
+
+```bash
+# First run (darwin-rebuild not yet on PATH):
+sudo nix run nix-darwin -- switch --flake .#default --impure
+
+# Subsequent runs:
 sudo darwin-rebuild switch --flake .#default --impure
 ```
 
-`--impure` is required: the flake reads `$SUDO_USER` at eval time to avoid hardcoding a username.
+`--impure` is required: the flake reads `$USER` / `$SUDO_USER` at eval time to avoid hardcoding a username.
 
 > **Apple Silicon only.** The flake hardcodes `system = "aarch64-darwin"`. It will not evaluate on Intel Macs without modification.
 
-> **Corporate proxy?** See [Corporate SSL/TLS Setup](#corporate-ssltls-setup) before running `darwin-rebuild`.
+> **Corporate proxy?** See [Corporate SSL/TLS Setup](#corporate-ssltls-setup) before running any Nix commands.
 
 ### Windows — PowerShell
 
@@ -133,12 +152,17 @@ Lock file: `nvim-pack-lock.json` pins exact plugin commits for reproducible inst
 
 ## macOS — Nix (`nix/`)
 
-Declarative macOS setup via **nix-darwin** + **Home Manager**.
+Declarative macOS setup with two independent paths:
+
+- **Home Manager (standalone)** — manages the user profile: packages, shell, prompt, git, programs. Run with `home-manager switch` (no sudo).
+- **nix-darwin** — manages system-level concerns only: Fish login shell, Homebrew casks, Determinate Nix compat. Run with `sudo darwin-rebuild switch` when needed.
+
+The flake exports both `homeConfigurations` and `darwinConfigurations`. They are independent — Home Manager is **not** wired through nix-darwin.
 
 ```
 nix/
-├── flake.nix         Inputs (nixpkgs-unstable, nix-darwin, home-manager) + outputs
-├── configuration.nix System-level: user, Fish shell, Homebrew, Determinate Nix compat
+├── flake.nix         Inputs (nixpkgs-unstable, nix-darwin, home-manager) + dual outputs
+├── configuration.nix System-level only: user, Fish login shell, Homebrew, Determinate Nix compat
 ├── home.nix          User-level: packages, shell, prompt, git, programs
 └── nix.conf          Enable flakes + nix-command
 ```
@@ -264,7 +288,7 @@ Also sets: relative line numbers, clipboard=unnamed, commentary, ideajoin, hlsea
 
 | Platform | How configs get deployed |
 |---|---|
-| macOS | nix-darwin + Home Manager manage everything declaratively |
+| macOS | `home-manager switch` for user profile; `sudo darwin-rebuild switch` for system-level (Homebrew, login shell) |
 | WSL/Linux | `zsh/init.sh` symlinks `.gitconfig` and `nvim/` into place |
 | Windows | Symlink manually from the repo to `$PROFILE`, `$LOCALAPPDATA\nvim`, etc. |
 

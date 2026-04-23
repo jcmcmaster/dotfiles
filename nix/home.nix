@@ -1,25 +1,24 @@
-{ pkgs, username, ... }: {
+{ pkgs, ... }: {
   home = {
-    homeDirectory = "/Users/${username}";
     sessionVariables = {
       "EDITOR" = "nvim";
     };
     stateVersion = "23.11"; # Don't change this
-    username = username;
   };
 
   home.packages = with pkgs; [
     azure-cli
     bat
     curl
+    docker
     fd
     github-cli
-    github-copilot-cli
     google-chrome
     htop
     jetbrains.rider
     jq
     obsidian
+    postman
     raycast
     rectangle
     ripgrep
@@ -52,7 +51,7 @@
         end
       end
 
-      function fpg
+      function fp
         fdg ~/Projects 1
       end
 
@@ -130,6 +129,10 @@
     presets = [
       "nerd-font-symbols"
    ];
+  };
+
+  programs.vscode = {
+    enable = true;
   };
 
   programs.wezterm = {

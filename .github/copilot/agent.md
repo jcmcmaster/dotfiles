@@ -1,6 +1,6 @@
 # Agent Instructions
 
-Active development is on `nix/`. Prefer declarative changes there over ad hoc setup elsewhere.
+Active development is on `nix/`. The flake exports two independent outputs: `homeConfigurations` (standalone Home Manager for user profile) and `darwinConfigurations` (nix-darwin for system-level). Prefer declarative changes there over ad hoc setup elsewhere.
 
 ## User involvement — read this first
 
