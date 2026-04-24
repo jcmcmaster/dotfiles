@@ -122,6 +122,7 @@
     enable = true;
     withRuby = false;
     withPython3 = false;
+    sideloadInitLua = true;
   };
 
   programs.starship = {
