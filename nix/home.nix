@@ -12,7 +12,6 @@
     curl
     docker
     fd
-    github-cli
     google-chrome
     htop
     jetbrains.rider
@@ -75,6 +74,11 @@
     enableFishIntegration = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+  };
+
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper.enable = true;
   };
 
   programs.git = {
