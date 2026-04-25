@@ -9,6 +9,27 @@ config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.max_fps = 120
 
 config.keys = {
+  -- disable defaults
+  {
+    key = 'LeftArrow',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.DisableDefaultAssignment
+  },
+  {
+    key = 'RightArrow',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.DisableDefaultAssignment
+  },
+  {
+    key = 'UpArrow',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.DisableDefaultAssignment
+  },
+  {
+    key = 'DownArrow',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.DisableDefaultAssignment
+  },
   -- moving between panes
   {
     key = 'Home',
