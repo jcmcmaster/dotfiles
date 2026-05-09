@@ -20,10 +20,10 @@ The user wants to understand and approve every non-trivial decision in this repo
 
 ## Git Workflow
 
-Use **trunk-based development** against `master`. Never commit directly to `master`.
+Use **trunk-based development** with `master` as the trunk, but do all work on feature branches. Never commit or push directly to `master`. Every change must go through a PR.
 
 - Create **feature branches** for each logical unit of work (e.g., `feat/nix-packages`, `fix/nvim-lsp`)
-- Push the branch and **raise a PR** for review
+- Push the branch and **raise a PR** for review before the work is considered complete
 - Branch naming: `feat/<feature>`, `fix/<issue>`, `docs/<topic>`, `chore/<task>`
 - **Do not rebase or force-push when addressing PR feedback.** Make separate commits for each fix. PRs are squash-merged.
 
@@ -31,7 +31,7 @@ Use **trunk-based development** against `master`. Never commit directly to `mast
 
 - Before pushing, merge `master` into the feature branch to keep it up to date
 - **Use file-based input for PR bodies.** Write the body to a temp file and pass via `gh pr create --body-file`. Do not pass markdown inline — shells mangle backticks and special characters.
-- The user reviews every PR before merge. Do not merge PRs without explicit user approval.
+- The user reviews every PR before merge. Do not merge PRs without explicit user approval, and never bypass the PR flow with a direct commit to `master`.
 
 ## Post-push PR verification
 
