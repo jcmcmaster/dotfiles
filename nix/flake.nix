@@ -15,18 +15,22 @@
       inherit system;
       config.allowUnfree = true;
     };
-  in {
-    homeConfigurations."default" = let
-      user = builtins.getEnv "USER";
-    in home-manager.lib.homeManagerConfiguration {
+    user = builtins.getEnv "USER";
+    mkHome = extraModules: home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
-        ./home.nix
+        ./modules/common.nix
         {
           home.username = user;
           home.homeDirectory = "/Users/${user}";
         }
-      ];
+      ] ++ extraModules;
+    };
+  in {
+    homeConfigurations = {
+      "work" = mkHome [ ./modules/work.nix ];
+      "home" = mkHome [ ./modules/home.nix ];
+      "default" = mkHome [ ./modules/home.nix ]; # backward compat
     };
 
     darwinConfigurations."default" = nix-darwin.lib.darwinSystem {

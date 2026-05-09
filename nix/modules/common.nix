@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  email = builtins.getEnv "EMAIL";
+in {
   home = {
     sessionVariables = {
       "EDITOR" = "nvim";
@@ -7,22 +10,12 @@
   };
 
   home.packages = with pkgs; [
-    azure-cli
     bat
     curl
-    docker
     fd
-    google-chrome
     htop
-    jetbrains.rider
     jq
-    obsidian
-    postman
-    raycast
-    rectangle
     ripgrep
-    spotify
-    terraform
     tree
     tree-sitter
     wget
@@ -85,7 +78,7 @@
     enable = true;
     settings = {
       user.name = "Jim McMaster";
-      user.email = "jmcmaster008@gmail.com";
+      user.email = if email != "" then email else "jmcmaster008@gmail.com";
       init.defaultBranch = "main";
       alias = {
         a = "add";
@@ -102,6 +95,7 @@
         f = "fetch";
         l = "log";
         s = "status";
+        swc = "switch -c";
       };
     };
     signing.format = "openpgp";
