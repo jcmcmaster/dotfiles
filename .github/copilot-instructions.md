@@ -30,3 +30,7 @@ The same patterns are implemented on every platform: vi keybindings, fzf-based d
 ## User involvement
 
 The user must approve all non-trivial decisions. **Propose before implementing** anything structural — new tools, config reorganisation, workflow changes. Ask; don't assume.
+
+## Git workflow
+
+Always go through a PR. Never commit or push directly to `master`; create a feature branch, push that branch, and open a PR for every change. The user reviews and merges PRs.
