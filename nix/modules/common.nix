@@ -13,9 +13,14 @@ in {
     bat
     curl
     fd
+    google-chrome
     htop
     jq
+    obsidian
+    raycast
+    rectangle
     ripgrep
+    spotify
     tree
     tree-sitter
     wget
