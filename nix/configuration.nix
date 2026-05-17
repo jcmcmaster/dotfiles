@@ -14,4 +14,8 @@
   system.stateVersion = 4;
 
   homebrew.enable = true;
+  homebrew.casks = [
+    "obsidian"
+    "spotify"
+  ];
 }

@@ -183,12 +183,12 @@ The flake exports both `homeConfigurations` and `darwinConfigurations`. They are
 ```
 nix/
 ├── flake.nix         Inputs (nixpkgs-unstable, nix-darwin, home-manager) + dual outputs
-├── configuration.nix Shared system-level settings: user, Fish login shell, Homebrew, Determinate Nix compat
+├── configuration.nix Shared system-level settings: user, Fish login shell, Homebrew, shared casks, Determinate Nix compat
 ├── modules/
 │   ├── common.nix        Shared packages, shell, prompt, git, and programs
-│   ├── home.nix          Home-only Home Manager packages (`discord`, `karabiner-elements`, `signal-desktop`, `slack`, `ffmpeg`)
+│   ├── home.nix          Home-only Home Manager packages (`karabiner-elements`, `ffmpeg`)
 │   ├── work.nix          Work-only Home Manager overrides (currently empty placeholder)
-│   ├── darwin-home.nix   Home-only nix-darwin Homebrew casks (`capcut`, `docker-desktop`, `keeper-password-manager`, `steam`)
+│   ├── darwin-home.nix   Home-only nix-darwin Homebrew casks (`capcut`, `discord`, `docker-desktop`, `keeper-password-manager`, `signal`, `slack`, `steam`)
 │   └── darwin-work.nix   Work-only nix-darwin overrides (currently empty placeholder)
 └── nix.conf          Enable flakes + nix-command
 ```

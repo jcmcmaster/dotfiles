@@ -16,12 +16,10 @@
     htop
     jetbrains.rider
     jq
-    obsidian
     postman
     raycast
     rectangle
     ripgrep
-    spotify
     terraform
     tree
     tree-sitter
