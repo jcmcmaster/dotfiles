@@ -13,9 +13,15 @@
 
   system.stateVersion = 4;
 
-  homebrew.enable = true;
-  homebrew.casks = [
-    "docker-desktop"
-    "spotify"
-  ];
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+    };
+    casks = [
+      "docker-desktop"
+      "spotify"
+    ];
+  };
 }
