@@ -64,6 +64,12 @@ sudo darwin-rebuild switch --flake .#default --impure
 set -gx EMAIL "you@work.com"
 ```
 
+This only applies when the rebuild inherits that environment — for example, when you run `home-manager switch` from Fish. If you rebuild from another shell or a context that doesn't inherit Fish's environment, pass it inline instead:
+
+```bash
+EMAIL="you@work.com" home-manager switch --flake .#work --impure
+```
+
 If `EMAIL` is unset, git falls back to the personal email hardcoded in `modules/common.nix`.
 
 > **Apple Silicon only.** The flake hardcodes `system = "aarch64-darwin"`. It will not evaluate on Intel Macs without modification.
@@ -196,7 +202,7 @@ The flake exports `homeConfigurations."work"` and `homeConfigurations."home"` �
 | Mise (runtime versions) | — | Raycast, Rectangle |
 | JetBrains Rider | — | Keeper (Homebrew cask) |
 
-**Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The git email is read from the `EMAIL` env var at build time (see [Per-machine git email](#quick-start) above).
+**Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The git email is read from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine git email](#quick-start) above).
 
 **Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `modules/common.nix` automatically injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`, and sets `NODE_EXTRA_CA_CERTS` to `~/.corporate-ca.pem`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
 
