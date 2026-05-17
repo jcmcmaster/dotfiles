@@ -1,4 +1,4 @@
-{ pkgs, email, ... }: {
+{ pkgs, fullName, email, ... }: {
   home = {
     sessionVariables = {
       "EDITOR" = "nvim";
@@ -84,7 +84,7 @@
   programs.git = {
     enable = true;
     settings = {
-      user.name = "Jim McMaster";
+      user.name = fullName;
       user.email = email;
       init.defaultBranch = "main";
       alias = {
