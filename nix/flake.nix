@@ -30,7 +30,6 @@
     homeConfigurations = {
       "work" = mkHome [ ./modules/work.nix ];
       "home" = mkHome [ ./modules/home.nix ];
-      "default" = mkHome [ ./modules/home.nix ]; # backward compat
     };
 
     darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
