@@ -16,6 +16,7 @@
     htop
     jetbrains.rider
     jq
+    obsidian
     postman
     raycast
     rectangle

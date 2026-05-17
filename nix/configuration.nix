@@ -15,7 +15,6 @@
 
   homebrew.enable = true;
   homebrew.casks = [
-    "obsidian"
     "spotify"
   ];
 }
