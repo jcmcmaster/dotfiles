@@ -13,22 +13,37 @@ config.keys = {
   {
     key = 'LeftArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.DisableDefaultAssignment
+    action = act.DisableDefaultAssignment
   },
   {
     key = 'RightArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.DisableDefaultAssignment
+    action = act.DisableDefaultAssignment
   },
   {
     key = 'UpArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.DisableDefaultAssignment
+    action = act.DisableDefaultAssignment
   },
   {
     key = 'DownArrow',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action.DisableDefaultAssignment
+    action = act.DisableDefaultAssignment
+  },
+  -- scrolling
+  {
+    key = 'PageUp',
+    action = act.ScrollByPage(-1)
+  },
+  {
+    key = 'PageDown',
+    action = act.ScrollByPage(1)
+  },
+  -- quick select
+  {
+    key = 'y',
+    mods = 'CTRL|SHIFT',
+    action = act.QuickSelect
   },
   -- moving between panes
   {
