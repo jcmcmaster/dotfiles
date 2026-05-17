@@ -203,7 +203,7 @@ The flake exports `homeConfigurations."work"` / `"home"` and `darwinConfiguratio
 
 | Dev tools | CLI utilities | Desktop |
 |---|---|---|
-| GitHub CLI (+ `gh-copilot`) | ripgrep, fd, bat, jq, yq | WezTerm |
+| GitHub CLI (`gh copilot`) | ripgrep, fd, bat, jq, yq | WezTerm |
 | Terraform | curl, wget, htop, tree | Chrome, Obsidian, Spotify |
 | Mise (runtime versions) | — | Raycast, Rectangle |
 | JetBrains Rider | — | Keeper (home machine only; Homebrew cask) |
@@ -239,7 +239,7 @@ Config is loaded via ZSH's `ZDOTDIR` — a single `~/.zshenv` points ZSH at the 
 | Runtimes | .NET SDK (LTS), nvm + Node LTS |
 | Shell | Oh My Zsh, zsh-syntax-highlighting, zsh-autosuggestions, Oh My Posh |
 | Cloud | GitHub CLI, Azure CLI, Terraform |
-| AI | GitHub CLI `gh-copilot` extension |
+| AI | Built-in GitHub CLI `gh copilot` |
 
 Also sets up: `ZDOTDIR` via `~/.zshenv`, `~/.gitconfig` symlink, `~/.config/nvim` symlink, default shell → zsh.
 
@@ -265,7 +265,7 @@ Idempotent — safe to re-run. Use `--force` to reinstall Neovim, `--upgrade` to
 
 ### `init.ps1` — What it installs (winget)
 
-Docker, Neovim, Git, Node, Python 3.13, GitHub CLI, Oh My Posh, fzf, ripgrep, jq, Azure CLI, Azure Developer CLI, uv, zig, Gleam, Obsidian, Postman, Meld, PowerShell 7+, Chocolatey. Plus: `watchexec` (choco), `vectorcode` (uv), `gh-copilot` extension.
+Docker, Neovim, Git, Node, Python 3.13, GitHub CLI, Oh My Posh, fzf, ripgrep, jq, Azure CLI, Azure Developer CLI, uv, zig, Gleam, Obsidian, Postman, Meld, PowerShell 7+, Chocolatey. Plus: `watchexec` (choco), `vectorcode` (uv), built-in `gh copilot`.
 
 ---
 

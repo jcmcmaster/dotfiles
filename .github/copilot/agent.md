@@ -59,7 +59,7 @@ Idempotent script for fresh Ubuntu/WSL installs. Safe to re-run. Installs:
 | GitHub CLI | `gh` from official apt repo |
 | Azure CLI | From Microsoft's apt repo |
 | Terraform | From HashiCorp's apt repo |
-| GitHub CLI Copilot | `gh-copilot` GitHub CLI extension |
+| GitHub CLI Copilot | Built-in `gh copilot` subcommand |
 | Oh My Posh | Prompt theme engine to `~/.local/bin` |
 
 Also configures: `ZDOTDIR` via `~/.zshenv`, `~/.gitconfig` symlink, nvim config symlink, default shell to zsh.
@@ -68,4 +68,4 @@ When adding a new tool dependency, add the install step to this script and ensur
 
 ### `pwsh/init.ps1` — Windows bootstrap
 
-Installs dev tools via **winget**: Neovim, Git, Node, Python, Oh My Posh, GitHub CLI, Docker, uv, zig, Gleam, Azure CLI, and others. Uses Chocolatey as a fallback for tools not on winget. Also installs the `gh-copilot` GitHub CLI extension.
+Installs dev tools via **winget**: Neovim, Git, Node, Python, Oh My Posh, GitHub CLI, Docker, uv, zig, Gleam, Azure CLI, and others. Uses Chocolatey as a fallback for tools not on winget. Then wires up the built-in `gh copilot` aliases for PowerShell.

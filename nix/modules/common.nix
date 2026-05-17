@@ -1,4 +1,4 @@
-{ lib, pkgs, name, email, ... }: {
+{ pkgs, name, email, ... }: {
   home = {
     sessionVariables = {
       "EDITOR" = "nvim";
@@ -78,12 +78,6 @@
     enable = true;
     gitCredentialHelper.enable = true;
   };
-
-  home.activation.ghCopilotExtension = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    if ! ${pkgs.gh}/bin/gh extension list 2>/dev/null | grep -q '^github/gh-copilot[[:space:]]'; then
-      run ${pkgs.gh}/bin/gh extension install github/gh-copilot --force
-    fi
-  '';
 
   programs.git = {
     enable = true;

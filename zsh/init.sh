@@ -146,12 +146,10 @@ else
 fi
 
 # ── GitHub CLI Copilot ─────────────────────────────────────────────
-if gh extension list 2>/dev/null | grep -q '^github/gh-copilot[[:space:]]'; then
-  echo "GitHub CLI Copilot already installed."
+if gh help copilot >/dev/null 2>&1; then
+  echo "GitHub CLI Copilot available via gh copilot."
 else
-  echo "Installing GitHub CLI Copilot extension..."
-  gh extension install github/gh-copilot --force
-  echo "GitHub CLI Copilot installed."
+  echo "GitHub CLI Copilot is unavailable in this gh build."
 fi
 
 # ── Oh My Posh ─────────────────────────────────────────────────────
@@ -229,7 +227,7 @@ echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not 
 echo "  gh                 → $(command -v gh 2>/dev/null || echo 'not found')"
 echo "  az                 → $(command -v az 2>/dev/null || echo 'not found')"
 echo "  terraform          → $(command -v terraform 2>/dev/null || echo 'not found')"
-echo "  gh-copilot         → $(gh extension list 2>/dev/null | awk '$1 == \"github/gh-copilot\" {print $1; found=1} END {if (!found) print \"not found\"}')"
+echo "  gh copilot         → $(gh help copilot >/dev/null 2>&1 && echo 'built in' || echo 'unavailable')"
 echo "  nvm                → ${HOME}/.nvm"
 echo "  dotnet             → $(command -v dotnet 2>/dev/null || echo 'not found')"
 echo ""
