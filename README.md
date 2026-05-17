@@ -186,7 +186,7 @@ nix/
 ├── configuration.nix Shared system-level settings: user, Fish login shell, Homebrew, shared casks, Determinate Nix compat
 ├── modules/
 │   ├── common.nix        Shared packages, shell, prompt, git, and programs
-│   ├── home.nix          Home-only Home Manager packages (`karabiner-elements`, `ffmpeg`)
+│   ├── home.nix          Home-only Home Manager packages (`ffmpeg`, plus macOS-only `karabiner-elements`)
 │   ├── work.nix          Work-only Home Manager overrides (currently empty placeholder)
 │   ├── darwin-home.nix   Home-only nix-darwin Homebrew casks (`capcut`, `discord`, `keeper-password-manager`, `signal`, `slack`, `steam`)
 │   └── darwin-work.nix   Work-only nix-darwin overrides (currently empty placeholder)

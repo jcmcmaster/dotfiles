@@ -10,7 +10,6 @@
     azure-cli
     bat
     curl
-    docker
     fd
     google-chrome
     htop
