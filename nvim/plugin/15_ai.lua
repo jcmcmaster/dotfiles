@@ -16,9 +16,9 @@ require('codecompanion').setup({
       agent = "copilot",
       agents = {
         copilot = {
-          cmd = "copilot",
-          args = {},
-          description = "Copilot CLI",
+          cmd = "gh",
+          args = { "copilot" },
+          description = "GitHub CLI Copilot",
           provider = "terminal"
         }
       }

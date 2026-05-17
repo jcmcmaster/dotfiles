@@ -102,4 +102,8 @@ Import-Module posh-git
 New-Alias vim nvim
 New-Alias vi nvim
 
-. "$env:OneDrive\Documents\PowerShell\gh-copilot.ps1"
+$GH_COPILOT_PROFILE = Join-Path -Path $env:OneDrive -ChildPath "Documents/PowerShell/gh-copilot.ps1"
+if (Test-Path $GH_COPILOT_PROFILE)
+{
+  . $GH_COPILOT_PROFILE
+}

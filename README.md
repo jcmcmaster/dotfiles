@@ -17,7 +17,7 @@ The following work the same on all three platforms:
 | Prompt | Starship | Oh My Posh (material) | Oh My Posh (material) |
 | Fuzzy nav | `fd`, `fp`, `fdx`, `fdev` | `fd`, `fp`, `fdx`, `fdev` | `fd`, `fp`, `fdx`, `fdev` |
 | Git aliases | `g`, `acp`, `cm`, `d`, `dc`… | `g`, `acp`, `cm`, `d`, `dc`… | `g`, `acp`, `cm`, `d`, `dc`… |
-| AI assistant | Copilot CLI + Neovim | Copilot CLI + Neovim | Copilot CLI + Neovim |
+| AI assistant | `gh copilot` + Neovim | `gh copilot` + Neovim | `gh copilot` + Neovim |
 
 **Fuzzy nav functions** (`fd`/`fp`/`fdx`/`fdev`) use fzf to jump into directories. `fdev` opens the chosen directory in a terminal split with Neovim running alongside. Implemented independently in Fish, ZSH, and PowerShell.
 
@@ -186,7 +186,7 @@ nix/
 ├── configuration.nix Shared system-level settings: user, Fish login shell, Homebrew, Determinate Nix compat
 ├── modules/
 │   ├── common.nix        Shared packages, shell, prompt, git, and programs
-│   ├── home.nix          Home-only Home Manager packages (`discord`, `github-copilot-cli`, `karabiner-elements`, `signal-desktop`, `slack`, `ffmpeg`)
+│   ├── home.nix          Home-only Home Manager packages (`discord`, `karabiner-elements`, `signal-desktop`, `slack`, `ffmpeg`)
 │   ├── work.nix          Work-only Home Manager overrides (currently empty placeholder)
 │   ├── darwin-home.nix   Home-only nix-darwin Homebrew casks (`capcut`, `docker-desktop`, `keeper-password-manager`, `steam`)
 │   └── darwin-work.nix   Work-only nix-darwin overrides (currently empty placeholder)
@@ -203,7 +203,7 @@ The flake exports `homeConfigurations."work"` / `"home"` and `darwinConfiguratio
 
 | Dev tools | CLI utilities | Desktop |
 |---|---|---|
-| GitHub CLI, Copilot CLI | ripgrep, fd, bat, jq, yq | WezTerm |
+| GitHub CLI (+ `gh-copilot`) | ripgrep, fd, bat, jq, yq | WezTerm |
 | Terraform | curl, wget, htop, tree | Chrome, Obsidian, Spotify |
 | Mise (runtime versions) | — | Raycast, Rectangle |
 | JetBrains Rider | — | Keeper (home machine only; Homebrew cask) |
@@ -226,7 +226,7 @@ Config is loaded via ZSH's `ZDOTDIR` — a single `~/.zshenv` points ZSH at the 
 | `aliases.zsh` | `g`→git, `vi`/`vim`→nvim, `acp`, `cl`, `cs`, `sz`, etc. |
 | `functions.zsh` | `fd`, `fp`, `fdx`, `fdev`, `owd` (open in Explorer) |
 | `keybindings.zsh` | Vi mode, `^n/^p/^y` for autosuggestions |
-| `completions.zsh` | dotnet CLI + GitHub Copilot CLI tab completions |
+| `completions.zsh` | dotnet CLI + `gh copilot` aliases |
 | `.gitconfig` | Git: user, aliases, nvim as editor, Windows credential manager |
 | `init.sh` | Full WSL bootstrap — see below |
 
@@ -239,7 +239,7 @@ Config is loaded via ZSH's `ZDOTDIR` — a single `~/.zshenv` points ZSH at the 
 | Runtimes | .NET SDK (LTS), nvm + Node LTS |
 | Shell | Oh My Zsh, zsh-syntax-highlighting, zsh-autosuggestions, Oh My Posh |
 | Cloud | GitHub CLI, Azure CLI, Terraform |
-| AI | GitHub Copilot CLI (via npm) |
+| AI | GitHub CLI `gh-copilot` extension |
 
 Also sets up: `ZDOTDIR` via `~/.zshenv`, `~/.gitconfig` symlink, `~/.config/nvim` symlink, default shell → zsh.
 
@@ -260,12 +260,12 @@ Idempotent — safe to re-run. Use `--force` to reinstall Neovim, `--upgrade` to
 | Git | posh-git module; `g` alias |
 | Navigation | `fd`, `fp`, `fdx`, `fdev` — mirrors the ZSH/Fish implementations |
 | Editor | `vim`/`vi` → nvim |
-| Completions | dotnet CLI argument completer; Copilot CLI aliases |
+| Completions | dotnet CLI argument completer; `gh copilot` aliases |
 | `fdev` | Finds a directory via fzf, opens Windows Terminal with a vertical split: folder pane + Neovim |
 
 ### `init.ps1` — What it installs (winget)
 
-Docker, Neovim, Git, Node, Python 3.13, GitHub CLI, Oh My Posh, fzf, ripgrep, jq, Azure CLI, Azure Developer CLI, uv, zig, Gleam, Obsidian, Postman, Meld, PowerShell 7+, Chocolatey. Plus: `watchexec` (choco), `vectorcode` (uv), Copilot CLI (npm), `gh-copilot` extension.
+Docker, Neovim, Git, Node, Python 3.13, GitHub CLI, Oh My Posh, fzf, ripgrep, jq, Azure CLI, Azure Developer CLI, uv, zig, Gleam, Obsidian, Postman, Meld, PowerShell 7+, Chocolatey. Plus: `watchexec` (choco), `vectorcode` (uv), `gh-copilot` extension.
 
 ---
 
