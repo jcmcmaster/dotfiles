@@ -15,6 +15,7 @@
 
   homebrew.enable = true;
   homebrew.casks = [
+    "docker-desktop"
     "spotify"
   ];
 }

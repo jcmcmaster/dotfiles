@@ -188,7 +188,7 @@ nix/
 │   ├── common.nix        Shared packages, shell, prompt, git, and programs
 │   ├── home.nix          Home-only Home Manager packages (`karabiner-elements`, `ffmpeg`)
 │   ├── work.nix          Work-only Home Manager overrides (currently empty placeholder)
-│   ├── darwin-home.nix   Home-only nix-darwin Homebrew casks (`capcut`, `discord`, `docker-desktop`, `keeper-password-manager`, `signal`, `slack`, `steam`)
+│   ├── darwin-home.nix   Home-only nix-darwin Homebrew casks (`capcut`, `discord`, `keeper-password-manager`, `signal`, `slack`, `steam`)
 │   └── darwin-work.nix   Work-only nix-darwin overrides (currently empty placeholder)
 └── nix.conf          Enable flakes + nix-command
 ```
