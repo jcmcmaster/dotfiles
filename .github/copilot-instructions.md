@@ -19,7 +19,7 @@ Cross-platform dotfiles for macOS, Windows, and WSL/Linux. Configs are organized
 
 | Platform | Method |
 |---|---|
-| macOS | `home-manager switch --flake nix/#default --impure` for user profile (no sudo); `sudo darwin-rebuild switch --flake nix/#default --impure` for system-level (only when needed) |
+| macOS | `home-manager switch --flake nix/#home --impure` (or `#work`) for user profile (no sudo); `sudo darwin-rebuild switch --flake nix/#home --impure` (or `#work`) for system-level (only when needed) |
 | WSL/Linux | `zsh/init.sh` — installs tools and symlinks `.gitconfig` + `nvim/` into place |
 | Windows | Symlink manually: `$PROFILE`, `$LOCALAPPDATA\nvim`, WT settings, `.ideavimrc` |
 

@@ -37,18 +37,22 @@
         }
       ] ++ extraModules;
     };
+    mkDarwin = extraModules: nix-darwin.lib.darwinSystem {
+      inherit system pkgs;
+      specialArgs = { inherit username; };
+      modules = [
+        ./configuration.nix
+      ] ++ extraModules;
+    };
   in {
     homeConfigurations = {
       "work" = mkHome [ ./modules/work.nix ];
       "home" = mkHome [ ./modules/home.nix ];
     };
 
-    darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
-      inherit system pkgs;
-      specialArgs = { inherit username; };
-      modules = [
-        ./configuration.nix
-      ];
+    darwinConfigurations = {
+      "work" = mkDarwin [ ./modules/darwin-work.nix ];
+      "home" = mkDarwin [ ./modules/darwin-home.nix ];
     };
   };
 }

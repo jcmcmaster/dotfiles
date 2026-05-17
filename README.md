@@ -49,10 +49,12 @@ home-manager switch --flake .#work --impure   # work machine
 
 ```bash
 # First run (darwin-rebuild not yet on PATH):
-sudo nix run nix-darwin -- switch --flake .#default --impure
+sudo nix run nix-darwin -- switch --flake .#home --impure   # home machine
+sudo nix run nix-darwin -- switch --flake .#work --impure   # work machine
 
 # Subsequent runs:
-sudo darwin-rebuild switch --flake .#default --impure
+sudo darwin-rebuild switch --flake .#home --impure   # home machine
+sudo darwin-rebuild switch --flake .#work --impure   # work machine
 ```
 
 `--impure` is required: the flake resolves the username from `$SUDO_USER` when run with `sudo`, otherwise it falls back to `$USER`. That avoids hardcoding a username while keeping Home Manager and nix-darwin aligned.
@@ -174,22 +176,24 @@ Lock file: `nvim-pack-lock.json` pins exact plugin commits for reproducible inst
 Declarative macOS setup with two independent paths:
 
 - **Home Manager (standalone)** — manages the user profile: packages, shell, prompt, git, programs. Run with `home-manager switch` (no sudo).
-- **nix-darwin** — manages system-level concerns only: Fish login shell, Homebrew casks, Determinate Nix compat. Run with `sudo darwin-rebuild switch` when needed.
+- **nix-darwin** — manages system-level concerns only: Fish login shell, Homebrew casks, Determinate Nix compat. Run with `sudo darwin-rebuild switch --flake .#home` or `.#work` when needed.
 
 The flake exports both `homeConfigurations` and `darwinConfigurations`. They are independent — Home Manager is **not** wired through nix-darwin.
 
 ```
 nix/
 ├── flake.nix         Inputs (nixpkgs-unstable, nix-darwin, home-manager) + dual outputs
-├── configuration.nix System-level only: user, Fish login shell, Homebrew, Determinate Nix compat
+├── configuration.nix Shared system-level settings: user, Fish login shell, Homebrew, Determinate Nix compat
 ├── modules/
-│   ├── common.nix    Shared packages, shell, prompt, git, and programs
-│   ├── work.nix      Work-only overrides (currently empty placeholder)
-│   └── home.nix      Home-only packages (currently `ffmpeg`)
+│   ├── common.nix        Shared packages, shell, prompt, git, and programs
+│   ├── home.nix          Home-only Home Manager packages (`ffmpeg`)
+│   ├── work.nix          Work-only Home Manager overrides (currently empty placeholder)
+│   ├── darwin-home.nix   Home-only nix-darwin overrides (`keeper-password-manager`)
+│   └── darwin-work.nix   Work-only nix-darwin overrides (currently empty placeholder)
 └── nix.conf          Enable flakes + nix-command
 ```
 
-The flake exports `homeConfigurations."work"` and `homeConfigurations."home"` — use `--flake .#work` or `--flake .#home` accordingly.
+The flake exports `homeConfigurations."work"` / `"home"` and `darwinConfigurations."work"` / `"home"` — use `--flake .#work` or `--flake .#home` with either `home-manager` or `darwin-rebuild` accordingly.
 
 **Shell:** Fish with vi key bindings, zoxide (`cd → z`), fzf integration.
 
@@ -202,7 +206,7 @@ The flake exports `homeConfigurations."work"` and `homeConfigurations."home"` �
 | GitHub CLI, Copilot CLI | ripgrep, fd, bat, jq, yq | WezTerm |
 | Terraform | curl, wget, htop, tree | Chrome, Obsidian, Spotify |
 | Mise (runtime versions) | — | Raycast, Rectangle |
-| JetBrains Rider | — | Keeper (Homebrew cask) |
+| JetBrains Rider | — | Keeper (home machine only; Homebrew cask) |
 
 **Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The `name` and `email` values are passed in from `flake.nix`; `email` still comes from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine identity](#per-machine-identity) above).
 
@@ -312,7 +316,7 @@ Also sets: relative line numbers, clipboard=unnamed, commentary, ideajoin, hlsea
 
 | Platform | How configs get deployed |
 |---|---|
-| macOS | `home-manager switch --flake .#home` (or `#work`) for user profile; `sudo darwin-rebuild switch` for system-level (Homebrew, login shell) |
+| macOS | `home-manager switch --flake .#home` (or `#work`) for user profile; `sudo darwin-rebuild switch --flake .#home` (or `#work`) for system-level (Homebrew, login shell) |
 | WSL/Linux | `zsh/init.sh` symlinks `.gitconfig` and `nvim/` into place |
 | Windows | Symlink manually from the repo to `$PROFILE`, `$LOCALAPPDATA\nvim`, etc. |
 

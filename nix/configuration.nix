@@ -1,4 +1,4 @@
-{ pkgs, config, username, ... }: {
+{ username, ... }: {
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";
@@ -13,11 +13,5 @@
 
   system.stateVersion = 4;
 
-  homebrew = {
-    enable = true;
-    casks = [
-      "keeper-password-manager"
-    ];
-  };
+  homebrew.enable = true;
 }
-
