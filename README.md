@@ -204,9 +204,9 @@ The flake exports `homeConfigurations."work"` / `"home"` and `darwinConfiguratio
 | Dev tools | CLI utilities | Desktop |
 |---|---|---|
 | GitHub CLI (`gh copilot`) | ripgrep, fd, bat, jq, yq | WezTerm |
-| Terraform | curl, wget, htop, tree | Chrome, Obsidian, Spotify |
-| Mise (runtime versions) | — | Raycast, Rectangle |
-| JetBrains Rider | — | Keeper (home machine only; Homebrew cask) |
+| Terraform | curl, wget, htop, tree | Chrome, Obsidian |
+| Mise (runtime versions) | — | Raycast, Rectangle, Spotify (shared Homebrew cask) |
+| JetBrains Rider | — | CapCut, Discord, Keeper, Signal, Slack, Steam (home machine only; Homebrew casks) |
 
 **Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The `name` and `email` values are passed in from `flake.nix`; `email` still comes from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine identity](#per-machine-identity) above).
 
