@@ -175,13 +175,13 @@ nix/
 ├── flake.nix         Inputs (nixpkgs-unstable, nix-darwin, home-manager) + dual outputs
 ├── configuration.nix System-level only: user, Fish login shell, Homebrew, Determinate Nix compat
 ├── modules/
-│   ├── common.nix    Shared: packages, shell, prompt, git, programs (all machines)
-│   ├── work.nix      Work-only packages (azure-cli, docker, rider, terraform, postman)
-│   └── home.nix      Home-only packages (obsidian, spotify, raycast, rectangle, etc.)
+│   ├── common.nix    Shared packages, shell, prompt, git, and programs
+│   ├── work.nix      Work-only overrides (currently empty placeholder)
+│   └── home.nix      Home-only packages (currently `ffmpeg`)
 └── nix.conf          Enable flakes + nix-command
 ```
 
-The flake exports `homeConfigurations."work"` and `homeConfigurations."home"` — use `--flake .#work` or `--flake .#home` accordingly. `"default"` is kept as an alias for `"home"`.
+The flake exports `homeConfigurations."work"` and `homeConfigurations."home"` — use `--flake .#work` or `--flake .#home` accordingly.
 
 **Shell:** Fish with vi key bindings, zoxide (`cd → z`), fzf integration.
 
