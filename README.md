@@ -186,9 +186,9 @@ nix/
 ├── configuration.nix Shared system-level settings: user, Fish login shell, Homebrew, Determinate Nix compat
 ├── modules/
 │   ├── common.nix        Shared packages, shell, prompt, git, and programs
-│   ├── home.nix          Home-only Home Manager packages (`ffmpeg`)
+│   ├── home.nix          Home-only Home Manager packages (`discord`, `github-copilot-cli`, `karabiner-elements`, `signal-desktop`, `slack`, `ffmpeg`)
 │   ├── work.nix          Work-only Home Manager overrides (currently empty placeholder)
-│   ├── darwin-home.nix   Home-only nix-darwin overrides (`keeper-password-manager`)
+│   ├── darwin-home.nix   Home-only nix-darwin Homebrew casks (`capcut`, `docker-desktop`, `keeper-password-manager`, `steam`)
 │   └── darwin-work.nix   Work-only nix-darwin overrides (currently empty placeholder)
 └── nix.conf          Enable flakes + nix-command
 ```
