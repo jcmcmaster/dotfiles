@@ -57,6 +57,15 @@ sudo darwin-rebuild switch --flake .#home --impure   # home machine
 sudo darwin-rebuild switch --flake .#work --impure   # work machine
 ```
 
+`darwin-rebuild switch` runs Homebrew activation with auto-update and upgrades enabled, so rebuilding after a `nix-darwin` input bump also refreshes Homebrew-managed packages.
+
+To update the `nix-darwin` input and apply the matching Homebrew refresh in one flow:
+
+```bash
+nix flake lock --update-input nix-darwin
+sudo darwin-rebuild switch --flake .#home --impure   # or .#work
+```
+
 `--impure` is required: the flake resolves the username from `$SUDO_USER` when run with `sudo`, otherwise it falls back to `$USER`. That avoids hardcoding a username while keeping Home Manager and nix-darwin aligned.
 
 #### Per-machine identity
@@ -176,7 +185,7 @@ Lock file: `nvim-pack-lock.json` pins exact plugin commits for reproducible inst
 Declarative macOS setup with two independent paths:
 
 - **Home Manager (standalone)** — manages the user profile: packages, shell, prompt, git, programs. Run with `home-manager switch` (no sudo).
-- **nix-darwin** — manages system-level concerns only: Fish login shell, Homebrew casks, Determinate Nix compat. Run with `sudo darwin-rebuild switch --flake .#home` or `.#work` when needed.
+- **nix-darwin** — manages system-level concerns only: Fish login shell, Homebrew casks, Determinate Nix compat. It also runs Homebrew auto-update and upgrades during activation. Run with `sudo darwin-rebuild switch --flake .#home` or `.#work` when needed.
 
 The flake exports both `homeConfigurations` and `darwinConfigurations`. They are independent — Home Manager is **not** wired through nix-darwin.
 
