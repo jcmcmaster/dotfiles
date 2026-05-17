@@ -146,7 +146,7 @@ else
 fi
 
 # ── GitHub CLI Copilot ─────────────────────────────────────────────
-if gh help copilot >/dev/null 2>&1; then
+if gh copilot --help >/dev/null 2>&1; then
   echo "GitHub CLI Copilot available via gh copilot."
 else
   echo "GitHub CLI Copilot is unavailable in this gh build."
@@ -227,7 +227,7 @@ echo "  oh-my-posh         → $(command -v oh-my-posh 2>/dev/null || echo 'not 
 echo "  gh                 → $(command -v gh 2>/dev/null || echo 'not found')"
 echo "  az                 → $(command -v az 2>/dev/null || echo 'not found')"
 echo "  terraform          → $(command -v terraform 2>/dev/null || echo 'not found')"
-echo "  gh copilot         → $(gh help copilot >/dev/null 2>&1 && echo 'built in' || echo 'unavailable')"
+echo "  gh copilot         → $(gh copilot --help >/dev/null 2>&1 && echo 'available' || echo 'unavailable')"
 echo "  nvm                → ${HOME}/.nvm"
 echo "  dotnet             → $(command -v dotnet 2>/dev/null || echo 'not found')"
 echo ""

@@ -265,7 +265,7 @@ Idempotent — safe to re-run. Use `--force` to reinstall Neovim, `--upgrade` to
 
 ### `init.ps1` — What it installs (winget)
 
-Docker, Neovim, Git, Node, Python 3.13, GitHub CLI, Oh My Posh, fzf, ripgrep, jq, Azure CLI, Azure Developer CLI, uv, zig, Gleam, Obsidian, Postman, Meld, PowerShell 7+, Chocolatey. Plus: `watchexec` (choco), `vectorcode` (uv), built-in `gh copilot`.
+Docker, Neovim, Git, Node, Python 3.13, GitHub CLI, Oh My Posh, fzf, ripgrep, jq, Azure CLI, Azure Developer CLI, uv, zig, Gleam, Obsidian, Postman, Meld, PowerShell 7+, Chocolatey. Plus: `watchexec` (choco), `vectorcode` (uv). `gh copilot` is expected to be available from the installed `gh`.
 
 ---
 
