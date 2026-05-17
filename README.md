@@ -37,10 +37,12 @@ cd ~/Projects/dotfiles/nix
 
 ```bash
 # First run (home-manager not yet on PATH):
-nix run home-manager -- switch --flake .#default --impure
+nix run home-manager -- switch --flake .#home --impure   # home machine
+nix run home-manager -- switch --flake .#work --impure   # work machine
 
 # Subsequent runs:
-home-manager switch --flake .#default --impure
+home-manager switch --flake .#home --impure   # home machine
+home-manager switch --flake .#work --impure   # work machine
 ```
 
 **System-level** (Homebrew casks, Fish login shell — only when needed):
@@ -53,7 +55,24 @@ sudo nix run nix-darwin -- switch --flake .#default --impure
 sudo darwin-rebuild switch --flake .#default --impure
 ```
 
-`--impure` is required: the flake reads `$USER` / `$SUDO_USER` at eval time to avoid hardcoding a username.
+`--impure` is required: the flake resolves the username from `$SUDO_USER` when run with `sudo`, otherwise it falls back to `$USER`. That avoids hardcoding a username while keeping Home Manager and nix-darwin aligned.
+
+#### Per-machine identity
+
+`flake.nix` resolves shared identity inputs and passes them into the shared Home Manager module. Right now that means a constant `name` plus an `email` value from the `EMAIL` environment variable. Set `EMAIL` in a local, untracked file so the work email is never committed to the repo:
+
+```fish
+# ~/.config/fish/conf.d/local.fish  (not tracked by git — create per machine)
+set -gx EMAIL "you@work.com"
+```
+
+This only applies when the rebuild inherits that environment — for example, when you run `home-manager switch` from Fish. If you rebuild from another shell or a context that doesn't inherit Fish's environment, pass it inline instead:
+
+```bash
+EMAIL="you@work.com" home-manager switch --flake .#work --impure
+```
+
+If `EMAIL` is unset, the flake falls back to the personal email. `name` stays a constant in `flake.nix`.
 
 > **Apple Silicon only.** The flake hardcodes `system = "aarch64-darwin"`. It will not evaluate on Intel Macs without modification.
 
@@ -163,9 +182,14 @@ The flake exports both `homeConfigurations` and `darwinConfigurations`. They are
 nix/
 ├── flake.nix         Inputs (nixpkgs-unstable, nix-darwin, home-manager) + dual outputs
 ├── configuration.nix System-level only: user, Fish login shell, Homebrew, Determinate Nix compat
-├── home.nix          User-level: packages, shell, prompt, git, programs
+├── modules/
+│   ├── common.nix    Shared packages, shell, prompt, git, and programs
+│   ├── work.nix      Work-only overrides (currently empty placeholder)
+│   └── home.nix      Home-only packages (currently `ffmpeg`)
 └── nix.conf          Enable flakes + nix-command
 ```
+
+The flake exports `homeConfigurations."work"` and `homeConfigurations."home"` — use `--flake .#work` or `--flake .#home` accordingly.
 
 **Shell:** Fish with vi key bindings, zoxide (`cd → z`), fzf integration.
 
@@ -180,9 +204,9 @@ nix/
 | Mise (runtime versions) | — | Raycast, Rectangle |
 | JetBrains Rider | — | Keeper (Homebrew cask) |
 
-**Git** is configured declaratively in `home.nix`: user info, openpgp signing, and all aliases match the other platforms.
+**Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The `name` and `email` values are passed in from `flake.nix`; `email` still comes from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine identity](#per-machine-identity) above).
 
-**Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `home.nix` automatically injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`, and sets `NODE_EXTRA_CA_CERTS` to `~/.corporate-ca.pem`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
+**Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `modules/common.nix` automatically injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`, and sets `NODE_EXTRA_CA_CERTS` to `~/.corporate-ca.pem`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
 
 ---
 
@@ -288,7 +312,7 @@ Also sets: relative line numbers, clipboard=unnamed, commentary, ideajoin, hlsea
 
 | Platform | How configs get deployed |
 |---|---|
-| macOS | `home-manager switch` for user profile; `sudo darwin-rebuild switch` for system-level (Homebrew, login shell) |
+| macOS | `home-manager switch --flake .#home` (or `#work`) for user profile; `sudo darwin-rebuild switch` for system-level (Homebrew, login shell) |
 | WSL/Linux | `zsh/init.sh` symlinks `.gitconfig` and `nvim/` into place |
 | Windows | Symlink manually from the repo to `$PROFILE`, `$LOCALAPPDATA\nvim`, etc. |
 
@@ -327,4 +351,4 @@ curl -sS -o /dev/null -w "%{http_code}" https://api.github.com
 # 200
 ```
 
-`nix/home.nix` automatically detects `~/.corporate-ca.pem` and injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`. `NODE_EXTRA_CA_CERTS` is set to `~/.corporate-ca.pem` directly. Rebuild the bundle after any `darwin-rebuild switch` that updates the Nix CA store, or when your company rotates its proxy CA.
+`modules/common.nix` automatically detects `~/.corporate-ca.pem` and injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`. `NODE_EXTRA_CA_CERTS` is set to `~/.corporate-ca.pem` directly. Rebuild the bundle after any `darwin-rebuild switch` that updates the Nix CA store, or when your company rotates its proxy CA.
