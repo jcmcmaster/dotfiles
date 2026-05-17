@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  email = builtins.getEnv "EMAIL";
-in {
+{ pkgs, email, ... }: {
   home = {
     sessionVariables = {
       "EDITOR" = "nvim";
@@ -88,7 +85,7 @@ in {
     enable = true;
     settings = {
       user.name = "Jim McMaster";
-      user.email = if email != "" then email else "jmcmaster008@gmail.com";
+      user.email = email;
       init.defaultBranch = "main";
       alias = {
         a = "add";

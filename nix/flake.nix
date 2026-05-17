@@ -16,12 +16,18 @@
         user = builtins.getEnv "USER";
       in
         if sudoUser != "" then sudoUser else user;
+    email =
+      let
+        value = builtins.getEnv "EMAIL";
+      in
+        if value != "" then value else "jmcmaster008@gmail.com";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
     mkHome = extraModules: home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
+      extraSpecialArgs = { inherit email; };
       modules = [
         ./modules/common.nix
         {

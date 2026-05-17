@@ -57,7 +57,7 @@ sudo darwin-rebuild switch --flake .#default --impure
 
 `--impure` is required: the flake resolves the username from `$SUDO_USER` when run with `sudo`, otherwise it falls back to `$USER`. That avoids hardcoding a username while keeping Home Manager and nix-darwin aligned.
 
-**Per-machine git email:** Set the `EMAIL` environment variable in a local, untracked file so the work email is never committed to the repo:
+**Per-machine email:** `flake.nix` resolves an `email` value from the `EMAIL` environment variable and passes that into the shared Home Manager module. Set `EMAIL` in a local, untracked file so the work email is never committed to the repo:
 
 ```fish
 # ~/.config/fish/conf.d/local.fish  (not tracked by git — create per machine)
@@ -70,7 +70,7 @@ This only applies when the rebuild inherits that environment — for example, wh
 EMAIL="you@work.com" home-manager switch --flake .#work --impure
 ```
 
-If `EMAIL` is unset, git falls back to the personal email hardcoded in `modules/common.nix`.
+If `EMAIL` is unset, the flake falls back to the personal email.
 
 > **Apple Silicon only.** The flake hardcodes `system = "aarch64-darwin"`. It will not evaluate on Intel Macs without modification.
 
@@ -202,7 +202,7 @@ The flake exports `homeConfigurations."work"` and `homeConfigurations."home"` �
 | Mise (runtime versions) | — | Raycast, Rectangle |
 | JetBrains Rider | — | Keeper (Homebrew cask) |
 
-**Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The git email is read from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine git email](#quick-start) above).
+**Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The `email` value is passed in from `flake.nix`, which reads the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine git email](#quick-start) above).
 
 **Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `modules/common.nix` automatically injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`, and sets `NODE_EXTRA_CA_CERTS` to `~/.corporate-ca.pem`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
 
