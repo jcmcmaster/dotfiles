@@ -68,4 +68,4 @@ When adding a new tool dependency, add the install step to this script and ensur
 
 ### `pwsh/init.ps1` — Windows bootstrap
 
-Installs dev tools via **winget**: Neovim, Git, Node, Python, Oh My Posh, GitHub CLI, Docker, uv, zig, Gleam, Azure CLI, and others. Uses Chocolatey as a fallback for tools not on winget. Then wires up the built-in `gh copilot` aliases for PowerShell.
+Installs dev tools via **winget**: Neovim, Git, Node, Python, Oh My Posh, GitHub CLI, Docker, uv, zig, Gleam, Azure CLI, and others. Uses Chocolatey as a fallback for tools not on winget.

@@ -260,7 +260,7 @@ Idempotent — safe to re-run. Use `--force` to reinstall Neovim, `--upgrade` to
 | Git | posh-git module; `g` alias |
 | Navigation | `fd`, `fp`, `fdx`, `fdev` — mirrors the ZSH/Fish implementations |
 | Editor | `vim`/`vi` → nvim |
-| Completions | dotnet CLI argument completer; `gh copilot` aliases |
+| Completions | dotnet CLI argument completer |
 | `fdev` | Finds a directory via fzf, opens Windows Terminal with a vertical split: folder pane + Neovim |
 
 ### `init.ps1` — What it installs (winget)

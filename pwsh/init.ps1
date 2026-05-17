@@ -30,5 +30,3 @@ uv tool install "vectorcode<1.0.0"
 uv tool update-shell
 
 gh auth login --web
-$GH_COPILOT_PROFILE = Join-Path -Path $(Split-Path -Path $PROFILE -Parent) -ChildPath "gh-copilot.ps1"
-gh copilot alias -- pwsh | Out-File ( New-Item -Path $GH_COPILOT_PROFILE -Force )
