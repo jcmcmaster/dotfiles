@@ -55,7 +55,7 @@ sudo nix run nix-darwin -- switch --flake .#default --impure
 sudo darwin-rebuild switch --flake .#default --impure
 ```
 
-`--impure` is required: the flake reads `$USER` / `$SUDO_USER` at eval time to avoid hardcoding a username.
+`--impure` is required: the flake resolves the username from `$SUDO_USER` when run with `sudo`, otherwise it falls back to `$USER`. That avoids hardcoding a username while keeping Home Manager and nix-darwin aligned.
 
 **Per-machine git email:** Set the `EMAIL` environment variable in a local, untracked file so the work email is never committed to the repo:
 

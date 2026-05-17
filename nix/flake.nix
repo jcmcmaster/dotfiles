@@ -10,19 +10,23 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
   let
     system = "aarch64-darwin";
-    username = builtins.getEnv "SUDO_USER";
+    username =
+      let
+        sudoUser = builtins.getEnv "SUDO_USER";
+        user = builtins.getEnv "USER";
+      in
+        if sudoUser != "" then sudoUser else user;
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
-    user = builtins.getEnv "USER";
     mkHome = extraModules: home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
         ./modules/common.nix
         {
-          home.username = user;
-          home.homeDirectory = "/Users/${user}";
+          home.username = username;
+          home.homeDirectory = "/Users/${username}";
         }
       ] ++ extraModules;
     };
@@ -41,4 +45,3 @@
     };
   };
 }
-
