@@ -16,7 +16,7 @@
         user = builtins.getEnv "USER";
       in
         if sudoUser != "" then sudoUser else user;
-    fullName = "Jim McMaster";
+    name = "Jim McMaster";
     email =
       let
         value = builtins.getEnv "EMAIL";
@@ -28,7 +28,7 @@
     };
     mkHome = extraModules: home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit fullName email; };
+      extraSpecialArgs = { inherit name email; };
       modules = [
         ./modules/common.nix
         {

@@ -57,7 +57,7 @@ sudo darwin-rebuild switch --flake .#default --impure
 
 `--impure` is required: the flake resolves the username from `$SUDO_USER` when run with `sudo`, otherwise it falls back to `$USER`. That avoids hardcoding a username while keeping Home Manager and nix-darwin aligned.
 
-**Per-machine identity:** `flake.nix` resolves shared identity inputs and passes them into the shared Home Manager module. Right now that means a constant `fullName` plus an `email` value from the `EMAIL` environment variable. Set `EMAIL` in a local, untracked file so the work email is never committed to the repo:
+**Per-machine identity:** `flake.nix` resolves shared identity inputs and passes them into the shared Home Manager module. Right now that means a constant `name` plus an `email` value from the `EMAIL` environment variable. Set `EMAIL` in a local, untracked file so the work email is never committed to the repo:
 
 ```fish
 # ~/.config/fish/conf.d/local.fish  (not tracked by git — create per machine)
@@ -70,7 +70,7 @@ This only applies when the rebuild inherits that environment — for example, wh
 EMAIL="you@work.com" home-manager switch --flake .#work --impure
 ```
 
-If `EMAIL` is unset, the flake falls back to the personal email. `fullName` stays a constant in `flake.nix`.
+If `EMAIL` is unset, the flake falls back to the personal email. `name` stays a constant in `flake.nix`.
 
 > **Apple Silicon only.** The flake hardcodes `system = "aarch64-darwin"`. It will not evaluate on Intel Macs without modification.
 
@@ -202,7 +202,7 @@ The flake exports `homeConfigurations."work"` and `homeConfigurations."home"` �
 | Mise (runtime versions) | — | Raycast, Rectangle |
 | JetBrains Rider | — | Keeper (Homebrew cask) |
 
-**Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The `fullName` and `email` values are passed in from `flake.nix`; `email` still comes from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine email](#quick-start) above).
+**Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The `name` and `email` values are passed in from `flake.nix`; `email` still comes from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine email](#quick-start) above).
 
 **Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `modules/common.nix` automatically injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`, and sets `NODE_EXTRA_CA_CERTS` to `~/.corporate-ca.pem`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
 
