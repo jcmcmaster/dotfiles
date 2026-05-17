@@ -144,7 +144,7 @@ Plugin files live in `nvim/plugin/` and are auto-sourced alphabetically at start
 | **Fuzzy finding** | mini.pick (ripgrep-backed) — `<leader>f*` for files, grep, git, buffers, diagnostics |
 | **Syntax** | Treesitter with 38 language parsers; AST-based text objects (`af/if`, `ac/ic`, `al/il`) |
 | **LSP** | Mason + nvim-lspconfig; 16 servers: Bash, Bicep, C#, CSS, Docker, ESLint, F#, GraphQL, HTML, JSON, XML, Lua, PowerShell, Python, Vimscript, YAML |
-| **Completion** | nvim-cmp; sources: Copilot → LSP → snippets → buffer → paths |
+| **Completion** | mini.completion for LSP/snippets/signature help; Copilot stays inline via copilot.lua |
 | **AI** | copilot.lua (inline) + CodeCompanion (chat via Copilot) |
 | **Git** | Neogit (`<leader>gg`) + Diffview (side-by-side diffs, merge tool) |
 | **Tests** | Neotest + neotest-vstest (C#/.NET) |

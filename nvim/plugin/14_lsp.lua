@@ -1,13 +1,11 @@
 vim.pack.add({
   'https://github.com/mason-org/mason.nvim',
   'https://github.com/neovim/nvim-lspconfig',
-  'https://github.com/mason-org/mason-lspconfig.nvim',
-  'https://github.com/hrsh7th/cmp-nvim-lsp',
-  'https://github.com/onsails/lspkind.nvim'
+  'https://github.com/mason-org/mason-lspconfig.nvim'
 })
 
 vim.lsp.config('*', {
-  capabilities = require('cmp_nvim_lsp').default_capabilities()
+  capabilities = require('mini.completion').get_lsp_capabilities()
 })
 
 vim.lsp.config('lua_ls', {
