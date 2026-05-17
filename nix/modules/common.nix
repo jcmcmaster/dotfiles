@@ -10,7 +10,6 @@
     azure-cli
     bat
     curl
-    docker
     fd
     google-chrome
     htop
@@ -21,7 +20,6 @@
     raycast
     rectangle
     ripgrep
-    spotify
     terraform
     tree
     tree-sitter

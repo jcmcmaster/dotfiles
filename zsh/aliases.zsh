@@ -2,13 +2,6 @@ alias g="git"
 alias vim="nvim"
 alias vi="nvim"
 
-# Pin copilot to the WSL-native binary (not the Windows one via /mnt/c)
-copilot() {
-  local wsl_bin
-  wsl_bin="$(whence -p copilot | grep -v '^/mnt/c' | head -1)"
-  "${wsl_bin:-copilot}" "$@"
-}
-
 # Requires avante.nvim plugin (AvanteZen command registered on VeryLazy load)
 alias avante='nvim -c AvanteZen'
 

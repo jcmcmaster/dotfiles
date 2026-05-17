@@ -54,12 +54,12 @@ Idempotent script for fresh Ubuntu/WSL installs. Safe to re-run. Installs:
 | apt packages | zsh, fzf, ripgrep, curl, wget, git, build-essential, unzip |
 | Neovim | Latest stable from GitHub releases (supports `--force` for upgrades) |
 | .NET SDK | Latest LTS via `dotnet-install.sh` to `~/.dotnet` (needed for csharp_ls, fsautocomplete) |
-| nvm + Node | nvm + Node LTS (needed for Copilot CLI, Mason LSP servers) |
+| nvm + Node | nvm + Node LTS (needed for Mason LSP servers) |
 | Oh My Zsh | Framework + zsh-syntax-highlighting, zsh-autosuggestions plugins |
 | GitHub CLI | `gh` from official apt repo |
 | Azure CLI | From Microsoft's apt repo |
 | Terraform | From HashiCorp's apt repo |
-| Copilot CLI | `@github/copilot` via npm |
+| GitHub CLI Copilot | Built-in `gh copilot` subcommand |
 | Oh My Posh | Prompt theme engine to `~/.local/bin` |
 
 Also configures: `ZDOTDIR` via `~/.zshenv`, `~/.gitconfig` symlink, nvim config symlink, default shell to zsh.
@@ -68,4 +68,4 @@ When adding a new tool dependency, add the install step to this script and ensur
 
 ### `pwsh/init.ps1` — Windows bootstrap
 
-Installs dev tools via **winget**: Neovim, Git, Node, Python, Oh My Posh, GitHub CLI, Docker, uv, zig, Gleam, Azure CLI, and others. Uses Chocolatey as a fallback for tools not on winget. Also installs the Copilot CLI via npm.
+Installs dev tools via **winget**: Neovim, Git, Node, Python, Oh My Posh, GitHub CLI, Docker, uv, zig, Gleam, Azure CLI, and others. Uses Chocolatey as a fallback for tools not on winget.

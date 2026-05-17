@@ -101,5 +101,3 @@ Import-Module posh-git
 
 New-Alias vim nvim
 New-Alias vi nvim
-
-. "$env:OneDrive\Documents\PowerShell\gh-copilot.ps1"
