@@ -10,17 +10,22 @@ in {
   };
 
   home.packages = with pkgs; [
+    azure-cli
     bat
     curl
+    docker
     fd
     google-chrome
     htop
+    jetbrains.rider
     jq
     obsidian
+    postman
     raycast
     rectangle
     ripgrep
     spotify
+    terraform
     tree
     tree-sitter
     wget
