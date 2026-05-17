@@ -102,6 +102,7 @@
         f = "fetch";
         l = "log";
         s = "status";
+        swc = "switch -c";
       };
     };
     signing.format = "openpgp";
