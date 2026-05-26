@@ -88,11 +88,12 @@
       alias = {
         a = "add";
         aa = "add --all";
-        acp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f";
+        acmp = "!f() { git add -A && git commit -m \"$*\" && git push; }; f";
         b = "branch";
         c = "checkout";
         cdd = "checkout -- .";
         cm = "commit --message";
+        cmp = "!f() { git commit --message \"$*\" && git push; }; f";
         d = "diff";
         dc = "diff --cached";
         dd = "difftool --dir-diff";
@@ -100,7 +101,7 @@
         f = "fetch";
         l = "log";
         s = "status";
-        swc = "switch -c";
+        sc = "switch -c";
       };
     };
     signing.format = "openpgp";
