@@ -1,7 +1,5 @@
 vim.pack.add({
-  'https://github.com/mason-org/mason.nvim',
-  'https://github.com/neovim/nvim-lspconfig',
-  'https://github.com/mason-org/mason-lspconfig.nvim'
+  'https://github.com/neovim/nvim-lspconfig'
 })
 
 vim.lsp.config('*', {
@@ -17,6 +15,28 @@ vim.lsp.config('lua_ls', {
     }
   }
 })
+
+local servers = {
+  'bashls',
+  'bicep',
+  'cssls',
+  'dockerls',
+  'eslint',
+  'fsautocomplete',
+  'graphql',
+  'html',
+  'jsonls',
+  'lemminx',
+  'lua_ls',
+  'powershell_es',
+  'pyright',
+  'roslyn_ls',
+  'vimls',
+  'taplo',
+  'yamlls'
+}
+
+vim.lsp.enable(servers)
 
 vim.keymap.set('n', '<C-.>', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action)
@@ -34,29 +54,3 @@ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-
-local servers = {
-  'bashls',
-  'bicep',
-  'csharp_ls',
-  'cssls',
-  'dockerls',
-  'eslint',
-  'fsautocomplete',
-  'graphql',
-  'html',
-  'jsonls',
-  'lemminx',
-  'lua_ls',
-  'powershell_es',
-  'pyright',
-  'vimls',
-  'yamlls'
-}
-
-require('mason').setup()
-require('mason-lspconfig').setup({
-  ensure_installed = servers
-})
-
-vim.lsp.enable(servers)

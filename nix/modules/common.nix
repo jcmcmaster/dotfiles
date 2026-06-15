@@ -7,26 +7,42 @@
   };
 
   home.packages = with pkgs; [
-    azure-cli
-    bat
-    curl
-    fd
-    google-chrome
-    htop
-    jetbrains.rider
-    jq
-    obsidian
-    postman
-    raycast
-    rectangle
-    ripgrep
-    terraform
-    tree
-    tree-sitter
-    wget
-    yq
+    azure-cli # Azure CLI
+    bash-language-server # Bash language server
+    bat # better cat
+    bicep-lsp # Bicep language server
+    curl # CLI web client
+    docker-language-server # Docker language server
+    eslint # JavaScript linter
+    fd # better find
+    fsautocomplete # F# language server
+    graphql-language-service-cli # GraphQL language server
+    google-chrome # web browser
+    htop # system stats
+    jetbrains.rider # C# IDE
+    jq # JSON CLI tools
+    lemminx # XML language server
+    lua-language-server # Lua language server
+    obsidian # knowledge management
+    powershell-editor-services # PowerShell language server
+    pyright # Python language server
+    raycast # better runner
+    rectangle # window management
+    ripgrep # fast grep
+    roslyn-ls # C# language server
+    terraform # Terraform CLI
+    taplo # TOML language server
+    tree # directory visualizer
+    tree-sitter # AST tools
+    vim-language-server # Viml language server
+    vscode-css-languageserver # CSS language server
+    vscode-json-languageserver # JSON language server
+    wget # CLI web client
+    yaml-language-server # YAML language server
+    yq # YAML CLI tools
   ];
 
+  # friendly interactive shell
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -67,6 +83,7 @@
     ];
   };
 
+  # fuzzy finder
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
@@ -74,11 +91,13 @@
     enableZshIntegration = true;
   };
 
+  # GitHub CLI
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;
   };
 
+  # Git and gitconfig
   programs.git = {
     enable = true;
     settings = {
@@ -104,17 +123,14 @@
         sc = "switch -c";
       };
     };
-    signing.format = "openpgp";
   };
 
-  programs.gpg = {
-    enable = true;
-  };
-
+  # Nix Home Manager
   programs.home-manager = {
     enable = true;
   };
 
+  # dependency manager
   programs.mise = {
     enable = true;
     enableFishIntegration = true;
@@ -122,6 +138,7 @@
     enableZshIntegration = true;
   };
 
+  # text editor
   programs.neovim = {
     enable = true;
     withRuby = false;
@@ -129,6 +146,7 @@
     sideloadInitLua = true;
   };
 
+  # pretty prompt
   programs.starship = {
     enable = true;
     presets = [
@@ -136,14 +154,17 @@
    ];
   };
 
+  # heavier text editor
   programs.vscode = {
     enable = true;
   };
 
+  # terminal emulator
   programs.wezterm = {
     enable = true;
   };
 
+  # better cd
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
