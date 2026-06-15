@@ -25,7 +25,7 @@ Cross-platform dotfiles for macOS, Windows, and WSL/Linux. Configs are organized
 
 ## Cross-platform consistency
 
-The same patterns are implemented on every platform: vi keybindings, fzf-based directory navigation (`fd`/`fp`/`fdx`/`fdev`), the same git aliases, Neovim as the editor, and GitHub CLI Copilot (`gh copilot`). Changes that affect these shared patterns should be considered for all platforms.
+The same patterns are implemented on every platform: vi keybindings, fzf-based directory navigation (`fd`/`fp`/`fdx`/`fdev`), the same git aliases, Neovim as the editor, and Copilot (`copilot`). Changes that affect these shared patterns should be considered for all platforms.
 
 ## User involvement
 

@@ -17,7 +17,7 @@ The following work the same on all three platforms:
 | Prompt | Starship | Oh My Posh (material) | Oh My Posh (material) |
 | Fuzzy nav | `fd`, `fp`, `fdx`, `fdev` | `fd`, `fp`, `fdx`, `fdev` | `fd`, `fp`, `fdx`, `fdev` |
 | Git aliases | `g`, `acp`, `cm`, `d`, `dc`… | `g`, `acp`, `cm`, `d`, `dc`… | `g`, `acp`, `cm`, `d`, `dc`… |
-| AI assistant | `gh copilot` + Neovim | `gh copilot` + Neovim | `gh copilot` + Neovim |
+| AI assistant | `copilot` + Neovim | `copilot` + Neovim | `copilot` + Neovim |
 
 **Fuzzy nav functions** (`fd`/`fp`/`fdx`/`fdev`) use fzf to jump into directories. `fdev` opens the chosen directory in a terminal split with Neovim running alongside. Implemented independently in Fish, ZSH, and PowerShell.
 
@@ -212,7 +212,7 @@ The flake exports `homeConfigurations."work"` / `"home"` and `darwinConfiguratio
 
 | Dev tools | CLI utilities | Desktop |
 |---|---|---|
-| GitHub CLI (`gh copilot`) | ripgrep, fd, bat, jq, yq | WezTerm |
+| Copilot (`copilot`) | ripgrep, fd, bat, jq, yq | WezTerm |
 | Terraform | curl, wget, htop, tree | Chrome, Obsidian |
 | Mise (runtime versions) | — | Raycast, Rectangle, Spotify (shared Homebrew cask) |
 | JetBrains Rider | — | CapCut, Discord, Keeper, Signal, Slack, Steam (home machine only; Homebrew casks) |
@@ -235,7 +235,7 @@ Config is loaded via ZSH's `ZDOTDIR` — a single `~/.zshenv` points ZSH at the 
 | `aliases.zsh` | `g`→git, `vi`/`vim`→nvim, `acp`, `cl`, `cs`, `sz`, etc. |
 | `functions.zsh` | `fd`, `fp`, `fdx`, `fdev`, `owd` (open in Explorer) |
 | `keybindings.zsh` | Vi mode, `^n/^p/^y` for autosuggestions |
-| `completions.zsh` | dotnet CLI + `gh copilot` aliases |
+| `completions.zsh` | dotnet CLI + `copilot` aliases |
 | `.gitconfig` | Git: user, aliases, nvim as editor, Windows credential manager |
 | `init.sh` | Full WSL bootstrap — see below |
 
@@ -248,7 +248,7 @@ Config is loaded via ZSH's `ZDOTDIR` — a single `~/.zshenv` points ZSH at the 
 | Runtimes | .NET SDK (LTS), nvm + Node LTS |
 | Shell | Oh My Zsh, zsh-syntax-highlighting, zsh-autosuggestions, Oh My Posh |
 | Cloud | GitHub CLI, Azure CLI, Terraform |
-| AI | Built-in GitHub CLI `gh copilot` |
+| AI | Standalone `copilot` CLI |
 
 Also sets up: `ZDOTDIR` via `~/.zshenv`, `~/.gitconfig` symlink, `~/.config/nvim` symlink, default shell → zsh.
 
@@ -274,7 +274,7 @@ Idempotent — safe to re-run. Use `--force` to reinstall Neovim, `--upgrade` to
 
 ### `init.ps1` — What it installs (winget)
 
-Docker, Neovim, Git, Node, Python 3.13, GitHub CLI, Oh My Posh, fzf, ripgrep, jq, Azure CLI, Azure Developer CLI, uv, zig, Gleam, Obsidian, Postman, Meld, PowerShell 7+, Chocolatey. Plus: `watchexec` (choco), `vectorcode` (uv). `gh copilot` is expected to be available from the installed `gh`.
+Docker, Neovim, Git, Node, Python 3.13, GitHub CLI, Oh My Posh, fzf, ripgrep, jq, Azure CLI, Azure Developer CLI, uv, zig, Gleam, Obsidian, Postman, Meld, PowerShell 7+, Chocolatey. Plus: `watchexec` (choco), `vectorcode` (uv). `copilot` is expected to be available on PATH.
 
 ---
 
