@@ -59,7 +59,7 @@ Idempotent script for fresh Ubuntu/WSL installs. Safe to re-run. Installs:
 | GitHub CLI | `gh` from official apt repo |
 | Azure CLI | From Microsoft's apt repo |
 | Terraform | From HashiCorp's apt repo |
-| Copilot | Standalone `copilot` command |
+| Copilot | Standalone `copilot` command (expected on PATH) |
 | Oh My Posh | Prompt theme engine to `~/.local/bin` |
 
 Also configures: `ZDOTDIR` via `~/.zshenv`, `~/.gitconfig` symlink, nvim config symlink, default shell to zsh.

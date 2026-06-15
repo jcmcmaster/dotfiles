@@ -9,6 +9,6 @@ fi
 
 # Copilot aliases
 if command -v copilot &>/dev/null; then
-  _copilot_aliases="$(copilot alias -- zsh 2>/dev/null)" && eval "${_copilot_aliases}"
+  _copilot_aliases="$(copilot completion zsh 2>/dev/null)" && eval "${_copilot_aliases}"
   unset _copilot_aliases
 fi

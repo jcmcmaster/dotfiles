@@ -248,7 +248,7 @@ Config is loaded via ZSH's `ZDOTDIR` — a single `~/.zshenv` points ZSH at the 
 | Runtimes | .NET SDK (LTS), nvm + Node LTS |
 | Shell | Oh My Zsh, zsh-syntax-highlighting, zsh-autosuggestions, Oh My Posh |
 | Cloud | GitHub CLI, Azure CLI, Terraform |
-| AI | Standalone `copilot` CLI |
+| AI | Standalone `copilot` CLI (expected on PATH) |
 
 Also sets up: `ZDOTDIR` via `~/.zshenv`, `~/.gitconfig` symlink, `~/.config/nvim` symlink, default shell → zsh.
 
