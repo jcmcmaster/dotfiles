@@ -1,4 +1,8 @@
 { ... }: {
+  homebrew.brews = [
+    "exercism"
+  ];
+
   homebrew.casks = [
     "capcut"
     "discord"
