@@ -1,30 +1,20 @@
 vim.pack.add({
-  'https://github.com/zbirenbaum/copilot.lua',
-  'https://github.com/olimorris/codecompanion.nvim'
+  'https://github.com/github/copilot.vim',
+  {
+    src = "https://github.com/nickjvandyke/opencode.nvim",
+    version = vim.version.range("*"), -- Latest stable release
+  },
 })
 
-require('copilot').setup()
-require('codecompanion').setup({
-  interactions = {
-    chat = {
-      adapter = {
-        name = "copilot",
-        model = "opus-4.6"
-      }
-    },
-    cli = {
-      agent = "copilot",
-      agents = {
-        copilot = {
-          cmd = "copilot",
-          args = {},
-          description = "Standalone Copilot CLI",
-          provider = "terminal"
-        }
-      }
-    }
-  }
-})
+vim.keymap.set({ "n", "x" }, "<leader>aa", function() require("opencode").ask("@this: ") end, { desc = "Ask OpenCode…" })
+vim.keymap.set({ "n", "x" }, "<leader>as", function() require("opencode").select() end, { desc = "Select OpenCode…" })
 
-vim.keymap.set('n', '<leader>ac', ':CodeCompanion chat<CR>')
-vim.keymap.set('n', '<leader>ai', ':CodeCompanionCLI<CR>')
+vim.keymap.set("n", "<leader>ak", function() require("opencode").command("session.half.page.up") end,
+  { desc = "Scroll OpenCode up" })
+vim.keymap.set("n", "<leader>aj", function() require("opencode").command("session.half.page.down") end,
+  { desc = "Scroll OpenCode down" })
+
+vim.keymap.set({ "n", "x" }, "go", function() return require("opencode").operator("@this ") end,
+  { desc = "Append range to OpenCode", expr = true })
+vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end,
+  { desc = "Append line to OpenCode", expr = true })

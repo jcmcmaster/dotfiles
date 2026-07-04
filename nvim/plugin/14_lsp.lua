@@ -1,5 +1,6 @@
 vim.pack.add({
-  'https://github.com/neovim/nvim-lspconfig'
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/folke/lazydev.nvim',
 })
 
 vim.lsp.config('*', {
@@ -37,6 +38,8 @@ local servers = {
 }
 
 vim.lsp.enable(servers)
+
+require('lazydev').setup({})
 
 vim.keymap.set('n', '<C-.>', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action)
