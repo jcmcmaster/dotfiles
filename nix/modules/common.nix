@@ -17,20 +17,16 @@
     fd # better find
     fsautocomplete # F# language server
     graphql-language-service-cli # GraphQL language server
-    google-chrome # web browser
     htop # system stats
-    jetbrains.rider # C# IDE
     jq # JSON CLI tools
     lemminx # XML language server
     lua-language-server # Lua language server
-    obsidian # knowledge management
     powershell-editor-services # PowerShell language server
     pyright # Python language server
-    raycast # better runner
-    rectangle # window management
     ripgrep # fast grep
     roslyn-ls # C# language server
     terraform # Terraform CLI
+    terraform-ls # Terraform language server
     taplo # TOML language server
     tree # directory visualizer
     tree-sitter # AST tools
@@ -152,16 +148,6 @@
     presets = [
       "nerd-font-symbols"
    ];
-  };
-
-  # heavier text editor
-  programs.vscode = {
-    enable = true;
-  };
-
-  # terminal emulator
-  programs.wezterm = {
-    enable = true;
   };
 
   # better cd

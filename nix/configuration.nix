@@ -27,7 +27,13 @@
     casks = [
       "copilot-cli"
       "docker-desktop"
+      "google-chrome"
+      "obsidian"
+      "rectangle"
+      "raycast"
       "spotify"
+      "visual-studio-code"
+      "wezterm"
     ];
   };
 }
