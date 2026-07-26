@@ -34,6 +34,7 @@ local servers = {
   'roslyn_ls',
   'vimls',
   'taplo',
+  'terraformls',
   'yamlls'
 }
 
