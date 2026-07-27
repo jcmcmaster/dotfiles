@@ -8,6 +8,7 @@
     "discord"
     "karabiner-elements"
     "keeper-password-manager"
+    "musescore"
     "signal"
     "slack"
     "steam"
