@@ -30,6 +30,11 @@ config.keys = {
     mods = 'CTRL|SHIFT',
     action = act.DisableDefaultAssignment
   },
+  {
+    key = 'Enter',
+    mods = 'ALT',
+    action = act.DisableDefaultAssignment
+  },
   -- scrolling
   {
     key = 'PageUp',
