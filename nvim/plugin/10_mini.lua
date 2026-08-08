@@ -55,3 +55,4 @@ require('mini.statusline').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
 
+vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { fg = '#cdcdcd' })
