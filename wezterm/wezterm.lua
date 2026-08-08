@@ -10,7 +10,7 @@ local theme = require('lua/vague')
 config.colors = theme.colors()
 config.window_frame = theme.window_frame()
 
-config.font = wezterm.font 'FantasqueSansM Nerd Font'
+config.font = wezterm.font('JetBrainsMono Nerd Font')
 config.font_size = 12
 
 config.keys = {

@@ -27,7 +27,7 @@
     casks = [
       "copilot-cli"
       "docker-desktop"
-      "font-fantasque-sans-mono-nerd-font"
+      "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "obsidian"
       "rectangle"
