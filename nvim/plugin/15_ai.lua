@@ -1,5 +1,4 @@
 vim.pack.add({
-  'https://github.com/github/copilot.vim',
   {
     src = "https://github.com/nickjvandyke/opencode.nvim",
     version = vim.version.range("*"), -- Latest stable release

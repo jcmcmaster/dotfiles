@@ -63,14 +63,20 @@ local set_select = function(maps, selection)
   )
 end
 
+set_select('ai', '@attribute.inner')
+set_select('ao', '@attribute.outer')
 set_select('af', '@function.outer')
-set_select('if', '@function.outer')
+set_select('if', '@function.inner')
+set_select('ab', '@block.outer')
+set_select('ib', '@block.inner')
 set_select('ac', '@class.outer')
 set_select('ic', '@class.inner')
 set_select('as', '@statement.outer')
 set_select('is', '@statement.inner')
 set_select('al', '@loop.outer')
 set_select('il', '@loop.inner')
+set_select('im', '@comment.inner')
+set_select('am', '@comment.outer')
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = servers,

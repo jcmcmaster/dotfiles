@@ -50,9 +50,15 @@ vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>lf', function()
   vim.lsp.buf.format { async = true }
 end)
-vim.keymap.set('n', 'ge', vim.diagnostic.goto_next)
+vim.keymap.set('n', 'gae', vim.diagnostic.setqflist)
+vim.keymap.set('n', 'gfe', vim.diagnostic.setloclist)
+vim.keymap.set('n', 'ge', function()
+  vim.diagnostic.jump { count = 1 }
+end)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
-vim.keymap.set('n', 'gE', vim.diagnostic.goto_prev)
+vim.keymap.set('n', 'gE', function()
+  vim.diagnostic.jump { count = -1 }
+end)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)

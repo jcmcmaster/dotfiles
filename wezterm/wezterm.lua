@@ -2,11 +2,16 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-config.color_scheme = 'rose-pine'
 config.default_prog = { '/Users/' .. os.getenv('USER') .. '/.nix-profile/bin/fish', '-l' }
-config.font_size = 12
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.max_fps = 120
+
+local theme = require('lua/vague')
+config.colors = theme.colors()
+config.window_frame = theme.window_frame()
+
+config.font = wezterm.font 'FantasqueSansM Nerd Font'
+config.font_size = 12
 
 config.keys = {
   -- disable defaults
@@ -127,7 +132,7 @@ config.keys = {
   }
 }
 
-wezterm.on("gui-startup", function(cmd)
+wezterm.on('gui-startup', function(cmd)
   local screen            = wezterm.gui.screens().active
   local ratio             = 0.7
   local width, height     = screen.width * ratio, screen.height * ratio

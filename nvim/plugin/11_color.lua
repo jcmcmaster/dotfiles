@@ -1,5 +1,9 @@
 vim.pack.add({
-  'https://github.com/rose-pine/neovim'
+  'https://github.com/vague-theme/vague.nvim'
 })
 
-vim.cmd [[ colorscheme rose-pine ]]
+require('vague').setup({
+  italic = false
+})
+
+vim.cmd.colorscheme('vague')
