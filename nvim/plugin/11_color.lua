@@ -7,3 +7,5 @@ require('vague').setup({
 })
 
 vim.cmd.colorscheme('vague')
+
+vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { fg = '#cdcdcd' })
