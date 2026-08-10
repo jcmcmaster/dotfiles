@@ -1,4 +1,18 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "lsp": true
+  "lsp": {
+    "csharp": {
+      "command": [
+        "Microsoft.CodeAnalysis.LanguageServer",
+        "--stdio",
+        "--autoLoadProjects"
+      ],
+      "extensions": [
+        "*.cs",
+        "*.csproj",
+        "*.fs",
+        "*.fsproj"
+      ]
+    }
+  }
 }
