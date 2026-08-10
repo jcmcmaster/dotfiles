@@ -19,6 +19,7 @@ vim.keymap.set('n', '<leader>ef', function() require('mini.files').open() end)
 
 require('mini.icons').setup()
 require('mini.indentscope').setup()
+require('mini.pairs').setup()
 
 require('mini.pick').setup()
 -- configure ripgrep defaults to search the way i want for mini.pick

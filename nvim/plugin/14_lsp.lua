@@ -64,3 +64,7 @@ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+
+vim.diagnostic.config({
+  virtual_text = true
+})
