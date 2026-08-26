@@ -34,7 +34,7 @@
       "raycast"
       "spotify"
       "visual-studio-code"
-      "wezterm"
+      "wezterm@nightly"
     ];
   };
 }
