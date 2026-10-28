@@ -26,7 +26,12 @@
       inherit system;
       config.allowUnfree = true;
     };
-    mkHome = extraModules: home-manager.lib.homeManagerConfiguration {
+    workPkgs = pkgs.extend (_: previous: {
+      cacert = previous.cacert.override {
+        extraCertificateFiles = [ /etc/nix/macos-keychain.crt ];
+      };
+    });
+    mkHome = pkgs: extraModules: home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = { inherit name email; };
       modules = [
@@ -37,7 +42,7 @@
         }
       ] ++ extraModules;
     };
-    mkDarwin = extraModules: nix-darwin.lib.darwinSystem {
+    mkDarwin = pkgs: extraModules: nix-darwin.lib.darwinSystem {
       inherit system pkgs;
       specialArgs = { inherit username; };
       modules = [
@@ -46,13 +51,13 @@
     };
   in {
     homeConfigurations = {
-      "work" = mkHome [ ./modules/work.nix ];
-      "home" = mkHome [ ./modules/home.nix ];
+      "work" = mkHome workPkgs [ ./modules/work.nix ];
+      "home" = mkHome pkgs [ ./modules/home.nix ];
     };
 
     darwinConfigurations = {
-      "work" = mkDarwin [ ./modules/darwin-work.nix ];
-      "home" = mkDarwin [ ./modules/darwin-home.nix ];
+      "work" = mkDarwin workPkgs [ ./modules/darwin-work.nix ];
+      "home" = mkDarwin pkgs [ ./modules/darwin-home.nix ];
     };
   };
 }
