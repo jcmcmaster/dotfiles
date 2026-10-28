@@ -134,6 +134,8 @@
     enableZshIntegration = true;
   };
 
+  xdg.configFile."ghostty/config".source = ../../ghostty/config;
+
   # text editor
   programs.neovim = {
     enable = true;
