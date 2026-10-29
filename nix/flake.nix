@@ -25,6 +25,17 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      overlays = [
+        (_: previous: {
+          terraform = previous.terraform.override {
+            buildGo127Module = previous.buildGo127Module.override {
+              cacert = previous.cacert.override {
+                extraCertificateFiles = [ /etc/nix/macos-keychain.crt ];
+              };
+            };
+          };
+        })
+      ];
     };
     mkHome = extraModules: home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
