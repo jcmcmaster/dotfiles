@@ -25,7 +25,7 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [
+      overlays = nixpkgs.lib.optionals (builtins.pathExists /etc/nix/macos-keychain.crt) [
         (_: previous: {
           terraform = previous.terraform.override {
             buildGo127Module = previous.buildGo127Module.override {
