@@ -16,8 +16,8 @@
     "mode": "on"
   },
   "keybinds": {
-    "session.tab.previous": "alt+left",
-    "session.tab.next": "alt+right",
+    "session.tab.previous": "alt+down",
+    "session.tab.next": "alt+up",
     "input.word.backward": "alt+b,ctrl+left",
     "input.word.forward": "alt+f,ctrl+right"
   }
