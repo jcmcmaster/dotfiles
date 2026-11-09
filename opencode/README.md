@@ -1,10 +1,14 @@
 # OpenCode
 
-`opencode.jsonc` contains server settings. `cli.json` contains terminal keybinding
-overrides and belongs at `~/.config/opencode/cli.json` (or
+`opencode.jsonc` contains server settings. `cli.json` contains terminal preferences
+and keybinding overrides and belongs at `~/.config/opencode/cli.json` (or
 `$XDG_CONFIG_HOME/opencode/cli.json`). OpenCode does not load project-local CLI
-settings. Merge the `keybinds` object into an existing global CLI config to retain
-its other preferences. Valid edits reload automatically.
+settings. Merge these settings into an existing global CLI config to retain any
+additional machine-local preferences. Valid edits reload automatically.
+
+The CLI preferences use the Cursor theme, word-wrapped diffs, an automatic
+sidebar with the transcript scrollbar enabled, hidden thinking blocks,
+animations, and always-on session tabs.
 
 To preview the overrides without changing your global config, run from the
 dotfiles repository root:
