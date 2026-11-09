@@ -41,7 +41,7 @@
       inherit pkgs;
       extraSpecialArgs = { inherit name email; };
       modules = [
-        ./modules/common.nix
+        ./home-manager/common.nix
         {
           home.username = username;
           home.homeDirectory = "/Users/${username}";
@@ -52,18 +52,18 @@
       inherit system pkgs;
       specialArgs = { inherit username; };
       modules = [
-        ./configuration.nix
+        ./nix-darwin/common.nix
       ] ++ extraModules;
     };
   in {
     homeConfigurations = {
-      "work" = mkHome [ ./modules/work.nix ];
-      "home" = mkHome [ ./modules/home.nix ];
+      "work" = mkHome [ ./home-manager/work.nix ];
+      "home" = mkHome [ ./home-manager/home.nix ];
     };
 
     darwinConfigurations = {
-      "work" = mkDarwin [ ./modules/darwin-work.nix ];
-      "home" = mkDarwin [ ./modules/darwin-home.nix ];
+      "work" = mkDarwin [ ./nix-darwin/work.nix ];
+      "home" = mkDarwin [ ./nix-darwin/home.nix ];
     };
   };
 }

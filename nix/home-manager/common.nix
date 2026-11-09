@@ -21,6 +21,7 @@
     jq # JSON CLI tools
     lemminx # XML language server
     lua-language-server # Lua language server
+    nixd # Nix language server
     powershell-editor-services # PowerShell language server
     pyright # Python language server
     ripgrep # fast grep
