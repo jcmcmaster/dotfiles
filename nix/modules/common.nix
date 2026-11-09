@@ -69,6 +69,9 @@
         set -gx NODE_EXTRA_CA_CERTS $HOME/.corporate-ca.pem
         set -gx GIT_SSL_CAINFO $HOME/.combined-ca-bundle.pem
       end
+
+      fish_add_path /opt/homebrew/bin
+      fish_add_path /opt/homebrew/sbin
     '';
     plugins = [
       {
