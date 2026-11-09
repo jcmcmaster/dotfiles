@@ -22,6 +22,7 @@
       lemminx # XML language server
       lua-language-server # Lua language server
       nixd # Nix language server
+      nixfmt # Nix formatter
       powershell-editor-services # PowerShell language server
       pyright # Python language server
       ripgrep # fast grep
