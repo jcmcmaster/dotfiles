@@ -50,8 +50,6 @@
       vim = "nvim";
     };
     interactiveShellInit = ''
-      set -g fish_key_bindings fish_vi_key_bindings
-
       function fdg -a path depth
         set -q path[1]; or set path ~
         set -q depth[1]; or set depth 1
