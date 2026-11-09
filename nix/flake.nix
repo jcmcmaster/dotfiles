@@ -9,6 +9,7 @@
   outputs = { nix-darwin, nixpkgs, home-manager, ... }:
   let
     system = "aarch64-darwin";
+    profiles = [ "home" "work" ];
     username =
       let
         sudoUser = builtins.getEnv "SUDO_USER";
@@ -36,29 +37,24 @@
         })
       ];
     };
-    mkHome = extraModules: home-manager.lib.homeManagerConfiguration {
+    mkHome = profile: home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = { inherit name email username; };
       modules = [
         ./home-manager/common.nix
-      ] ++ extraModules;
+        ./home-manager/${profile}.nix
+      ];
     };
-    mkDarwin = extraModules: nix-darwin.lib.darwinSystem {
+    mkDarwin = profile: nix-darwin.lib.darwinSystem {
       inherit system pkgs;
       specialArgs = { inherit username; };
       modules = [
         ./nix-darwin/common.nix
-      ] ++ extraModules;
+        ./nix-darwin/${profile}.nix
+      ];
     };
   in {
-    homeConfigurations = {
-      "work" = mkHome [ ./home-manager/work.nix ];
-      "home" = mkHome [ ./home-manager/home.nix ];
-    };
-
-    darwinConfigurations = {
-      "work" = mkDarwin [ ./nix-darwin/work.nix ];
-      "home" = mkDarwin [ ./nix-darwin/home.nix ];
-    };
+    homeConfigurations = nixpkgs.lib.genAttrs profiles mkHome;
+    darwinConfigurations = nixpkgs.lib.genAttrs profiles mkDarwin;
   };
 }

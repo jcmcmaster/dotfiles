@@ -1,4 +1,11 @@
-{ pkgs, name, username, email, ... }: {
+{
+  pkgs,
+  name,
+  username,
+  email,
+  ...
+}:
+{
   home = {
     username = username;
     homeDirectory = "/Users/${username}";
@@ -85,12 +92,7 @@
   };
 
   # fuzzy finder
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-  };
+  programs.fzf.enable = true;
 
   # GitHub CLI
   programs.gh = {
@@ -127,17 +129,10 @@
   };
 
   # Nix Home Manager
-  programs.home-manager = {
-    enable = true;
-  };
+  programs.home-manager.enable = true;
 
   # dependency manager
-  programs.mise = {
-    enable = true;
-    enableFishIntegration = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-  };
+  programs.mise.enable = true;
 
   # text editor
   programs.neovim = {
@@ -152,14 +147,9 @@
     enable = true;
     presets = [
       "nerd-font-symbols"
-   ];
+    ];
   };
 
   # better cd
-  programs.zoxide = {
-    enable = true;
-    enableFishIntegration = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-  };
+  programs.zoxide.enable = true;
 }
