@@ -1,0 +1,60 @@
+command = shell:"$HOME/.nix-profile/bin/fish" -l
+shell-integration = fish
+shell-integration-features = no-cursor
+
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+
+foreground = #cdcdcd
+background = #141415
+cursor-color = #cdcdcd
+cursor-text = #141415
+cursor-style = block
+cursor-style-blink = false
+selection-foreground = #cdcdcd
+selection-background = #252530
+split-divider-color = #252530
+macos-titlebar-style = tabs
+
+palette = 0=#252530
+palette = 1=#d8647e
+palette = 2=#7fa563
+palette = 3=#f3be7c
+palette = 4=#6e94b2
+palette = 5=#bb9dbd
+palette = 6=#aeaed1
+palette = 7=#cdcdcd
+palette = 8=#606079
+palette = 9=#e08398
+palette = 10=#99b782
+palette = 11=#f5cb96
+palette = 12=#8ba9c1
+palette = 13=#c9b1ca
+palette = 14=#bebeda
+palette = 15=#d7d7d7
+
+keybind = ctrl+shift+r=reload_config
+
+keybind = page_up=scroll_page_up
+keybind = page_down=scroll_page_down
+
+keybind = ctrl+home=goto_split:left
+keybind = ctrl+end=goto_split:right
+keybind = ctrl+page_up=goto_split:up
+keybind = ctrl+page_down=goto_split:down
+
+keybind = shift+home=resize_split:left,40
+keybind = shift+end=resize_split:right,40
+keybind = shift+page_up=resize_split:up,80
+keybind = shift+page_down=resize_split:down,80
+
+keybind = alt+arrow_left=unbind
+keybind = alt+arrow_right=unbind
+
+keybind = alt+home=previous_tab
+keybind = alt+end=next_tab
+
+keybind = ctrl+shift+home=new_split:left
+keybind = ctrl+shift+end=new_split:right
+keybind = ctrl+shift+page_up=new_split:up
+keybind = ctrl+shift+page_down=new_split:down

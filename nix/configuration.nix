@@ -28,6 +28,7 @@
       "copilot-cli"
       "docker-desktop"
       "font-jetbrains-mono-nerd-font"
+      "ghostty"
       "google-chrome"
       "obsidian"
       "rectangle"
