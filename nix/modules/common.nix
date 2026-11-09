@@ -28,6 +28,7 @@
     terraform # Terraform CLI
     terraform-ls # Terraform language server
     taplo # TOML language server
+    tmux # terminal multiplexer
     tree # directory visualizer
     tree-sitter # AST tools
     vim-language-server # Viml language server
