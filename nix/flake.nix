@@ -6,7 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nix-darwin, nixpkgs, home-manager, ... }:
+  outputs = { nix-darwin, nixpkgs, home-manager, ... }:
   let
     system = "aarch64-darwin";
     username =

@@ -6,41 +6,40 @@
       "EDITOR" = "nvim";
     };
     stateVersion = "23.11"; # Don't change this
+    packages = with pkgs; [
+      azure-cli # Azure CLI
+      bash-language-server # Bash language server
+      bat # better cat
+      bicep-lsp # Bicep language server
+      curl # CLI web client
+      docker-language-server # Docker language server
+      eslint # JavaScript linter
+      fd # better find
+      fsautocomplete # F# language server
+      graphql-language-service-cli # GraphQL language server
+      htop # system stats
+      jq # JSON CLI tools
+      lemminx # XML language server
+      lua-language-server # Lua language server
+      nixd # Nix language server
+      powershell-editor-services # PowerShell language server
+      pyright # Python language server
+      ripgrep # fast grep
+      roslyn-ls # C# language server
+      terraform # Terraform CLI
+      terraform-ls # Terraform language server
+      taplo # TOML language server
+      tmux # terminal multiplexer
+      tree # directory visualizer
+      tree-sitter # AST tools
+      vim-language-server # Viml language server
+      vscode-css-languageserver # CSS language server
+      vscode-json-languageserver # JSON language server
+      wget # CLI web client
+      yaml-language-server # YAML language server
+      yq # YAML CLI tools
+    ];
   };
-
-  home.packages = with pkgs; [
-    azure-cli # Azure CLI
-    bash-language-server # Bash language server
-    bat # better cat
-    bicep-lsp # Bicep language server
-    curl # CLI web client
-    docker-language-server # Docker language server
-    eslint # JavaScript linter
-    fd # better find
-    fsautocomplete # F# language server
-    graphql-language-service-cli # GraphQL language server
-    htop # system stats
-    jq # JSON CLI tools
-    lemminx # XML language server
-    lua-language-server # Lua language server
-    nixd # Nix language server
-    powershell-editor-services # PowerShell language server
-    pyright # Python language server
-    ripgrep # fast grep
-    roslyn-ls # C# language server
-    terraform # Terraform CLI
-    terraform-ls # Terraform language server
-    taplo # TOML language server
-    tmux # terminal multiplexer
-    tree # directory visualizer
-    tree-sitter # AST tools
-    vim-language-server # Viml language server
-    vscode-css-languageserver # CSS language server
-    vscode-json-languageserver # JSON language server
-    wget # CLI web client
-    yaml-language-server # YAML language server
-    yq # YAML CLI tools
-  ];
 
   # friendly interactive shell
   programs.fish = {
