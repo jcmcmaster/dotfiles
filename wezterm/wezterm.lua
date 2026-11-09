@@ -9,6 +9,7 @@ config.max_fps = 120
 local theme = require('lua/vague')
 config.colors = theme.colors()
 config.window_frame = theme.window_frame()
+config.window_decorations = "MACOS_USE_BACKGROUND_COLOR_AS_TITLEBAR_COLOR|TITLE|RESIZE"
 
 config.font = wezterm.font('JetBrainsMono Nerd Font')
 config.font_size = 12
@@ -110,14 +111,24 @@ config.keys = {
   },
   -- creating panes
   {
+    key = 'Home',
+    mods = 'CTRL|SHIFT',
+    action = act.SplitPane { direction = 'Left' }
+  },
+  {
     key = 'End',
     mods = 'CTRL|SHIFT',
-    action = act.SplitHorizontal
+    action = act.SplitPane { direction = 'Right' }
+  },
+  {
+    key = 'PageUp',
+    mods = 'CTRL|SHIFT',
+    action = act.SplitPane { direction = 'Up' }
   },
   {
     key = 'PageDown',
     mods = 'CTRL|SHIFT',
-    action = act.SplitVertical
+    action = act.SplitPane { direction = 'Down' }
   },
   -- rotating panes
   {
