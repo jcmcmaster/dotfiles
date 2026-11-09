@@ -6,8 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
-
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
+  outputs = { self, nix-darwin, nixpkgs, home-manager, ... }:
   let
     system = "aarch64-darwin";
     username =
@@ -39,13 +38,9 @@
     };
     mkHome = extraModules: home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit name email; };
+      extraSpecialArgs = { inherit name email username; };
       modules = [
         ./home-manager/common.nix
-        {
-          home.username = username;
-          home.homeDirectory = "/Users/${username}";
-        }
       ] ++ extraModules;
     };
     mkDarwin = extraModules: nix-darwin.lib.darwinSystem {

@@ -1,5 +1,7 @@
-{ pkgs, name, email, ... }: {
+{ pkgs, name, username, email, ... }: {
   home = {
+    username = username;
+    homeDirectory = "/Users/${username}";
     sessionVariables = {
       "EDITOR" = "nvim";
     };
