@@ -192,17 +192,21 @@ The flake exports both `homeConfigurations` and `darwinConfigurations`. They are
 ```
 nix/
 ├── flake.nix         Inputs (nixpkgs-unstable, nix-darwin, home-manager) + dual outputs
-├── configuration.nix Shared system-level settings: user, Fish login shell, Homebrew, shared casks, Determinate Nix compat
-├── modules/
-│   ├── common.nix        Shared packages, shell, prompt, git, and programs
-│   ├── home.nix          Home-only Home Manager packages (`ffmpeg`, plus macOS-only `karabiner-elements`)
-│   ├── work.nix          Work-only Home Manager overrides (currently empty placeholder)
-│   ├── darwin-home.nix   Home-only nix-darwin Homebrew casks (`capcut`, `discord`, `keeper-password-manager`, `signal`, `slack`, `steam`)
-│   └── darwin-work.nix   Work-only nix-darwin overrides (currently empty placeholder)
-└── nix.conf          Enable flakes + nix-command
+├── flake.lock        Pinned input revisions
+├── nix.conf          Enable flakes + nix-command
+├── home-manager/
+│   ├── common.nix    Shared user identity, packages, shell, prompt, git, and programs
+│   ├── home.nix      Home-only user packages (`ffmpeg`)
+│   └── work.nix      Work-only user overrides (currently empty placeholder)
+└── nix-darwin/
+    ├── common.nix    Shared system settings: user, Fish login shell, Homebrew, shared casks, Determinate Nix compat
+    ├── home.nix      Home-only Homebrew packages and casks (e.g. `exercism`, `karabiner-elements`, `steam`)
+    └── work.nix      Work-only system overrides (currently empty placeholder)
 ```
 
 The flake exports `homeConfigurations."work"` / `"home"` and `darwinConfigurations."work"` / `"home"` — use `--flake .#work` or `--flake .#home` with either `home-manager` or `darwin-rebuild` accordingly.
+
+Both output sets are generated from the same `profiles` list in `flake.nix`. Each configuration loads `common.nix` and the matching `home.nix` or `work.nix` from its own directory.
 
 **Shell:** Fish with vi key bindings, zoxide (`cd → z`), fzf integration.
 
@@ -217,9 +221,9 @@ The flake exports `homeConfigurations."work"` / `"home"` and `darwinConfiguratio
 | Mise (runtime versions) | — | Raycast, Rectangle, Spotify (shared Homebrew cask) |
 | JetBrains Rider | — | CapCut, Discord, Keeper, Signal, Slack, Steam (home machine only; Homebrew casks) |
 
-**Git** is configured declaratively in `modules/common.nix`: user info, openpgp signing, and all aliases match the other platforms. The `name` and `email` values are passed in from `flake.nix`; `email` still comes from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine identity](#per-machine-identity) above).
+**Git** is configured declaratively in `nix/home-manager/common.nix`: user info, default branch, and aliases. The `name` and `email` values are passed in from `flake.nix`; `email` still comes from the `EMAIL` env var at build time, so the rebuild must inherit that env var (see [Per-machine identity](#per-machine-identity) above).
 
-**Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `modules/common.nix` automatically injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`, and sets `NODE_EXTRA_CA_CERTS` to `~/.corporate-ca.pem`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
+**Corporate SSL/TLS:** If `~/.corporate-ca.pem` exists, `nix/home-manager/common.nix` automatically injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`, and sets `NODE_EXTRA_CA_CERTS` to `~/.corporate-ca.pem`. See [Corporate SSL/TLS Setup](#corporate-ssltls-setup).
 
 ---
 
@@ -364,4 +368,4 @@ curl -sS -o /dev/null -w "%{http_code}" https://api.github.com
 # 200
 ```
 
-`modules/common.nix` automatically detects `~/.corporate-ca.pem` and injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`. `NODE_EXTRA_CA_CERTS` is set to `~/.corporate-ca.pem` directly. Rebuild the bundle after any `darwin-rebuild switch` that updates the Nix CA store, or when your company rotates its proxy CA.
+`nix/home-manager/common.nix` automatically detects `~/.corporate-ca.pem` and injects `~/.combined-ca-bundle.pem` into `NIX_SSL_CERT_FILE`, `SSL_CERT_FILE`, and `GIT_SSL_CAINFO`. `NODE_EXTRA_CA_CERTS` is set to `~/.corporate-ca.pem` directly. Rebuild the bundle after any `darwin-rebuild switch` that updates the Nix CA store, or when your company rotates its proxy CA.
