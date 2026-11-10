@@ -45,3 +45,29 @@ foreach ($skill in $skills) {
     }
   }
 }
+
+$instructions = Join-Path $PSScriptRoot "AGENTS.md"
+$copilotHome = if ($env:COPILOT_HOME) { $env:COPILOT_HOME } else { Join-Path $HOME ".copilot" }
+$configHome = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { Join-Path $HOME ".config" }
+$instructionTargets = @(
+  (Join-Path $copilotHome "copilot-instructions.md"),
+  (Join-Path $configHome "opencode/AGENTS.md")
+)
+
+foreach ($target in $instructionTargets) {
+  $existing = Get-Item -LiteralPath $target -Force -ErrorAction SilentlyContinue
+  if ($existing -and $existing.LinkType -eq "SymbolicLink" -and $existing.Target -eq $instructions) {
+    continue
+  }
+  if ($existing -and $existing.PSIsContainer) {
+    throw "Cannot replace global instructions at '$target': it is a directory."
+  }
+  if ($existing -and -not $Force) {
+    throw "Global instructions already exist at '$target'. Use -Force to replace them."
+  }
+
+  if ($PSCmdlet.ShouldProcess($target, "Symlink global instructions to $instructions")) {
+    New-Item -ItemType Directory -Path (Split-Path -Path $target -Parent) -Force -Confirm:$false | Out-Null
+    New-Item -ItemType SymbolicLink -Path $target -Target $instructions -Force:$Force -Confirm:$false | Out-Null
+  }
+}

@@ -142,9 +142,9 @@ module, and an authenticated GitHub CLI version that supports `gh skill install`
 ```powershell
 Install-Module powershell-yaml -Scope CurrentUser # One-time prerequisite
 
-pwsh -File ./skills/init.ps1 -WhatIf # Preview without installing
-pwsh -File ./skills/init.ps1         # Install for both agents
-pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills
+pwsh -File ./skills/init.ps1 -WhatIf # Preview without changes
+pwsh -File ./skills/init.ps1         # Install skills and link global instructions
+pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills and instructions
 ```
 
 Installs `github-pr-follow-through`, `grill-me`, and `handoff` for **GitHub
@@ -158,6 +158,18 @@ rather than upstream.
 Existing skills are not automatically overwritten; `gh` may prompt or fail in
 non-interactive use unless `-Force` is supplied. The script stops on the first
 failed install. It does not remove skills that are no longer in the list.
+
+The installer also symlinks `skills/AGENTS.md` to both agents' global instruction
+files:
+
+- Copilot: `~/.copilot/copilot-instructions.md` (or `$COPILOT_HOME/copilot-instructions.md`).
+- OpenCode: `~/.config/opencode/AGENTS.md` (or `$XDG_CONFIG_HOME/opencode/AGENTS.md`).
+
+Parent directories are created as needed. Correct links are left alone; existing
+files or conflicting links require `-Force` to replace. Directories are never
+replaced. On Windows, creating symlinks requires Developer Mode or an elevated
+PowerShell session. Keep the checkout containing `skills/AGENTS.md` in place so
+the links remain valid.
 
 Run installer tests without installing anything:
 
