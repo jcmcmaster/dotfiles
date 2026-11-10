@@ -145,6 +145,7 @@ separate module installation is needed.
 dotnet fsi ./skills/init.fsx -- --what-if # Preview without installing
 dotnet fsi ./skills/init.fsx             # Install for both agents
 dotnet fsi ./skills/init.fsx -- --force   # Overwrite existing skills
+dotnet fsi ./skills/init.fsx -- --verbose # Show full gh output
 ```
 
 Installs `github-pr-follow-through`, `grilling`, `handoff`, `pr`,
@@ -157,9 +158,22 @@ resolves them within the repository, so a `skills/` prefix is not needed.
 `grill-with-docs`, and `domain-modeling` come directly from
 [Matt Pocock's skills repository](https://github.com/mattpocock/skills).
 Dex Horthy's `show-me` comes from [HumanLayer's skills repository](https://github.com/humanlayer/skills/tree/main/plugins/show-me/skills/show-me).
-Existing skills are not automatically overwritten; `gh` may prompt or fail in
-non-interactive use unless `--force` is supplied. The script stops on the first
-failed install. It does not remove skills that are no longer in the list.
+The default output shows one security warning, one result per skill, and a final
+summary. A skill is marked installed only after both agents succeed. Full `gh`
+stdout/stderr is captured and shown on failure; `--verbose` shows it after every
+command, including successful installs.
+
+Existing skills are not automatically overwritten. The script asks before
+retrying with `--force` in an interactive terminal; declining skips that agent
+and is reflected in the summary. Non-interactive conflicts fail unless `--force`
+is supplied; `GH_PROMPT_DISABLED` also disables the script's prompts. The script
+stops on the first failed install. It does not remove skills that are no longer
+in the list.
+
+Some `gh` versions print `(could not read directory)` for namespaced skills in
+verbose mode: they install into a flat directory (e.g. `grilling/`) but try to
+render the tree at the namespaced path (`productivity/grilling/`). This is a
+tree-display issue, not an install failure.
 
 Run installer tests without installing anything:
 
