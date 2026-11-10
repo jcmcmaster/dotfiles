@@ -1,16 +1,29 @@
+- repository: humanlayer/skills
+  skills:
+    - design-control-loop
+    - show-me
 - repository: jcmcmaster/dotfiles
   skills:
     - github-pr-follow-through
-    - handoff
 - repository: mattpocock/skills
   skills:
-    - grilling
-    - pr
-    - grill-with-docs
+    - code-review
+    - codebase-design
     - domain-modeling
+    - grill-with-docs
+    - grilling
+    - handoff
+    - implement
+    - implement-spec
+    - improve-codebase-architecture
+    - pr
+    - research
+    - retro
+    - setup-matt-pocock-skills
+    - tdd
     - to-spec
     - to-tickets
     - wayfinder
-- repository: humanlayer/skills
+- repository: backnotprop/pstack
   skills:
-    - show-me
+    - arena
