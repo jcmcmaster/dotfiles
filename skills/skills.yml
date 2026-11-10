@@ -10,6 +10,7 @@
     - domain-modeling
     - to-spec
     - to-tickets
+    - wayfinder
 - repository: humanlayer/skills
   skills:
     - show-me
