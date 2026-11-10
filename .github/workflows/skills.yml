@@ -1,4 +1,4 @@
-name: Skill installer tests
+name: Skill Installer Tests
 
 on:
   pull_request:
