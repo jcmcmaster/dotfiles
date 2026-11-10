@@ -1,3 +1,5 @@
+#requires -Modules powershell-yaml
+
 [CmdletBinding(SupportsShouldProcess)]
 param(
   [switch]$Force
@@ -5,12 +7,17 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# Add repository/skill pairs here. Exact paths avoid scanning entire repositories.
-$skills = @(
-  @{ Repository = "jcmcmaster/dotfiles"; Skill = "skills/github-pr-follow-through" },
-  @{ Repository = "jcmcmaster/dotfiles"; Skill = "skills/grill-me" },
-  @{ Repository = "jcmcmaster/dotfiles"; Skill = "skills/handoff" }
-)
+$skills = Get-Content -LiteralPath "$PSScriptRoot/skills.yml" -Raw | ConvertFrom-Yaml
+if ($skills -isnot [System.Collections.IList]) {
+  throw "skills.yml must contain a list of repository/skill pairs."
+}
+foreach ($skill in $skills) {
+  if ($skill -isnot [System.Collections.IDictionary] -or
+      [string]::IsNullOrWhiteSpace($skill.repository) -or
+      [string]::IsNullOrWhiteSpace($skill.skill)) {
+    throw "Each entry in skills.yml must specify repository and skill."
+  }
+}
 
 $agents = @("github-copilot", "opencode")
 
@@ -21,7 +28,7 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
 foreach ($skill in $skills) {
   foreach ($agent in $agents) {
     $installArguments = @(
-      "skill", "install", $skill.Repository, $skill.Skill,
+      "skill", "install", $skill.repository, $skill.skill,
       "--agent", $agent, "--scope", "user"
     )
 
@@ -29,7 +36,7 @@ foreach ($skill in $skills) {
       $installArguments += "--force"
     }
 
-    $target = "$($skill.Repository)/$($skill.Skill) for $agent (user scope)"
+    $target = "$($skill.repository)/$($skill.skill) for $agent (user scope)"
     if ($PSCmdlet.ShouldProcess($target, "Install skill")) {
       & gh @installArguments
       if ($LASTEXITCODE -ne 0) {

@@ -1,0 +1,7 @@
+- repository: jcmcmaster/dotfiles
+  skill: skills/github-pr-follow-through
+# Keep the self-contained copy; upstream grill-me requires grilling.
+- repository: jcmcmaster/dotfiles
+  skill: skills/grill-me
+- repository: jcmcmaster/dotfiles
+  skill: skills/handoff

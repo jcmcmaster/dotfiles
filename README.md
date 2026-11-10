@@ -136,10 +136,12 @@ dotfiles/
 
 ## Agent Skills (`skills/`)
 
-Run the PowerShell installer on any platform with `pwsh` and an authenticated
-GitHub CLI version that supports `gh skill install`:
+Run the PowerShell installer on any platform with `pwsh`, the `powershell-yaml`
+module, and an authenticated GitHub CLI version that supports `gh skill install`:
 
 ```powershell
+Install-Module powershell-yaml -Scope CurrentUser # One-time prerequisite
+
 pwsh -File ./skills/init.ps1 -WhatIf # Preview without installing
 pwsh -File ./skills/init.ps1         # Install for both agents
 pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills
@@ -147,7 +149,8 @@ pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills
 
 Installs `github-pr-follow-through`, `grill-me`, and `handoff` for **GitHub
 Copilot** and **OpenCode** at user scope (available across projects). Edit the
-`$skills` repository/path list in `skills/init.ps1` to change the selection.
+repository/path list in `skills/skills.yml` to change the selection; the installer
+and tests both read this file.
 All three come from this repo, including its self-contained copy of `grill-me`.
 If `gh` asks which source to use for `grill-me`, select `jcmcmaster/dotfiles`
 rather than upstream.

@@ -1,4 +1,9 @@
+#requires -Modules powershell-yaml
+
 $ErrorActionPreference = "Stop"
+
+$skills = Get-Content -LiteralPath "$PSScriptRoot/skills.yml" -Raw | ConvertFrom-Yaml
+$agents = @("github-copilot", "opencode")
 
 function Assert-Equal($Expected, $Actual) {
   if ($Expected -cne $Actual) {
@@ -18,50 +23,45 @@ $mockGh = {
 Set-Item Function:gh $mockGh
 
 try {
-  & "$PSScriptRoot/init.ps1"
-  Assert-Equal 6 $calls.Count
+  foreach ($force in @($false, $true)) {
+    $calls.Clear()
+    & "$PSScriptRoot/init.ps1" -Force:$force
+    Assert-Equal ($skills.Count * $agents.Count) $calls.Count
 
-  $expectedSkills = @(
-    "jcmcmaster/dotfiles skills/github-pr-follow-through",
-    "jcmcmaster/dotfiles skills/grill-me",
-    "jcmcmaster/dotfiles skills/handoff"
-  )
-  $index = 0
-  foreach ($skill in $expectedSkills) {
-    foreach ($agent in @("github-copilot", "opencode")) {
-      Assert-Equal "skill install $skill --agent $agent --scope user" ($calls[$index] -join " ")
-      $index++
+    $index = 0
+    foreach ($skill in $skills) {
+      foreach ($agent in $agents) {
+        $expected = "skill install $($skill.repository) $($skill.skill) --agent $agent --scope user"
+        if ($force) {
+          $expected += " --force"
+        }
+        Assert-Equal $expected ($calls[$index] -join " ")
+        $index++
+      }
     }
+    Write-Host "PASS: installs manifest skills for both agents (Force=$force)"
   }
-  Write-Host "PASS: installs all three skills for both agents at user scope"
-
-  $calls.Clear()
-  & "$PSScriptRoot/init.ps1" -Force
-  Assert-Equal 6 $calls.Count
-  for ($index = 0; $index -lt $calls.Count; $index++) {
-    $skill = $expectedSkills[[int][Math]::Floor($index / 2)]
-    $agent = @("github-copilot", "opencode")[$index % 2]
-    Assert-Equal "skill install $skill --agent $agent --scope user --force" ($calls[$index] -join " ")
-  }
-  Write-Host "PASS: only overwrites when -Force is supplied"
 
   $calls.Clear()
   & "$PSScriptRoot/init.ps1" -WhatIf -Force
   Assert-Equal 0 $calls.Count
   Write-Host "PASS: -WhatIf does not invoke gh, even with -Force"
 
-  $calls.Clear()
-  $mock.ExitCode = 17
-  $failure = $null
-  try {
-    & "$PSScriptRoot/init.ps1"
+  if ($skills.Count -gt 0) {
+    $calls.Clear()
+    $mock.ExitCode = 17
+    $failure = $null
+    try {
+      & "$PSScriptRoot/init.ps1"
+    }
+    catch {
+      $failure = $_
+    }
+    Assert-Equal 1 $calls.Count
+    $first = $skills[0]
+    Assert-Equal "Failed to install $($first.repository)/$($first.skill) for $($agents[0]) (user scope) (gh exited with 17)." $failure.Exception.Message
+    Write-Host "PASS: stops immediately and reports failed installs"
   }
-  catch {
-    $failure = $_
-  }
-  Assert-Equal 1 $calls.Count
-  Assert-Equal "Failed to install jcmcmaster/dotfiles/skills/github-pr-follow-through for github-copilot (user scope) (gh exited with 17)." $failure.Exception.Message
-  Write-Host "PASS: stops immediately and reports failed installs"
 
   $calls.Clear()
   $previousPath = $env:PATH
