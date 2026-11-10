@@ -1,14 +1,15 @@
 - repository: jcmcmaster/dotfiles
-  skill: github-pr-follow-through
+  skills:
+    - github-pr-follow-through
+    - handoff
 - repository: mattpocock/skills
-  skill: grilling
-- repository: jcmcmaster/dotfiles
-  skill: handoff
-- repository: mattpocock/skills
-  skill: pr
-- repository: mattpocock/skills
-  skill: grill-with-docs
-- repository: mattpocock/skills
-  skill: domain-modeling
+  skills:
+    - grilling
+    - pr
+    - grill-with-docs
+    - domain-modeling
+    - to-spec
+    - to-tickets
 - repository: humanlayer/skills
-  skill: show-me
+  skills:
+    - show-me
