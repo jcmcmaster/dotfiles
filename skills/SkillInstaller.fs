@@ -25,7 +25,7 @@ let parseArgs args =
 
     match args with
     | [| "--help" |] -> None
-    | _ -> Some(parse { Force = false; WhatIf = false } (Array.toList args))
+    | _ -> Some(parse { Force = true; WhatIf = false } (Array.toList args))
 
 let parseManifest (yaml: string) =
     let entries =

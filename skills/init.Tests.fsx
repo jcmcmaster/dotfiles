@@ -36,10 +36,20 @@ let skills =
     File.ReadAllText(Path.Combine(__SOURCE_DIRECTORY__, "skills.yml"))
     |> parseManifest
 
-let defaults = { Force = false; WhatIf = false }
+let defaults = { Force = true; WhatIf = false }
 
 let tests =
-    [ "installs manifest skills for both agents, with and without --force",
+    [ "overwrites installed skills by default",
+      fun () ->
+          let gh, calls, output = fixture 0
+          let options = parseArgs [||] |> Option.get
+          install gh output.Add options skills
+          equal (skills.Length * 2) calls.Count
+
+          for args in calls do
+              equal "--force" (List.last args)
+
+      "installs manifest skills for both agents, with and without --force",
       fun () ->
           for force in [ false; true ] do
               let gh, calls, output = fixture 0

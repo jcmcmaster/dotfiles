@@ -143,8 +143,7 @@ separate module installation is needed.
 
 ```sh
 dotnet fsi ./skills/init.fsx -- --what-if # Preview without installing
-dotnet fsi ./skills/init.fsx             # Install for both agents
-dotnet fsi ./skills/init.fsx -- --force   # Overwrite existing skills
+dotnet fsi ./skills/init.fsx             # Install for both agents, overwriting existing skills
 ```
 
 Installs the skills in `skills/skills.yml` for **GitHub Copilot** and **OpenCode**
@@ -164,9 +163,10 @@ Use bare names such as `handoff`; `gh` resolves them within the repository, so a
 `grill-with-docs`, `domain-modeling`, `to-spec`, and `to-tickets` come directly from
 [Matt Pocock's skills repository](https://github.com/mattpocock/skills).
 Dex Horthy's `show-me` comes from [HumanLayer's skills repository](https://github.com/humanlayer/skills/tree/main/plugins/show-me/skills/show-me).
-Existing skills are not automatically overwritten; `gh` may prompt or fail in
-non-interactive use unless `--force` is supplied. The script stops on the first
-failed install. It does not remove skills that are no longer in the list.
+Existing skills are overwritten without prompting (`--force` is enabled by
+default), so make changes in the source repository rather than the agents'
+installed copies. The script stops on the first failed install. It does not remove
+skills that are no longer in the list.
 
 Run installer tests without installing anything:
 
