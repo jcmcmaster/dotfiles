@@ -3,7 +3,7 @@ Generally:
 
 Worktrees:
 - Any work that modifies files must be conducted in a worktree. Consider the main checkout read-only.
-- Worktrees belong in a folder ${repo-name}-wt/ that is sibling to the main checkout.
+- Worktrees belong in a folder ${repo-name}-wt/${worktree-topic}/ whose parent is sibling to the main checkout.
 
 Coding standards:
 - Idiomatic use of tech stack
