@@ -164,6 +164,9 @@ Run installer tests without installing anything:
 pwsh -NoProfile -File ./skills/init.Tests.ps1
 ```
 
+GitHub Actions runs these mocked tests on Linux, Windows, and macOS for pull
+requests and pushes to `master` that change `skills/` or the test workflow.
+
 ---
 
 ## Neovim (`nvim/`)

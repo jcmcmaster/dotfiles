@@ -1,0 +1,37 @@
+name: Skill installer tests
+
+on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - ".github/workflows/skills.yml"
+  push:
+    branches: [master]
+    paths:
+      - "skills/**"
+      - ".github/workflows/skills.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install YAML module
+        run: Install-Module powershell-yaml -RequiredVersion 0.4.12 -Scope CurrentUser -Force -ErrorAction Stop
+      - name: Run installer tests
+        run: ./skills/init.Tests.ps1
