@@ -28,6 +28,7 @@
       jq # JSON CLI tools
       lemminx # XML language server
       lua-language-server # Lua language server
+      marksman # Markdown language server
       nixd # Nix language server
       nixfmt # Nix formatter
       powershell-editor-services # PowerShell language server
