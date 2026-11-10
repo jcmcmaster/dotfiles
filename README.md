@@ -149,8 +149,9 @@ pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills
 
 Installs `github-pr-follow-through`, `grill-me`, and `handoff` for **GitHub
 Copilot** and **OpenCode** at user scope (available across projects). Edit the
-repository/path list in `skills/skills.yml` to change the selection; the installer
-and tests both read this file.
+repository/skill-name list in `skills/skills.yml` to change the selection; the
+installer and tests both read this file. Use bare names such as `handoff`; `gh`
+resolves them within the repository, so a `skills/` prefix is not needed.
 All three come from this repo, including its self-contained copy of `grill-me`.
 If `gh` asks which source to use for `grill-me`, select `jcmcmaster/dotfiles`
 rather than upstream.
