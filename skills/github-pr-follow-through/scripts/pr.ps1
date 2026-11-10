@@ -19,22 +19,24 @@ function Wait-Copilot {
   $sha = $head.headRefOid
   $branches = @($head.headRefName, "refs/pull/$Number/head")
   $deadline = (Get-Date).AddSeconds(30)
+  $runs = [ordered]@{}
   while ($true) {
     $pages = @(Invoke-GhJson @('api', '--paginate', '--slurp', "repos/$Repository/actions/runs?head_sha=$sha&per_page=100"))
-    $runs = @($pages.workflow_runs | Where-Object {
+    $matchingRuns = @($pages.workflow_runs | Where-Object {
       $_.path -like '*copilot-pull-request-reviewer*' -and $_.head_sha -eq $sha -and
       ($_.head_branch -in $branches -or $Number -in $_.pull_requests.number)
     })
-    if ($runs.Count) { break }
+    foreach ($run in $matchingRuns) { $runs[[string]$run.id] = $run }
     $remaining = ($deadline - (Get-Date)).TotalSeconds
-    if ($remaining -le 0) {
-      "No Copilot action found for $Repository#$Number at $sha in 30s."
-      return
-    }
+    if ($remaining -le 0) { break }
     Start-Sleep -Seconds ([Math]::Min(5, $remaining))
   }
+  if (-not $runs.Count) {
+    "No Copilot action found for $Repository#$Number at $sha in 30s."
+    return
+  }
   $failed = $false
-  foreach ($run in $runs) {
+  foreach ($run in $runs.Values) {
     & gh run watch ([string]$run.id) --repo $Repository --exit-status --interval 5
     if ($LASTEXITCODE -ne 0) { $failed = $true }
   }

@@ -71,9 +71,23 @@ $tests = [ordered]@{
     $global:PrFixture.Responses.Enqueue(@{ headRefOid = 'current'; headRefName = 'feature' })
     $global:PrFixture.Responses.Enqueue(@{ workflow_runs = @() })
     $global:PrFixture.Responses.Enqueue(@{ workflow_runs = @((New-Run)) })
+    $global:PrFixture.Fallback = @{ workflow_runs = @((New-Run)) }
     $null = & $target wait owner/repo 7
-    Assert ($global:PrFixture.Now -eq [datetime]'2026-01-01T00:00:05')
+    Assert ($global:PrFixture.Now -eq [datetime]'2026-01-01T00:00:30')
     Assert (($global:PrFixture.Calls[-1] -join ' ') -eq 'run watch 1 --repo owner/repo --exit-status --interval 5')
+  }
+  'an earlier completed run does not hide a newly registered review' = {
+    $global:PrFixture.Responses.Enqueue(@{ headRefOid = 'current'; headRefName = 'feature' })
+    $old = New-Run 1; $old.status = 'completed'
+    $new = New-Run 2; $new.status = 'in_progress'
+    $global:PrFixture.Responses.Enqueue(@{ workflow_runs = @($old) })
+    $global:PrFixture.Responses.Enqueue(@{ workflow_runs = @($old, $new) })
+    $global:PrFixture.Fallback = @{ workflow_runs = @($new) }
+    $null = & $target wait owner/repo 7
+    $watches = @($global:PrFixture.Calls | Where-Object { $_[0] -eq 'run' })
+    Assert ($global:PrFixture.Now -eq [datetime]'2026-01-01T00:00:30')
+    Assert ($watches.Count -eq 2)
+    Assert ($watches[0][2] -eq '1' -and $watches[1][2] -eq '2')
   }
   'filters SHA, path, branch and supports paginated legacy/linked runs' = {
     $global:PrFixture.Responses.Enqueue(@{ headRefOid = 'current'; headRefName = 'feature' })
@@ -85,6 +99,7 @@ $tests = [ordered]@{
     $linked = New-Run 5; $linked.head_branch = 'other'; $linked.pull_requests = @(@{ number = 7 })
     $global:PrFixture.Responses.Enqueue(@(
       @{ workflow_runs = @($old, $other, $branch) }, @{ workflow_runs = @($legacy, $linked) }))
+    $global:PrFixture.Fallback = @{ workflow_runs = @($legacy, $linked) }
     $null = & $target wait owner/repo 7
     $watches = @($global:PrFixture.Calls | Where-Object { $_[0] -eq 'run' })
     Assert ($watches.Count -eq 2)
@@ -93,6 +108,7 @@ $tests = [ordered]@{
   'waits for all runs despite failure' = {
     $global:PrFixture.Responses.Enqueue(@{ headRefOid = 'current'; headRefName = 'feature' })
     $global:PrFixture.Responses.Enqueue(@{ workflow_runs = @((New-Run 1), (New-Run 2)) })
+    $global:PrFixture.Fallback = @{ workflow_runs = @((New-Run 1), (New-Run 2)) }
     $global:PrFixture.WatchCodes.Enqueue(1); $global:PrFixture.WatchCodes.Enqueue(0)
     $failed = $false
     try { & $target wait owner/repo 7 } catch { $failed = $true }
