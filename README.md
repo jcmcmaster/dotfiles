@@ -148,14 +148,15 @@ pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills
 ```
 
 Installs `github-pr-follow-through`, `grilling`, `handoff`, `pr`,
-`grill-with-docs`, and `domain-modeling` for **GitHub Copilot** and **OpenCode**
-at user scope (available across projects). Edit the
+`grill-with-docs`, `domain-modeling`, and `show-me` for **GitHub Copilot** and
+**OpenCode** at user scope (available across projects). Edit the
 repository/skill-name list in `skills/skills.yml` to change the selection; the
 installer and tests both read this file. Use bare names such as `handoff`; `gh`
 resolves them within the repository, so a `skills/` prefix is not needed.
 `github-pr-follow-through` and `handoff` come from this repo; `grilling`, `pr`,
 `grill-with-docs`, and `domain-modeling` come directly from
 [Matt Pocock's skills repository](https://github.com/mattpocock/skills).
+Dex Horthy's `show-me` comes from [HumanLayer's skills repository](https://github.com/humanlayer/skills/tree/main/plugins/show-me/skills/show-me).
 Existing skills are not automatically overwritten; `gh` may prompt or fail in
 non-interactive use unless `-Force` is supplied. The script stops on the first
 failed install. It does not remove skills that are no longer in the list.

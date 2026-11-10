@@ -10,3 +10,5 @@
   skill: grill-with-docs
 - repository: mattpocock/skills
   skill: domain-modeling
+- repository: humanlayer/skills
+  skill: show-me
