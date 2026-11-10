@@ -106,13 +106,25 @@ let tests =
           for args in [ [| "--oops" |]; [| "unexpected" |]; [| "--help"; "--force" |] ] do
               throwsContaining usage (fun () -> parseArgs args |> ignore)
 
+      "expands repository skill lists in manifest order",
+      fun () ->
+          let yaml =
+              "- repository: owner/first\n  skills: [alpha, beta]\n"
+              + "- repository: owner/second\n  skills:\n    - gamma\n"
+
+          equal
+              [ { Repository = "owner/first"; Name = "alpha" }
+                { Repository = "owner/first"; Name = "beta" }
+                { Repository = "owner/second"; Name = "gamma" } ]
+              (parseManifest yaml)
+
       "parses YAML comments, quoted values and reordered fields",
       fun () ->
           equal
               [ { Repository = "owner/repo"; Name = "example" } ]
-              (parseManifest "# Skills\n- skill: 'example'\n  repository: \"owner/repo\"\n")
+              (parseManifest "# Skills\n- skills: ['example']\n  repository: \"owner/repo\"\n")
 
-      "accepts an empty skill list",
+      "accepts an empty manifest list",
       fun () ->
           let gh, calls, output = fixture 0
           install gh output.Add defaults (parseManifest "[]")
@@ -122,17 +134,31 @@ let tests =
       fun () ->
           for yaml in
               [ "- repository: owner/repo"
-                "- skill: example"
-                "- repository: null\n  skill: example"
-                "- repository: owner/repo\n  skill: ' '"
+                "- skills: [example]"
+                "- repository: null\n  skills: [example]"
+                "- repository: ' '\n  skills: [example]"
+                "- repository: owner/repo\n  skills: null"
+                "- repository: owner/repo\n  skills: []"
+                "- repository: owner/repo\n  skills: [null]"
+                "- repository: owner/repo\n  skills: ['']"
+                "- repository: owner/repo\n  skills: [' ']"
                 "- null" ] do
               throwsContaining
-                  "Each entry in skills.yml must specify repository and skill."
+                  "Each entry in skills.yml must specify a repository and a non-empty skills list with non-blank names."
                   (fun () -> parseManifest yaml |> ignore)
 
       "rejects empty or malformed manifests before installing anything",
       fun () ->
-          for yaml in [ ""; "repository: owner/repo"; "- example"; "- [unterminated" ] do
+          for yaml in
+              [ ""
+                "repository: owner/repo"
+                "- example"
+                "- [unterminated"
+                "- repository: owner/repo\n  skill: example"
+                "- repository: owner/repo\n  skills: example"
+                "- repository: [owner/repo]\n  skills: [example]"
+                "- repository: owner/repo\n  skills: [{name: example}]"
+                "- repository: owner/first\n  skills: [valid]\n- repository: owner/second\n  skills: [null]" ] do
               let gh, calls, output = fixture 0
               throwsContaining "" (fun () -> parseManifest yaml |> install gh output.Add defaults)
               equal 0 calls.Count ]
