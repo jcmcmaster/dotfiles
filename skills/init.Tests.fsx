@@ -36,35 +36,43 @@ let skills =
     File.ReadAllText(Path.Combine(__SOURCE_DIRECTORY__, "skills.yml"))
     |> parseManifest
 
-let defaults = { Force = false; WhatIf = false }
+let defaults = { WhatIf = false }
 
 let tests =
-    [ "installs manifest skills for both agents, with and without --force",
+    [ "overwrites installed skills by default",
       fun () ->
-          for force in [ false; true ] do
-              let gh, calls, output = fixture 0
-              install gh output.Add { defaults with Force = force } skills
+          let gh, calls, output = fixture 0
+          let options = parseArgs [||] |> Option.get
+          install gh output.Add options skills
+          equal (skills.Length * 2) calls.Count
 
-              let expected =
-                  [ for skill in skills do
-                        for agent in [ "github-copilot"; "opencode" ] do
-                            [ "skill"; "install"; skill.Repository; skill.Name; "--agent"; agent; "--scope"; "user" ]
-                            @ (if force then [ "--force" ] else []) ]
+          for args in calls do
+              equal "--force" (List.last args)
 
-              equal expected (Seq.toList calls)
-              equal 0 output.Count
-
-      "--what-if previews every install without invoking gh, even with --force",
+      "installs manifest skills for both agents with --force",
       fun () ->
-          for force in [ false; true ] do
-              let gh, calls, output = fixture 0
-              install gh output.Add { Force = force; WhatIf = true } skills
-              equal 0 calls.Count
-              equal (skills.Length * 2) output.Count
+          let gh, calls, output = fixture 0
+          install gh output.Add defaults skills
 
-              for line in output do
-                  equal true (line.StartsWith "What if: gh skill install ")
-                  equal force (line.EndsWith " --force")
+          let expected =
+              [ for skill in skills do
+                    for agent in [ "github-copilot"; "opencode" ] do
+                        [ "skill"; "install"; skill.Repository; skill.Name; "--agent"; agent; "--scope"; "user"; "--force" ] ]
+
+          equal expected (Seq.toList calls)
+          equal 0 output.Count
+
+      "--what-if previews every forced install without invoking gh",
+      fun () ->
+          let gh, calls, output = fixture 0
+          let options = parseArgs [| "--what-if" |] |> Option.get
+          install gh output.Add options skills
+          equal 0 calls.Count
+          equal (skills.Length * 2) output.Count
+
+          for line in output do
+              equal true (line.StartsWith "What if: gh skill install ")
+              equal true (line.EndsWith " --force")
 
       "stops immediately and reports failed installs",
       fun () ->
@@ -90,20 +98,22 @@ let tests =
           finally
               Environment.SetEnvironmentVariable("PATH", previousPath)
 
-      "parses options in either order",
+      "parses install and preview options",
       fun () ->
           equal (Some defaults) (parseArgs [||])
-          equal (Some { defaults with Force = true }) (parseArgs [| "--force" |])
-          equal (Some { defaults with WhatIf = true }) (parseArgs [| "--what-if" |])
-
-          for args in [ [| "--force"; "--what-if" |]; [| "--what-if"; "--force" |] ] do
-              equal (Some { Force = true; WhatIf = true }) (parseArgs args)
+          equal (Some { WhatIf = true }) (parseArgs [| "--what-if" |])
 
       "supports help and rejects unknown arguments",
       fun () ->
           equal None (parseArgs [| "--help" |])
 
-          for args in [ [| "--oops" |]; [| "unexpected" |]; [| "--help"; "--force" |] ] do
+          for args in
+              [ [| "--oops" |]
+                [| "unexpected" |]
+                [| "--force" |]
+                [| "--force"; "--what-if" |]
+                [| "--what-if"; "--force" |]
+                [| "--help"; "--what-if" |] ] do
               throwsContaining usage (fun () -> parseArgs args |> ignore)
 
       "expands repository skill lists in manifest order",
