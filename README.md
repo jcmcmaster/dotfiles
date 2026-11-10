@@ -163,10 +163,10 @@ Use bare names such as `handoff`; `gh` resolves them within the repository, so a
 `grill-with-docs`, `domain-modeling`, `to-spec`, and `to-tickets` come directly from
 [Matt Pocock's skills repository](https://github.com/mattpocock/skills).
 Dex Horthy's `show-me` comes from [HumanLayer's skills repository](https://github.com/humanlayer/skills/tree/main/plugins/show-me/skills/show-me).
-Existing skills are overwritten without prompting (`--force` is enabled by
-default), so make changes in the source repository rather than the agents'
-installed copies. The script stops on the first failed install. It does not remove
-skills that are no longer in the list.
+Existing skills are overwritten without prompting: every install passes `--force`
+to `gh`. Make changes in the source repositories rather than the agents' installed
+copies. The script stops on the first failed install. It does not remove skills
+that are no longer in the list.
 
 Run installer tests without installing anything:
 

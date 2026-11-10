@@ -7,25 +7,24 @@ open YamlDotNet.Serialization
 open YamlDotNet.Serialization.NamingConventions
 
 type Skill = { Repository: string; Name: string }
-type Options = { Force: bool; WhatIf: bool }
+type Options = { WhatIf: bool }
 
 [<CLIMutable>]
 type RepositorySkills =
     { Repository: string
       Skills: string array }
 
-let usage = "Usage: dotnet fsi skills/init.fsx -- [--force] [--what-if]"
+let usage = "Usage: dotnet fsi skills/init.fsx -- [--what-if]"
 
 let parseArgs args =
     let rec parse options = function
         | [] -> options
-        | "--force" :: rest -> parse { options with Force = true } rest
-        | "--what-if" :: rest -> parse { options with WhatIf = true } rest
+        | "--what-if" :: rest -> parse { WhatIf = true } rest
         | _ -> invalidArg (nameof args) usage
 
     match args with
     | [| "--help" |] -> None
-    | _ -> Some(parse { Force = true; WhatIf = false } (Array.toList args))
+    | _ -> Some(parse { WhatIf = false } (Array.toList args))
 
 let parseManifest (yaml: string) =
     let entries =
@@ -70,8 +69,7 @@ let install gh write options (skills: Skill list) =
     for skill in skills do
         for agent in [ "github-copilot"; "opencode" ] do
             let args =
-                [ "skill"; "install"; skill.Repository; skill.Name; "--agent"; agent; "--scope"; "user" ]
-                @ (if options.Force then [ "--force" ] else [])
+                [ "skill"; "install"; skill.Repository; skill.Name; "--agent"; agent; "--scope"; "user"; "--force" ]
 
             if options.WhatIf then
                 write ("What if: gh " + String.concat " " args)
