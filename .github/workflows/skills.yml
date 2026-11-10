@@ -24,14 +24,14 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-    defaults:
-      run:
-        shell: pwsh
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Install YAML module
-        run: Install-Module powershell-yaml -RequiredVersion 0.4.12 -Scope CurrentUser -Force -ErrorAction Stop
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6
+        with:
+          dotnet-version: "10.0.x"
       - name: Run installer tests
-        run: ./skills/init.Tests.ps1
+        run: dotnet fsi ./skills/init.Tests.fsx
+      - name: Preview skill installs
+        run: dotnet fsi ./skills/init.fsx -- --what-if
