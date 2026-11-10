@@ -147,14 +147,15 @@ pwsh -File ./skills/init.ps1         # Install for both agents
 pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills
 ```
 
-Installs `github-pr-follow-through`, `grill-me`, and `handoff` for **GitHub
-Copilot** and **OpenCode** at user scope (available across projects). Edit the
+Installs `github-pr-follow-through`, `grilling`, `handoff`, `pr`,
+`grill-with-docs`, and `domain-modeling` for **GitHub Copilot** and **OpenCode**
+at user scope (available across projects). Edit the
 repository/skill-name list in `skills/skills.yml` to change the selection; the
 installer and tests both read this file. Use bare names such as `handoff`; `gh`
 resolves them within the repository, so a `skills/` prefix is not needed.
-All three come from this repo, including its self-contained copy of `grill-me`.
-If `gh` asks which source to use for `grill-me`, select `jcmcmaster/dotfiles`
-rather than upstream.
+`github-pr-follow-through` and `handoff` come from this repo; `grilling`, `pr`,
+`grill-with-docs`, and `domain-modeling` come directly from
+[Matt Pocock's skills repository](https://github.com/mattpocock/skills).
 Existing skills are not automatically overwritten; `gh` may prompt or fail in
 non-interactive use unless `-Force` is supplied. The script stops on the first
 failed install. It does not remove skills that are no longer in the list.
