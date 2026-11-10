@@ -124,11 +124,41 @@ dotfiles/
 ├── nix/          macOS system + user environment (nix-darwin, Home Manager)
 ├── nvim/         Neovim config — cross-platform, pure Lua
 ├── pwsh/         PowerShell profile + Windows bootstrap script
+├── skills/       Shared agent skills + PowerShell installer
 ├── zsh/          ZSH config + WSL bootstrap script
 ├── wezterm/      WezTerm terminal emulator config
 ├── wt/           Windows Terminal settings
 ├── idea/         IdeaVim config for JetBrains IDEs
 └── archive/      Legacy configs, not maintained
+```
+
+---
+
+## Agent Skills (`skills/`)
+
+Run the PowerShell installer on any platform with `pwsh` and an authenticated
+GitHub CLI version that supports `gh skill install`:
+
+```powershell
+pwsh -File ./skills/init.ps1 -WhatIf # Preview without installing
+pwsh -File ./skills/init.ps1         # Install for both agents
+pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills
+```
+
+Installs `github-pr-follow-through`, `grill-me`, and `handoff` for **GitHub
+Copilot** and **OpenCode** at user scope (available across projects). Edit the
+`$skills` repository/path list in `skills/init.ps1` to change the selection.
+All three come from this repo, including its self-contained copy of `grill-me`.
+If `gh` asks which source to use for `grill-me`, select `jcmcmaster/dotfiles`
+rather than upstream.
+Existing skills are not automatically overwritten; `gh` may prompt or fail in
+non-interactive use unless `-Force` is supplied. The script stops on the first
+failed install. It does not remove skills that are no longer in the list.
+
+Run installer tests without installing anything:
+
+```powershell
+pwsh -NoProfile -File ./skills/init.Tests.ps1
 ```
 
 ---
