@@ -29,6 +29,7 @@ local servers = {
   'jsonls',
   'lemminx',
   'lua_ls',
+  'marksman',
   'nixd',
   'powershell_es',
   'pyright',
