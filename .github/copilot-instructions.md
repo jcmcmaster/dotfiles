@@ -2,7 +2,7 @@
 
 ## Repository Overview
 
-Cross-platform dotfiles for macOS, Windows, and WSL/Linux. Configs are organized by the program they configure. Active development is on the macOS Nix config (`nix/`). There are no build/test/lint commands — this is a pure configuration repo.
+Cross-platform dotfiles for macOS, Windows, and WSL/Linux. Configs are organized by the program they configure. Active development is on the macOS Nix config (`nix/`).
 
 | Directory | Platform | What it configures |
 |---|---|---|
