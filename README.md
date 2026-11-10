@@ -124,7 +124,7 @@ dotfiles/
 ├── nix/          macOS system + user environment (nix-darwin, Home Manager)
 ├── nvim/         Neovim config — cross-platform, pure Lua
 ├── pwsh/         PowerShell profile + Windows bootstrap script
-├── skills/       Shared agent skills + PowerShell installer
+├── skills/       Shared agent skills + F# installer
 ├── zsh/          ZSH config + WSL bootstrap script
 ├── wezterm/      WezTerm terminal emulator config
 ├── wt/           Windows Terminal settings
@@ -136,15 +136,15 @@ dotfiles/
 
 ## Agent Skills (`skills/`)
 
-Run the PowerShell installer on any platform with `pwsh`, the `powershell-yaml`
-module, and an authenticated GitHub CLI version that supports `gh skill install`:
+Run the F# installer on any platform with the .NET SDK and an authenticated
+GitHub CLI version that supports `gh skill install`. F# Interactive restores the
+pinned YamlDotNet dependency automatically on the first run; no PowerShell or
+separate module installation is needed.
 
-```powershell
-Install-Module powershell-yaml -Scope CurrentUser # One-time prerequisite
-
-pwsh -File ./skills/init.ps1 -WhatIf # Preview without installing
-pwsh -File ./skills/init.ps1         # Install for both agents
-pwsh -File ./skills/init.ps1 -Force  # Overwrite existing skills
+```sh
+dotnet fsi ./skills/init.fsx -- --what-if # Preview without installing
+dotnet fsi ./skills/init.fsx             # Install for both agents
+dotnet fsi ./skills/init.fsx -- --force   # Overwrite existing skills
 ```
 
 Installs `github-pr-follow-through`, `grilling`, `handoff`, `pr`,
@@ -158,13 +158,13 @@ resolves them within the repository, so a `skills/` prefix is not needed.
 [Matt Pocock's skills repository](https://github.com/mattpocock/skills).
 Dex Horthy's `show-me` comes from [HumanLayer's skills repository](https://github.com/humanlayer/skills/tree/main/plugins/show-me/skills/show-me).
 Existing skills are not automatically overwritten; `gh` may prompt or fail in
-non-interactive use unless `-Force` is supplied. The script stops on the first
+non-interactive use unless `--force` is supplied. The script stops on the first
 failed install. It does not remove skills that are no longer in the list.
 
 Run installer tests without installing anything:
 
-```powershell
-pwsh -NoProfile -File ./skills/init.Tests.ps1
+```sh
+dotnet fsi ./skills/init.Tests.fsx
 ```
 
 GitHub Actions runs these mocked tests on Linux, Windows, and macOS for pull
