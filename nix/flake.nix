@@ -25,7 +25,22 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = nixpkgs.lib.optionals (builtins.pathExists /etc/nix/macos-keychain.crt) [
+      overlays = [
+        (_: previous: {
+          bicep-lsp =
+            let
+              bundle = previous.fetchzip {
+                url = "https://github.com/Azure/bicep/releases/download/v0.34.44/bicep-langserver.zip";
+                hash = "sha256-BzApHse1rQoq//nASULKayFG0C2gaU+CrX9vOCncIb8=";
+                stripRoot = false;
+              };
+            in
+            previous.writeShellScriptBin "Bicep.LangServer" ''
+              exec ${previous.dotnetCorePackages.runtime_8_0}/bin/dotnet \
+                ${bundle}/Bicep.LangServer.dll "$@"
+            '';
+        })
+      ] ++ nixpkgs.lib.optionals (builtins.pathExists /etc/nix/macos-keychain.crt) [
         (_: previous: {
           terraform = previous.terraform.override {
             buildGo127Module = previous.buildGo127Module.override {
